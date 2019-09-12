@@ -1,0 +1,204 @@
+rue du Jardinet, n° douze.
+QUAI DES AUGUSTINS, Nº cinquante-cinq.
+Considérations philosophiques sur l'ensemble de la science astronomique.
+Une telle appréciation est d'ailleurs singulièrement influencée par l'état de notre développement intellectuel.
+Mais l'importante distinction établie ci-dessus n'en sera nullement affectée.
+Cette relation se vérifie d'une manière remarquable dans le cas présent.
+L'astronomie, au contraire, est nécessairement bornée au premier.
+Tel est, sous le rapport de la méthode, son premier titre à la suprématie.
+Ainsi, le premier rang, dans la philosophie naturelle proprement dite, reste incontestablement à l'astronomie.
+Ce caractère essentiel de la science a toujours été le même depuis son origine.
+L'indépendance de l'astronomie, relativement aux autres branches de la philosophie naturelle, demeure donc incontestable.
+En ce moment, il me suffira de l'indiquer.
+Considérations générales sur les méthodes d'observation en astronomie.
+Telle est la division naturelle de nos considérations générales à cet égard.
+Nous devons commencer par celles sur les instrumens.
+On peut, en outre, la vérifier et la rectifier aisément par l'observation des étoiles.
+Cherchons à en saisir l'esprit général.
+Mais son choix devient, en réalité, infiniment restreint, quand il veut obtenir des estimations précises.
+Il en est encore essentiellement de même, quoiqu'à un degré bien moindre, des phénomènes chimiques.
+Cette remarque est le fondement de la disposition imaginée par Borda.
+Ces corrections fondamentales peuvent être distinguées, d'après leurs causes, en deux classes.
+Considérons, en premier lieu, la théorie générale des réfractions astronomiques.
+Or, c'est là ce qui fait la difficulté, jusqu'ici insurmontable, de cette importante recherche.
+Mais, quelque précieuses que puissent être ces corrections, elles sont nécessairement fort imparfaites.
+Tel est, en effet, depuis Hipparque, l'usage essentiel des catalogues d'étoiles.
+Nous considérerons plus tard les autres corrections moins considérables, mais nécessaires aujourd'hui.
+Tel est le procédé facile et exact d'après lequel on construit tous les catalogues d'étoiles.
+Un tel perfectionnement, qui finira, sans doute, par s'établir dans la suite, n'est nullement urgent.
+Le mot clarté aurait l'avantage d'être le strict énoncé du fait.
+Considérations générales sur les phénomènes géométriques élémentaires des corps célestes.
+Cette division n'est donc point purement artificielle.
+Enfin, il est tout-à-fait insuffisant envers les astres plus lointains de notre système.
+Considérons, en général, la nature et les limites nécessaires d'un tel procédé.
+Telle est la méthode d'Aristarque.
+Sans doute, une opération de ce genre recommencée aujourd'hui donnerait une conclusion beaucoup moins erronée.
+L'incertitude d'un tel résultat est, au plus, de cent soixante mille myriamètres.
+J'indiquerai dans la suite l'ingénieux procédé récemment imaginé par M.
+Tel est l'ensemble des moyens que possède aujourd'hui l'astronomie pour déterminer les diverses distances célestes.
+Cette recherche est, en effet, par sa nature, du ressort de l'inspection immédiate.
+Un seul cas a dû présenter, à cet égard, une véritable difficulté scientifique.
+C'est celui des deux singuliers satellites annulaires dont Saturne est immédiatement entouré.
+La quantité de cet aplatissement a pu même être exactement mesurée avec des micromètres perfectionnés.
+Parmi tous les autres cas, le mieux connu est celui de Vénus, où M.
+Schroëter a constaté une réfraction horizontale de trente minutes vingt-quatre secondes.
+Tel est l'état d'indécision où l'on se trouve aujourd'hui, d'après les mesures les plus parfaites.
+Cette figure et cet aplatissement sont cependant encore généralement adoptés.
+Ces comparaisons étaient, en outre, primitivement nécessaires afin de constater l'uniformité réelle de la rotation.
+Considérations générales sur le mouvement de la terre.
+de la précession des équinoxes, modifiée par la nutation de l'axe terrestre ; 2º.
+des apparences stationnaires et rétrogrades que présentent les mouvemens planétaires ; 3º.
+Aussi Ptolémée avait-il imaginé, à cet effet, un ciel de plus.
+Les résultats doivent évidemment présenter de grandes différences, suivant les diverses planètes.
+Cette conception, qu'il faut juger comme subordonnée à l'ancien système, était sans doute fort ingénieuse.
+Le premier satellite, par exemple, est éclipsé par Jupiter toutes les quarante-deux heures et demie.
+La loi fondamentale de cette déviation ne laisse évidemment rien d'arbitraire.
+L'angle formé par ces deux droites règle tous les changemens que ce phénomène doit présenter.
+L'aberration doit, évidemment, présenter des différences très considérables suivant les diverses étoiles.
+Voilà donc une nouvelle source de vérifications très sensibles pour la théorie générale de l'aberration.
+Il en est de même à l'égard de la précession et de la nutation.
+C'est ainsi que les astronomes convertissent habituellement toutes leurs observations géocentriques en observations héliocentriques.
+Tel est l'objet de la leçon actuelle.
+Ces deux hypothèses secondaires sont connues sous les noms d'excentrique, et d'épicycle.
+Enfin, les deux hypothèses peuvent, évidemment, être réunies.
+Son exactitude a été constatée depuis par l'expérience habituelle de tous les astronomes.
+Elle est ordinairement présentée sous une autre forme géométrique, imaginée par Képler lui-même.
+Cet énoncé n'est évidemment qu'une heureuse transformation géométrique de l'énoncé primitif.
+La véritable nature des orbites était peut-être moins difficile à découvrir.
+Tel est l'objet de sa troisième loi.
+Long-temps avant Képler, la philosophie métaphysique avait entièrement cessé d'avoir, en astronomie, aucune utilité réelle.
+Ces données sont, pour chaque astre, au nombre de six : 1º.
+la longitude du périhélie, qui fixe la direction de l'orbite dans son plan ; 3º.
+enfin, la durée de la révolution sidérale, indiquant suffisamment la vitesse moyenne de l'astre.
+Il importe fort peu d'ailleurs laquelle de ces deux questions essentielles sera placée avant l'autre.
+Problème des planètes.
+En principe, trois positions quelconques sont strictement suffisantes.
+Problème des satellites.
+La disproportion des deux mouvemens est infiniment supérieure envers tous les autres satellites.
+Problème des comètes.
+Telle est la belle méthode imaginée par Halley, et pratiquée plus tard par divers astronomes.
+Le degré de précision du résultat se trouve, évidemment fixé d'après les considérations qui précèdent.
+Cette seconde étude procure de nouvelles déterminations, qui, sans elle, nous seraient nécessairement interdites.
+Considérations fondamentales sur la loi de la gravitation.
+Personne, d'ailleurs, ne sent plus profondément que moi la nullité radicale de toute semblable tentative.
+On n'a pas besoin, pour s'en convaincre, de recourir à la théorie dynamique des aires.
+Cette considération exige donc un nouvel examen.
+Examinons maintenant ce complément indispensable donné par Newton à sa sublime pensée.
+Nous ne pouvons jamais aller réellement au-delà de semblables rapprochemens.
+Ils reposent sur la forme presque exactement sphérique de tous les astres.
+Considérations générales sur la statique céleste.
+Tel est l'objet spécial de cette leçon et de la suivante.
+La leçon actuelle sera consacrée aux phénomènes statiques, et la suivante aux phénomènes dynamiques.
+On ne saurait d'ailleurs lui assigner aucun motif rationnel.
+Il en est de même sous le point de vue de l'intensité, que Newton adopta.
+On ne peut réellement qu'essayer si telle figure proposée remplit ou non les conditions fondamentales.
+La question a dès lors été réduite à la détermination du rapport des deux axes.
+Or, cette évaluation ne présente aucune difficulté en regardant l'astre comme homogène.
+Enfin, cette étude fait naturellement suite à celle de la figure des astres.
+Essayons de caractériser nettement l'esprit général de cette grande recherche.
+La théorie convient en elle-même aussi bien à l'atmosphère qu'à l'Océan.
+Toutes les grandes variations régulières du phénomène s'expliquent dès lors avec une admirable facilité.
+Considérations générales sur la dynamique céleste.
+Mais, il n'en est nullement ainsi à l'égard des explosions.
+On doit donc continuer à traiter le soleil comme rigoureusement fixe, sauf sa rotation.
+Aussi la circulation de Jupiter n'est-elle sensiblement altérée que par l'influence de Saturne.
+La différence de direction peut être presque négligée, mais non celle d'intensité.
+Il en est de même des inégalités moins prononcées, qui ne sauraient être énumérées ici.
+La méthode des couples de Monsieur Poinsot facilite beaucoup la conception générale de leur mécanisme.
+Cette importante théorie est donc aujourd'hui évidemment complète.
+Telles sont, à cet égard, les indications générales incontestables de la mécanique céleste.
+L'indépendance de notre monde est donc parfaitement certaine.
+Considérations générales sur l'astronomie sidérale, et sur la cosmogonie positive.
+Cette méthode constitue réellement jusqu'ici la seule conception scientifique qui soit propre à l'astronomie sidérale.
+Tout se réduit donc à constater une inégalité appréciable entre les durées des deux demi-révolutions.
+Elle repose sur deux considérations mathématiques incontestables.
+La coïncidence est moins exacte, mais cependant très frappante, dans tous les autres cas.
+Considérations philosophiques sur l'ensemble de la physique.
+Cette opposition fondamentale est toujours nettement marquée entre les deux catégories de phénomènes.
+La pesanteur elle-même nous en présente un exemple irrécusable.
+Toute classification fondée sur la considération des agens deviendrait donc entièrement illusoire.
+En procédant ainsi, il n'y a plus d'obscurité ni d'hésitation ; notre marche philosophique devient assurée.
+Une telle distinction est donc naturellement à l'abri de toute révolution scientifique.
+Mais la physique comporte évidemment le plus complet développement des deux autres modes fondamentaux d'observation.
+Cette application peut s'y présenter sous deux formes très différentes, l'une directe, l'autre indirecte.
+Une telle subordination est donc incontestable, sous quelque point de vue qu'on l'envisage.
+Rien ne saurait tenir lieu d'un tel régime pour dresser complétement l'organe intellectuel.
+Telle est, en aperçu, la marche de mon intelligence.
+Théorie fondamentale des hypothèses.
+De là, l'introduction, strictement indispensable, des hypothèses en philosophie naturelle.
+À l'époque actuelle, aucun physicien, sans doute, ne contestera directement la règle précédente.
+Le lecteur instruit y suppléera facilement quand il aura bien saisi mon idée principale.
+Toutefois, je pense qu'on s'exagère beaucoup, d'ordinaire, les difficultés qui proviennent de cette circonstance.
+Cette considération rationnelle et directe se trouve exactement en harmonie avec l'analyse historique.
+Comment leur a-t-on définitivement répondu ? En philosophant d'une autre manière.
+Cette dernière considération concourt avec celle de la généralité relative, pour placer l'acoustique avant l'optique.
+Considérations générales sur la barologie.
+Examinons d'abord sommairement l'ensemble de la partie statique.
+Or, sous ce rapport élémentaire, son travail fut vraiment complet.
+Toutefois, il serait difficile d'admettre qu'elle soit l'expression mathématique de la réalité.
+Mais il ne faudrait pas croire qu'une telle remarque soit particulière à cette importante relation.
+Je regrette seulement que la vérification n'en ait pas encore été convenablement instituée.
+Tel est essentiellement, en aperçu, l'ensemble de la barologie statique.
+C'est donc ici, à mes yeux, le lieu naturel de la théorie de la capillarité.
+Or, Baliani voulait remplacer cette progression par la série naturelle de tous les nombres entiers.
+Ainsi, en résumé, l'étude exacte du mouvement réel des projectiles est encore extrêmement imparfaite.
+Tous les corps ont donc la même gravité.
+Considérations générales sur la thermologie physique.
+Il en est essentiellement ainsi, quoiqu'à un degré moindre, pour l'acoustique.
+L'action commence aussitôt que, par une cause quelconque, les températures deviennent inégales.
+Le premier cas constitue ce qu'on nomme le rayonnement de la chaleur.
+La première loi générale relative à une telle action, consiste dans sa propagation constamment rectiligne.
+On le suppose habituellement en raison inverse du carré de la distance.
+Elle varie d'une manière non moins évidente, avec la constitution physique des corps.
+Mais elle dépend, en outre, et principalement, des circonstances purement relatives à leur surface extérieure.
+Malheureusement, ces évaluations sont jusqu'ici extrêmement imparfaites.
+Mais l'application de ces procédés est encore à peine ébauchée.
+On la désigne habituellement sous la dénomination assez heureuse de chaleur spécifique.
+L'évaluation exacte des chaleurs spécifiques a donc une très grande importance en thermologie.
+Les physiciens s'en sont convenablement occupés, et avec beaucoup de succès.
+Elles n'ont encore été exactement appréciées qu'envers un très petit nombre de corps.
+Gay-Lussac à Paris, et par Monsieur Dalton à Manchester.
+Considérons enfin les changemens généraux produits par la chaleur dans l'état d'agrégation des corps.
+Considérations générales sur la thermologie mathématique.
+Mais la théorie fondamentale ne peut jamais en être radicalement affectée.
+Toute la difficulté est donc réduite ici à connaître la loi précise de cette variation.
+Cette condition ne donne donc lieu à aucune relation différentielle générale.
+Il n'en est pas de même relativement à l'état de la surface.
+La parité s'étend même, à beaucoup d'égards, aux conditions auxiliaires.
+Or, la thermologie me paraît comporter une telle application, tout aussi naturellement que la mécanique.
+J'indiquerai surtout l'heureuse conception de ce géomètre sur la perméabilité.
+Considérations générales sur l'acoustique.
+Mais les lois générales des vibrations des corps sonores échappent presque toujours à l'observation immédiate.
+Il en est de même en beaucoup d'autres occasions où la substitution est plus indirecte.
+Elle était déjà nettement indiquée par l'observation, surtout quant à l'influence si opposée de l'épaisseur.
+Ces lois sont relatives aux vibrations ordinaires, qui s'opèrent transversalement.
+Dans tout ce qui précède, la ligne sonore est envisagée comme vibrant en totalité.
+Telles sont les principales lois des tons simples.
+Considérations générales sur l'optique.
+Elle est aussi réelle, quoique moins évidente, envers toutes les autres vérités principales de l'optique.
+Il ne saurait en être de même quant à l'optique.
+Considérations générales sur l'électrologie.
+Mais, une intervention aussi complète et aussi marquée est, par cela même, moins dangereuse aujourd'hui.
+Il serait superflu d'insister davantage à cet égard.
+Mais les lois effectives de cette déperdition inévitable sont jusqu'ici très peu connues.
+C'est donc à cette action fondamentale que nous devons ici borner notre examen philosophique.
+Savary, qui s'en est le plus heureusement occupé.
+Savary, qui en a exactement analysé toutes les circonstances essentielles.
+Avril mille huit cent trente-cinq.
+Considérations philosophiques sur l'ensemble de la science astronomique.
+Considérations générales sur les méthodes d'observations en astronomie.
+vingt et une LEÇON.
+Considérations générales sur les phénomènes géométriques élémentaires des corps célestes.
+Considérations générales sur le mouvement de la terre.
+Considérations fondamentales sur la loi de la gravitation.
+Considérations générales sur la statique céleste.
+Considérations générales sur la dynamique céleste.
+Considérations générales sur l'astronomie sidérale, et sur la cosmogonie positive.
+Considérations philosophiques sur l'ensemble de la physique.
+Considérations générales sur la barologie.
+Considérations générales sur la thermologie physique.
+trente et une LEÇON.
+Considérations générales sur la thermologie mathématique.
+Considérations générales sur l'acoustique.
+Considérations générales sur l'optique.
+Considérations générales sur l'électrologie.

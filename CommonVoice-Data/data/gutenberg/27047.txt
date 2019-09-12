@@ -1,0 +1,205 @@
+Ce dossier est disponible aussi en anglais, avec un texte différent.
+Les deux versions sont disponibles sur le NEF http ://www.etudes-francaises.net/dossiers/technologies.htm.
+La plupart des entretiens sont disponibles sur le NEF .
+Introduction Michael Hart fonde le Projet Gutenberg en mille neuf cent soixante et onze.
+L'ASCII permet donc uniquement la lecture de l’anglais et du latin.
+Le premier système d'encodage informatique est l’ASCII (American standard code for information interchange).
+L'ASCII permet uniquement la lecture de l’anglais et du latin.
+Avec le développement du web, l’échange des données s’internationalise de plus en plus.
+Ce nombre est lisible quels que soient la plateforme, le logiciel et la langue utilisés.
+L'ASCII garde toutefois une place prépondérante.
+D’abord essentiellement anglophones, les collections deviennent peu à peu multilingues.
+Le Projet Gutenberg Europe débute en janvier deux mille quatre.
+Trente ans après ses débuts, le Projet Gutenberg fonctionne à plein régime.
+La presse s’enflamme pour ce nouveau médium.
+La majuscule d’origine d’Internet s’estompe.
+Internet devient l’internet, avec un "i" minuscule.
+La même remarque vaut pour le World Wide Web, qui devient tout simplement le web.
+L’internet se développe plus vite que les téléphones cellulaires et les télécopieurs.
+En mille neuf cent quatre-vingt-seize, sa croissance est de vingtpourcent par mois.
+Bruce Sterling s’intéresse aux raisons pour lesquelles on se connecte à l’internet.
+Une raison majeure lui semble être la liberté.
+L’internet est un exemple d’"anarchie réelle, moderne et fonctionnelle".
+Il n’y a pas de société régissant l’internet.
+C’est ce qui fait sa force.
+On y voit aussi une réelle solidarité.
+J’ai tenté ma chance et posé la question dans un groupe de News approprié.
+Mais, à l’âge de l’information, il faut saisir les signaux.
+Populariser signifie 'rendre accessible au peuple'.
+UNIMARC peut également être utilisé comme "modèle" pour le développement de nouveaux formats MARC.
+UNIMARC peut aussi être utilisé comme standard pour le développement de nouveaux formats MARC.
+De plus, tous les travaux dérivés sont eux-mêmes soumis au copyleft.
+En mille neuf cent quatre-vingt-neuf, il met en réseau des documents utilisant l'hypertexte.
+Le W3C est présidé par Tim Berners-Lee.
+Tim Berners-Lee invente le web en mille neuf cent quatre-vingt-neuf-quatre-vingt-dix.
+Certains appellent cette étape le web un.0.
+Le web permet au livre de se convertir.
+Le web devient une vaste encyclopédie.
+Les libraires et les éditeurs ont pour la plupart un site web.
+De statique dans les livres imprimés, l’information devient fluide, avec possibilité d’actualisation constante.
+Cette définition du web trois.0 est d’ailleurs loin de faire l’unanimité.
+Ce nombre est lisible quels que soient la plateforme, le logiciel et la langue utilisés.
+L’utilisation de l’Unicode commence à se généraliser en mille neuf cent quatre-vingt-dix-huit.
+Ce nombre est lisible quels que soient la plateforme, le logiciel et la langue utilisés.
+A la grande satisfaction des linguistes, il remplace progressivement l’ASCII.
+Il faut que le réseau respecte les lettres accentuées, les lettres spécifiques, etc.
+La première démarche me semble donc une démarche technique.
+En deux mille six, il recense vingt-cinq.000 textes.
+C’est ainsi que mon index a débuté.
+Je pense pourtant poursuivre cette activité d’une manière ou d’une autre.
+En janvier deux mille un, Adobe lance deux nouveaux logiciels.
+Le premier logiciel, gratuit, est l’Acrobat eBook Reader.
+Il utilise la technique d’affichage CoolType et comporte un dictionnaire intégré.
+Le deuxième logiciel, payant, est l’Adobe Content Server, destiné aux éditeurs et distributeurs.
+Certaines "cyberbibliothèques" naissent directement sur le web.
+Un travail artisanal qu’il accomplit seul, sans grande rémunération.
+En décembre mille neuf cent quatre-vingt-dix-huit, les collections comprennent huit.000 textes.
+Une section spécifique (Swiss Authors and Texts) regroupe les auteurs et textes suisses.
+On trouve aussi un répertoire mondial des ressources littéraires en ligne (Athena Literature Resources).
+Cette bibliothèque publique d’un genre nouveau devient vite une référence.
+Une réduction de vingtpourcent est accordée pour toute commande effectuée en ligne.
+Pionnier d'un nouveau modèle économique, Amazon.com devient vite un géant du commerce électronique.
+"Le premier critère a été la taille des marchés existants.
+Le deuxième critère a été la question du prix.
+Je voulais un produit bon marché.
+Le catalogue en ligne permet de rechercher les livres par titre, auteur, sujet ou rubrique.
+On y trouve aussi des CD, des DVD, des jeux informatiques, etc.
+Amazon.com devient le pionnier d’un nouveau modèle économique.
+Son évolution rapide est suivie de près par des analystes de tous bords.
+La maison mère diversifie ses activités.
+Ces associés font une sélection dans les titres du catalogue et rédigent leurs propres résumés.
+Amazon.com reçoit les commandes par leur intermédiaire, expédie les livres et rédige les factures.
+Les associés reçoivent un rapport hebdomadaire d’activité.
+La présence européenne d’Amazon.com débute en octobre mille neuf cent quatre-vingt-dix-huit.
+Les deux premières filiales sont implantées en Allemagne et au Royaume-Uni.
+A la même date, elle ouvre sa filiale française.
+Une filiale japonaise est ouverte en octobre deux mille.
+En juin deux mille deux, une cinquième filiale est ouverte au Canada.
+Fin mille neuf cent quatre-vingt-quinze, le quotidien Libération met en ligne son site web.
+Le site du quotidien Le Monde est lancé en mille neuf cent quatre-vingt-seize.
+Celle du New York Times est disponible sur abonnement gratuit.
+On peut y lire les articles "maison" et les rechercher par date ou par sujet.
+L’intégralité du mensuel en cours est consultable gratuitement pendant deux semaines suivant sa parution.
+Un forum de discussion permet au journal de discuter avec ses lecteurs.
+La rubrique Multimédia est ensuite rebaptisée Numériques.
+Le site du quotidien Le Monde est lancé en mille neuf cent quatre-vingt-seize.
+Tous les articles sont archivés sur le site.
+Nous espérons également mettre sur le web L’Humanité Hebdo, dans les mêmes délais.
+Certains s’en servent pour transmettre leurs articles, leurs reportages.
+Normal, en face de l’inconnu.
+L’avenir devrait donc permettre par une formation (peu compliquée) de combler ce handicap.
+A la même date, Palm Digital Media distribue cinq.cinq cents titres dans plusieurs langues.
+Le Palm OS équipe cinquante-cinqpourcent des PDA vendus en deux mille deux.
+Deux ans plus tard, en juin deux mille trois, plus aucune tablette n’est commercialisée.
+Le débat reste toujours d'actualité dans les années qui suivent.
+Toutes ces collections sont en consultation libre sur le web.
+Toutes ces collections sont en consultation libre sur le web.
+Il s'ensuit un changement dans la manière d'enseigner.
+Il s'ensuit un changement dans la manière d'enseigner.
+Voici son argumentation résumée en deux paragraphes.
+Or les habitudes liées à l’imprimé ne peuvent être transférées dans l’univers numérique.
+Mais le numérique change tout ceci.
+On observe un tournant majeur en mille neuf cent quatre-vingt-dix-sept.
+Le marché de l'imprimerie traditionnelle est d'abord ébranlé par l'apparition des machines de photocomposition.
+Outre sa facilité d'accès et son faible coût, le document électronique peut être régulièrement actualisé.
+Logos traduit en moyenne deux cents textes par jour.
+Cela nous a rendus très populaires, nous a fait beaucoup de publicité.
+La recherche dans la Wordtheque est possible par langue, mot, auteur ou titre.
+La consultation du site est payante.
+Il représente l'équivalent de trois.000 ouvrages de référence imprimés.
+La gestion de la base est ensuite assurée par Convera Canada.
+Une nouvelle version du GDT est mise en ligne en mars deux mille trois.
+Sa gestion est désormais assurée par l'OQLF lui-même, et non plus par une société prestataire.
+La numérisation accélère considérablement le processus matériel de production.
+C'est ce qu'on appelle la convergence multimédia.
+Dans les services publicitaires aussi, la conception graphique et les tâches commerciales sont maintenant intégrées.
+Les personnes peu qualifiées sont licenciées.
+Des arguments bien théoriques alors que le problème est plutôt celui du pourcentage.
+Gallica devient rapidement la plus grande bibliothèque numérique francophone du réseau.
+Pour des raisons de coût, les documents sont essentiellement numérisés en mode image.
+En février deux mille cinq, Gallica compte soixante-seize.000 ouvrages.
+Je prévois aussi une forte expansion de l’internet pour l’enseignement et la recherche.
+La tâche du bibliothécaire sera de filtrer les informations pour le public.
+Personnellement, je me vois de plus en plus devenir un bibliothécaire virtuel.
+Le problème pour eux est de trouver ce qu’ils cherchent.
+Je prévois aussi une forte expansion de l’internet pour l’enseignement et la recherche.
+La tâche du bibliothécaire sera de filtrer les informations pour le public.
+Personnellement, je me vois de plus en plus devenir un bibliothécaire virtuel.
+Nous devenons de plus en plus des médiateurs, et peut-être un peu moins des conservateurs.
+Et cet effort passe par l’appréhension de sa langue.
+Bien entendu c’est très utopique comme propos.
+Je pense qu’il existe un réel besoin de sites bilingues.
+La première est la recherche globale dans le domaine des affaires et de l’information.
+Pour cela, la langue est d’abord l’anglais, avec des versions locales si nécessaire.
+Téléchargeable gratuitement, l’OeBPS dispose d'une version ouverte et gratuite appartenant au domaine public.
+L’OeBPS dispose d'une version ouverte et gratuite appartenant au domaine public.
+En avril deux mille deux, la société lance un Mobipocket Reader pour ordinateur.
+Le système de gestion des droits numériques est le Mobipocket DRM System.
+Jean-Pierre Balpe, chercheur et écrivain, lance le premier mail-roman francophone en deux mille un.
+= Livres pédagogiques Murray Suid vit à Palo Alto, dans la Silicon Valley, en Californie.
+J’utiliserai peut-être ce nouveau support si les livres deviennent multimédias.
+Pour le moment, je participe au développement de matériel pédagogique multimédia.
+D’entreprise multimédia, la société de logiciels éducatifs qui l’emploie devient une entreprise internet.
+Puis les intermédiaires prendront tout le pouvoir.
+Bien sûr, les deux sont possibles avec l’imprimé.
+Mais la différence saute aux yeux : feuilleter n’est pas cliquer.
+L’internet n’a donc pas changé ma vie, mais mon rapport à l’écriture.
+( …) Depuis, j’écris (compose, mets en page, en scène) directement à l’écran.
+Le maître mot y est "chantier en cours", sans palissades.
+Accouchement permanent, à vue, comme le monde sous nos yeux.
+Provisoire, comme la vie qui tâtonne, se cherche, se déprend, se reprend.
+Mais c’est un problème qui concerne le contrôle de l’information.
+Il lance le premier mail-roman francophone en deux mille un.
+- en intégrant les réponses et les réactions des lecteurs.
+Ce "pacte" a quelque chose de diabolique.
+Il dispense ses cours en gaélique écossais.
+Une réalisation particulièrement importante a été la traduction en gaélique du logiciel de navigation Opera.
+Sur les cent quatre-vingts exemplaires d’origine, quarante-huit exemplaires, dont certains incomplets, existeraient toujours.
+La British Library en possède deux versions complètes et une partielle.
+A titre indicatif, il est suggéré de relire une page par jour.
+Il est officiellement affilié au Projet Gutenberg en deux mille deux.
+La progression est rapide.
+Les volontaires n’ont aucun quota à respecter.
+A titre indicatif, il est suggéré de relire une page par jour.
+Mais la réponse des éditeurs concernés n'est guère enthousiaste, et ce projet n'aboutit pas.
+Le premier numéro de PLoS Biology sort en octobre deux mille trois.
+PLoS Medicine est lancé en octobre deux mille quatre.
+La réponse de la communauté scientifique internationale est remarquable.
+Un autre objectif de la Public Library of Science est de devenir elle-même éditeur.
+PLoS Medicine est lancé en octobre deux mille quatre.
+PLoS Clinical Trials voit le jour en deux mille six.
+Le succès est total.
+Elle est immédiatement très populaire.
+En mai deux mille sept, la version francophone fête ses cinq cents.000 articles.
+Wikipedia est non seulement une encyclopédie mais aussi un wiki.
+Le programme présent derrière l'interface d'un wiki est plus ou moins élaboré.
+Un programme simple gère du texte et des hyperliens.
+Un programme élaboré permet d'inclure des images, des graphiques, des tableaux, etc.
+Wikipedia est immédiatement très populaire.
+WebEncyclo, publié par les éditions Atlas, est la première grande encyclopédie francophone en accès libre.
+La recherche est possible par mots-clés, thèmes, médias (cartes, liens internet, photos, illustrations) et idées.
+Après avoir été libre, l’accès est ensuite soumis à une inscription préalable gratuite.
+Qui utilise la licence Creative Commons ? O’Reilly Media par exemple.
+La Public Library of Science (PLoS) utilise elle aussi la licence Creative Commons.
+L'initiative est menée avec le soutien de la Hewlett Foundation et de la Mellon Foundation.
+En mars deux mille quatre, les cinq cents cours disponibles couvrent trente-trois disciplines.
+En mai deux mille six, les un.quatre cents cours disponibles couvrent trente-quatre disciplines.
+En mars deux mille quatre, les cinq cents cours disponibles couvrent trente-trois disciplines.
+En mai deux mille six, les un.quatre cents cours disponibles couvrent trente-quatre disciplines.
+La présence de plusieurs langues reflète la diversité linguistique prévalant en Europe.
+Le lendemain, toujours à Paris, il anime un débat à l’Assemblée nationale.
+La semaine suivante, il s’adresse au Parlement européen à Bruxelles.
+L’un de ses objectifs est la mise en ligne de la culture serbe.
+La version bêta de Google Print est mise en ligne en mai deux mille cinq.
+La version bêta de Google Print est mise en ligne en mai deux mille cinq.
+Ils sont téléchargeables sous forme de fichiers PDF et imprimables dans leur entier.
+Ces livres sont disponibles dans la collection Text Archive de l’Internet Archive.
+La barre des deux cents.000 livres numérisés est franchie en mai deux mille sept.
+La barre du million de livres numérisés est franchie en décembre deux mille huit.
+WorldCat, grand catalogue collectif mondial, voit le jour dès mille neuf cent soixante et onze.
+La mise en ligne de RedLightGreen inaugure une ère nouvelle.
+RedLightGreen est particulièrement destiné aux étudiants du premier cycle universitaire, préparant à la licence.
+A la même date, le RLG est intégré à OCLC.
+neuf.huit cents articles sont disponibles en décembre deux mille huit.
+La réalisation des pages web débute courant deux mille sept.
+Copyright © deux mille huit Marie Lebert

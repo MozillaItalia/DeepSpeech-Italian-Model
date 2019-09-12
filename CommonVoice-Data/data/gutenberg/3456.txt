@@ -1,0 +1,1986 @@
+This Etext is an unabridged reproduction of the original mille huit cent soixante-treize Hetzel edition.
+To create "typographically friendly" Etexts, un adhere to the following rules.
+ Rules not used in this Etext are prefixed with "**".
+ Characters follow the huit-bit ISO huit mille huit cent cinquante-neuf/un Latin-un character set.
+ No white space characters other than blanks and line trois.
+ The text bracket sequence : quatre.
+ Normal body text begins in column un and is set ragged right cinq.
+ Paragraphs are separated by blank lines.
+ Centering, right, and left justification is indicated by **  sept.
+ Block quotations are indented to start in column cinq and set huit.
+ Chapter "numbers" need not be numeric, they can be any text.
+D'ici à la fin du document le texte sera redigé en français.
+xxx       Texte imprimé en italiques.
+Anglais, à coup sûr, Phileas Fogg n'était peut-être pas Londonner.
+Ce gentleman ne figurait dans aucun comité d'administration.
+Il n'était ni industriel, ni négociant, ni marchand, ni agriculteur.
+Phileas Fogg était membre du Reform-Club, et voilà tout.
+Ce Phileas Fogg était-il riche ? Incontestablement.
+Fogg était le dernier auquel il convînt de s'adresser pour l'apprendre.
+En somme, rien de moins communicatif que ce gentleman.
+Il parlait aussi peu que possible, et semblait d'autant plus mystérieux qu'il était silencieux.
+Avait-il voyagé ? C'était probable, car personne ne possédait mieux que lui la carte du monde.
+Il n'était endroit si reculé dont il ne parût avoir une connaissance spéciale.
+C'était un homme qui avait dû voyager partout, ,  en esprit, tout au moins.
+Son seul passe-temps était de lire les journaux et de jouer au whist.
+D'ailleurs, il faut le remarquer, Mr.
+Fogg jouait évidemment pour jouer, non pour gagner.
+Phileas Fogg vivait seul dans sa maison de Saville-row, où personne ne pénétrait.
+De son intérieur, jamais il n'était question.
+Un seul domestique suffisait à le servir.
+D'ailleurs, avec les habitudes invariables du locataire, le service s'y réduisait à peu.
+Toutefois, Phileas Fogg exigeait de son unique domestique une ponctualité, une régularité extraordinaires.
+A onze heures et demie sonnant, Mr.
+Fogg devait, suivant sa quotidienne habitude, quitter la maison et se rendre au Reform-Club.
+James Forster, le congédié, apparut.
+« Le nouveau domestique », dit-il, Un garçon âgé d'une trentaine d'années se montra et salua.
+« Vous êtes Français et vous vous nommez John ? lui demanda Phileas Fogg.
+Je crois être un honnête garçon, monsieur, mais, pour être franc, j'ai fait plusieurs métiers.
+J'ai même dans mon dossier des incendies remarquables.
+Vous m'êtes recommandé.
+J'ai de bons renseignements sur votre compte.
+Vous connaissez mes conditions ? Oui, monsieur.
+Vous retardez, dit Mr.
+Que monsieur me pardonne, mais c'est impossible.
+Vous retardez de quatre minutes.
+Il suffit de constater l'écart.
+Passepartout demeura seul dans la maison de Saville-row.
+Il ne faisait pas une enjambée de trop, allant toujours par le plus court.
+Il ne perdait pas un regard au plafond.
+Il ne se permettait aucun geste superflu.
+On ne l'avait jamais vu ému ni troublé.
+C'était l'homme le moins hâté du monde, mais il arrivait toujours à temps.
+Ses cheveux bruns étaient un peu rageurs.
+Après avoir eu, on le sait, une jeunesse assez vagabonde, il aspirait au repos.
+Mais, jusqu'alors, le sort l'avait mal servi.
+Il n'avait pu prendre racine nulle part.
+Il avait fait dix maisons.
+Il apprit, sur les entrefaites, que Phileas Fogg, esq., cherchait un domestique.
+Il prit des renseignements sur ce gentleman.
+Il se présenta et fut admis dans les circonstances que l'on sait.
+Aussitôt il en commença l'inspection.
+Il la parcourut de la cave au grenier.
+Cette maison propre, rangée, sévère, puritaine, bien organisée pour le service, lui plut.
+Passepartout trouva sans peine, au second étage, la chambre qui lui était destinée.
+Elle lui convint.
+« Cela me va, cela me va ! » se dit Passepartout.
+Il remarqua aussi, dans sa chambre, une notice affichée au-dessus de la pendule.
+C'était le programme du service quotidien.
+Quant à la garde-robe de monsieur, elle était fort bien montée et merveilleusement comprise.
+Même réglementation pour les chaussures.
+Pas de bibliothèque, pas de livres, qui eussent été sans utilité pour Mr.
+Point d'armes dans la maison, aucun ustensile de chasse ou de guerre.
+Tout y dénotait les habitudes les plus pacifiques.
+Là, il prit place à la table habituelle où son couvert l'attendait.
+C'étaient les partenaires habituels de Mr.
+J'espère, au contraire, dit Gauthier Ralph, que nous mettrons la main sur l'auteur du vol.
+Mais on a donc le signalement du voleur ? demanda Andrew Stuart.
+D'abord, ce n'est pas un voleur, répondit sérieusement Gauthier Ralph.
+C'est donc un industriel ? dit John Sullivan.
+Le Morning Chronicle assure que c'est un gentleman.
+En même temps, Phileas Fogg salua ses collègues, qui lui rendirent son salut.
+On ne saurait mettre en suspicion l'honorabilité d'un passant quelconque.
+Mais, le vingt-neuf septembre, les choses ne se passèrent pas tout à fait ainsi.
+Mais son collègue, Andrew Stuart, était loin de partager cette confiance.
+Elle l'était autrefois … », dit à mi-voix Phileas Fogg.
+Puis : « A vous de couper, monsieur », ajouta-t-il en présentant les cartes à Thomas Flanagan.
+La discussion fut suspendue pendant le robre.
+Je suis de l'avis de Mr.
+Je voudrais bien vous y voir.
+Il ne tient qu'à vous.
+Très possible, au contraire, répondit Mr.
+Eh bien, faites-le donc ! Le tour du monde en quatre-vingts jours ? Oui.
+Je le veux bien.
+Quand ? Tout de suite.
+Tenez ! jouons plutôt.
+Refaites alors, répondit Phileas Fogg, car il y a maldonne.
+Ce n'est pas sérieux.
+Quand je dis : je parie, répondit Andrew Stuart, c'est toujours sérieux.
+Soit ! » dit Mr.
+Je les risquerai volontiers … Vingt mille livres ! s'écria John Sullivan.
+Acceptez-vous ? Nous acceptons, répondirent MMonsieur Stuart, Fallentin, Sullivan, Flanagan et Ralph, après s'être entendus.
+Bien, dit Mr.
+Le train de Douvres part à huit heures quarante-cinq.
+Je le prendrai.
+Ce soir même ? demanda Stuart.
+Ce soir même, répondit Phileas Fogg.
+,  Voici un chèque de pareille somme.
+» Un procès-verbal du pari fut fait et signé sur-le-champ par les six co-intéressés.
+Phileas Fogg était demeuré froid.
+Sept heures sonnaient alors.
+On offrit à Mr.
+Fogg de suspendre le whist afin qu'il pût faire ses préparatifs de départ.
+A vous de jouer, monsieur Stuart.
+A sept heures cinquante, il ouvrait la porte de sa maison et rentrait chez lui.
+Passepartout, qui avait consciencieusement étudié son programme, fut assez surpris en voyant Mr.
+Fogg, coupable d'inexactitude, apparaître à cette heure insolite.
+Suivant la notice, le locataire de Saville-row ne devait rentrer qu'à minuit précis.
+Phileas Fogg était tout d'abord monté à sa chambre, puis il appela : « Passepartout.
+» Passepartout ne répondit pas.
+Cet appel ne pouvait s'adresser à lui.
+Ce n'était pas l'heure.
+« Passepartout », reprit Mr.
+Fogg sans élever la voix davantage.
+Passepartout se montra.
+« C'est la deuxième fois que je vous appelle, dit Mr.
+Mais il n'est pas minuit, répondit Passepartout, sa montre à la main.
+Je le sais, reprit Phileas Fogg, et je ne vous fais pas de reproche.
+Nous partons dans dix minutes pour Douvres et Calais.
+» Une sorte de grimace s'ébaucha sur la ronde face du Français.
+Il était évident qu'il avait mal entendu.
+« Monsieur se déplace ? demanda-t-il.
+Oui, répondit Phileas Fogg.
+Nous allons faire le tour du monde.
+« Le tour du monde ! murmura-t-il.
+En quatre-vingts jours, répondit Mr.
+Ainsi, nous n'avons pas un instant à perdre.
+Un sac de nuit seulement.
+Dedans, deux chemises de laine, trois paires de bas.
+Autant pour vous.
+Nous achèterons en route.
+Vous descendrez mon mackintosh et ma couverture de voyage.
+Ayez de bonnes chaussures.
+D'ailleurs, nous marcherons peu ou pas.
+» Passepartout aurait voulu répondre.
+Il ne put.
+Il quitta la chambre de Mr.
+A Calais, soit.
+Peut-être même irait-on jusqu'à Paris, et, ma foi, il reverrait avec plaisir la grande capitale.
+Fogg était prêt.
+« Vous n'avez rien oublié ? demanda-t-il.
+Mon mackintosh et ma couverture ? Les voici.
+Bien, prenez ce sac.
+Fogg remit le sac à Passepartout.
+« Et ayez-en soin, ajouta-t-il.
+Une station de voitures se trouvait à l'extrémité de Saville-row.
+A huit heures vingt, le cab s'arrêta devant la grille de la gare.
+Passepartout sauta à terre.
+Son maître le suivit et paya le cocher.
+Fogg et lui demanda l'aumône.
+Passepartout eut comme une sensation d'humidité autour de la prunelle.
+Son maître avait fait un pas dans son coeur.
+Fogg et lui entrèrent aussitôt dans la grande salle de la gare.
+Puis, se retournant, il aperçut ses cinq collègues du Reform-Club.
+Oh ! monsieur Fogg, répondit poliment Gauthier Ralph, c'est inutile.
+Nous nous en rapporterons à votre honneur de gentleman ! Cela vaut mieux ainsi, dit Mr.
+Vous n'oubliez pas que vous devez être revenu ? … fit observer Andrew Stuart.
+Dans quatre-vingts jours, répondit Mr.
+Au revoir, messieurs.
+La nuit était noire.
+Il tombait une pluie fine.
+Phileas Fogg, accoté dans son coin, ne parlait pas.
+Passepartout, encore abasourdi, pressait machinalement contre lui le sac aux bank-notes.
+Seul, le Daily Telegraph le soutint dans une certaine mesure.
+Des articles extrêmement passionnés, mais logiques, parurent sur la question.
+Mais on sentit bientôt que ce journal lui-même commençait à faiblir.
+D'après cet article, tout était contre le voyageur, obstacles de l'homme, obstacles de la nature.
+L'article fit grand bruit.
+Presque tous les journaux le reproduisirent, et les actions de Phileas Fogg baissèrent singulièrement.
+Parier est dans le tempérament anglais.
+Phileas Fogg fut inscrit comme un cheval de course, à une sorte de studbook.
+Le Phileas Fogg baissa.
+On l'offrit par paquets.
+Ce fut le vieux paralytique, Lord Albermale.
+Je file voleur de Banque, Phileas Fogg.
+Envoyez sans retard mandat d'arrestation à Bombay (Inde anglaise).
+L'effet de cette dépêche fut immédiat.
+L'honorable gentleman disparut pour faire place au voleur de bank-notes.
+Sa photographie, déposée au Reform-Club avec celles de tous ses collègues, fut examinée.
+Elle reproduisait trait pour trait l'homme dont le signalement avait été fourni par l'enquête.
+Voici dans quelles circonstances avait été lancée cette dépêche concernant le sieur Phileas Fogg.
+Le Mongolia faisait régulièrement les voyages de Brindisi à Bombay par le canal de Suez.
+En ce moment, il donnait certaines marques d'impatience, allant, venant, ne pouvant tenir en place.
+Ce paquebot vient directement de Brindisi ? demanda Fix.
+Ainsi ayez patience, il ne peut tarder à arriver.
+Monsieur le consul, répondit Fix, ces gens-là, on les sent plutôt qu'on ne les reconnaît.
+Je le souhaite, monsieur Fix, car il s'agit d'un vol important.
+Un vol magnifique, répondit l'agent enthousiasmé.
+Les physionomies honnêtes, ce sont celles-là qu'il faut dévisager surtout.
+Travail difficile, j'en conviens, et qui n'est plus du métier, mais de l'art.
+» On voit que ledit Fix ne manquait pas d'une certaine dose d'amour-propre.
+Cependant le quai s'animait peu à peu.
+Marins de diverses nationalités, commerçants, courtiers, portefaix, fellahs, y affluaient.
+L'arrivée du paquebot était évidemment prochaine.
+Le temps était assez beau, mais l'air froid, par ce vent d'est.
+Quelques minarets se dessinaient au-dessus de la ville sous les pâles rayons du soleil.
+Il était alors dix heures et demie.
+« Mais il n'arrivera pas, ce paquebot ! s'écria-t-il en entendant sonner l'horloge du port.
+Il ne peut être éloigné, répondit le consul.
+Combien de temps stationnera-t-il à Suez ? demanda Fix.
+Le temps d'embarquer son charbon.
+Et de Suez, ce bateau va directement à Bombay ? demanda Fix.
+Directement, sans rompre charge.
+A moins que ce ne soit un homme très fort, répondit le consul.
+Fix ne fut pas longtemps livré à ses réflexions.
+De vifs coups de sifflet annoncèrent l'arrivée du paquebot.
+Une dizaine de canots se détachèrent de la rive et allèrent au-devant du Mongolia.
+Les passagers étaient assez nombreux à bord.
+Fix examinait scrupuleusement tous ceux qui mettaient pied à terre.
+Fix, instinctivement, prit le passeport, et, d'un rapide coup d'oeil, il en lut le signalement.
+Un mouvement involontaire faillit lui échapper.
+La feuille trembla dans sa main.
+« Ce passeport n'est pas le vôtre ? dit-il au passager.
+Non, répondit celui-ci, c'est le passeport de mon maître.
+Et votre maître ? Il est resté à bord.
+Quoi ! cela est nécessaire ? Indispensable.
+L'inspecteur redescendit sur le quai et se dirigea rapidement vers les bureaux du consul.
+Aussitôt, et sur sa demande pressante, il fut introduit près de ce fonctionnaire.
+Mais peut-être ne se présentera-t-il pas à mon bureau, s'il est ce que vous supposez.
+C'étaient, en effet, le maître et le serviteur.
+Quand le consul eut achevé sa lecture : « Vous êtes Phileas Fogg, esquire ? demanda-t-il.
+Oui, monsieur, répondit le gentleman.
+Et cet homme est votre domestique ? Oui.
+Un Français nommé Passepartout.
+Vous venez de Londres ? Oui.
+Et vous allez ? A Bombay.
+» Et le consul, ayant signé et daté le passeport, y apposa son cachet.
+« Eh bien ? demanda l'inspecteur.
+Le domestique me paraît être moins indéchiffrable que le maître.
+De plus, c'est un Français, qui ne pourra se retenir de parler.
+A bientôt, monsieur le consul.
+» Cela dit, l'agent sortit et se mit à la recherche de Passepartout.
+Fogg, en quittant la maison consulaire, s'était dirigé vers le quai.
+« Arrivé à Paris, jeudi trois octobre, sept heures vingt matin.
+« Quitté Paris, jeudi, huit heures quarante matin.
+« Arrivé par le Mont-Cenis à Turin, vendredi quatre octobre, six heures trente-cinq matin.
+« Quitté Turin, vendredi, sept heures vingt matin.
+« Arrivé à Brindisi, samedi cinq octobre, quatre heures soir.
+« Embarqué sur le Mongolia, samedi, cinq heures soir.
+« Arrivé à Suez, mercredi neuf octobre, onze heures matin.
+Ce méthodique itinéraire tenait ainsi compte de tout, et Mr.
+Fogg savait toujours s'il était en avance ou en retard.
+Puis il se fit servir à déjeuner dans sa cabine.
+Nous sommes parfaitement en règle.
+Et comme cela, nous sommes à Suez ? A Suez.
+En Égypte ? En Égypte, parfaitement.
+Et en Afrique ? En Afrique.
+En Afrique ! répéta Passepartout.
+Je ne peux y croire.
+Moi, non, mais c'est mon maître.
+Je vais vous conduire à un bazar où vous trouverez tout ce qu'il faut.
+Monsieur, répondit Passepartout, vous êtes vraiment d'une complaisance ! … » Et tous deux se mirent en route.
+Passepartout causait toujours.
+« Midi, dit-il.
+Allons donc ! il est neuf heures cinquante-deux minutes ! Votre montre retarde, répondit Fix.
+C'est un vrai chronomètre ! Je vois ce que c'est, répondit Fix.
+Vous avez gardé l'heure de Londres, qui retarde de deux heures environ sur Suez.
+Il faut avoir soin de remettre votre montre au midi de chaque pays.
+Fogg revint de son cercle, et trois quarts d'heure après nous étions partis.
+Oui, en quatre-vingts jours ! Un pari, dit-il, mais, entre nous, je n'en crois rien.
+Cela n'aurait pas le sens commun.
+Il y a autre chose.
+Ah ! c'est un original, ce Mr.
+Fogg ? Je le crois.
+« Est-ce loin Bombay ? demanda Passepartout.
+Assez loin, répondit l'agent.
+Il vous faut encore une dizaine de jours de mer.
+Et où prenez-vous Bombay ? Dans l'Inde.
+En Asie ? Naturellement.
+Il n'écoutait plus et prenait un parti.
+Le Français et lui étaient arrivés au bazar.
+Fix, maintenant que sa conviction était faite, avait repris tout son sang-froid.
+« Monsieur, dit-il au consul, je n'ai plus aucun doute.
+Je tiens mon homme.
+Mais ne vous trompez-vous pas ? demanda encore une fois le consul.
+Je ne me trompe pas.
+« En effet, dit le consul, toutes les présomptions sont contre cet homme.
+De là, il lança au directeur de la police métropolitaine cette dépêche que l'on connaît.
+Le Mongolia, dont les feux étaient activement poussés, marchait de manière à devancer l'arrivée réglementaire.
+La plupart des passagers embarqués à Brindisi avaient presque tous l'Inde pour destination.
+Les passagères ,  il y en avait quelques-unes ,  changeaient de toilette deux fois par jour.
+On faisait de la musique, on dansait même, quand la mer le permettait.
+Les dames disparaissaient alors ; les pianos se taisaient ; chants et danses cessaient à la fois.
+Il ne paraissait pas plus ému que les chronomètres du bord.
+On le voyait rarement sur le pont.
+Puis il jouait au whist.
+Ces trois passagers avaient pour le whist la même passion que Mr.
+Fogg, et ils jouaient pendant des heures entières, non moins silencieusement que lui.
+Quant à Passepartout, le mal de mer n'avait aucune prise sur lui.
+Il occupait une cabine à l'avant et mangeait, lui aussi, consciencieusement.
+Il faut dire que, décidément, ce voyage, fait dans ces conditions, ne lui déplaisait plus.
+Il en prenait son parti.
+Monsieur Fix, répondit Passepartout.
+Enchanté de vous retrouver à bord.
+Et où allez-vous donc ? Mais, ainsi que vous, à Bombay.
+C'est au mieux ! Est-ce que vous avez déjà fait ce voyage ? Plusieurs fois, répondit Fix.
+Je suis un agent de la Compagnie péninsulaire.
+Alors vous connaissez l'Inde ? Mais … oui …, répondit Fix, qui ne voulait pas trop s'avancer.
+Toute cette gymnastique cessera à Bombay, n'en doutez pas.
+Et il se porte bien, Mr.
+Fogg ? demanda Fix du ton le plus naturel.
+Très bien, monsieur Fix.
+Moi aussi, d'ailleurs.
+Je mange comme un ogre qui serait à jeun.
+C'est l'air de la mer.
+Et votre maître, je ne le vois jamais sur le pont.
+Il n'est pas curieux.
+» Depuis cette rencontre, Passepartout et Fix causèrent souvent ensemble.
+L'inspecteur de police tenait à se lier avec le domestique du sieur Fogg.
+Cela pouvait le servir à l'occasion.
+Cependant le paquebot s'avançait rapidement.
+Au loin, dans les montagnes, se développaient de vastes champs de caféiers.
+C'est là qu'il devait se réapprovisionner de combustible.
+Mais ce retard ne pouvait nuire en aucune façon au programme de Phileas Fogg.
+Il était prévu.
+C'était un gain de quinze heures.
+Fogg et son domestique descendirent à terre.
+Le gentleman voulait faire viser son passeport.
+Fix le suivit sans être remarqué.
+La formalité du visa accomplie, Phileas Fogg revint à bord reprendre sa partie interrompue.
+« Très curieux, très curieux ! se disait Passepartout en revenant à bord.
+Je m'aperçois qu'il n'est pas inutile de voyager, si l'on veut voir du nouveau.
+Il lui était accordé cent soixante-huit heures pour accomplir la traversée entre Aden et Bombay.
+Du reste, cette mer indienne lui fut favorable.
+Le vent tenait dans le nord-ouest.
+Les voiles vinrent en aide à la vapeur.
+Le navire, mieux appuyé, roula moins.
+Les passagères, en fraîches toilettes, reparurent sur le pont.
+Les chants et les danses recommencèrent.
+Le voyage s'accomplit donc dans les meilleures conditions.
+Le dimanche vingt octobre, vers midi, on eut connaissance de la côte indienne.
+Deux heures plus tard, le pilote montait à bord du Mongolia.
+A l'horizon, un arrière-plan de collines se profilait harmonieusement sur le fond du ciel.
+Bientôt, les rangs de palmiers qui couvrent la ville se détachèrent vivement.
+Le Mongolia ne devait arriver que le vingt-deux octobre à Bombay.
+Or, il y arrivait le vingt.
+Le gouvernement britannique exerce une domination réelle sur une certaine partie de cet immense pays.
+Voici, en somme, le tracé à grands points du « Great Indian peninsular railway ».
+Il sonna le maître d'hôtel.
+C'était le bon temps.
+Pour les chats, mylord ? Et peut-être aussi pour les voyageurs ! » Cette observation faite, Mr.
+Fogg continua tranquillement à dîner.
+Quelques instants après Mr.
+Avait-on reçu de Londres un mandat d'arrêt ? … On n'avait rien reçu.
+Et, en effet, le mandat, parti après Fogg, ne pouvait être encore arrivé.
+Fix resta fort décontenancé.
+Il voulut obtenir du directeur un ordre d'arrestation contre le sieur Fogg.
+Le directeur refusa.
+L'affaire regardait l'administration métropolitaine, et celle-ci seule pouvait légalement délivrer un mandat.
+Fix n'insista pas et comprit qu'il devait se résigner à attendre son mandat.
+Et il commença à se demander si ce pari de Mr.
+Le Français, vigoureux et agile, se releva vivement.
+Fix était là, sur le quai d'embarquement.
+Son parti fut aussitôt pris de l'accompagner jusqu'à Calcutta et plus loin s'il le fallait.
+Le pauvre garçon, pieds nus et tout déconfit, suivit son maître sans mot dire.
+« Non, je reste, se dit-il.
+Un délit commis sur le territoire indien … Je tiens mon homme.
+Le train était parti à l'heure réglementaire.
+Passepartout occupait le même compartiment que son maître.
+Un troisième voyageur se trouvait placé dans le coin opposé.
+C'était le brigadier général, Sir Francis Cromarty, l'un des partenaires de Mr.
+Mais ce gentleman ne demandait rien.
+Il ne voyageait pas, il décrivait une circonférence.
+Pour lui, cela faisait question.
+Ce retard n'eût aucunement dérangé l'économie de mon programme, répondit Mr.
+Je ne suis pas sans avoir prévu l'éventualité de certains obstacles.
+Cela lui paraissait invraisemblable.
+Il est opportun de faire connaître quelles pensées occupaient alors l'esprit de Passepartout.
+Son naturel lui revenait au galop.
+Déjà même, il s'inquiétait des retards possibles, des accidents qui pouvaient survenir en route.
+Aussi, beaucoup moins flegmatique que Mr.
+Fogg, il était beaucoup plus inquiet.
+Fogg de n'avoir pas promis une prime au mécanicien.
+Ce fut inutile.
+Innocente manie, d'ailleurs, et qui ne pouvait nuire à personne.
+Phileas Fogg le suivit, sans se presser.
+Tous deux s'adressèrent au conducteur : « Où sommes-nous ? demanda Sir Francis Cromarty.
+Au hameau de Kholby, répondit le conducteur.
+Nous nous arrêtons ici ? Sans doute.
+» Sir Francis Cromarty était furieux.
+Passepartout eût volontiers assommé le conducteur, qui n'en pouvait mais.
+Il n'osait regarder son maître.
+« Sir Francis, dit simplement Mr.
+Fogg, nous allons, si vous le voulez bien, aviser au moyen de gagner Allahabad.
+Or, rien n'est compromis.
+J'ai deux jours d'avance à sacrifier.
+Il y a un steamer qui part de Calcutta pour Hong-Kong le vingt-cinq à midi.
+Nous ne sommes qu'au vingt-deux, et nous arriverons à temps à Calcutta.
+« J'irai à pied », dit Phileas Fogg.
+Lequel ? Un éléphant ! Un éléphant qui appartient à un Indien logé à cent pas d'ici.
+Allons voir l'éléphant », répondit Mr.
+Dans la hutte, il y avait un Indien, et dans l'enclos, un éléphant.
+Sur leur demande, l'Indien introduisit Mr.
+Fogg et ses deux compagnons dans l'enclos.
+Très heureusement pour Mr.
+Mais les éléphants sont chers dans l'Inde, où ils commencent à devenir rares.
+Les mâles, qui seuls conviennent aux luttes des cirques, sont extrêmement recherchés.
+Aussi sont-ils l'objet de soins extrêmes, et lorsque Mr.
+Fogg demanda à l'Indien s'il voulait lui louer son éléphant, l'Indien refusa net.
+Vingt livres ? Refus encore.
+Quarante livres ? Refus toujours.
+Passepartout bondissait à chaque surenchère.
+Mais l'Indien ne se laissait pas tenter.
+La somme était belle, cependant.
+Sir Francis Cromarty prit Mr.
+Fogg à part et l'engagea à réfléchir avant d'aller plus loin.
+Passepartout, si rouge d'ordinaire, était pâle d'émotion.
+A deux mille livres, l'Indien se rendit.
+Ce fut plus facile.
+Un jeune Parsi, à la figure intelligente, offrit ses services.
+Fogg accepta et lui promit une forte rémunération, qui ne pouvait que doubler son intelligence.
+L'éléphant fut amené et équipé sans retard.
+Le Parsi connaissait parfaitement le métier de « mahout » ou cornac.
+Phileas Fogg paya l'Indien en bank-notes qui furent extraites du fameux sac.
+Il semblait vraiment qu'on les tirât des entrailles de Passepartout.
+Fogg offrit à Sir Francis Cromarty de le transporter à la station d'Allahabad.
+Le brigadier général accepta.
+Un voyageur de plus n'était pas pour fatiguer le gigantesque animal.
+Des vivres furent achetées à Kholby.
+Sir Francis Cromarty prit place dans l'un des cacolets, Phileas Fogg dans l'autre.
+Passepartout se mit à califourchon sur la housse entre son maître et le brigadier général.
+L'animal dévora des branchages et des arbrisseaux, après s'être d'abord désaltéré à une mare voisine.
+Sir Francis Cromarty ne se plaignit pas de cette halte.
+Il était brisé.
+Fogg paraissait être aussi dispos que s'il fût sorti de son lit.
+De fer forgé », répondit Passepartout, qui s'occupa de préparer un déjeuner sommaire.
+A midi, le guide donna le signal du départ.
+Le pays prit bientôt un aspect très sauvage.
+Une pensée au milieu de bien d'autres inquiétait ce garçon.
+Qu'est-ce que Mr.
+Si, par hasard, Mr.
+Fogg lui en faisait cadeau, à lui, Passepartout, il en serait très embarrassé.
+Cela ne laissait pas de le préoccuper.
+La nuit était froide.
+Le souper se composa des provisions achetées à Kholby.
+Les voyageurs mangèrent en gens harassés et moulus.
+La conversation, qui commença par quelques phrases entrecoupées, se termina bientôt par des ronflements sonores.
+Le guide veilla près de Kiouni, qui s'endormit debout, appuyé au tronc d'un gros arbre.
+Nul incident ne signala cette nuit.
+Sir Francis Cromarty dormit lourdement comme un brave militaire rompu de fatigues.
+Passepartout, dans un sommeil agité, recommença en rêve la culbute de la veille.
+quant à Mr.
+Fogg, il reposa aussi paisiblement que s'il eût été dans sa tranquille maison de Saville-row.
+A six heures du matin, on se remit en marche.
+Le guide espérait arriver à la station d'Allahabad le soir même.
+De cette façon, Mr.
+Fogg ne perdrait qu'une partie des quarante-huit heures économisées depuis le commencement du voyage.
+On descendit les dernières rampes des Vindhias.
+Kiouni avait repris son allure rapide.
+La station d'Allahabad n'était pas à douze milles dans le nord-est.
+Il préférait voyager ainsi à l'abri des bois.
+Il était quatre heures alors.
+« Qu'y a-t-il ? demanda Sir Francis Cromarty, qui releva la tête au-dessus de son cacolet.
+Quelques instants après, ce murmure devint plus définissable.
+On eût dit un concert, encore fort éloigné, de voix humaines et d'instruments de cuivre.
+Passepartout était tout yeux, tout oreilles.
+Fogg attendait patiemment, sans prononcer une parole.
+S'il est possible, évitons d'être vus.
+Lui-même se tint prêt à enfourcher rapidement sa monture, si la fuite devenait nécessaire.
+Le bruit discordant des voix et des instruments se rapprochait.
+Des chants monotones se mêlaient au son des tambours et des cymbales.
+Fogg et ses compagnons.
+Ils distinguaient aisément à travers les branches le curieux personnel de cette cérémonie religieuse.
+En première ligne s'avançaient des prêtres, coiffés de mitres et vêtus de longues robes chamarrées.
+Elle se tenait debout sur un géant terrassé auquel le chef manquait.
+Sir Francis Cromarty reconnut cette statue.
+« La déesse Kâli, murmura-t-il, la déesse de l'amour et de la mort.
+De la mort, j'y consens, mais de l'amour, jamais ! dit Passepartout.
+La vilaine bonne femme ! » Le Parsi lui fit signe de se taire.
+Cette femme était jeune, blanche comme une Européenne.
+Une tunique lamée d'or, recouverte d'une mousseline légère, dessinait les contours de sa taille.
+Le Parsi fit un signe affirmatif et mit un doigt sur ses lèvres.
+Peu à peu, les chants s'éteignirent.
+Cette femme que vous venez de voir sera brûlée demain aux premières heures du jour.
+Ah ! les gueux ! s'écria Passepartout, qui ne put retenir ce cri d'indignation.
+Et ce cadavre ? demanda Mr.
+C'est celui du prince, son mari, répondit le guide, un rajah indépendant du Bundelkund.
+Tout le revers septentrional des Vindhias est le théâtre de meurtres et de pillages incessants.
+Comme vous le pensez bien, le gouverneur refusa.
+Cependant cette infortunée ne paraissait faire aucune résistance, fit observer Sir Francis Cromarty.
+Cela tient à ce qu'on l'a enivrée de la fumée du chanvre et de l'opium.
+Mais où la conduit-on ? A la pagode de Pillaji, à deux milles d'ici.
+Là, elle passera la nuit en attendant l'heure du sacrifice.
+Et ce sacrifice aura lieu ? … Demain, dès la première apparition du jour.
+Mais au moment où il allait l'exciter par un sifflement particulier, Mr.
+Fogg l'arrêta, et, s'adressant à Sir Francis Cromarty : « Si nous sauvions cette femme ? dit-il.
+Sauver cette femme, monsieur Fogg ! … s'écria le brigadier général.
+J'ai encore douze heures d'avance.
+Je puis les consacrer à cela.
+Tiens ! Mais vous êtes un homme de coeur ! dit Sir Francis Cromarty.
+Quelquefois, répondit simplement Phileas Fogg.
+quand j'ai le temps.
+» Le dessein était hardi, hérissé de difficultés, impraticable peut-être Mr.
+Il trouva, d'ailleurs, dans Sir Francis Cromarty, un auxiliaire décidé.
+Quant à Passepartout, il était prêt, on pouvait disposer de lui.
+L'idée de son maître l'exaltait.
+Il sentait un coeur, une âme sous cette enveloppe de glace.
+Il se prenait à aimer Phileas Fogg.
+Restait le guide.
+Sir Francis Cromarty lui posa franchement la question.
+« Mon officier, répondit le guide, je suis Parsi, et cette femme est Parsie.
+Disposez de moi.
+Bien, guide, répondit Mr.
+C'est vu, répondit Mr.
+Ce brave Indou donna alors quelques détails sur la victime.
+C'était une Indienne d'une beauté célèbre, de race parsie, fille de riches négociants de Bombay.
+Elle se nommait Aouda.
+Orpheline, elle fut mariée malgré elle à ce vieux rajah du Bundelkund.
+Trois mois après, elle devint veuve.
+Ce récit ne pouvait qu'enraciner Mr.
+Fogg et ses compagnons dans leur généreuse résolution.
+Les moyens de parvenir jusqu'à la victime furent alors discutés.
+A cet instant, aucune intervention humaine n'eût pu la sauver.
+Fogg et ses compagnons attendirent la nuit.
+Les derniers cris des fakirs s'éteignaient alors.
+Le Parsi, guidant Mr.
+Fogg, Sir Francis Cromarty et Passepartout, s'avança sans bruit à travers la forêt.
+C'était le bûcher, fait de précieux santal, et déjà imprégné d'une huile parfumée.
+« Venez ! » dit le guide à voix basse.
+Le silence n'était plus interrompu que par le murmure du vent dans les branches.
+Bientôt le guide s'arrêta à l'extrémité d'une clairière.
+Quelques résines éclairaient la place.
+Le sol était jonché de groupes de dormeurs, appesantis par l'ivresse.
+On eût dit un champ de bataille couvert de morts.
+Hommes, femmes, enfants, tout était confondu.
+Quelques ivrognes râlaient encore çà et là.
+A l'arrière-plan, entre la masse des arbres, le temple de Pillaji se dressait confusément.
+On pouvait supposer qu'à l'intérieur les prêtres veillaient aussi.
+Le Parsi ne s'avança pas plus loin.
+Ils s'arrêtèrent et s'entretinrent à voix basse.
+Cela est possible, en effet », répondit le Parsi.
+Phileas Fogg et ses compagnons s'étendirent donc au pied d'un arbre et attendirent.
+On attendit ainsi jusqu'à minuit.
+La situation ne changea pas.
+Même surveillance au-dehors.
+Il était évident qu'on ne pouvait compter sur l'assoupissement des gardes.
+L'ivresse du « hang » leur avait été probablement épargnée.
+Après une dernière conversation, le guide se dit prêt à partir.
+Fogg, Sir Francis et Passepartout le suivirent.
+Ils firent un détour assez long, afin d'atteindre la pagode par son chevet.
+Vers minuit et demi, ils arrivèrent au pied des murs sans avoir rencontré personne.
+Là nuit était sombre.
+La lune, alors dans son dernier quartier, quittait à peine l'horizon, encombré de gros nuages.
+La hauteur des arbres accroissait encore l'obscurité.
+Pour cette opération, Phileas Fogg et ses compagnons n'avaient absolument que leurs couteaux de poche.
+La première brique une fois enlevée, les autres viendraient facilement.
+On se mit à la besogne, en faisant le moins de bruit possible.
+Passepartout et le guide interrompirent leur travail.
+Il serait difficile de décrire le désappointement de ces quatre hommes, arrêtés dans leur oeuvre.
+Passepartout était hors de lui, et le guide avait quelque peine à le contenir.
+L'impassible Fogg attendait sans manifester ses sentiments.
+« N'avons-nous plus qu'à partir ? demanda le brigadier général à voix basse.
+Nous n'avons plus qu'à partir, répondit le guide.
+Attendez, dit Fogg.
+Il suffit que je sois demain à Allahabad avant midi.
+Mais qu'espérez-vous ? répondit Sir Francis Cromarty.
+» Le brigadier général aurait voulu pouvoir lire dans les yeux de Phileas Fogg.
+Là, abrités par un bouquet d'arbres, ils pouvaient observer les groupes endormis.
+Les heures s'écoulaient, et bientôt quelques nuances moins sombres annoncèrent l'approche du jour.
+Cependant l'obscurité était profonde encore.
+C'était le moment.
+Il se fit comme une résurrection dans cette foule assoupie.
+Les groupes s'animèrent.
+Des coups de tam-tam retentirent.
+Chants et cris éclatèrent de nouveau.
+L'heure était venue à laquelle l'infortunée allait mourir.
+En effet, les portes de la pagode s'ouvrirent.
+Une lumière plus vive s'échappa de l'intérieur.
+En ce moment, la foule s'ébranla.
+La jeune femme était retombée dans cette torpeur provoquée par les fumées du chanvre.
+Elle passa à travers les fakirs, qui l'escortaient de leurs vociférations religieuses.
+Phileas Fogg et ses compagnons, se mêlant aux derniers rangs de la foule, la suivirent.
+Puis une torche fut approchée et le bois imprégné d'huile, s'enflamma aussitôt.
+Un cri de terreur s'éleva.
+Toute cette foule se précipita à terre, épouvantée.
+Fogg et Sir Francis Cromarty étaient demeurés debout.
+Fogg et Sir Francis Cromarty, et là, d'une voix brève : « Filons ! … » dit-il.
+En effet, sur le bûcher enflammé se détachait alors le corps du vieux rajah.
+Les prêtres, revenus de leur frayeur, avaient compris qu'un enlèvement venait de s'accomplir.
+Aussitôt ils s'étaient précipités dans la forêt.
+Les gardes les avaient suivis.
+Le hardi enlèvement avait réussi.
+Une heure après, Passepartout riait encore de son succès.
+Sir Francis Cromarty avait serré la main de l'intrépide garçon.
+A quoi Passepartout avait répondu que tout l'honneur de l'affaire appartenait à son maître.
+Enveloppée dans les couvertures de voyage, elle reposait sur l'un des cacolets.
+A sept heures, on fit halte.
+La jeune femme était toujours dans une prostration complète.
+Il n'hésita pas à dire à Phileas Fogg que si Mrs.
+Aouda restait dans l'Inde, elle retomberait inévitablement entre les mains de ses bourreaux.
+A son avis, la jeune femme ne serait véritablement en sûreté qu'après avoir quitté l'Inde.
+Phileas Fogg répondit qu'il tiendrait compte de ces observations et qu'il aviserait.
+Vers dix heures, le guide annonçait la station d'Allahabad.
+La jeune femme fut déposée dans une chambre de la gare.
+Son maître lui ouvrait un crédit illimité.
+Passepartout partit aussitôt et courut les rues de la ville.
+Plus de commerce, plus d'industrie dans cette cité, jadis industrielle et commerçante.
+Puis, tout triomphant, il retourna à la gare.
+Aouda commençait à revenir à elle.
+» Mais, sans toute cette amplification, il suffit de dire que Mrs.
+Cependant le train allait quitter la station d'Allahabad.
+Le Parsi attendait.
+Fogg lui régla son salaire au prix convenu, sans le dépasser d'un farthing.
+Restait aussi la question de Kiouni.
+« Parsi, dit-il au guide, tu as été serviable et dévoué.
+J'ai payé ton service, mais non ton dévouement.
+Veux-tu cet éléphant ? Il est à toi.
+» Les yeux du guide brillèrent.
+« C'est une fortune que Votre Honneur me donne ! s'écria-t-il.
+Accepte, guide, répondit Mr.
+Fogg, et c'est moi qui serai encore ton débiteur.
+A la bonne heure ! s'écria Passepartout.
+Aouda occupait la meilleure place, couraient à toute vapeur vers Bénarès.
+Quatre-vingts milles au plus séparent cette ville d'Allahabad, et ils furent franchis en deux heures.
+Fogg laissa dire sans prononcer une parole.
+Passepartout, tout honteux, répétait que « ça n'en valait pas la peine »! Mrs.
+Aouda remercia ses sauveurs avec effusion, par ses larmes plus que par ses paroles.
+Ses beaux yeux, mieux que ses lèvres, furent les interprètes de sa reconnaissance.
+Phileas Fogg comprit ce qui se passait dans l'esprit de Mrs.
+Aouda accepta l'offre avec reconnaissance.
+A midi et demi, le train s'arrêtait à la station de Bénarès.
+C'était là que devait s'arrêter Sir Francis Cromarty.
+Les troupes qu'il rejoignait campaient à quelques milles au nord de la ville.
+Fogg pressa légèrement les doigts de son compagnon.
+Les compliments de Mrs.
+Aouda furent plus affectueux.
+Jamais elle n'oublierait ce qu'elle devait à Sir Francis Cromarty.
+Tout ému, il se demanda où et quand il pourrait bien se dévouer pour lui.
+Puis on se sépara.
+A partir de Bénarès, la voie ferrée suivait en partie la vallée du Gange.
+Le paquebot, en partance pour Hong-Kong, ne levait l'ancre qu'à midi.
+Phileas Fogg avait donc cinq heures devant lui.
+Il n'avait donc ni retard ni avance.
+Le train s'était arrêté en gare.
+Passepartout descendit le premier du wagon, et fut suivi de Mr.
+Fogg, qui aida sa jeune compagne à mettre pied sur le quai.
+Phileas Fogg comptait se rendre directement au paquebot de Hong-Kong, afin d'y installer confortablement Mrs.
+Au moment où Mr.
+Cet homme est votre domestique ? ajouta le policeman en désignant Passepartout.
+Veuillez me suivre tous les deux.
+Fogg ne fit pas un mouvement qui pût marquer en lui une surprise quelconque.
+« Cette jeune dame peut nous accompagner ? demanda Mr.
+Elle le peut », répondit le policeman.
+Le policeman conduisit Mr.
+Personne ne parla pendant le trajet, qui dura vingt minutes environ.
+» Puis il se retira et ferma la porte.
+« Allons ! nous sommes pris ! » s'écria Passepartout, en se laissant aller sur une chaise.
+Aouda, s'adressant aussitôt à Mr.
+« Mais le bateau part à midi ! fit observer Passepartout.
+Avant midi nous serons à bord », répondit simplement l'impassible gentleman.
+A huit heures et demie, la porte de la chambre s'ouvrit.
+Le policeman reparut, et il introduisit les prisonniers dans la salle voisine.
+Ce magistrat, le juge Obadiah, entra presque aussitôt, suivi du greffier.
+C'était un gros homme tout rond.
+Il décrocha une perruque pendue à un clou et s'en coiffa lestement.
+« La première cause », dit-il.
+« La première cause, reprit alors le juge Obadiah.
+Phileas Fogg ? dit le greffier Oysterpuf.
+Me voici, répondit Mr.
+Passepartout ? Présent ! répondit Passepartout.
+Bien ! dit le juge Obadiah.
+Voilà deux jours, accusés, que l'on vous guette à tous les trains de Bombay.
+Mais de quoi nous accuse-t-on ? s'écria Passepartout, impatienté.
+Vous allez le savoir, répondit le juge.
+Monsieur, dit alors Mr.
+Fogg, je suis citoyen anglais, et j'ai droit … Vous a-t-on manqué d'égards ? demanda Mr.
+Bien ! faites entrer les plaignants.
+« Vous avez entendu ? demanda le juge à Phileas Fogg.
+Oui, monsieur, répondit Mr.
+Fogg en consultant sa montre, et j'avoue.
+» Les prêtres se regardèrent.
+Ils semblaient ne rien comprendre aux paroles de l'accusé.
+« Quelle victime ? demanda-t-il.
+Brûler qui ! En pleine ville de Bombay ? Bombay ? s'écria Passepartout.
+Mes souliers ! » s'écria Passepartout, qui, surpris au dernier chef, ne put retenir cette involontaire exclamation.
+On devine la confusion qui s'était opérée dans l'esprit du maître et du domestique.
+Pendant vingt-quatre heures, au milieu de mortelles inquiétudes, Fix le guetta à la gare.
+Aussitôt il lança sur lui un policeman, et voilà comment Mr.
+Fogg, Passepartout et la veuve du rajah du Bundelkund furent conduits devant le juge Obadiah.
+« Les faits sont avoués ? dit le juge.
+Avoués, répondit froidement Mr.
+Trois cents livres ? s'écria Passepartout, qui n'était véritablement sensible qu'à l'amende.
+Silence ! fit l'huissier d'une voix glapissante.
+Greffier, appelez une autre cause ! » Fix, dans son coin, éprouvait une indicible satisfaction.
+Passepartout était abasourdi.
+Cette condamnation ruinait son maître.
+C'est votre droit », répondit le juge.
+C'était deux mille livres qu'il en coûterait à Mr.
+Fogg, s'il ne purgeait pas sa condamnation.
+« Je paie », dit ce gentleman.
+« Cette somme vous sera restituée à votre sortie de prison, dit le juge.
+En attendant, vous êtes libres sous caution.
+Venez, dit Phileas Fogg à son domestique.
+Mais, au moins, qu'ils rendent les souliers ! » s'écria Passepartout avec un mouvement de rage.
+On lui rendit ses souliers.
+« En voilà qui coûtent cher ! murmura-t-il.
+Plus de mille livres chacun ! Sans compter qu'ils me gênent ! » Passepartout, absolument piteux, suivit Mr.
+Fogg, qui avait offert son bras à la jeune femme.
+Il se jeta donc sur les traces de Fogg.
+Fogg prit une voiture, dans laquelle Mrs.
+Aouda, Passepartout et lui montèrent aussitôt.
+Fix courut derrière la voiture, qui s'arrêta bientôt sur l'un des quais de la ville.
+Onze heures sonnaient.
+Fogg était en avance d'une heure.
+Fix le vit descendre de voiture et s'embarquer dans un canot avec Mrs.
+Aouda et son domestique.
+Le détective frappa la terre du pied.
+Il égalait le Mongolia en vitesse, mais non en confortable.
+Aouda ne fut-elle point aussi bien installée que l'eût désiré Phileas Fogg.
+Pendant les premiers jours de cette traversée, Mrs.
+Aouda fit plus ample connaissance avec Phileas Fogg.
+En toute occasion, elle lui témoignait la plus vive reconnaissance.
+Il veillait à ce que rien ne manquât à la jeune femme.
+A de certaines heures il venait régulièrement, sinon causer, du moins l'écouter.
+Il lui avait appris quelle gageure entraînait ce gentleman autour du monde.
+Aouda confirma le récit que le guide indou avait fait de sa touchante histoire.
+Plusieurs négociants parsis ont fait de grandes fortunes aux Indes, dans le commerce des cotons.
+L'un d'eux, Sir James Jejeebhoy, a été anobli par le gouvernement anglais, et Mrs.
+Aouda était parente de ce riche personnage qui habitait Bombay.
+C'était même un cousin de Sir Jejeebhoy, l'honorable Jejeeh, qu'elle comptait rejoindre à Hong-Kong.
+Trouverait-elle près de lui refuge et assistance ? Elle ne pouvait l'affirmer.
+A quoi Mr.
+La jeune femme comprenait-elle cet horrible adverbe ? On ne sait.
+Toutefois, ses grands yeux se fixaient sur ceux de Mr.
+Cette première partie de la traversée du Rangoon s'accomplit dans des conditions excellentes.
+Le temps était maniable.
+La côte fut prolongée d'assez près.
+Les sauvages Papouas de l'île ne se montrèrent point.
+Le développement panoramique de ces îles était superbe.
+Comment ? On va le voir.
+Mais après Hong-Kong, un simple mandat d'arrestation ne suffirait plus.
+Il faudrait un acte d'extradition.
+De là retards, lenteurs, obstacles de toute nature, dont le coquin profiterait pour échapper définitivement.
+Un mot de Passepartout à son maître eût suffi à compromettre irrévocablement l'affaire.
+L'inspecteur de police était donc extrêmement embarrassé, quand la présence de Mrs.
+Aouda à bord du Rangoon, en compagnie de Phileas Fogg, lui ouvrit de nouvelles perspectives.
+On comprend à quel point l'agent devait être intrigué.
+Il se demanda s'il n'y avait pas dans cette affaire quelque criminel enlèvement.
+Mais il ne fallait pas attendre l'arrivée du Rangoon à Hong-Kong.
+Toutefois, avant d'agir et pour opérer plus sûrement, Fix résolut d'interroger Passepartout.
+Or, il n'y avait pas de temps à perdre.
+On était au trente octobre, et le lendemain même le Rangoon devait relâcher à Singapore.
+Ah ! dit Passepartout, qui parut un instant étonné.
+Et votre maître, Mr.
+Mais Passepartout l'eut bientôt mis au courant de son histoire.
+» « Rien à faire ! » se dit le détective en dissimulant son désappointement.
+« Un verre de gin, monsieur Passepartout ? Volontiers, monsieur Fix.
+Une ou deux fois seulement, il entrevit Mr.
+Aouda, soit qu'il jouât au whist, suivant son invariable habitude.
+Et, en effet, on eût été étonné à moins.
+Fogg, cela valait la peine qu'on y réfléchît.
+Il y avait là une concordance au moins bizarre.
+« C'est évident ! c'est évident ! se répétait l'honnête garçon, tout fier de sa perspicacité.
+Aouda, qui avait manifesté le désir de se promener pendant quelques heures.
+Fix, à qui toute action de Fogg paraissait suspecte, le suivit sans se laisser apercevoir.
+L'île de Singapore n'est ni grande ni imposante l'aspect.
+Les montagnes, c'est-à-dire les profils, lui manquent.
+Toutefois, elle est charmante dans sa maigreur.
+C'est un parc coupé de belles routes.
+Après avoir parcouru la campagne pendant deux heures, Mrs.
+Passepartout les attendait sur le pont du Rangoon.
+Passepartout fut trop heureux de les offrir à Mrs.
+Aouda, qui le remercia avec beaucoup de grâce.
+Le Rangoon était fort chargé.
+Le temps, assez beau jusqu'alors, changea avec le dernier quartier de la lune.
+Il y eut grosse mer.
+Quand il était maniable, le capitaine faisait établir la voilure.
+Leur volume, clos, impénétrable à l'eau, est insuffisant.
+Donc, par le mauvais temps, il convenait de prendre de grandes précautions.
+Il fallait quelquefois mettre à la cape sous petite vapeur.
+Très pressé ! répondit Passepartout.
+Vous pensez que Mr.
+Fogg a hâte de prendre le paquebot de Yokohama ? Une hâte effroyable.
+Vous croyez donc maintenant à ce singulier voyage autour du monde ? Absolument.
+Ce mot laissa l'agent rêveur.
+Ce qualificatif l'inquiéta, sans qu'il sût trop pourquoi.
+Le Français l'avait-il deviné ? Il ne savait trop que penser.
+Il ne pouvait tenir sa langue.
+Il y a de bonnes et de mauvaises affaires.
+La conversation finie, Fix rentra dans sa cabine et se mit à réfléchir.
+Il était évidemment deviné.
+D'une façon ou d'une autre, le Français avait reconnu sa qualité de détective.
+Cependant le calme se rétablit dans son cerveau, et il résolut d'agir franchement avec Passepartout.
+Mais non ! Le charme de Mrs.
+Mais Passepartout, lui, vivait dans des transes continuelles.
+La vapeur fusait alors par les soupapes, ce qui provoqua la colère du digne garçon.
+« Elles ne sont pas assez chargées, ces soupapes ! s'écria-t-il.
+Le vent devint très fort.
+Fixé dans la partie du nord-ouest, il contraria la marche du paquebot.
+Pendant les journées du trois et du quatre novembre, ce fut une sorte de tempête.
+La bourrasque battit la mer avec véhémence.
+Mais cet homme sans nerfs ne ressentait ni impatience ni ennui.
+Il semblait vraiment que cette tempête rentrât dans son programme, qu'elle fût prévue.
+Fix, lui, ne voyait pas ces choses du même oeil.
+Bien au contraire.
+Cette tempête lui plaisait.
+Enfin, le ciel, avec ses rafales et ses bourrasques, entrait dans son jeu.
+Quant à Passepartout, on devine dans quelle colère peu dissimulée il passa ce temps d'épreuve.
+Steamers et railways lui obéissaient.
+Le vent et la vapeur s'unissaient pour favoriser son voyage.
+Passepartout, pendant toute la durée de la bourrasque, demeura sur le pont du Rangoon.
+Passepartout voulait absolument savoir combien de temps durerait la tempête.
+On le renvoyait alors au baromètre, qui ne se décidait pas à remonter.
+Enfin la tourmente s'apaisa.
+L'état de la mer se modifia dans la journée du quatre novembre.
+Le vent sauta de deux quarts dans le sud et redevint favorable.
+Passepartout se rasséréna avec le temps.
+Mais on ne pouvait regagner tout le temps perdu.
+L'itinéraire de Phileas Fogg portait l'arrivée du paquebot au cinq.
+Or, il n'arrivait que le six.
+C'était donc vingt-quatre heures de retard, et le départ pour Yokohama serait nécessairement manqué.
+Mais il n'osait pas, aimant mieux conserver un peu d'espoir jusqu'au dernier instant.
+Fogg en serait quitte pour prendre le prochain paquebot.
+Ce qui mettait Passepartout dans une colère bleue.
+Mais si Passepartout ne se hasarda pas à interroger le pilote, Mr.
+« Demain, à la marée du matin, répondit le pilote.
+Ah ! » fit Mr.
+Fogg, sans manifester aucun étonnement.
+« Quel est le nom de ce steamer ? demanda Mr.
+Le Carnatic, répondit le pilote.
+Je vous remercie », répondit Mr.
+Fogg, qui de son pas automatique redescendit dans le salon du Rangoon.
+A une heure, le Rangoon était à quai, et les passagers débarquaient.
+En cette circonstance, le hasard avait singulièrement servi Phileas Fogg, il faut en convenir.
+Le Carnatic ne devant partir que le lendemain matin à cinq heures, Mr.
+Puis il dit à Mrs.
+Le gentleman se fit conduire à la Bourse.
+Le courtier auquel s'adressa Mr.
+Fogg connaissait en effet le négociant parsi.
+Mais, depuis deux ans, celui-ci n'habitait plus la Chine.
+Phileas Fogg revint à l'Hôtel du Club.
+Aussitôt il fit demander à Mrs.
+A cela, Mrs.
+Aouda ne répondit rien d'abord.
+Elle passa sa main sur son front, et resta quelques instants à réfléchir.
+Puis, de sa douce voix : « Que dois-je faire, monsieur Fogg ? dit-elle.
+C'est très simple, répondit le gentleman.
+Revenir en Europe.
+Allez au Carnatic, et retenez trois cabines.
+Il y a ainsi comme une traînée de villes anglaises tout autour du monde.
+Passepartout arriva au port Victoria.
+Passepartout trouva cela fort drôle, sans trop savoir pourquoi.
+Mais l'inspecteur de police laissait voir sur son visage les marques d'un vif désappointement.
+Or, l'agent avait de bonnes raisons pour pester contre l'infernale chance qui le poursuivait.
+« Eh bien, monsieur Fix, êtes-vous décidé à venir avec nous jusqu'en Amérique ? demanda Passepartout.
+Oui, répondit Fix les dents serrées.
+« Très bien ! répondit Passepartout, cela arrangera mon maître.
+Je vais le prévenir.
+» A ce moment, Fix prit un parti extrême.
+Il résolut de tout dire à Passepartout.
+En quittant le bureau, Fix offrit à son compagnon de se rafraîchir dans une taverne.
+Passepartout avait le temps.
+Il accepta l'invitation de Fix.
+Une taverne s'ouvrait sur le quai.
+Elle avait un aspect engageant.
+Tous deux y entrèrent.
+Sur ce lit étaient rangés un certain nombre de dormeurs.
+Une trentaine de consommateurs occupaient dans la grande salle de petites tables en jonc tressé.
+On fume l'opium partout et toujours dans l'empire du Milieu.
+Fix le retint.
+« Un instant, dit-il.
+Que voulez-vous, monsieur Fix ? J'ai à vous parler de choses sérieuses.
+Eh bien, nous en parlerons demain.
+Je n'ai pas le temps aujourd'hui.
+Restez, répondit Fix.
+Il s'agit de votre maître ! » Passepartout, à ce mot, regarda attentivement son interlocuteur.
+L'expression du visage de Fix lui parut singulière.
+Il se rassit.
+« Qu'est-ce donc que vous avez à me dire » demanda-t-il.
+Parbleu ! dit Passepartout en souriant.
+Vingt mille livres ! Cinquante-cinq mille ! reprit Fix, en serrant la main du Français.
+Quoi ! s'écria Passepartout, Mr.
+Je veux dire que c'est de la pure indélicatesse.
+Autant dépouiller Mr.
+Mais qui croyez-vous donc que je sois ? demanda Fix, en fixant son regard sur Passepartout.
+Fogg ! Il ne sait rien ? … demanda vivement Fix.
+Rien », répondit Passepartout en vidant encore une fois son verre.
+L'inspecteur de police passa sa main sur son front.
+Il hésitait avant de reprendre la parole.
+Que devait-il faire ? L'erreur de Passepartout semblait sincère, mais elle rendait son projet plus difficile.
+« Eh bien, se dit-il, puisqu'il n'est pas son complice, il m'aidera.
+» Le détective avait une seconde fois pris son parti.
+D'ailleurs, il n'avait plus le temps d'attendre.
+A tout prix, il fallait arrêter Fogg à Hong-Kong.
+« Ecoutez, dit Fix d'une voix brève, écoutez-moi bien.
+Voici ma commission.
+Passepartout, abasourdi, regardait Fix, sans pouvoir articuler une parole.
+Mais pourquoi ? … s'écria Passepartout.
+Or, voici ce signalement, et c'est trait pour trait celui du sieur Fogg.
+Allons donc ! s'écria Passepartout en frappant la table de son robuste poing.
+Mon maître est le plus honnête homme du monde ! Qu'en savez-vous ? répondit Fix.
+Voulez-vous donc être arrêté comme son complice ? » Passepartout avait pris sa tête à deux mains.
+Il n'était plus reconnaissable.
+Il n'osait regarder l'inspecteur de police.
+Il ne voulait pas croire à la culpabilité de son maître.
+Voici, répondit Fix.
+Mettons que je n'ai rien dit, répondit Fix, et buvons.
+Oui, buvons ! » Passepartout se sentait de plus en plus envahir par l'ivresse.
+Fix, comprenant qu'il fallait à tout prix le séparer de son maître, voulut l'achever.
+Sur la table se trouvaient quelques pipes chargées d'opium.
+Pendant cette scène qui allait peut-être compromettre si gravement son avenir, Mr.
+Fogg, accompagnant Mrs.
+Aouda, se promenait dans les rues de la ville anglaise.
+Depuis que Mrs.
+De là, nécessité d'acheter les vêtements et objets nécessaires au voyage.
+Les acquisitions faites, Mr.
+Le lendemain, Passepartout ne vint point au coup de sonnette de Mr.
+Fogg se contenta de prendre son sac, fit prévenir Mrs.
+Aouda, et envoya chercher un palanquin.
+Lorsque le palanquin fut arrivé à la porte de l'hôtel, Mr.
+Fogg et Mrs.
+Aouda montèrent dans ce confortable véhicule, et les bagages suivirent derrière sur une brouette.
+Une demi-heure plus tard, les voyageurs descendaient sur le quai d'embarquement, et là Mr.
+Fogg apprenait que le Carnatic était parti depuis la veille.
+Mais aucune marque de désappointement ne parut sur son visage, et comme Mrs.
+» En ce moment, un personnage qui l'observait avec attention s'approcha de lui.
+Fogg, mais je n'ai pas l'honneur … Pardonnez-moi, mais je croyais trouver ici votre domestique.
+Savez-vous où il est, monsieur ? demanda vivement la jeune femme.
+Quoi ! répondit Fix, feignant la surprise, n'est-il pas avec vous ? Non, répondit Mrs.
+Depuis hier, il n'a pas reparu.
+Se serait-il embarqué sans nous à bord du Carnatic ? Sans vous, madame ? … répondit l'agent.
+Mais, excusez ma question, vous comptiez donc partir sur ce paquebot ? Oui, monsieur.
+Moi aussi, madame, et vous me voyez très désappointé.
+Enfin, la chance se déclarait pour le représentant de la loi.
+» Et Mr.
+Fogg, offrant son bras à Mrs.
+Aouda, se dirigea vers les docks à la recherche d'un navire en partance.
+Fix, abasourdi, suivait.
+On eût dit qu'un fil le rattachait à cet homme.
+Toutefois, la chance sembla véritablement abandonner celui qu'elle avait si bien servi jusqu'alors.
+Fix se reprit à espérer.
+« Votre Honneur cherche un bateau ? lui dit le marin en se découvrant.
+Vous avez un bateau prêt à partir demanda Mr.
+Oui, Votre Honneur, un bateau-pilote n° quarante-trois, le meilleur de la flottille.
+Il marche bien ? Entre huit et neuf milles, au plus près.
+Voulez-vous le voir ? Oui.
+Votre Honneur sera satisfait.
+Il s'agit d'une promenade en mer ? Non.
+« Votre Honneur veut rire ? dit-il.
+Je le regrette, répondit le pilote, mais c'est impossible.
+C'est sérieux ? demanda le pilote.
+Très sérieux », répondit Mr.
+Le pilote s'était retiré à l'écart.
+Fix était dans des transes mortelles.
+Pendant ce temps, Mr.
+Fogg s'était retourné vers Mrs.
+« Vous n'aurez pas peur, madame ? lui demanda-t-il.
+Avec vous, non, monsieur Fogg », répondit la jeune femme.
+« Eh bien, pilote ? dit Mr.
+Seize cents seulement, dit Mr.
+C'est la même chose.
+» Fix respira un bon coup d'air.
+« Mais, ajouta le pilote, il y aurait peut-être moyen de s'arranger autrement.
+» Fix ne respira plus.
+« Comment ? demanda Phileas Fogg.
+Pourquoi pas ? répondit le pilote.
+Le paquebot de San Francisco ne part pas de Yokohama.
+Il fait escale à Yokohama et à Nagasaki, mais son port de départ est Shangaï.
+Vous êtes certain de ce vous dites ? Certain.
+Et quand le paquebot quitte-t-il Shangaï ? Le onze, à sept heures du soir.
+Nous avons donc quatre jours devant nous.
+Et vous pourriez partir ? … Dans une heure.
+Le temps d'acheter des vivres et d'appareiller.
+Affaire convenue … Vous êtes le patron du bateau ? Oui, John Bunsby, patron de la Tankadère.
+Voulez-vous des arrhes ? Si cela ne désoblige pas Votre Honneur.
+Dans une demi-heure nous serons à bord.
+Mais ce pauvre garçon … dit Mrs.
+Aouda, que la disparition de Passepartout préoccupait extrêmement.
+Je vais faire pour lui tout ce que je puis faire », répondit Phileas Fogg.
+Trois heures sonnaient.
+Le bateau-pilote n° quarante-trois, son équipage à bord, ses vivres embarqués, était prêt à appareiller.
+On eût dit un yacht de course.
+Ses deux mâts s'inclinaient un peu sur l'arrière.
+L'équipage de la Tankadère se composait du patron John Bunsby et de quatre hommes.
+Phileas Fogg et Mrs.
+Aouda passèrent à bord.
+Fix s'y trouvait déjà.
+Au milieu, une table éclairée par une lampe de roulis.
+C'était petit, mais propre.
+« Je regrette de n'avoir pas mieux à vous offrir », dit Mr.
+Fogg à Fix, qui s'inclina sans répondre.
+Le pavillon d'Angleterre battait à la corne de la goélette.
+Les passagers étaient assis sur le pont.
+Fogg et Mrs.
+Aouda jetèrent un dernier regard sur le quai, afin de voir si Passepartout n'apparaîtrait pas.
+Que Votre Honneur s'en rapporte à moi, répondit John Bunsby.
+En fait de voiles, nous portons tout ce que le vent permet de porter.
+C'est votre métier, et non le mien, pilote, et je me fie à vous.
+La goélette, soulevée par le vent, semblait voler dans l'air.
+La nuit vint.
+Des nuages chassaient de l'est et envahissaient déjà une partie du ciel.
+Fix rêvait à l'avant de l'embarcation.
+Il se tenait à l'écart, sachant Fogg d'un naturel peu causeur.
+D'ailleurs, il lui répugnait de parler à cet homme, dont il acceptait les services.
+Il songeait aussi à l'avenir.
+Le plan de Phileas Fogg lui semblait on ne peut plus simple.
+C'était son devoir, et il l'accomplirait jusqu'au bout.
+Phileas Fogg, lui, n'était pas non plus sans songer à son domestique, si singulièrement disparu.
+C'était aussi l'opinion de Mrs.
+Aouda, qui regrettait profondément cet honnête serviteur, auquel elle devait tant.
+Vers dix heures, la brise vint à fraîchir.
+A minuit, Phileas Fogg et Mrs.
+Aouda descendirent dans la cabine.
+Fix les y avait précédés, et s'était étendu sur l'un des cadres.
+Quant au pilote et à ses hommes, ils demeurèrent toute la nuit sur le pont.
+Si le vent tenait dans ces conditions, les chances étaient pour elle.
+Vers midi, la brise mollit un peu et hâla le sud-est.
+Il mangea cependant, ,  sur le pouce, il est vrai, ,  mais enfin il mangea.
+Mais si, je tiens … Non, monsieur, répéta Fogg d'un ton qui n'admettait pas de réplique.
+Cependant on filait rapidement.
+John Bunsby avait bon espoir.
+Plusieurs fois il dit à Mr.
+Fogg qu'on arriverait en temps voulu à Shangaï.
+Fogg répondit simplement qu'il y comptait.
+D'ailleurs, tout l'équipage de la petite goélette y mettait du zèle.
+La prime affriolait ces braves gens.
+La mer était très dure dans ce détroit, plein de remous formés par les contre-courants.
+La goélette fatigua beaucoup.
+Les lames courtes brisaient sa marche.
+Il devint très difficile de se tenir debout sur le pont.
+Avec le lever du jour, le vent fraîchit encore.
+Il y avait dans le ciel l'apparence d'un coup de vent.
+Tout, répondit Phileas Fogg.
+Eh bien, nous allons avoir un coup de vent.
+Viendra-t-il du nord ou du sud ? demanda simplement Mr.
+Le pilote prit ses précautions par avance.
+Les mots de flèche furent dépassés.
+On rentra le bout-dehors.
+Les panneaux furent condamnés avec soin.
+Pas une goutte d'eau ne pouvait, dès lors, pénétrer dans la coque de l'embarcation.
+Et on attendit.
+Fogg, ni Mrs.
+Aouda, ni Fix lui-même ne consentirent à quitter le pont.
+Vers huit heures, la bourrasque de pluie et de rafale tomba à bord.
+Les passagers étaient quelquefois couverts en grand par les embruns qu'ils recevaient philosophiquement.
+Quant à Phileas Fogg, il semblait que ce typhon fût partie de son programme.
+La goélette, prêtant alors le flanc à la lame, fut effroyablement secouée.
+Avec la nuit, la tempête s'accentua encore.
+Il se demanda s'il ne serait pas temps de relâcher, et il consulta son équipage.
+Ses hommes consultés, John Bunsby s'approcha de Mr.
+Je le crois aussi, répondit Phileas Fogg.
+Ah ! fit le pilote, mais lequel ? Je n'en connais qu'un, répondit tranquillement Mr.
+Et c'est ! … Shangaï.
+Puis il s'écria : « Eh bien, oui ! Votre Honneur a raison.
+A Shangaï ! » Et la direction de la Tankadère fut imperturbablement maintenue vers le nord.
+Nuit vraiment terrible ! Ce fut un miracle si la petite goélette ne chavira pas.
+Aouda était brisée, mais elle ne fit pas entendre une plainte.
+Plus d'une fois Mr.
+Fogg dut se précipiter vers elle pour la protéger contre la violence des lames.
+Le jour reparut.
+La tempête se déchaînait encore avec une extrême fureur.
+Toutefois, le vent retomba dans le sud-est.
+De là un choc de contre-houles qui eût écrasé une embarcation moins solidement construite.
+La Tankadère était seule à tenir la mer.
+Le peu de durée de la tempête tenait à sa violence même.
+Les passagers, absolument brisés, purent manger un peu et prendre quelque repos.
+La nuit fut relativement paisible.
+Le pilote fit rétablir ses voiles au bas ris.
+La vitesse de l'embarcation fut considérable.
+La brise mollissait sensiblement, mais heureusement la Mer tombait avec elle.
+La goélette se couvrit de toile.
+Flèches, voiles d'étais, contre-foc, tout portait, et la mer écumait sous l'étrave.
+A midi, la Tankadère n'était pas à plus de quarante-cinq milles de Shangaï.
+Les craintes furent vives à bord.
+On voulait arriver à tout prix.
+Tous ,  Phileas Fogg excepté sans doute ,  sentaient leur coeur battre d'impatience.
+Elles passaient, et la mer se déridait aussitôt après leur passage.
+A sept heures, on était encore à trois milles de Shangaï.
+Il regarda Mr.
+C'était le paquebot américain, qui sortait à l'heure réglementaire.
+« Malédiction ! s'écria John Bunsby, qui repoussa la barre d'un bras désespéré.
+Des signaux ! » dit simplement Phileas Fogg.
+Un petit canon de bronze s'allongeait à l'avant de la Tankadère.
+Il servait à faire des signaux par les temps de brume.
+Le pavillon fut amené à mi-mât.
+« Feu ! » dit Mr.
+Et la détonation du petit canon de bronze éclata dans l'air.
+Il emportait un plein chargement de marchandises et de passagers.
+Deux cabines de l'arrière restaient inoccupées.
+C'étaient celles qui avaient été retenues pour le compte de Mr.
+Ce passager, c'était Passepartout en personne.
+Voici ce qui était arrivé.
+La pensée du devoir non accompli secouait sa torpeur.
+Passepartout n'avait que quelques pas à faire.
+Cet air pur le dégrisa.
+Il commença à rassembler ses idées et n'y parvint pas sans peine.
+« Il est évident, se dit-il, que j'ai été abominablement grisé ! Que va dire Mr.
+Fogg ? En tout cas, je n'ai pas manqué le bateau, et c'est le principal.
+En tout cas, question à examiner.
+Le plus pressé, c'était de rejoindre Mr.
+Fogg et de lui faire agréer ses excuses pour cette inqualifiable conduite.
+Passepartout se leva donc.
+La mer était houleuse, et le paquebot roulait fortement.
+« Bon, fit-il, Mrs.
+Aouda est encore couchée à cette heure.
+Quant à Mr.
+Fogg n'y était pas.
+Passepartout n'avait qu'une chose à faire : c'était de demander au purser quelle cabine occupait Mr.
+Le purser lui répondit qu'il ne connaissait aucun passager de ce nom.
+« Pardonnez-moi, dit Passepartout en insistant.
+Au surplus, voici la liste des passagers.
+Vous pouvez la consulter.
+» Passepartout consulta la liste … Le nom de son maître n'y figurait pas.
+Il eut comme un éblouissement.
+Puis une idée lui traversa le cerveau.
+« Ah çà ! je suis bien sur le Carnatic ? s'écria-t-il.
+Oui, répondit le purser.
+En route pour Yokohama ? Parfaitement.
+Passepartout se laissa tomber sur un fauteuil.
+C'était un coup de foudre.
+Et, soudain, la lumière se fit en lui.
+Fogg et Mrs.
+Et maintenant, Mr.
+Elle était peu enviable.
+Le Français se trouvait en route pour le Japon.
+Certain d'y arriver, comment en reviendrait-il ? Il avait la poche vide.
+Il avait donc cinq ou six jours devant lui pour prendre un parti.
+S'il mangea et but pendant cette traversée, cela ne saurait se décrire.
+Il mangea pour son maître, pour Mrs.
+Aouda et pour lui-même.
+Le treize, à la marée du matin, le Carnatic entrait dans le port de Yokohama.
+Puis Passepartout se trouva dans les champs, au milieu des immenses rizières.
+En errant ainsi, Passepartout aperçut quelques violettes entre les herbes : « Bon ! dit-il, voilà mon souper.
+» Mais les ayant senties, il ne leur trouva aucun parfum.
+« Pas de chance ! » pensa-t-il.
+La nuit vint.
+Enfin les rues se dépeuplèrent.
+A la foule succédèrent les rondes des yakounines.
+Il savait quelques refrains de France et d'Angleterre, et il résolut de les essayer.
+Cet échange devait, d'ailleurs, produire une soulte, qu'il pourrait immédiatement appliquer à satisfaire son appétit.
+Cette résolution prise, restait à l'exécuter.
+Mais, en retour, quelques piécettes d'argent résonnaient dans sa poche.
+Je n'ai plus la ressource de vendre cette défroque contre une autre encore plus japonaise.
+Une fois à San Francisco, il verrait à se tirer d'affaire.
+Passepartout entra sous un péristyle qui précédait la case, et demanda Mr.
+Batulcar apparut en personne.
+« Que voulez-vous ? dit-il à Passepartout, qu'il prit d'abord pour un indigène.
+Avez-vous besoin d'un domestique ? demanda Passepartout.
+Ainsi, je ne puis vous être bon à rien ? A rien.
+Diable ! ça m'aurait pourtant fort convenu de partir avec vous.
+Vous êtes un Français, vous ? Oui, un Parisien de Paris.
+Vous comprenez, mon brave.
+C'est que, voyez-vous, tout est là ! » répondit l'honorable Batulcar.
+L'engagement fut conclu hic et nunc.
+Enfin, Passepartout avait trouvé une position.
+Il était engagé pour tout faire dans la célèbre troupe japonaise.
+C'était peu flatteur, mais avant huit jours il serait en route pour San Francisco.
+Ce « great attraction » de la représentation devait clore la série des exercices.
+Avant trois heures, les spectateurs avaient envahi la vaste case.
+Cette représentation fut ce que sont toutes ces exhibitions d'acrobates.
+Mais il faut bien avouer que les Japonais sont les premiers équilibristes du monde.
+Les tours de l'échelle, de la perche, de la boule, des tonneaux, etc.
+furent exécutés avec une précision remarquable.
+Ces Longs-Nez forment une corporation particulière placée sous l'invocation directe du dieu Tingou.
+Or, c'était sur ces appendices, fixés d'une façon solide, que s'opéraient tous leurs exercices d'équilibre.
+Tous s'étendirent à terre, le nez dressé vers le ciel.
+Aouda, qui l'accompagnait, Passepartout s'étaient précipités par les couloirs au-dehors de la case.
+Mais, là, ils trouvèrent l'honorable Batulcar, furieux, qui réclamait des dommages-intérêts pour « la casse ».
+Phileas Fogg apaisa sa fureur en lui jetant une poignée de bank-notes.
+Et, à six heures et demie, au moment où il allait partir, Mr.
+Fogg et Mrs.
+Les signaux faits par la Tankadère avaient été aperçus du paquebot de Yokohama.
+Le capitaine, voyant un pavillon en berne, s'était dirigé vers la petite goélette.
+Puis l'honorable gentleman, Mrs.
+Il ne put retenir un mouvement de son nez.
+De là rupture de l'équilibre, et ce qui s'ensuivit.
+Voilà ce que Passepartout apprit de la bouche même de Mrs.
+Au nom de Fix, Passepartout ne sourcilla pas.
+Pendant cette traversée il ne se produisit aucun incident nautique.
+Le paquebot, soutenu sur ses larges roues, appuyé par sa forte voilure, roulait peu.
+L'océan Pacifique justifiait assez son nom.
+Fogg était aussi calme, aussi peu communicatif que d'ordinaire.
+En outre, Mrs.
+Aouda s'intéressait prodigieusement aux projets du gentleman.
+Elle s'inquiétait des contrariétés qui pouvaient compromettre le succès du voyage.
+Sur quatre-vingts jours mis à sa disposition, Mr.
+Si Passepartout triompha, cela se comprend de reste.
+Il aurait bien voulu savoir ce que Fix aurait pu dire, s'il eût été présent.
+Or, où était Fix en ce moment ? … Fix était précisément à bord du General-Grant.
+En effet, en arrivant à Yokohama, l'agent, abandonnant Mr.
+Fogg qu'il comptait retrouver dans la journée, s'était immédiatement rendu chez le consul anglais.
+Ce coquin a tout l'air de revenir dans sa patrie, croyant avoir dépisté la police.
+Je le suivrai jusque-là.
+Après tout, la Banque est riche ! » Son parti pris, il s'embarqua aussitôt sur le General-Grant.
+Il était à bord, quand Mr.
+Fogg et Mrs.
+Aouda y arrivèrent.
+A son extrême surprise, il reconnut Passepartout sous son costume de héraut.
+Quand Passepartout eut fini, il se trouva calme et comme soulagé.
+Alors venez me parler.
+Que je … Dans l'intérêt de votre maître.
+« Vous m'avez rossé, dit Fix.
+A présent, écoutez-moi.
+Jusqu'ici j'ai été l'adversaire de Mr.
+Fogg, mais maintenant je suis dans son jeu.
+Tant que Mr.
+J'ai tout fait pour cela.
+« Maintenant, reprit Fix, Mr.
+Fogg semble retourner en Angleterre ? Soit, je le suivrai.
+« Sommes-nous amis ? demanda Fix.
+Amis, non, répondit Passepartout.
+Convenu », dit tranquillement l'inspecteur de police.
+Fogg n'avait encore ni gagné ni perdu un seul jour.
+Il était sept heures du matin, quand Phileas Fogg, Mrs.
+Fogg, aussitôt débarqué, s'informa de l'heure à laquelle partait le premier train pour New York.
+C'était à six heures du soir.
+Fogg avait donc une journée entière à dépenser dans la capitale californienne.
+Il fit venir une voiture pour Mrs.
+Aouda et pour lui.
+Passepartout fut assez surpris de ce qu'il voyait.
+Mais « ce beau temps » était passé.
+San Francisco présentait l'aspect d'une grande ville commerçante.
+Lorsque Passepartout arriva à International-Hôtel, il ne lui semblait pas qu'il eût quitté l'Angleterre.
+Cela parut « très américain » à Passepartout.
+Le restaurant de l'hôtel était confortable.
+Fogg et Mrs.
+Après déjeuner, Phileas Fogg, accompagné de Mrs.
+Puis il se dirigea vers les bureaux de l'agent consulaire.
+L'inspecteur se montra extrêmement surpris.
+Ce qui fut accordé.
+Voici donc Mrs.
+Aouda, Phileas Fogg et Fix flânant par les rues.
+Ils se trouvèrent bientôt dans Montgommery-street, où l'affluence du populaire était énorme.
+Des hommes-affiches circulaient au milieu des groupes.
+Des bannières et des banderoles flottaient au vent.
+Des cris éclataient de toutes parts.
+« Hurrah pour Kamerfield ! Hurrah pour Mandiboy ! » C'était un meeting.
+Ce fut du moins la pensée de Fix, et il communiqua son idée à Mr.
+Il n'y a que de mauvais coups à recevoir.
+Et maintenant, pourquoi ce meeting ? A quelle occasion se tenait-il ? Phileas Fogg l'ignorait absolument.
+En ce moment un mouvement considérable se produisit dans la foule.
+Toutes les mains étaient en l'air.
+Des remous agitaient la masse qui refluait.
+Les bannières oscillaient, disparaissaient un instant et reparaissaient en loques.
+Peut-être, répondit simplement Mr.
+Les hurrahs, agrémentés d'injures, redoublèrent.
+La hampe des bannières se transforma en arme offensive.
+Plus de mains, des poings partout.
+Du haut des voitures arrêtées, et des omnibus enrayés dans leur course, s'échangeaient force horions.
+Tout servait de projectiles.
+La cohue se rapprocha de l'escalier et reflua sur les premières marches.
+Mais le gentleman ne put achever sa phrase.
+Derrière lui, de cette terrasse qui précédait l'escalier, partirent des hurlements épouvantables.
+Aouda, Fix se trouvèrent entre deux feux.
+Il était trop tard pour s'échapper.
+Ce torrent d'hommes, armés de cannes plombées et de casse-tête, était irrésistible.
+Phileas Fogg et Fix, en préservant la jeune femme, furent horriblement bousculés.
+« Yankee ! dit Mr.
+Fogg, en lançant à son adversaire un regard de profond mépris.
+Englishman ! répondit l'autre.
+Nous nous retrouverons ! Quand il vous plaira.
+,  Votre nom ? Phileas Fogg.
+Le vôtre ? Le colonel Stamp W.
+» Puis, cela dit, la marée passa.
+Fix fut renversé et se releva, les habits déchirés, mais sans meurtrissure sérieuse.
+Mais, en somme, Mrs.
+Aouda avait été épargnée, et, seul, Fix en était pour son coup de poing.
+« Merci, dit Mr.
+Fogg à l'inspecteur, dès qu'ils furent hors de la foule.
+Il n'y a pas de quoi, répondit Fix, mais venez.
+Où ? Chez un marchand de confection.
+» En effet, cette visite était opportune.
+Une heure après, ils étaient convenablement vêtus et coiffés.
+Puis ils revinrent à International-Hôtel.
+Quand il aperçut Fix en compagnie de Mr.
+Fogg, son front s'obscurcit.
+Évidemment Fix n'était plus un ennemi, c'était un allié.
+Il tenait sa parole.
+Au moment de monter en voiture, Mr.
+Fogg dit à Fix : « Vous n'avez pas revu ce colonel Proctor ? Non, répondit Fix.
+Je reviendrai en Amérique pour le retrouver, dit froidement Phileas Fogg.
+Il ne serait pas convenable qu'un citoyen anglais se laissât traiter de cette façon.
+» L'inspecteur sourit et ne répondit pas.
+Mais, on le voit, Mr.
+Au moment où Mr.
+Cependant, j'ai cru remarquer une certaine animation dans les rues.
+Il s'agissait simplement d'un meeting organisé pour une élection.
+L'élection d'un général en chef, sans doute ? demanda Mr.
+Non, monsieur, d'un juge de paix.
+Là se raccordent cinq lignes distinctes, qui mettent Omaha en communication fréquente avec New York.
+Maintenant, on met sept jours.
+Dans la prairie, on avançait à raison d'un mille et demi par jour.
+Il n'y manquait que des wagons-théâtres.
+Mais il y en aura un jour.
+Les voyageurs étaient partis de la station d'Oakland à six heures du soir.
+Le train ne marchait pas avec une grande rapidité.
+On causait peu dans le wagon.
+D'ailleurs, le sommeil allait bientôt gagner les voyageurs.
+Passepartout se trouvait placé auprès de l'inspecteur de police, mais il ne lui parlait pas.
+Depuis les derniers événements, leurs relations s'étaient notablement refroidies.
+Plus de sympathie, plus d'intimité.
+Ce wagon était un « sleeping-car », qui, en quelques minutes, fut transformé en dortoir.
+Les draps étaient blancs, les oreillers moelleux.
+Il était sept heures du matin quand fut traversée la station de Cisco.
+Peu ou point de tunnels, ni de pont sur le parcours.
+A midi, il quittait Reno, où les voyageurs eurent vingt minutes pour déjeuner.
+Après avoir déjeuné, Mr.
+Aouda et leurs compagnons reprirent leur place dans le wagon.
+Parfois, un grand troupeau de bisons, se massant au loin, apparaissait comme une digue mobile.
+Ces innombrables armées de ruminants opposent souvent un insurmontable obstacle au passage des trains.
+La locomotive est alors forcée de s'arrêter et d'attendre que la voie soit redevenue libre.
+Ce fut même ce qui arriva dans cette occasion.
+Il ne fallait pas songer à arrêter cette migration.
+C'est un torrent de chair vivante qu'aucune digue ne saurait contenir.
+Les voyageurs, dispersés sur les passerelles, regardaient ce curieux spectacle.
+Passepartout était furieux du retard que causait cette agglomération d'animaux.
+Il eût voulu décharger contre eux son arsenal de revolvers.
+« Quel pays ! s'écria-t-il.
+Passepartout, vers neuf heures du matin, vint prendre l'air sur les passerelles.
+Le temps était froid, le ciel gris, mais il ne neigeait plus.
+On eût dit un révérend.
+La nouvelle se répandit rapidement dans le train, qui emportait une centaine de voyageurs.
+Passepartout figurait au premier rang des fidèles.
+Ni son maître ni Fix n'avaient cru devoir se déranger.
+On le voit, l'elder William Hitch faisait du prosélytisme jusqu'en chemin de fer.
+Leur pesanteur spécifique est de un cent soixante-dix, celle de l'eau distillée étant un 000.
+Aussi les poissons n'y peuvent vivre.
+A deux heures, les voyageurs descendaient à la station d'Ogden.
+Le train ne devant repartir qu'à six heures, Mr.
+Un mur d'argile et de cailloux, construit en mille huit cent cinquante-trois, ceignait la ville.
+Fogg et ses compagnons ne trouvèrent pas la cité fort peuplée.
+Les femmes étaient assez nombreuses, ce qui s'explique par la composition singulière des ménages mormons.
+Il ne faut pas croire, cependant, que tous les Mormons soient polygames.
+Ces pauvres créatures ne paraissaient ni aisées ni heureuses.
+Les autres n'étaient vêtues que d'indienne.
+Dans son bon sens, c'était le mari qu'il plaignait surtout.
+Très heureusement, son séjour dans la Cité des Saints ne devait pas se prolonger.
+On n'arrête pas un train en marche.
+Le gentleman qui proférait ces cris était évidemment un Mormon attardé.
+Il courait à perdre haleine.
+Heureusement pour lui, la gare n'avait ni portes ni barrières.
+Les rios étaient nombreux dans cette montagneuse région.
+Il fallut franchir sur des ponceaux le Muddy, le Green et autres.
+Passepartout était devenu plus impatient à mesure qu'il s'approchait du but.
+Mais Fix, à son tour, aurait voulu être déjà sorti de cette difficile contrée.
+Aouda éprouvait des craintes plus vives, qui provenaient d'une tout autre cause.
+Or, à travers la vitre, la jeune femme reconnut parmi eux le colonel Stamp W.
+Aouda, ne voulant pas être vue, se rejeta en arrière.
+Cette circonstance impressionna vivement la jeune femme.
+Aussi son coeur se serra-t-il, quand elle reconnut le grossier personnage auquel Mr.
+Fogg voulait tôt ou tard demander raison de sa conduite.
+Aouda, lorsque le train se fut remis en route, profita d'un moment où sommeillait Mr.
+Fogg pour mettre Fix et Passepartout au courant de la situation.
+« Ce Proctor est dans le train ! s'écria Fix.
+Eh bien, rassurez-vous, madame, avant d'avoir affaire au sieur … à Mr.
+Monsieur Fix, reprit Mrs.
+Fogg ne laissera à personne le soin de le venger.
+Il est homme, il l'a dit, à revenir en Amérique pour retrouver cet insulteur.
+Il faut donc qu'il ne le voie pas.
+Vous avez raison, madame, répondit Fix, une rencontre pourrait tout perdre.
+Vainqueur ou vaincu, Mr.
+Fogg serait retardé, et … Et, ajouta Passepartout, cela ferait le jeu des gentlemen du Reform-Club.
+Fogg s'était réveillé, et regardait la campagne à travers la vitre tachetée de neige.
+Mais, plus tard, et sans être entendu de son maître ni de Mrs.
+Et maintenant, y avait-il un moyen quelconque de retenir Mr.
+En effet, répondit le gentleman, mais elles passent.
+Je n'ai ni cartes ni partenaires.
+Oh ! les cartes, nous trouverons bien à les acheter.
+On vend de tout dans les wagons américains.
+Cela fait partie de l'éducation anglaise.
+Et moi, reprit Fix, j'ai quelques prétentions à bien jouer ce jeu.
+Rien ne manquait.
+Le jeu commença.
+« Maintenant, se dit Passepartout à lui-même, nous le tenons.
+Entre cette courbure et la ligne de fer s'étendaient de vastes plaines, largement arrosées.
+Encore quelques heures, et la traversée des montagnes Rocheuses serait accomplie.
+La neige avait cessé de tomber.
+Le temps se mettait au froid sec.
+De grands oiseaux, effrayés par la locomotive, s'enfuyaient au loin.
+Aucun fauve, ours ou loup, ne se montrait sur la plaine.
+C'était le désert dans son immense nudité.
+Après un déjeuner assez confortable, servi dans le wagon même, Mr.
+Le train s'arrêta.
+Passepartout mit la tête à la portière et ne vit rien qui motivât cet arrêt.
+Aucune station n'était en vue.
+Aouda et Fix purent craindre un instant que Mr.
+Fogg ne songeât à descendre sur la voie.
+Mais le gentleman se contenta de dire à son domestique : « Voyez donc ce que c'est.
+» Passepartout s'élança hors du wagon.
+Le train était arrêté devant un signal tourné au rouge qui fermait la voie.
+Le garde-voie n'exagérait donc en aucune façon en affirmant qu'on ne pouvait passer.
+Passepartout, n'osant aller prévenir son maître, écoutait, les dents serrées, immobile comme une statue.
+Six heures ! s'écria Passepartout.
+Sans doute, répondit le conducteur.
+D'ailleurs, ce temps nous sera nécessaire pour gagner à pied la station.
+A pied ! s'écrièrent tous les voyageurs.
+Mais à quelle distance est donc cette station ? demanda l'un d'eux au conducteur.
+A douze milles, de l'autre côté de la rivière.
+Douze milles dans la neige ! » s'écria Stamp W.
+Sur le pont ? répondit un voyageur.
+Sur le pont.
+Avec notre train ? demanda le colonel.
+Avec notre train.
+» Passepartout s'était arrêté, et dévorait les paroles du mécanicien.
+« Mais le pont menace ruine ! reprit le conducteur.
+N'importe, répondit Forster.
+Diable ! » fit Passepartout.
+Mais un certain nombre de voyageurs avaient été immédiatement séduits par la proposition.
+Elle plaisait particulièrement au colonel Proctor.
+Ce cerveau brûlé trouvait la chose très faisable.
+« Nous avons cinquante chances pour passer, disait l'un.
+Soixante, disait l'autre.
+Le pauvre garçon ne savait plus de qui se faire entendre.
+« Est-ce que vous avez peur ? lui demanda le colonel Proctor.
+Moi, peur ! s'écria Passepartout.
+Les voyageurs étaient réintégrés dans leur wagon.
+Passepartout reprit sa place, sans rien dire de ce qui s'était passé.
+Les joueurs étaient tout entiers à leur whist.
+La locomotive siffla vigoureusement.
+La vitesse mangeait la pesanteur.
+Et l'on passa ! Et ce fut comme un éclair.
+On ne vit rien du pont.
+Là se trouvait sur le « grand trunk » l'embranchement de Denver-city, la principale ville du Colorado.
+Quatre nuits et quatre jours, selon toute prévision, devaient suffire pour atteindre New York.
+Phileas Fogg se maintenait donc dans les délais réglementaires.
+Pendant la nuit, on laissa sur la gauche le camp Walbah.
+A huit heures du matin, le fort Mac-Pherson était laissé en arrière.
+Trois cent cinquante-sept milles séparent ce point d'Omaha.
+Le cent-unième méridien était franchi.
+Fogg et ses partenaires avaient repris leur jeu.
+Aucun d'eux ne se plaignait de la longueur de la route , , pas même le mort.
+Pendant cette matinée, la chance favorisa singulièrement ce gentleman.
+Les atouts et les honneurs pleuvaient dans ses mains.
+Aouda, Fix levèrent la tête.
+Le colonel Proctor était près d'eux.
+Proctor et Phileas Fogg se reconnurent aussitôt.
+Peut-être serai-je plus habile à un autre, dit Phileas Fogg, qui se leva.
+Il ne tient qu'à vous d'en essayer, fils de John Bull ! » répliqua le grossier personnage.
+Aouda était devenue pâle.
+Tout son sang lui refluait au coeur.
+Elle avait saisi le bras de Phileas Fogg, qui la repoussa doucement.
+Fogg, je vous demande pardon, mais ceci me regarde seul.
+Aouda essaya vainement de retenir Mr.
+L'inspecteur tenta inutilement de reprendre la querelle à son compte.
+Passepartout voulait jeter le colonel par la portière, mais un signe de son maître l'arrêta.
+Phileas Fogg quitta le wagon, et l'Américain le suivit sur la passerelle.
+« Monsieur, dit Mr.
+Eh bien ! qu'est-ce que cela me fait ? répondit le colonel Proctor.
+Monsieur, reprit très poliment Mr.
+Fogg, et je serai exact au rendez-vous.
+Des défaites, tout cela ! s'écria Stamp W.
+Tout de suite ou pas.
+Soit, répondit Mr.
+Vous allez à New York ? Non.
+A Chicago ? Non.
+A Omaha ? Peu vous importe ! Connaissez-vous Plum-Creek ? Non, répondit Mr.
+C'est la station prochaine.
+Le train y sera dans une heure.
+Il y stationnera dix minutes.
+En dix minutes, on peut échanger quelques coups de revolver.
+Soit, répondit Mr.
+Je m'arrêterai à Plum-Creek.
+Et je crois même que vous y resterez ! ajouta l'Américain avec une insolence sans pareille.
+Qui sait, monsieur ? » répondit Mr.
+Fogg, et il rentra dans son wagon, aussi froid que d'habitude.
+Là, le gentleman commença par rassurer Mrs.
+Aouda, lui disant que les fanfarons n'étaient jamais à craindre.
+A onze heures, le sifflet de la locomotive annonça l'approche de la station de Plum-Creek.
+Fogg se leva, et, suivi de Fix, il se rendit sur la passerelle.
+Passepartout l'accompagnait, portant une paire de revolvers.
+Aouda était restée dans le wagon, pâle comme une morte.
+Et pourquoi ? demanda le colonel.
+Nous avons vingt minutes de retard, et le train ne s'arrête pas.
+Mais je dois me battre avec monsieur.
+Je le regrette, répondit l'employé, mais nous repartons immédiatement.
+« Je suis vraiment désolé, messieurs, dit alors le conducteur.
+En toute autre circonstance, j'aurai pu vous obliger.
+Cela me convient parfaitement », répondit Phileas Fogg.
+Le dernier wagon n'était occupé que par une dizaine de voyageurs.
+Ce wagon, long d'une cinquantaine de pieds, se prêtait très convenablement à la circonstance.
+Jamais duel ne fut plus facile à régler.
+Leurs témoins, restés en dehors, les y enfermèrent.
+Rien de plus simple en vérité.
+C'était même si simple, que Fix et Passepartout sentaient leur coeur battre à se briser.
+On attendait donc le coup de sifflet convenu, quand soudain des cris sauvages retentirent.
+Des détonations les accompagnèrent, mais elles ne venaient point du wagon réservé aux duellistes.
+Ces détonations se prolongeaient, au contraire, jusqu'à l'avant et sur toute la ligne du train.
+Des cris de frayeur se faisaient entendre à l'intérieur du convoi.
+Le colonel Proctor et Mr.
+Ils avaient compris que le train était attaqué par une bande de Sioux.
+Ces Sioux étaient munis de fusils.
+Tout d'abord, les Indiens s'étaient précipités sur la machine.
+Le mécanicien et le chauffeur avaient été à demi assommés à coups de casse-tête.
+Hors du wagon de bagages, forcé et pillé, les colis étaient précipités sur la voie.
+Cris et coups de feu ne discontinuaient pas.
+Cependant les voyageurs se défendaient avec courage.
+Dès le début de l'attaque, Mrs.
+Aouda s'était courageusement comportée.
+Plusieurs voyageurs, grièvement atteints par les balles ou les casse-tête, gisaient sur les banquettes.
+Cependant il fallait en finir.
+En effet, la station du fort Kearney n'était pas à deux milles de distance.
+Le conducteur se battait aux côtés de Mr.
+Fogg, quand une balle le renversa.
+Restez, monsieur, lui cria Passepartout.
+Il n'avait pas été vu, il n'avait pu l'être.
+Là, les soldats du fort, attirés par les coups de feu, accoururent en hâte.
+Trois voyageurs, Passepartout compris, avaient disparu.
+Les blessés étaient assez nombreux, mais on reconnut qu'aucun n'était atteint mortellement.
+Il fut transporté à la gare avec d'autres voyageurs, dont l'état réclamait des soins immédiats.
+Aouda était sauve.
+Phileas Fogg, qui ne s'était pas épargné, n'avait pas une égratignure.
+Fix était blessé au bras, blessure sans importance.
+Mais Passepartout manquait, et des larmes coulaient des yeux de la jeune femme.
+Cependant tous les voyageurs avaient quitté le train.
+Les roues des wagons étaient tachées de sang.
+Aux moyeux et aux rayons pendaient d'informes lambeaux de chair.
+On voyait à perte de vue sur la plaine blanche de longues traînées rouges.
+Les derniers Indiens disparaissaient alors dans le sud, du côté de Republican-river.
+Fogg, les bras croisés, restait immobile.
+Il avait une grave décision à prendre.
+Aouda, près de lui, le regardait sans prononcer une parole … Il comprit ce regard.
+Vivant ! ajouta Mr.
+Il venait de prononcer sa ruine.
+Un seul jour de retard lui faisait manquer le paquebot à New York.
+Son pari était irrévocablement perdu.
+Mais devant cette pensée : « C'est mon devoir ! » il n'avait pas hésité.
+Le capitaine commandant le fort Kearney était là.
+« Monsieur, dit Mr.
+Fogg au capitaine, trois voyageurs ont disparu.
+Morts ? demanda le capitaine.
+Morts ou prisonniers, répondit Phileas Fogg.
+Là est une incertitude qu'il faut faire cesser.
+Votre intention est-elle de poursuivre les Sioux ? Cela est grave, monsieur, dit le capitaine.
+Monsieur, reprit Phileas Fogg, il s'agit de la vie de trois hommes.
+Monsieur, répondit le capitaine, personne ici n'a à m'apprendre quel est mon devoir.
+Soit, dit froidement Phileas Fogg.
+Eh bien, non, vous n'irez pas seul ! s'écria le capitaine, ému malgré lui.
+Toute la compagnie s'avança en masse.
+Le capitaine n'eut qu'à choisir parmi ces braves gens.
+Trente soldats furent désignés, et un vieux sergent se mit à leur tête.
+« Merci, capitaine ! dit Mr.
+Vous me permettrez de vous accompagner ? demanda Fix au gentleman.
+Vous ferez comme il vous plaira, monsieur, lui répondit Phileas Fogg.
+Mais si vous voulez me rendre service, vous resterez près de Mrs.
+« Je resterai », dit-il.
+Quelques instants après, Mr.
+Phileas Fogg était un héros à ses yeux.
+L'inspecteur Fix, lui, ne pensait pas ainsi, et il ne pouvait contenir son agitation.
+Il se promenait fébrilement sur le quai de la gare.
+Un moment subjugué, il redevenait lui-même.
+Fogg parti, il comprenait la sottise qu'il avait faite de le laisser partir.
+« J'ai été inepte ! pensait-il.
+Il ne savait que faire.
+Quelquefois, il avait envie de tout dire à Mrs.
+Mais il comprenait comment il serait reçu par la jeune femme.
+Alors le découragement prit Fix.
+Il éprouva comme une insurmontable envie d'abandonner la partie.
+Cependant on n'attendait encore aucun train venant de l'est.
+,  On fut bientôt fixé.
+La machine était alors arrêtée.
+Le mécanicien n'hésita pas sur ce qu'il devait faire.
+C'était elle qui sifflait dans la brume.
+Ils allaient pouvoir continuer ce voyage si malheureusement interrompu.
+A l'arrivée de la machine, Mrs.
+Aouda avait quitté la gare, et s'adressant au conducteur : « Vous allez partir ? lui demanda-t-elle.
+A l'instant, madame.
+Mais ces prisonniers … nos malheureux compagnons … Je ne puis interrompre le service, répondit le conducteur.
+Nous avons déjà trois heures de retard.
+Et quand passera l'autre train venant de San Francisco ? Demain soir, madame.
+Demain soir ! mais il sera trop tard.
+Il faut attendre … C'est impossible, répondit le conducteur.
+Si vous voulez partir, montez en voiture.
+Je ne partirai pas », répondit la jeune femme.
+Fix avait entendu cette conversation.
+Ce quai de la gare lui brûlait les pieds, et il ne pouvait s'en arracher.
+Le combat recommençait en lui.
+La colère de l'insuccès l'étouffait.
+Il voulait lutter jusqu'au bout.
+On entendait les bourdonnements de la chaudière surchauffée, et la vapeur s'échappait par les soupapes.
+L'inspecteur Fix était resté.
+Quelques heures s'écoulèrent.
+Le temps était fort mauvais, le froid très vif.
+Fix, assis sur un banc dans la gare, restait immobile.
+On eût pu croire qu'il dormait.
+Elle rentrait alors, toute transie, pour revenir quelques moments plus tard, et toujours inutilement.
+Le soir se fit.
+Le petit détachement n'était pas de retour.
+La nuit vint, la neige tomba moins abondamment, mais l'intensité du froid s'accrut.
+Le regard le plus intrépide n'eût pas considéré sans épouvante cette obscure immensité.
+Un absolu silence régnait sur la plaine.
+Ni le vol d'un oiseau, ni la passée d'un fauve n'en troublait le calme infini.
+Pendant toute cette nuit, Mrs.
+Son imagination l'emportait au loin et lui montrait mille dangers.
+Ce qu'elle souffrit pendant ces longues heures ne saurait s'exprimer.
+La nuit s'écoula ainsi.
+A l'aube, le disque à demi éteint du soleil se leva sur un horizon embrumé.
+Cependant la portée du regard pouvait s'étendre à une distance de deux milles.
+Il était alors sept heures du matin.
+Le capitaine, extrêmement soucieux, ne savait quel parti prendre.
+Il y avait eu combat à dix milles au sud de Kearney.
+Fogg, et il eût été difficile d'analyser les impressions qui se combattaient alors en lui.
+Quant à Mrs.
+« Le train, le train ! s'écria-t-il.
+Parti, répondit Fix.
+Et le train suivant, quand passera-t-il ? demanda Phileas Fogg.
+Ce soir seulement.
+Ah ! » répondit simplement l'impassible gentleman.
+Phileas Fogg se trouvait en retard de vingt heures.
+Passepartout, la cause involontaire de ce retard, était désespéré.
+Il avait décidément ruiné son maître ! En ce moment, l'inspecteur s'approcha de Mr.
+J'insiste, reprit Fix.
+Vous avez donc vingt heures de retard.
+Entre vingt et douze, l'écart est de huit.
+C'est huit heures à regagner.
+Voulez-vous tenter de le faire ? A pied ? demanda Mr.
+Non, en traîneau, répondit Fix, en traîneau à voiles.
+Un homme m'a proposé ce moyen de transport.
+A l'arrière, une sorte de gouvernail-godille permettait de diriger l'appareil.
+C'était, on le voit, un traîneau gréé en sloop.
+En quelques instants, un marché fut conclu entre Mr.
+Fogg et le patron de cette embarcation de terre.
+Le vent était bon.
+Il soufflait de l'ouest en grande brise.
+La neige était durcie, et Mudge se faisait fort de conduire Mr.
+Fogg en quelques heures à la station d'Omaha.
+Il n'était pas impossible que le retard fût regagné.
+Il n'y avait donc pas à hésiter à tenter l'aventure.
+Fogg, ne voulant pas exposer Mrs.
+Aouda refusa de se séparer de Mr.
+Fogg, et Passepartout se sentit très heureux de cette détermination.
+Quant à ce que pensait alors l'inspecteur de police ce serait difficile à dire.
+A huit heures, le traîneau était prêt à partir.
+Si le vent tenait, en cinq heures cette distance pouvait être franchie.
+Quelle traversée ! Les voyageurs, pressés les uns contre les autres, ne pouvaient se parler.
+Le froid, accru par la vitesse, leur eût coupé la parole.
+Toute la toile portait.
+Le foc avait été perqué et n'était plus abrité par la brigantine.
+Fogg, fidèle à son système, l'avait alléché par une forte prime.
+La prairie, que le traîneau coupait en ligne droite, était plate comme une mer.
+On eût dit un immense étang glacé.
+Il suivait pendant tout son parcours la rive droite de Platte-river.
+Mais la brise ne mollissait pas.
+Elle soufflait à courber le mât, que les haubans de fer maintenaient solidement.
+Le traîneau s'enlevait au milieu d'une harmonie plaintive, d'une intensité toute particulière.
+« Ces cordes donnent la quinte et l'octave », dit Mr.
+Et ce furent les seules paroles qu'il prononça pendant cette traversée.
+Avec le fond d'imperturbable confiance qu'il possédait, il s'était repris à espérer.
+Passepartout avait même éprouvé une forte envie de serrer la main de son allié Fix.
+Mais, par on ne sait quel pressentiment, il se tint dans sa réserve accoutumée.
+En tout cas, une chose que Passepartout n'oublierait jamais, c'était le sacrifice que Mr.
+Fogg avait fait, sans hésiter, pour l'arracher aux mains des Sioux.
+A cela, Mr.
+S'il passait quelques creeks, affluents ou sous-affluents de la Little-Blue-river, on ne s'en apercevait pas.
+Les champs et les cours d'eau disparaissaient sous une blancheur uniforme.
+La plaine était absolument déserte.
+Pas un village, pas une station, pas même un fort.
+Parfois, des bandes d'oiseaux sauvages s'enlevaient du même vol.
+A midi, Mudge reconnut à quelques indices qu'il passait le cours glacé de la Platte-river.
+Ils aidèrent Mr.
+Fogg et la jeune femme à descendre du traîneau.
+Un train direct était prêt à partir.
+Phileas Fogg et ses compagnons n'eurent que le temps de se précipiter dans un wagon.
+Avec une extrême rapidité, ce train passa dans l'État d'Iowa, par Council-Bluffs, Des Moines, Iowa-city.
+Neuf cents milles séparent Chicago de New York.
+Les trains ne manquaient pas à Chicago.
+Fogg passa immédiatement de l'un dans l'autre.
+Fogg pour gagner son pari.
+Passepartout était anéanti.
+Avoir manqué le paquebot de quarante-cinq minutes, cela le tuait.
+Fogg, il s'accablait d'injures.
+Aouda et ses compagnons, auxquels leur agitation ne permit pas de reposer.
+Le lendemain, c'était le douze décembre.
+Aouda de se tenir prête à tout instant.
+Le capitaine de l'Henrietta était à bord.
+Phileas Fogg monta sur le pont et fit demander le capitaine.
+Celui-ci se présenta aussitôt.
+« Le capitaine ? demanda Mr.
+Je suis Phileas Fogg, de Londres.
+Et moi, Andrew Speedy, de Cardif.
+Vous allez partir ? … Dans une heure.
+Vous êtes chargé pour … ? Bordeaux.
+Et votre cargaison ? Des cailloux dans le ventre.
+Pas de fret.
+Je pars sur lest.
+Vous avez des passagers ? Pas de passagers.
+Jamais de passagers.
+Marchandise encombrante et raisonnante.
+Votre navire marche bien ? Entre onze et douze noeuds.
+L'Henrietta, bien connue.
+Non ! Non ? Non.
+Je suis en partance pour Bordeaux, et je vais à Bordeaux.
+N'importe quel prix ? N'importe quel prix.
+» Le capitaine avait parlé d'un ton qui n'admettait pas de réplique.
+« Mais les armateurs de l'Henrietta … reprit Phileas Fogg.
+Les armateurs, c'est moi, répondit le capitaine.
+Le navire m'appartient.
+Je vous affrète.
+Je vous l'achète.
+» Phileas Fogg ne sourcilla pas.
+Cependant la situation était grave.
+Jusqu'ici l'argent du gentleman avait toujours eu raison des obstacles.
+Cette fois-ci, l'argent échouait.
+Par personne ? Par personne.
+Et vous êtes quatre ? Quatre.
+Il était huit heures et demie.
+Débarquer de l'Henrietta, monter dans une voiture, se rendre à l'hôtel Saint-Nicolas, en ramener Mrs.
+Au moment où l'Henrietta appareillait, tous quatre étaient à bord.
+C'était Phileas Fogg.
+Ce qui s'était passé était très simple.
+Phileas Fogg voulait aller à Liverpool, le capitaine ne voulait pas l'y conduire.
+Seulement, il était très clair, à voir manoeuvrer Mr.
+Fogg, que Mr.
+Fogg avait été marin.
+Maintenant, comment finirait l'aventure, on le saurait plus tard.
+Aouda ne laissait pas d'être inquiète, sans en rien dire.
+Fix, lui, avait été abasourdi tout d'abord.
+Quant à Passepartout, il trouvait la chose tout simplement adorable.
+Pendant les premiers jours, la navigation se fit dans d'excellentes conditions.
+Passepartout était enchanté.
+Le dernier exploit de son maître, dont il ne voulait pas voir les conséquences, l'enthousiasmait.
+Jamais l'équipage n'avait vu un garçon plus gai, plus agile.
+Il faisait mille amitiés aux matelots et les étonnait par ses tours de voltige.
+Il leur prodiguait les meilleurs noms et les boissons les plus attrayantes.
+Pour lui, ils manoeuvraient comme des gentlemen, et les chauffeurs chauffaient comme des héros.
+Sa bonne humeur, très communicative, s'imprégnait à tous.
+Il avait oublié le passé, les ennuis, les périls.
+Le treize, on passe sur la queue du banc de Terre-Neuve.
+Ce sont là de mauvais parages.
+Pendant l'hiver surtout, les brumes y sont fréquentes, les coups de vent redoutables.
+Depuis la veille, le baromètre, brusquement abaissé, faisait pressentir un changement prochain dans l'atmosphère.
+C'était un contretemps.
+Il éprouva des mouvements de tangage très violents, et cela au détriment de sa vitesse.
+Or, s'il fallait fuir, c'était l'inconnu avec toutes ses mauvaises chances.
+Toutefois le vent ne fraîchit pas autant qu'on aurait pu le craindre.
+En somme, l'Henrietta n'avait pas encore un retard inquiétant.
+En été, on eût répondu du succès.
+En hiver, on était à la merci de la mauvaise saison.
+Passepartout ne se prononçait pas.
+Or, ce jour-là, le mécanicien étant monté sur le pont, rencontra Mr.
+Fogg et s'entretint assez vivement avec lui.
+Sans savoir pourquoi ,  par un pressentiment sans doute , , Passepartout éprouva comme une vague inquiétude.
+Passepartout avait compris.
+Il fut pris d'une inquiétude mortelle.
+Et maintenant quel parti allait prendre Phileas Fogg ? Cela était difficile à imaginer.
+» Quelques instants après, la cheminée de l'Henrietta vomissait des torrents de fumée.
+« Que l'on ne laisse pas baisser les feux, répondit Mr.
+Que l'on charge les soupapes ».
+Cette bombe, c'était le capitaine Speedy.
+Il était évident qu'elle allait éclater.
+« Où sommes-nous ? répéta-t-il, la face congestionnée.
+A sept cent soixante-dix milles de Liverpool (trois cents lieues), répondit Mr.
+Fogg avec un calme imperturbable.
+Pirate ! s'écria Andrew Speedy.
+Brûler mon navire ! Oui, du moins dans ses hauts, car nous manquons de combustible.
+Brûler mon navire ! s'écria le capitaine Speedy, qui ne pouvait même plus prononcer les syllabes.
+Un navire qui vaut cinquante mille dollars (deux cent cinquante 000 F).
+Cela fit un effet prodigieux sur Andrew Speedy.
+Son navire avait vingt ans.
+Cela pouvait devenir une affaire d'or ! … La bombe ne pouvait déjà plus éclater.
+Fogg en avait arraché la mèche.
+« Et la coque en fer me restera, dit-il d'un ton singulièrement radouci.
+La coque en fer et la machine, monsieur.
+Est-ce conclu ? Conclu.
+Pendant cette scène, Passepartout était blanc.
+Quant à Fix, il faillit avoir un coup de sang.
+Fogg, que tout ceci ne vous étonne pas.
+» Puis, plus posément : « Savez-vous une chose, ajouta-t-il, capitaine ? … Fogg.
+Capitaine Fogg, eh bien, il y a du Yankee en vous ».
+Faites démolir les aménagements intérieurs et chauffez avec ces débris.
+Le lendemain, dix-neuf décembre, on brûla la mâture, les dromes, les esparres.
+On abattit les mâts, on les débita à coups de hache.
+L'équipage y mettait un zèle incroyable.
+Passepartout, taillant, coupant, sciant, faisait l'ouvrage de dix hommes.
+C'était une fureur de démolition.
+L'Henrietta n'était plus qu'un bâtiment rasé comme un ponton.
+Tout est contre vous ! Nous ne sommes encore que devant Queenstown.
+Ah ! fit Mr.
+Fogg, c'est Queenstown, cette ville dont nous apercevons les feux ? Oui.
+Pouvons-nous entrer dans le port ? Pas avant trois heures.
+A pleine mer seulement.
+Ces lettres sont emportées à Dublin par des express toujours prêts à partir.
+Ces douze heures que gagnait ainsi le courrier d'Amérique, Phileas Fogg prétendait les gagner aussi.
+Fix, à ce moment, eut une envie féroce d'arrêter le sieur Fogg.
+Fogg ? Comprenait-il enfin qu'il s'était trompé ? Toutefois, Fix n'abandonna pas Mr.
+Avec lui, avec Mrs.
+Il n'était plus qu'à six heures de Londres.
+Au nom de la reine, je vous arrête ! » Phileas Fogg était en prison.
+Au moment de l'arrestation, Passepartout avait voulu se précipiter sur le détective.
+Des policemen le retinrent.
+Aouda, épouvantée par la brutalité du fait, ne sachant rien, n'y pouvait rien comprendre.
+Passepartout lui expliqua la situation.
+Fogg, cet honnête et courageux gentleman, auquel elle devait la vie, était arrêté comme voleur.
+La justice en déciderait.
+En songeant à ses fautes, à ses imprudences, le pauvre garçon était pris d'irrésistibles remords.
+Il pleurait, il faisait peine à voir.
+Il voulait se briser la tête ! Mrs.
+Aouda et lui étaient restés, malgré le froid, sous le péristyle de la douane.
+Ils ne voulaient ni l'un ni l'autre quitter la place.
+Ils voulaient revoir encore une fois Mr.
+Cette arrestation le perdait sans retour.
+En ce moment, qui eût pénétré dans le poste de la douane eût trouvé Mr.
+Fogg, immobile, assis sur un banc de bois, sans colère, imperturbable.
+Pas une parole ne s'échappait de ses lèvres, mais son regard avait une fixité singulière.
+Malhonnête homme, il était pris.
+Mais la porte était solidement fermée et la fenêtre garnie de barreaux de fer.
+Il vint donc se rasseoir, et il tira de son portefeuille l'itinéraire du voyage.
+Une heure sonna à l'horloge de Custom-house.
+Fogg constata que sa montre avançait de deux minutes sur cette horloge.
+On entendait la voix de Passepartout, on entendait la voix de Fix.
+Le regard de Phileas Fogg brilla un instant.
+La porte du poste s'ouvrit, et il vit Mrs.
+Aouda, Passepartout, Fix, qui se précipitèrent vers lui.
+Il n'avait que ce qu'il méritait.
+Mais aussitôt Mr, Fogg, Mrs.
+Aouda, Passepartout quittèrent la douane.
+Phileas Fogg commanda alors un train spécial.
+Fogg avait réintégré son domicile.
+Portes et fenêtres, tout était clos.
+Aucun changement ne s'était produit à l'extérieur.
+Ce gentleman avait reçu avec son impassibilité habituelle le coup qui le frappait.
+Au surplus, le parti du gentleman était pris.
+Il savait ce qui lui restait à faire.
+Une chambre de la maison de Saville-row avait été réservée à Mrs.
+La jeune femme était désespérée.
+A certaines paroles prononcées par Mr.
+Fogg, elle avait compris que celui-ci méditait quelque projet funeste.
+Aussi Passepartout, sans en avoir l'air, surveillait-il son maître.
+La nuit se passa.
+Fogg s'était couché, mais avait-il dormi ? Quant à Mrs.
+Aouda, elle ne put prendre un seul instant de repos.
+Passepartout, lui, avait veillé comme un chien à la porte de son maître.
+Le lendemain, Mr.
+Pour lui, il se contenterait d'une tasse de thé et d'une rôtie.
+Il ne descendrait pas.
+Le soir seulement, il demanderait à Mrs.
+Aouda la permission de l'entretenir pendant quelques instants.
+Passepartout, ayant communication du programme de la journée, n'avait plus qu'à s'y conformer.
+Oui ! s'il eût prévenu Mr.
+Fogg, s'il lui eût dévoilé les projets de l'agent Fix, Mr.
+« Mon maître ! monsieur Fogg ! s'écria-t-il, maudissez-moi.
+Vous, peut-être … Quelle influence aurais-je, répondit Mrs.
+Vous dites qu'il a manifesté l'intention de me parler ce soir ? Oui, madame.
+Il s'agit sans doute de sauvegarder votre situation en Angleterre.
+Attendons », répondit la jeune femme, qui demeura toute pensive.
+Et pourquoi ce gentleman se fût-il présenté au Reform-Club ? Ses collègues ne l'y attendaient plus.
+Fogg n'avait donc pas à sortir, et il ne sortit pas.
+Il demeura dans sa chambre et mit ordre à ses affaires.
+Passepartout ne cessa de monter et de descendre l'escalier de la maison de Saville-row.
+Les heures ne marchaient pas pour ce pauvre garçon.
+Parfois, il songeait à Fix, mais un revirement s'était fait dans son esprit.
+Il n'en voulait plus à l'inspecteur de police.
+Vers sept heures et demie du soir, Mr.
+Fogg fit demander à Mrs.
+Phileas Fogg prit une chaise et s'assit près de la cheminée, en face de Mrs.
+Son visage ne reflétait aucune émotion.
+Le Fogg du retour était exactement le Fogg du départ.
+Même calme, même impassibilité.
+Il resta sans parler pendant cinq minutes.
+Puis levant les yeux sur Mrs.
+Aouda, en comprimant les battements de son coeur.
+Veuillez me permettre d'achever, reprit Mr.
+Votre existence eût été heureuse et libre.
+Maintenant, je suis ruiné.
+Ainsi, monsieur Fogg, reprit Mrs.
+Mais, vous, monsieur Fogg, que deviendrez-vous ? demanda Mrs.
+Moi, madame, répondit froidement le gentleman, je n'ai besoin de rien.
+En tout cas, reprit Mrs.
+Aouda, la misère ne saurait atteindre un homme tel que vous.
+Vos amis … Je n'ai point d'amis, madame.
+Vos parents … Je n'ai plus de parents.
+Je vous plains alors, monsieur Fogg, car l'isolement est une triste chose.
+Quoi ! pas un coeur pour y verser vos peines.
+On dit cependant qu'à deux la misère elle-même est supportable encore ! On le dit, madame.
+Monsieur Fogg, dit alors Mrs.
+Fogg, à cette parole, s'était levé à son tour.
+Aouda le regardait.
+Aouda, en portant la main à son coeur.
+Passepartout fut sonné.
+Il arriva aussitôt.
+Fogg tenait encore dans sa main la main de Mrs.
+Passepartout comprit, et sa large face rayonna comme le soleil au zénith des régions tropicales.
+Passepartout sourit de son meilleur sourire.
+« Jamais trop tard », dit-il.
+Il n'était que huit heures cinq.
+« Ce serait pour demain, lundi ! dit-il.
+Pour demain lundi ? demanda Mr.
+Fogg en regardant la jeune femme.
+Pour demain lundi ! » répondit Mrs.
+Passepartout sortit, tout courant.
+Toutes les transactions redevenaient valables.
+Le nom de Phileas Fogg fit de nouveau prime sur le marché.
+Les cinq collègues du gentleman, au Reform-Club, passèrent ces trois jours dans une certaine inquiétude.
+Ce qui n'empêcha pas les paris de s'engager de nouveau sur une plus vaste échelle.
+Phileas Fogg, comme un cheval de course, arrivait au dernier tournant.
+Aussi, le samedi soir, y avait-il foule dans Pall-Mall et dans les rues voisines.
+On eût dit un immense attroupement de courtiers, établis en permanence aux abords du Reform-Club.
+La circulation était empêchée.
+Phileas Fogg et nous sera expiré.
+A quelle heure est arrivé le dernier train de Liverpool ? demanda Thomas Flanagan.
+A sept heures vingt-trois, répondit Gauthier Ralph, et le train suivant n'arrive qu'à minuit dix.
+Nous pouvons donc considérer le pari comme gagné.
+Attendons, ne nous prononçons pas, répondit Samuel Fallentin.
+Vous voyez que notre collègue est un excentrique de premier ordre.
+Son exactitude en tout est bien connue.
+En effet, reprit Thomas Flanagan, le projet de Phileas Fogg était insensé.
+En ce moment l'horloge du salon sonna huit heures quarante.
+« Encore cinq minutes », dit Andrew Stuart.
+Les cinq collègues se regardaient.
+Puis un moment de silence se fit.
+Le vaste salon du club était tranquille.
+Mais, au-dehors, on entendait le brouhaha de la foule, que dominaient parfois des cris aigus.
+Le balancier de l'horloge battait la seconde avec une régularité mathématique.
+Chaque joueur pouvait compter les divisions sexagésimales qui frappaient son oreille.
+Plus qu'une minute, et le pari était gagné.
+Andrew Stuart et ses collègues ne jouaient plus.
+Ils avaient abandonné les cartes ! Ils comptaient les secondes ! A la quarantième seconde, rien.
+Les joueurs se levèrent.
+Oui ! Phileas Fogg en personne.
+Passepartout était donc parti, enchanté.
+Naturellement, Passepartout attendit, mais il attendit vingt bonnes minutes au moins.
+Bref, il était huit heures trente-cinq quand il sortit de la maison du révérend.
+Il ne pouvait parler.
+« Qu'y a-t-il ? demanda Mr.
+Mon maître … balbutia Passepartout … mariage … impossible.
+Impossible ? Impossible … pour demain.
+Pourquoi ? Parce que demain … c'est dimanche ! Lundi, répondit Mr.
+Non … aujourd'hui … samedi.
+Samedi ? impossible ! Si, si, si, si ! s'écria Passepartout.
+Elle est fort simple.
+Fogg, ceux-ci l'attendaient dans le salon du Reform-Club.
+Ce soir-là même, Mr.
+Fogg, aussi impassible, aussi flegmatique, disait à Mrs.
+Aouda : « Ce mariage vous convient-il toujours, madame ? Monsieur Fogg, répondit Mrs.
+Aouda, c'est à moi de vous faire cette question.
+Vous étiez ruiné, vous voici riche … Pardonnez-moi, madame, cette fortune vous appartient.
+Chère Aouda … », répondit Phileas Fogg.
+La porte s'ouvrit, et l'impassible gentleman parut.
+Sans doute, répondit Mr.
+Fogg, en ne traversant pas l'Inde.
+Mais si je n'avais pas traversé l'Inde, je n'aurais pas sauvé Mrs.
+Aouda, elle ne serait pas ma femme, et … » Et Mr.
+Fogg ferma tranquillement la porte.
+Ainsi donc Phileas Fogg avait gagné son pari.
+L'excentrique gentleman avait déployé dans cette affaire ses merveilleuses qualités de sang-froid et d'exactitude.
+Dans lequel Phileas Fogg et Passepartout II.
+Où Passepartout est convaincu qu'il a enfin III.
+Où s'engage une conversation qui pourra IV.
+Dans lequel Phileas Fogg stupéfie V.
+Dans lequel une nouvelle valeur apparaît sur la VI.
+Dans lequel l'agent Fix montre une impatience VII.
+Qui témoigne une fois de plus de l'inutilité VIII.
+Dans lequel Passepartout parle un peu plus IX.
+Où la mer Rouge et la mer des Indes se X.
+Où Passepartout est trop heureux d'en être XI.
+Où Phileas Fogg achète une monture à un prix XII.
+Où Phileas Fogg et ses compagnons XIII.
+Dans lequel Passepartout prouve une fois de XIV.
+Dans lequel Phileas Fogg descend toute XV.
+Où le sac aux bank-notes s'allège encore de XVI.
+Où Fix n'a pas l'air de connaître du tout les XVII.
+Où il est question de choses et d'autres XVIII.
+Dans lequel Phileas Fogg, Passepartout, XIX.
+Où Passepartout prend un trop vif intérêt à XX.
+Dans lequel Fix entre directement en relation XXI.
+Où le patron de la Tankardère risque fort XXII.
+Où Passepartout voit bien que, même aux XXIII.
+Dans lequel le nez de Passepartout XXIV.
+Pendant lequel s'accomplit la traversée de XXV.
+Où l'on donne un léger aperçu de San XXVI.
+Dans lequel on prend le train express du XXVII.
+Dans lequel Passepartout suit, avec une XXVIII.
+Dans lequel Passepartout ne put parvenir à XXIX.
+Où il sera fait le récit d'incidents divers XXX.
+Dans lequel Phileas Fogg fait tout simplement XXXI.
+Dans lequel l'inspecteur Fix prend très XXXII.
+Dans lequel Phileas Fogg engage une lutte XXXIII.
+Où Phileas Fogg se montre à la hauteur des XXXIV.
+Qui procure à Passepartout l'occasion de XXXV.
+Dans lequel Passepartout ne se fait pas XXXVI.
+Dans lequel Phileas Fogg fait de nouveau XXXVII.
+ / }; }; }; }; }; }; /  OUTGIF  ,   Create GIF navigation buttons for HTML trees.
+*/ } } /  PROTEXT  ,   Output text with character-level transformations.
+ / static void navaids(basename, chapno, last, out) { /* Previous chapter button.
+*/ if (chapno > un) { } else { } /* Up to table of contents button.
+*/ if (html) { } else { } /* Line level file processing.
+*/ for (;;) { } /* Output document trailer.
+*/ if (html) { } else { } fclose(out); return 0 ; }
