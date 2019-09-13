@@ -59,7 +59,7 @@ pushd $HOME/ds/
             --export_dir /mnt/models/ \
             --export_tflite \
             --nouse_seq_length \
-            --export_language "ita"
+            --export_language "it"
     fi;
 
     if [ ! -f "/mnt/models/output_graph.pbmm" ]; then
