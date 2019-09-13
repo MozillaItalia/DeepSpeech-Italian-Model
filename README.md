@@ -1,17 +1,17 @@
 # Common Voice – DeepSpeech
 
-Centralisation d'outils de construction et de nettoyage de jeux de données pour Common Voice et de production de modèles DeepSpeech en français.
+Aggregatore degli strumenti per la generazione di un modello di machine learning per la lingua Italiana del progetto Common Voice.
 
-# Sur le dépôt
+## Regole
 
-Vous trouverez les informations pour :
+* Ticket e pull requests in inglese
+* Readme in Italiano
 
-- [Common Voice fr](https://github.com/Common-Voice/commonvoice-fr/tree/master/CommonVoice)
 
-- [DeepSpeech fr](https://github.com/Common-Voice/commonvoice-fr/tree/master/DeepSpeech)
+## Risorse
 
-- [Data](https://github.com/Common-Voice/commonvoice-fr/tree/master/CommonVoice-Data)
-
-- [Visuel](https://github.com/Common-Voice/commonvoice-fr/wiki/visuel)
-
-- [Annonces et articles intéressants](https://github.com/Common-Voice/commonvoice-fr/tree/master/presse.md)
+* https://github.com/mozilla/voice-corpus-tool
+* https://github.com/Common-Voice/sentence-collector
+* https://github.com/MozillaItalia/voice-web - Il dataset primario di frasi italiane lo manteniamo qui
+* https://voice.mozilla.org/it
+* https://github.com/mozilla/DeepSpeech
