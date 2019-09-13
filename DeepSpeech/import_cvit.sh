@@ -4,12 +4,13 @@ set -xe
 
 pushd $HOME/ds/
 	if [ ! -f "/mnt/sources/it.tar.gz" ]; then
-		exit 1
+        echo "Download in progress of Common Voice Italian Dataset"
+		wget https://voice-prod-bundler-ee1969a6ce8178826482b88e843c335139bd3fb4.s3.amazonaws.com/cv-corpus-3/it.tar.gz /mnt/sources/it.tar.gz
 	fi;
 
 	sha1=$(sha1sum --binary /mnt/sources/it.tar.gz | awk '{ print $1 }')
 
-	if [ "${sha1}" != "2515b82b529a78c9febd5957d88dfa189ddb67e1" ]; then
+	if [ "${sha1}" != "5df46c977b3689a080a799254a57a736fc3fc041" ]; then
 		echo "Invalid Common Voice IT dataset"
 		exit 1
 	fi;
