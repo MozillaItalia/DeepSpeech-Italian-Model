@@ -5,14 +5,11 @@
 * Ensure you have a running setup of `NVIDIA Docker`
 * Prepare a host directory with enough space for training / producing intermediate data (100GB ?).
 * Ensure it's writable by `trainer` (uid 999) user (defined in the Dockerfile).
-* For Common Voice dataset, please make sure you have downloaded the dataset prior to running (behind email)
-  Place `fr.tar.gz` (sha1 value should be `30dbf694ddc3951829c894b91328f4cf10179dcf`) inside your host directory,
-  in a `sources/` subdirectory.
 
 ## Build the image:
 
 ```
-$ docker build -f Dockerfile.train.fr .
+$ docker build -f Dockerfile.train.it .
 ```
 
 Several parameters can be customized:
@@ -35,9 +32,8 @@ Some parameters for the model itself:
 Default values should provide good experience.
 
 The default batch size has been tested with this mix of dataset:
- - Common Voice French, released on 2019, february 14th
- - TrainingSpeech as of 2019, april 11th
- - Lingua Libre as of 2019, may 3rd
+ - Common Voice French, released on 2019 around september
+ - Lingua Libre as of 2019, around september
 
 ### Transfer learning from English
 
