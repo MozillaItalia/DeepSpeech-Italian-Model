@@ -1,4 +1,4 @@
-# Dockerfile for producing french model
+# Dockerfile for producing italian model
 
 ## Prerequistes:
 
