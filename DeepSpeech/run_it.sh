@@ -2,12 +2,12 @@
 
 set -xe
 
-import_cvit.sh
+$HOME/import_cvit.sh
 
-import_lingualibre.sh
+$HOME/import_lingualibre.sh
 
-generate_alphabet.sh
+$HOME/generate_alphabet.sh
 
-build_lm.sh
+$HOME/build_lm.sh
 
-train_it.sh
+$HOME/train_it.sh

@@ -40,9 +40,6 @@ pushd $HOME/ds/
             --lm_alpha ${LM_ALPHA} \
             --lm_beta ${LM_BETA} \
             ${EARLY_STOP_FLAG} \
-            --display_step 0 \
-            --validation_step 1 \
-            --checkpoint_step 1 \
             --checkpoint_dir /mnt/checkpoints/ \
             --export_dir /mnt/models/ \
             --export_language "it"

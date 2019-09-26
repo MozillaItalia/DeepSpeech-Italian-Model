@@ -1,12 +1,12 @@
 FROM nvidia/cuda:10.0-cudnn7-runtime-ubuntu18.04
 
 ARG ds_repo=mozilla/DeepSpeech
-ARG ds_branch=6e53fd8fe0f1c7469dcf946a2eeed4d7aace6afd
-ARG ds_sha1=6e53fd8fe0f1c7469dcf946a2eeed4d7aace6afd
+ARG ds_branch=513c8e9ab7e2abc9b3fc62e7f1514b83156e8f97
+ARG ds_sha1=513c8e9ab7e2abc9b3fc62e7f1514b83156e8f97
 ARG kenlm_repo=kpu/kenlm
 ARG kenlm_branch=2ad7cb56924cd3c6811c604973f592cb5ef604eb
 
-ARG model_languag=it
+ARG model_language=it
 
 ARG batch_size=68
 ARG n_hidden=2048
@@ -72,12 +72,16 @@ RUN apt-get -qq update && apt-get -qq install -y --no-install-recommends \
     unzip \
     pixz \
     sox \
+    sudo \
     libsox-fmt-all \
     locales locales-all \
     xz-utils
 
 RUN groupadd -g 999 trainer && \
     adduser --system --uid 999 --group trainer
+    
+RUN echo "trainer ALL=(root) NOPASSWD:ALL" > /etc/sudoers.d/trainer && \
+    chmod 0440 /etc/sudoers.d/trainer
 
 # Below that point, nothing requires being root
 USER trainer

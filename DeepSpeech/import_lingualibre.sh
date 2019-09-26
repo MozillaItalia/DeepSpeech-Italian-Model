@@ -3,10 +3,10 @@
 set -xe
 
 pushd $HOME/ds/
-    if [ ! -f "/mnt/sources/lingua_libre_Q385-ita-Italian_train.zip" ]; then
-        wget https://lingualibre.fr/datasets/Q385-ita-Italian.zip /mnt/source/lingua_libre_Q385-ita-Italian_train.zip
-        unzip /mnt/sources/lingua_libre_Q385-ita-Italian_train.zip -d /mnt/extracted/data/lingualibre
-    fi;
+	if [ ! -f "/mnt/sources/lingua_libre_Q385-ita-Italian_train.zip" ]; then
+		wget https://lingualibre.fr/datasets/Q385-ita-Italian.zip -O /mnt/source/lingua_libre_Q385-ita-Italian_train.zip
+		unzip /mnt/sources/lingua_libre_Q385-ita-Italian_train.zip -d /mnt/extracted/data/lingualibre
+	fi;
 	if [ "${ENGLISH_COMPATIBLE}" = "1" ]; then
 		IMPORT_AS_ENGLISH="--normalize"
 	fi;
