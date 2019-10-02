@@ -6,6 +6,11 @@ pushd $HOME/ds/
 	all_train_csv="$(find /mnt/extracted/data/ -type f -name '*train.csv' -printf '%p,' | sed -e 's/,$//g')"
 	all_dev_csv="$(find /mnt/extracted/data/ -type f -name '*dev.csv' -printf '%p,' | sed -e 's/,$//g')"
 	all_test_csv="$(find /mnt/extracted/data/ -type f -name '*test.csv' -printf '%p,' | sed -e 's/,$//g')"
+	
+	#replace '#' with '' in the whole dataset due to an error in sentence validator that allowed this char
+	sed -i 's/#//g' /mnt/extracted/data/*test.csv
+	sed -i 's/#//g' /mnt/extracted/data/*train.csv
+	sed -i 's/#//g' /mnt/extracted/data/*dev.csv
 
 	if [ ! -f "/mnt/models/alphabet.txt" ]; then
 		if [ "${ENGLISH_COMPATIBLE}" = "1" ]; then
