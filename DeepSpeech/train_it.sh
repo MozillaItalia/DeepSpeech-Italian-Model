@@ -57,7 +57,6 @@ pushd $HOME/ds/
             --checkpoint_dir /mnt/checkpoints/ \
             --export_dir /mnt/models/ \
             --export_tflite \
-            --nouse_seq_length \
             --export_language "it"
     fi;
 
