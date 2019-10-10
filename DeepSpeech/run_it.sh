@@ -11,3 +11,5 @@ $HOME/generate_alphabet.sh
 $HOME/build_lm.sh
 
 $HOME/train_it.sh
+
+$HOME/evaluate_lm.sh
