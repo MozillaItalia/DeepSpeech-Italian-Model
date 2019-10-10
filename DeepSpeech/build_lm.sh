@@ -8,8 +8,8 @@ pushd /mnt/extracted
 		export LANG=it_IT.UTF-8
 	fi;
 
-	if [ ! -f "wiki_fr_lower.txt" ]; then
-		curl -sSL https://github.com/Common-Voice/commonvoice-fr/releases/download/lm-0.1/wiki.txt.xz | pixz -d | tr '[:upper:]' '[:lower:]' > wiki_it_lower.txt
+	if [ ! -f "wiki_it_lower.txt" ]; then
+		curl -sSL https://github.com/MozillaItalia/DeepSpeech-Italian-Model/releases/download/lm-0.1/wiki.txt.xz | pixz -d | tr '[:upper:]' '[:lower:]' > wiki_it_lower.txt
 	fi;
 
 	if [ "${ENGLISH_COMPATIBLE}" = "1" ]; then
