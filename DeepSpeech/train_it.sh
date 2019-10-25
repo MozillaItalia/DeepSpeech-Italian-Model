@@ -9,7 +9,7 @@ pushd $HOME/ds/
 
     mkdir -p /mnt/sources/feature_cache || true
 
-        # Do not overwrite checkpoint file if model already exist: we will likely
+    # Do not overwrite checkpoint file if model already exist: we will likely
     # only package
     if [ -f "/transfer-checkpoint/checkpoint" -a ! -f "/mnt/models/output_graph.pb" ]; then
         echo "Using checkpoint from ${TRANSFER_CHECKPOINT}"
@@ -23,9 +23,9 @@ pushd $HOME/ds/
         fi;
 
         python -u DeepSpeech.py \
-        	--show_progressbar True \
-			--use_cudnn_rnn True \
- 			--automatic_mixed_precision True \
+            --show_progressbar True \
+            --use_cudnn_rnn True \
+            --automatic_mixed_precision True \
             --alphabet_config_path /mnt/models/alphabet.txt \
             --lm_binary_path /mnt/lm/lm.binary \
             --lm_trie_path /mnt/lm/trie \
