@@ -9,8 +9,8 @@ pushd $HOME/ds/
 	
 	#replace '#' with '' in the whole dataset due to an error in sentence validator that allowed this char
 	sed -i 's/#//g' /mnt/extracted/data/cv-it/clips/*test.csv
-    sed -i 's/#//g' /mnt/extracted/data/cv-it/clips/*train.csv
-    sed -i 's/#//g' /mnt/extracted/data/cv-it/clips/*dev.csv
+	sed -i 's/#//g' /mnt/extracted/data/cv-it/clips/*train.csv
+	sed -i 's/#//g' /mnt/extracted/data/cv-it/clips/*dev.csv
 
 	if [ ! -f "/mnt/models/alphabet.txt" ]; then
 		if [ "${ENGLISH_COMPATIBLE}" = "1" ]; then
