@@ -11,6 +11,6 @@ checks.sh
 export TMP=/mnt/tmp
 export TEMP=/mnt/tmp
 
-$HOME/run_${MODEL_LANGUAGE}.sh
+${MODEL_LANGUAGE}/run.sh
 
-$HOME/package.sh
+package.sh

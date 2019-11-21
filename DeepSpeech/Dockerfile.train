@@ -1,20 +1,21 @@
 FROM nvidia/cuda:10.0-cudnn7-runtime-ubuntu18.04
 
 ARG ds_repo=mozilla/DeepSpeech
-ARG ds_branch=336daa1641b8a0bb6c02befa69b2b68b84161338
-ARG ds_sha1=336daa1641b8a0bb6c02befa69b2b68b84161338
+ARG ds_branch=b3787ee1888322dc68b8b3e4a5f6f859ba9dd05e
+ARG ds_sha1=dab5183a985652f46b4b2dadde2d4df08e5fa4bf
 ARG kenlm_repo=kpu/kenlm
 ARG kenlm_branch=2ad7cb56924cd3c6811c604973f592cb5ef604eb
 
 ARG model_language=it
 
-ARG batch_size=68
+ARG batch_size=96
 ARG n_hidden=2048
-ARG epochs=30
-ARG learning_rate=0.00025
-ARG dropout=0.15
-ARG lm_alpha=0.75
-ARG lm_beta=1.85
+ARG epochs=60
+ARG learning_rate=0.0001
+ARG dropout=0.3
+ARG lm_alpha=0.65
+ARG lm_beta=1.45
+ARG beam_width=500
 ARG early_stop=1
 
 ARG lm_evaluate_range=
@@ -44,6 +45,7 @@ ENV LEARNING_RATE=$learning_rate
 ENV DROPOUT=$dropout
 ENV LM_ALPHA=$lm_alpha
 ENV LM_BETA=$lm_beta
+ENV BEAM_WIDTH=$beam_width
 
 ENV LM_EVALUATE_RANGE=$lm_evaluate_range
 ENV ENGLISH_COMPATIBLE=$english_compatible
@@ -81,7 +83,7 @@ RUN apt-get -qq update && apt-get -qq install -y --no-install-recommends \
 
 RUN groupadd -g 999 trainer && \
     adduser --system --uid 999 --group trainer
-    
+
 RUN echo "trainer ALL=(root) NOPASSWD:ALL" > /etc/sudoers.d/trainer && \
     chmod 0440 /etc/sudoers.d/trainer
 
@@ -104,7 +106,7 @@ RUN cat requirements.txt | sed -e 's/^tensorflow/tensorflow-gpu/g' | pip install
 
 RUN pip install `python util/taskcluster.py --decoder`
 
-RUN TASKCLUSTER_SCHEME="https://index.taskcluster.net/v1/task/project.deepspeech.tensorflow.pip.%(branch_name)s.%(arch_string)s/artifacts/public/%(artifact_name)s" python util/taskcluster.py \
+RUN TASKCLUSTER_SCHEME="https://community-tc.services.mozilla.com/tasks/index/v1/task/project.deepspeech.tensorflow.pip.%(branch_name)s.%(arch_string)s/artifacts/public/%(artifact_name)s" python util/taskcluster.py \
 	--target="$(pwd)" \
 	--artifact="convert_graphdef_memmapped_format" \
 	--branch="r1.14" && chmod +x convert_graphdef_memmapped_format
@@ -122,8 +124,10 @@ RUN git clone https://github.com/$kenlm_repo.git && cd kenlm && git checkout $ke
 ENV PATH="$HOMEDIR/kenlm/build/bin/:$PATH"
 
 # Copy now so that docker build can leverage caches
-COPY --chown=trainer:trainer *.sh $HOMEDIR/
+COPY --chown=trainer:trainer checks.sh generate_alphabet.sh package.sh run.sh $HOMEDIR/
 
-COPY --chown=trainer:trainer lingua_libre_skiplist.txt $HOMEDIR/
+COPY --chown=trainer:trainer ${MODEL_LANGUAGE}/*.sh $HOMEDIR/${MODEL_LANGUAGE}/
+
+COPY --chown=trainer:trainer ${MODEL_LANGUAGE}/lingua_libre_skiplist.txt $HOMEDIR/${MODEL_LANGUAGE}/
 
 ENTRYPOINT "$HOMEDIR/run.sh"

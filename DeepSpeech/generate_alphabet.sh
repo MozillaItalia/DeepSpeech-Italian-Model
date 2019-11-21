@@ -12,6 +12,10 @@ pushd $HOME/ds/
 	sed -i 's/#//g' /mnt/extracted/data/cv-it/clips/*train.csv
 	sed -i 's/#//g' /mnt/extracted/data/cv-it/clips/*dev.csv
 
+	sed -i 's/…//g' /mnt/extracted/data/cv-it/clips/*test.csv
+	sed -i 's/…//g' /mnt/extracted/data/cv-it/clips/*train.csv
+	sed -i 's/…//g' /mnt/extracted/data/cv-it/clips/*dev.csv
+
 	if [ ! -f "/mnt/models/alphabet.txt" ]; then
 		if [ "${ENGLISH_COMPATIBLE}" = "1" ]; then
 			cp data/alphabet.txt /mnt/models/alphabet.txt
