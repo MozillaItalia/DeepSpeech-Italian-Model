@@ -27,8 +27,6 @@ done;
 
 mkdir /mnt/extracted/data/ || true
 
-mkdir /tmp/train/ || true
-
 # Checking with basic LDC93S1 before running into heavy-load
 pushd $HOME/ds/
 	./bin/run-tc-ldc93s1_new.sh 2
