@@ -109,3 +109,5 @@ ENV/
 
 #vscode
 .vscode
+
+result.txt
