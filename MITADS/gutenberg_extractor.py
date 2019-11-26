@@ -12,11 +12,10 @@ mapping_normalization = [
   #[ u'\xa0 ', u' ' ],
   [ u'«', u'' ],
   [ u'»', u'' ],
-  #[ u'\xa0' , u' ' ],
-  [ u'_' , u' ' ],
-  [ u'-' , u' ' ],
-  [ u'—' , u' ' ],
-  [ u'  ' , u' ' ],
+  [ u'×' , u'' ],
+  [ u'_' , u'' ],
+  [ u'-' , u'' ],
+  [ u'—' , u'' ],
   [ u'* * * ' , u'' ],
   [ u'( ' , u'' ],
   [ u' , ' , u', ' ],
@@ -41,11 +40,10 @@ def maybe_normalize(value, mapping=mapping_normalization):
       print(ex)
       pass
 
-
-  if value.startswith(';') or value.startswith(' '):
+  if value.startswith(';'):
       value = value[1:]
 
-  return value
+  return value.replace('  ', " ")
 
 
 def getRomanNumbers(ch):
@@ -95,10 +93,7 @@ for book_id in ids:
         if line.find('§') >= 0 or line.find('=') >= 0 or line.find('--') >= 0 or line.find('~') >= 0:
             continue
 
-        if line[:1].isdigit() or line.isdigit():
-            continue
-
-        if line.startswith('  '):
+        if  line.strip().isdigit() or line.strip()[1:].isdigit() or line.strip()[:1].isdigit():
             continue
 
         text += line
