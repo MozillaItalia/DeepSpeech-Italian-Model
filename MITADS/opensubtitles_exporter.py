@@ -6,10 +6,11 @@ from pathlib import Path
 from unidecode import unidecode  
 import time
 
-# Download and extract from  http://opus.nlpl.eu/download.php?f=OpenSubtitles/v2018/raw/it.zip
-
 
 mapping_normalization = [
+
+  ##L'Ordine delle entry (replace e sub con regex) è significativo!!!
+
   ##se la frase contiene parole con underscore o  @, allora non fa parte di una conversazione
   ##[ re.compile('(^|(.*\s))\w+(_|@|®|\+|\{|\})\w+((\s.*)|$)'), u'' ],
 
@@ -79,15 +80,17 @@ mapping_normalization = [
   ## cancelletto con numero , presente nei titoli di apertura   
   [ re.compile('#\d+'), u'' ],
   [ re.compile('#|\s°'), u'' ], 
-  #[ u'#|\s°' , u'' ],
 
   ##alcune normalizzazioni con numeri. sono presenti, vedere se serve questo tipo di normalizzazione
+  ##ISSUE: potrebbero esserci problemi con maschile e femminile, vedi 6° strada ad esempio
   [ u'1°' , u'primo' ],
   [ u'2°' , u'secondo' ],
   [ u'3°' , u'terzo' ],
   [ u'4°' , u'quarto' ],
   [ u'5°' , u'quinto' ],
   [ u'49°' , u'quarantanovesimo' ],
+  
+  ##numero, metto uno spazio perchè certe volte il simbolo è attaccato al numero
   [ u'n°' , u'numero ' ],  
 
   ##importi in valuta, sono presenti   
@@ -130,7 +133,7 @@ def line_not_relevant(text):
 def clear_text(text):
   ##text = re.sub(r'[^\x00-\x7F]+',' ', text)  mi toglie anche le È
 
-  #PER I CARATTERI UNICODE ho usato libreria unidecode
+  #PER I CARATTERI UNICODE ho usato libreria unidecode, questi non servono più
   #text = text.replace('\u200b',' ')## ZERO WIDTH SPACE
   #text = text.replace(u'ε','e') ##GREEK SMALL LETTER EPSILON
   #text = text.replace(u'♪','') ## char ♪
@@ -145,11 +148,12 @@ def clear_text(text):
 
 def normalize_text(text):
 
-  ##SOLO SE  tutto il testo è upper case allora va portato lower case
+  ##SE E SOLO SE  tutto il testo è tutto upper case allora lo porto a lower case
   if(text.isupper()):
     text = text.lower()
 
-  ##potrebbe far parte dei titoli di testa
+  ##se una sentence contiene una sola parola con caratteri speciali 
+  # ALLORA tutta la sentence viene esclusa (fa  parte dei titoli di testa)
   
   if(not ' ' in text and 
     (   '_' in text
@@ -158,17 +162,17 @@ def normalize_text(text):
      or '+' in text
      or '{' in text)):
      return ''
-  ##caratteri che mi invalidano riga
+  ##caratteri che mi invalidano riga a prescindere dal numero di word
   if('®' in text
      or '©' in text
      or '±' in text):
     return ''
-     #_|@|®|\+|\{|\}
-  #normalization
+
+  #normalization (replace and sub regex)
   text = maybe_normalize(text,mapping_normalization)
 
-  ######SPOSTA SULLA clear, 
-  # normalizza i caratteri speciali ascii (altrimenti andrebbe in errore la fase di scrittura su file con utf-8)
+  ######da spostare sulla clear?? vedere se spostando la chiamata non abbiamo side effect 
+  # unidecode normalizza i caratteri speciali ascii (altrimenti andrebbe in errore la fase di scrittura su file con utf-8)
   text = unidecode(text)
   #################
 
@@ -179,12 +183,14 @@ def normalize_text(text):
   #################################
   ##other normalization step
 
+  ##rimuovo il punto a pice all'inizio della sentence
   if(text[0]=='.' or text[0]=='\''): 
     text = text[1:len(text)]
 
   if(len(text)==0):
     return ''
 
+  ##rimuovo apice alla fine della sentence, apici singoli già trattati. Quelli interni alla sentence potrebbero essere significativi
   if(text[len(text)-1]=='\''): 
     text = text[0:len(text)-1]  
   
@@ -192,7 +198,19 @@ def normalize_text(text):
 
   return text
 
+
 def preprocess_and_extract(folder,start_year=1920,split_output_file_rows=None):  
+  """ Excract text from opensubtitles dataset
+      preprocessing text, lear and normalization
+
+          :param folder: relative path of opensubtitles dataset : str
+          :type folder: str
+          :param start_year: start year filter
+          :type start_year: int
+          :param split_output_file_rows: Se diverso da None verranno generati più file di output ognuno con 'split_output_file_rows' numero di righe
+          :type split_output_file_rows: int            
+          :return: Nothing
+          """
 
   pathlist = Path(folder).glob('**/*.xml')
   xml_file_list = []
@@ -205,8 +223,6 @@ def preprocess_and_extract(folder,start_year=1920,split_output_file_rows=None):
           xml_file_list.append(str(path))
       except:
         pass
-      #if(len(xml_file_list)>3000) :
-      #  break
 
   
   total_files = len(xml_file_list)
@@ -313,7 +329,7 @@ def process_text(text):
 
   ##normalization
   text = normalize_text(text)
-  
+
   return text
 
 def test_regexp():
@@ -325,11 +341,12 @@ def test_regexp():
 
 if __name__ == '__main__':
 
+  #test_regexp()
+ 
+  folder_dataset = '../../../../../data_and_models/dataset/public_opensubtitle_sottotitoli_it_2018/it/OpenSubtitles/raw/it'
   start_time = time.time()
-  test_regexp()
-
-  folder = 'C:\\ezioDev\\data_and_models\\dataset\\public_opensubtitle_sottotitoli_it_2018\\it\\OpenSubtitles\\raw\\it'
-  preprocess_and_extract(folder)
+  
+  preprocess_and_extract(folder_dataset)
 
   print("--- %s seconds duration ---" % (time.time() - start_time))
 
