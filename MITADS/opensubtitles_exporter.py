@@ -3,68 +3,101 @@
 from typing import Pattern
 import re
 from pathlib import Path
+from unidecode import unidecode  
+import time
 
 # Download and extract from  http://opus.nlpl.eu/download.php?f=OpenSubtitles/v2018/raw/it.zip
 
-html_escape_table = {
-     "&amp;": "&",
-     '&quot;': '"',
-     "&apos;": "'",
-     "&gt;": ">",
-     "&lt;": "<",
-     }
-
 
 mapping_normalization = [
-  ##se la frase contiene parole con underscore, allora non fa parte di una conversazione
-  [ re.compile('(^|(.*\s))\w+_\w+((\s.*)|$)'), u'' ],
-    
+  ##se la frase contiene parole con underscore o  @, allora non fa parte di una conversazione
+  ##[ re.compile('(^|(.*\s))\w+(_|@|®|\+|\{|\})\w+((\s.*)|$)'), u'' ],
+
+  ##se la frase inizia con un numero , viene eliminata
+  [ re.compile('^\d+(.*)'), u'' ],  
+
   ##tutto ciò è contenuto tra paretesi va eliminato, non fa parte di una conversazione    
   [ re.compile('(\(|\[|{)[^(\)|\]|})]*(\)|\]|})'), u'' ],
-  [ re.compile('(\-|=)[^(\-|=)]*(\-|=)'), u'' ],
-  ##se la frase inizia con un numero , viene eliminata
-  [ re.compile('^\d+(.*)'), u'' ],
-  [ u'-' , u'' ],
+
+  ## potrebbero essere parentesi annidate(ci sono nel dataset), lo lancio due volte
+  [ re.compile('(\(|\[|{)[^(\)|\]|})]*(\)|\]|})'), u'' ],
+
+  #### testo compreso tra separatori 
+  #[ re.compile('(\-|=)[^(\-|=)]*(\-|=)'), u'' ],
+  
+  ##replace caratteri, sono presenti nelle frasi
+  [ u'-' , u' ' ],
+  [ u'=' , u' ' ],
+  [ u'_' , u' ' ],
+  [ u'–' , u' ' ],##trattino differente  
   [ u'+' , u'' ],
   [ u'(' , u'' ],
-  #[ u' , ' , u', ' ],
+  [ u'|' , u'' ],
+  [ u'—' , u' ' ],  
   [ u')' , u'' ],
   [ u'[' , u'' ],
   [ u']' , u'' ],
   [ u'~' , u'' ],
   [ u'=' , u'' ],  
   [ u'*' , u'' ],  
-  [ u'È' , u'è' ],
-  [ u'E\'\s' , u'è' ],  
   [ u'/' , u' ' ],  
   [ u'¢' , u'c' ],    
   ##apici doppi , rimuovo sempre    
-  [ u'"' , u'' ], 
+  [ u'"' , u'' ],
+  [ u'¨' , u'' ],
+  [ u'^' , u'' ],
+  
+  
   ##sequenza di punti
   [ re.compile('\.+'), u'.' ],
   ##sigle e testi con punti
   [ re.compile('\n|\t|\r'), u' ' ],
   [ re.compile('\s+'), u' ' ],
 
-   ##testi racchiusi tra apici singoli - in conflitto con le accentate, rimuovo questo tipo di apici
-  [ re.compile('^(\')(.*)(\')$'), r'\2' ],
+  ##accentate maiuscole
+  [ u'È' , u'è' ],
+  [ u'E\'\s' , u'è' ],  
+
+  ##apostrofi, sono presenti 
+  [ u'´' , u'\'' ],
+  [ u'`' , u'\'' ],
+  [ u'\'\'' , u'\'' ],  
+
+  ##testi racchiusi tra apici singoli - in conflitto con le accentate, rimuovo questo tipo di apici
+  [ re.compile('(\s|^)(\')([^\']*)(\')(\s|$)'), r'\3' ],
 
   ## punteggiatura non significativa alla fine del testo  
   [ re.compile('(.*)(\.)$'), r'\2' ],
+
   ##normalizziamo vovcali accentate
   [ re.compile('a\'(\s|$|,|\.|\?)'), r'à\1' ],
   [ re.compile('e\'(\s|$|,|\.|\?)'), r'è\1' ],
   [ re.compile('i\'(\s|$|,|\.|\?)'), r'ì\1' ],
   [ re.compile('o\'(\s|$|,|\.|\?)'), r'ò\1' ],
   [ re.compile('u\'(\s|$|,|\.|\?)'), r'ù\1' ],
+
+  ## cancelletto con numero , presente nei titoli di apertura   
   [ re.compile('#\d+'), u'' ],
-  [ u'#' , u'' ],
+  [ re.compile('#|\s°'), u'' ], 
+  #[ u'#|\s°' , u'' ],
+
+  ##alcune normalizzazioni con numeri. sono presenti, vedere se serve questo tipo di normalizzazione
   [ u'1°' , u'primo' ],
   [ u'2°' , u'secondo' ],
   [ u'3°' , u'terzo' ],
+  [ u'4°' , u'quarto' ],
   [ u'5°' , u'quinto' ],
-  [ u'n°' , u'numero ' ],
-  
+  [ u'49°' , u'quarantanovesimo' ],
+  [ u'n°' , u'numero ' ],  
+
+  ##importi in valuta, sono presenti   
+  [ re.compile('\$\s*([0-9]+[.,]{0,1}[0-9]*)'), r'\1 dollari' ], 
+  [ re.compile('([0-9]+[.,]{0,1}[0-9]*)\s*\$'), r'\1 dollari' ],
+  [ re.compile('(₤|£)\s*([0-9]+[.,]{0,1}[0-9]*)'), r'\2 lire' ], 
+  [ re.compile('([0-9]+[.,]{0,1}[0-9]*)\s*₤'), r'\1 lire' ],
+  [ re.compile('(€)\s*([0-9]+[.,]{0,1}[0-9]*)'), r'\2 euro' ], 
+  [ re.compile('([0-9]+[.,]{0,1}[0-9]*)\s*€'), r'\1 euro' ],
+  ##trim spazi
   [ re.compile('\s+'), u' ' ]
 ]
 
@@ -74,15 +107,20 @@ def maybe_normalize(value, mapping=mapping_normalization):
     if type(norm[0]) == str:
       value = value.replace(norm[0], norm[1])
     elif isinstance(norm[0], Pattern):
-      value = norm[0].sub(norm[1], value)
+      try:
+        value = norm[0].sub(norm[1], value)
+      except Exception as e:
+        raise(e)
     else:
       print('UNEXPECTED', type(norm[0]), norm[0])
-  ##remove markup tags
+
+  ##remove markup tags...(non sono presenti nel dataset )
   #value = loads(value)
+
   return value
 
 def line_not_relevant(text):
-
+  ##implementare logiche di esclusione righe
   if(len(text)<2):
     return True
 
@@ -90,37 +128,71 @@ def line_not_relevant(text):
 
 
 def clear_text(text):
-  ##text = re.sub(r'[^\x00-\x7F]+',' ', text)  mi toglie anche È
+  ##text = re.sub(r'[^\x00-\x7F]+',' ', text)  mi toglie anche le È
 
-  text = text.replace('\u200b',' ')## ZERO WIDTH SPACE
-  text = text.replace(u'ε','e') ##GREEK SMALL LETTER EPSILON
-  text = text.replace(u'♪','') ## char ♪
-  text = text.replace(u'♫','') ## char ♫
+  #PER I CARATTERI UNICODE ho usato libreria unidecode
+  #text = text.replace('\u200b',' ')## ZERO WIDTH SPACE
+  #text = text.replace(u'ε','e') ##GREEK SMALL LETTER EPSILON
+  #text = text.replace(u'♪','') ## char ♪
+  #text = text.replace(u'♫','') ## char ♫
+  #text = text.replace(u'¶','') ## char ♫
+  
   #text = text.sub(r'[^\x00-\x7F]+',' ', text_ret)
   
   text = text.strip()
 
   return text
 
-def preprocess_text(text):
+def normalize_text(text):
 
   ##SOLO SE  tutto il testo è upper case allora va portato lower case
   if(text.isupper()):
     text = text.lower()
 
+  ##potrebbe far parte dei titoli di testa
+  
+  if(not ' ' in text and 
+    (   '_' in text
+     or '@' in text
+     or '}' in text     
+     or '+' in text
+     or '{' in text)):
+     return ''
+  ##caratteri che mi invalidano riga
+  if('®' in text
+     or '©' in text
+     or '±' in text):
+    return ''
+     #_|@|®|\+|\{|\}
   #normalization
   text = maybe_normalize(text,mapping_normalization)
+
+  ######SPOSTA SULLA clear, 
+  # normalizza i caratteri speciali ascii (altrimenti andrebbe in errore la fase di scrittura su file con utf-8)
+  text = unidecode(text)
+  #################
+
+  text = text.strip()
 
   if(len(text)==0):
     return ''
   #################################
   ##other normalization step
-  if(text[0]=='.'): 
+
+  if(text[0]=='.' or text[0]=='\''): 
     text = text[1:len(text)]
+
+  if(len(text)==0):
+    return ''
+
+  if(text[len(text)-1]=='\''): 
+    text = text[0:len(text)-1]  
+  
   text = text.strip()
+
   return text
 
-def preprocess_and_extract(folder,start_year=1921):  
+def preprocess_and_extract(folder,start_year=1920,split_output_file_rows=None):  
 
   pathlist = Path(folder).glob('**/*.xml')
   xml_file_list = []
@@ -129,7 +201,7 @@ def preprocess_and_extract(folder,start_year=1921):
       year_folder = str(path.parent.parent._parts[len(path.parent.parent._parts)-1])
       try:
         year_folder_int = int(year_folder)
-        if(year_folder_int<1300 or year_folder_int>start_year):
+        if(year_folder_int<1300 or year_folder_int>=start_year):
           xml_file_list.append(str(path))
       except:
         pass
@@ -145,6 +217,8 @@ def preprocess_and_extract(folder,start_year=1921):
     file_output=open("opensubtiles_extracted.txt","w")
 
   count_file = 0
+  count_sentence = 0
+  count_split_file = 1
   for xml_file_path in xml_file_list:
     try:
       fp = open(xml_file_path,encoding='utf-8')
@@ -154,25 +228,22 @@ def preprocess_and_extract(folder,start_year=1921):
       for line in fp:
         _line= line
 
-        #if('Tutti pronti ad andare' in _line):
+        #if('$' in _line):
         #  deb = 0
+
         line=line.strip()
+        if(line=='' or len(line)<2):
+          continue
+
+        ##le linee con il testo delle frasi non iniziano con apertura/chiusura tag  
         if(line[0]!='<'):
-          ##clear text 
-          line = clear_text(line)
-
-          if(line==''):
-            continue
-          ##exclude line     
-          if(line_not_relevant(line)):
+          ##clear and normalize
+          line =  process_text(line)
+          ##############
+          if(line=='' or len(line)<2):
             continue
 
-          line = preprocess_text(line)
-
-          if(line==''):
-            continue
-
-          ##debug check
+          ##debug check - abilita se vuoi avere un output con le segnalazioni delle righe che richiedono attenzione o ulteriore pulizia
           if(False):
             regexp_apex_ok = re.compile(r'\w\'\w')
             line_temp = line.replace(" ", "")
@@ -183,24 +254,37 @@ def preprocess_and_extract(folder,start_year=1921):
                 and ':' not in line_temp
                 and ',' not in line_temp
                 and ';' not in line_temp
-                and '"' not in line_temp 
+                #and '"' not in line_temp 
                 and not regexp_apex_ok.search(line_temp) ):
-              print('IMPROVE TEXT CLEANING: ' + line)
+              print('IMPROVE TEXT CLEANING: ' + line + ' - source: '+_line) 
+          #####################################################
 
+          ##splitta il risultato in più file, se abilitato il flag split_output_file_rows, con il numero di righe per file
+          if split_output_file_rows!=None and not (count_sentence % split_output_file_rows):
+            count_sentence = 0
+            file_output.close()
+            file_output=open("opensubtiles_extracted_{}.txt".format(str(count_split_file)),"w")
+            count_split_file +=1
           ####
           try:
             file_output.write(line+ '\n')
+            count_sentence +=1
           except Exception as e:
-            print('ERROR WRITE ROW - '+str(e) + ' - source: ' +line)
+            ###QUESTO CODICE SI PUO' ELIMINARE _ ADESSO NON VA PIU' IN ERRORE
+            
+            print('ERROR WRITE ROW - '+str(e) + ' - processed: ' +line + ' - source: '+_line)
+            
             ##remove all non-ascii char
             line = re.sub(r'[^\x00-\x7F]+','', line)
             file_output.write(line+ '\n')
+            count_sentence +=1
             #raise(e)
+          
           exported_file = True
 
         ##prev_line to check delay time, todo.. 
-        if(line.startswith('<time')):          
-          prev_line = line
+        #if(line.startswith('<time')):          
+        #  prev_line = line
       
       if(exported_file):
         ##file exported line separator 
@@ -208,7 +292,10 @@ def preprocess_and_extract(folder,start_year=1921):
     finally:
       fp.close()
       pass
+
     count_file +=1
+
+    ##progress print
     if not (count_file % 100):
       print (count_file, '/', total_files, 'file preprocessed')
 
@@ -216,10 +303,35 @@ def preprocess_and_extract(folder,start_year=1921):
       file_output.close()
 
 
+def process_text(text):
+  ##clear text 
+  text = clear_text(text)
+
+  ##exclude line not relevant
+  if(line_not_relevant(text)):
+    return ''
+
+  ##normalization
+  text = normalize_text(text)
+  
+  return text
+
+def test_regexp():
+  ##£ 500 in premio per i ladri di cavalli
+  text = "{\pos(346372)}Agisco senza emozione"
+  text =  process_text(text)
+
+  iii=0
+
 if __name__ == '__main__':
+
+  start_time = time.time()
+  test_regexp()
 
   folder = 'C:\\ezioDev\\data_and_models\\dataset\\public_opensubtitle_sottotitoli_it_2018\\it\\OpenSubtitles\\raw\\it'
   preprocess_and_extract(folder)
+
+  print("--- %s seconds duration ---" % (time.time() - start_time))
 
 
 
