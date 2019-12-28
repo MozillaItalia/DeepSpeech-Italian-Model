@@ -49,7 +49,7 @@ mapping_normalization = [
   [ u'^' , u'' ],
   
   
-  ##sequenza di punti
+  ## Sanitize ... to .
   [ re.compile('\.+'), u'.' ],
   ##sigle e testi con punti
   [ re.compile('\n|\t|\r'), u' ' ],
@@ -349,5 +349,4 @@ if __name__ == '__main__':
   preprocess_and_extract(folder_dataset)
 
   print("--- %s seconds duration ---" % (time.time() - start_time))
-
 
