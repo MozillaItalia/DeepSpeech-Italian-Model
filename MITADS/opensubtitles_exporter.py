@@ -14,7 +14,7 @@ mapping_normalization = [
   ##se la frase contiene parole con underscore o  @, allora non fa parte di una conversazione
   ##[ re.compile('(^|(.*\s))\w+(_|@|®|\+|\{|\})\w+((\s.*)|$)'), u'' ],
 
-  ##se la frase inizia con un numero , viene eliminata
+  ## If the sentence start with a number, the number is removed
   [ re.compile('^\d+(.*)'), u'' ],  
 
   ##tutto ciò è contenuto tra paretesi va eliminato, non fa parte di una conversazione    
@@ -349,6 +349,5 @@ if __name__ == '__main__':
   preprocess_and_extract(folder_dataset)
 
   print("--- %s seconds duration ---" % (time.time() - start_time))
-
 
 
