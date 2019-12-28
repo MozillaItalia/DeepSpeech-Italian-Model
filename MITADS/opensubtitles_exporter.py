@@ -162,7 +162,7 @@ def normalize_text(text):
      or '+' in text
      or '{' in text)):
      return ''
-  ##caratteri che mi invalidano riga a prescindere dal numero di word
+  ## If the sentence include those symbols we ignore it
   if('®' in text
      or '©' in text
      or '±' in text):
