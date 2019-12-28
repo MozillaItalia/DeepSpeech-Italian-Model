@@ -64,7 +64,7 @@ mapping_normalization = [
   [ u'`' , u'\'' ],
   [ u'\'\'' , u'\'' ],  
 
-  ##testi racchiusi tra apici singoli - in conflitto con le accentate, rimuovo questo tipo di apici
+  ## To avoid conflicts with single ' and accented letter we removed them
   [ re.compile('(\s|^)(\')([^\']*)(\')(\s|$)'), r'\3' ],
 
   ## punteggiatura non significativa alla fine del testo  
@@ -349,4 +349,3 @@ if __name__ == '__main__':
   preprocess_and_extract(folder_dataset)
 
   print("--- %s seconds duration ---" % (time.time() - start_time))
-
