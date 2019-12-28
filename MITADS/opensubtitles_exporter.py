@@ -90,7 +90,7 @@ mapping_normalization = [
   [ u'5°' , u'quinto' ],
   [ u'49°' , u'quarantanovesimo' ],
   
-  ##numero, metto uno spazio perchè certe volte il simbolo è attaccato al numero
+  ## Sanitization for those cases
   [ u'n°' , u'numero ' ],  
 
   ##importi in valuta, sono presenti   
