@@ -275,7 +275,7 @@ def preprocess_and_extract(folder,start_year=1920,split_output_file_rows=None):
               print('IMPROVE TEXT CLEANING: ' + line + ' - source: '+_line) 
           #####################################################
 
-          ##splitta il risultato in più file, se abilitato il flag split_output_file_rows, con il numero di righe per file
+          ## Generate multiple files if split_output_file_rows is enabled
           if split_output_file_rows!=None and not (count_sentence % split_output_file_rows):
             count_sentence = 0
             file_output.close()
