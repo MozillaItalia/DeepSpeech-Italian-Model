@@ -70,7 +70,7 @@ mapping_normalization = [
   ## punteggiatura non significativa alla fine del testo  
   [ re.compile('(.*)(\.)$'), r'\2' ],
 
-  ##normalizziamo vovcali accentate
+  ## Convert old fashion accented letter to the real accented letter
   [ re.compile('a\'(\s|$|,|\.|\?)'), r'à\1' ],
   [ re.compile('e\'(\s|$|,|\.|\?)'), r'è\1' ],
   [ re.compile('i\'(\s|$|,|\.|\?)'), r'ì\1' ],
