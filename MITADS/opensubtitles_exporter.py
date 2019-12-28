@@ -148,7 +148,7 @@ def clear_text(text):
 
 def normalize_text(text):
 
-  ##SE E SOLO SE  tutto il testo è tutto upper case allora lo porto a lower case
+  ## If the whole sentence is uppercase we convert to a lowercase version
   if(text.isupper()):
     text = text.lower()
 
