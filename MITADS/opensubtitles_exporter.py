@@ -17,7 +17,7 @@ mapping_normalization = [
   ## If the sentence start with a number, the number is removed
   [ re.compile('^\d+(.*)'), u'' ],  
 
-  ##tutto ciò è contenuto tra paretesi va eliminato, non fa parte di una conversazione    
+  ## Remove the stuff inside ()[]{}
   [ re.compile('(\(|\[|{)[^(\)|\]|})]*(\)|\]|})'), u'' ],
 
   ## potrebbero essere parentesi annidate(ci sono nel dataset), lo lancio due volte
