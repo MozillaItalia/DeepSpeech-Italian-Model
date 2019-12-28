@@ -93,7 +93,7 @@ mapping_normalization = [
   ## Sanitization for those cases
   [ u'n°' , u'numero ' ],  
 
-  ##importi in valuta, sono presenti   
+  ## Sanitization for currency values
   [ re.compile('\$\s*([0-9]+[.,]{0,1}[0-9]*)'), r'\1 dollari' ], 
   [ re.compile('([0-9]+[.,]{0,1}[0-9]*)\s*\$'), r'\1 dollari' ],
   [ re.compile('(₤|£)\s*([0-9]+[.,]{0,1}[0-9]*)'), r'\2 lire' ], 
