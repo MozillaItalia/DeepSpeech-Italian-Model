@@ -251,7 +251,7 @@ def preprocess_and_extract(folder,start_year=1920,split_output_file_rows=None):
         if(line=='' or len(line)<2):
           continue
 
-        ##le linee con il testo delle frasi non iniziano con apertura/chiusura tag  
+        ## If start with this symbol we ignore the line
         if(line[0]!='<'):
           ##clear and normalize
           line =  process_text(line)
