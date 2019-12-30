@@ -211,14 +211,8 @@ def preprocess_and_extract(folder,start_year=1920,split_output_file_rows=None,ch
   for xml_file_path in xml_file_list:
     try:
 
-      ##decomment to test some sentence
-      #if(count_sentence>=6000):
-      #  break
-      ####################
-
       fp = open(xml_file_path,encoding='utf-8')
-      
-      prev_time_line = None
+
       exported_file = False
       for line in fp:
         _line= line
@@ -253,7 +247,6 @@ def preprocess_and_extract(folder,start_year=1920,split_output_file_rows=None,ch
 
           ## Generate multiple files if split_output_file_rows is enabled
           if split_output_file_rows!=None and not (count_sentence % split_output_file_rows):
-            #count_sentence = 0
             file_output.close()
             new_filename = "opensubtiles_extracted_{}.txt".format(str(count_split_file))
             file_output=open(new_filename,"w")
@@ -271,11 +264,6 @@ def preprocess_and_extract(folder,start_year=1920,split_output_file_rows=None,ch
             raise(e)
           
           exported_file = True
-
-        ##If it is important to separate sentences based on waiting breaks, 
-        # decomment this... line with time tag start with '<time'
-        #if(line.startswith('<time')):          
-        #  prev_line = line
       
       if(exported_file):
         ##file exported line separator 
