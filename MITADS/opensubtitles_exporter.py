@@ -153,7 +153,7 @@ def normalize_text(text):
   ##other normalization step
 
   ##remove dot and apex only if at the beginning of sentence
-  if(text[0]=='.' or text[0]=='\''): 
+  if(text[0]=='.' or text[0]==':' or text[0]=='\''):
     text = text[1:len(text)]
 
   if(len(text)==0):
