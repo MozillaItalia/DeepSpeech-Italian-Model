@@ -106,8 +106,7 @@ def line_not_relevant(text):
      or '@' in text
      or '}' in text     
      or '+' in text
-     or '{' in text
-     or '!?' in text)):
+     or '{' in text)):
      return True
 
   ##add other cases
