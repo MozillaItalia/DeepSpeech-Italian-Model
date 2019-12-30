@@ -347,7 +347,11 @@ if __name__ == '__main__':
   #test_regexp()
   #############################
 
-  folder_dataset = '../../../../../data_and_models/dataset/public_opensubtitle_sottotitoli_it_2018/it/OpenSubtitles/raw/it'
+  if len(sys.argv) == 1:
+      print("The first parameter is the folder and is missing")
+      sys.exit(1)
+
+  folder_dataset = sys.argv[1]
   start_year=1920
 
   ##the procedure produces a text file of several gigabytes.
