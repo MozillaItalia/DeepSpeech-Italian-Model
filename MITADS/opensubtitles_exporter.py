@@ -5,6 +5,7 @@ import re
 from pathlib import Path
 from unidecode import unidecode  
 import time
+import sys
 
 global start_time_regexp
 
@@ -105,7 +106,8 @@ def line_not_relevant(text):
      or '@' in text
      or '}' in text     
      or '+' in text
-     or '{' in text)):
+     or '{' in text
+     or '!?' in text)):
      return True
 
   ##add other cases
@@ -330,10 +332,6 @@ def test_regexp():
     print('Processing successfully!!!!')
 
 if __name__ == '__main__':
-
-  ##decomment to run some test case on regexp expression
-  #test_regexp()
-  #############################
 
   if len(sys.argv) == 1:
       print("The first parameter is the folder and is missing")
