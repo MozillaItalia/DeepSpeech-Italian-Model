@@ -106,10 +106,11 @@ RUN cat requirements.txt | sed -e 's/^tensorflow/tensorflow-gpu/g' | pip install
 
 RUN pip install `python util/taskcluster.py --decoder`
 
-RUN TASKCLUSTER_SCHEME="https://community-tc.services.mozilla.com/tasks/index/v1/task/project.deepspeech.tensorflow.pip.%(branch_name)s.%(arch_string)s/artifacts/public/%(artifact_name)s" python util/taskcluster.py \
+RUN TASKCLUSTER_SCHEME="https://community-tc.services.mozilla.com/api/index/v1/task/project.deepspeech.tensorflow.pip.%(arch_string)s.%(branch_name)s/artifacts/public/%(artifact_name)s" python util/taskcluster.py \
 	--target="$(pwd)" \
 	--artifact="convert_graphdef_memmapped_format" \
-	--branch="r1.14" && chmod +x convert_graphdef_memmapped_format
+	--branch="e77504ac6b941fd2af495b49a0bcd56f25ca0e1e" \
+        && chmod +x convert_graphdef_memmapped_format
 
 WORKDIR $HOMEDIR
 
