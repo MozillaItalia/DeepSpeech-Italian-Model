@@ -109,3 +109,7 @@ ENV/
 
 #vscode
 .vscode
+
+result.txt
+*.xml
+*.xml.bz2
