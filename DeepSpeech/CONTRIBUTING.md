@@ -5,6 +5,9 @@
 * Ensure you have a running setup of `NVIDIA Docker`
 * Prepare a host directory with enough space for training / producing intermediate data (100GB ?).
 * Ensure it's writable by `trainer` (uid 999) user (defined in the Dockerfile).
+* For Common Voice dataset, please make sure you have downloaded the dataset prior to running (behind email)
+  Place `it.tar.gz` (sha1 value should be `5949823c7531695fefc3bcab5a56f43552eb7d89`) inside your host directory,
+  in a `sources/` subdirectory.
 
 ## Build the image:
 
@@ -35,8 +38,8 @@ Some parameters for the model itself:
 Default values should provide good experience.
 
 The default batch size has been tested with this mix of dataset:
- - Common Voice French, released on 2019 around september
- - Lingua Libre as of 2019, around september
+ - Common Voice French, released on 2019 december 10th
+ - FIXME
 
 ### Transfer learning from English
 
@@ -53,7 +56,7 @@ will be copied from that place.
 Training successfull on:
  - 64GB RAM
  - 2x RTX 2080 Ti
- - Debian Sid, kernel 4.19, driver 418.56
+ - Debian Sid, kernel 5.2, driver 430.50
  - With ~250h of audio, one training epoch takes ~15min, and validation takes ~50s
 
 ## Run the image:
@@ -62,7 +65,7 @@ The `mount` option is really important: this is where intermediate files, traini
 well as final model files will be produced.
 
 ```
-$ docker run --rm --runtime=nvidia --mount type=bind,src=PATH/TO/HOST/DIRECTORY,dst=/mnt <docker-image-id>
+$ docker run --tty --rm --runtime=nvidia --mount type=bind,src=PATH/TO/HOST/DIRECTORY,dst=/mnt <docker-image-id>
 ```
 
 Training parameters can be changed at runtime as well using environment variables.
