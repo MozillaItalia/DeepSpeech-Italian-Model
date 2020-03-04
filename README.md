@@ -19,7 +19,7 @@ $ mkdir -p data/sources
 $ chmod a+rwx -R data
 $ mv it.tar.gz data/sources # versione 3 di common voice
 $ chmod a+r data/sources/it.tar.gz
-$ nvidia-docker run --rm --runtime=nvidia --mount type=bind,src=/home/ubuntu/data,dst=/mnt deepspeech
+$ docker run --rm --gpus all --mount type=bind,src=/home/ubuntu/data,dst=/mnt deepspeech
 ```
 
 Model at $HOME/data/models/it-it.zip
