@@ -7,7 +7,7 @@ Aggregatore degli strumenti per la generazione di un modello di machine learning
 * Ticket e pull requests in inglese
 * Readme in Italiano
 
-## Allentamento
+## Generare il modello
 
 ```
 $ cd $HOME
@@ -30,7 +30,7 @@ EARLY_STOP=0
 EPOCHS=20
 DROPOUT=0.5
 $ docker run --env-file deepspeech.env --rm --gpus all --mount type=bind,src=/home/ubuntu/data,dst=/mnt deepspeech
-
+```
 
 ## Risorse
 
@@ -39,4 +39,4 @@ $ docker run --env-file deepspeech.env --rm --gpus all --mount type=bind,src=/ho
 * https://github.com/MozillaItalia/voice-web - Il dataset primario di frasi italiane lo manteniamo qui
 * https://voice.mozilla.org/it
 * https://github.com/mozilla/DeepSpeech
-* https://github.com/Common-Voice/commonvoice-fr - il repository da cui questo è derivato
+* https://github.com/Common-Voice/commonvoice-fr - Il repository da cui questo è derivato
