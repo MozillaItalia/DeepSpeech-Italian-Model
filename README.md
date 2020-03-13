@@ -2,10 +2,26 @@
 
 Aggregatore degli strumenti per la generazione di un modello di machine learning per la lingua Italiana del progetto Common Voice.
 
+* [Script (bash/python) per la generazione usando Docker, DeepSpeech, Tensorflow e Nvidia del modello](https://github.com/MozillaItalia/DeepSpeech-Italian-Model/tree/master/DeepSpeech)
+* Il modello generato 
+* [Script per generare il corpus testuale per la parte predittiva del modello](https://github.com/MozillaItalia/DeepSpeech-Italian-Model/tree/master/MITADS)
+
 ## Regole
 
 * Ticket e pull requests in inglese
 * Readme in Italiano
+
+## Utilizzare il modello
+
+Scarica [l'ultima versione](https://github.com/MozillaItalia/DeepSpeech-Italian-Model/releases) da questa pagina.  
+Puoi provare il modello con un [bot Telegram](https://t.me/DeepSpeechItalianBot) che compara il vocale con Google Speech.  
+
+```
+$ virtualenv test --python=python3
+$ source test/bin/activate
+$ pip install deepspeech-tflite==0.7.0a1
+$ deepspeech --model output_graph.tflite --audio test.wav --trie trie --lm lm.binary
+```
 
 ## Generare il modello
 
@@ -34,9 +50,9 @@ $ docker run --env-file deepspeech.env --rm --gpus all --mount type=bind,src=/ho
 
 ## Risorse
 
-* https://github.com/mozilla/voice-corpus-tool
-* https://github.com/Common-Voice/sentence-collector
-* https://github.com/MozillaItalia/voice-web - Il dataset primario di frasi italiane lo manteniamo qui
 * https://voice.mozilla.org/it
 * https://github.com/mozilla/DeepSpeech
+* https://github.com/mozilla/voice-corpus-tool
+* https://github.com/Common-Voice/sentence-collector
 * https://github.com/Common-Voice/commonvoice-fr - Il repository da cui questo è derivato
+* https://github.com/MozillaItalia/voice-web - Il dataset primario di frasi italiane lo manteniamo qui
