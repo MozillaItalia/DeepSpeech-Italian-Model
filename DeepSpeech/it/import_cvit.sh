@@ -24,6 +24,6 @@ pushd $HOME/ds/
 
 		tar -C /mnt/extracted/data/cv-it/ -xf /mnt/sources/it.tar.gz
 
-		python bin/import_cv2.py ${IMPORT_AS_ENGLISH} /mnt/extracted/data/cv-it/
+		python bin/import_cv2.py ${IMPORT_AS_ENGLISH} --filter_alphabet=/mnt/models/alphabet.txt /mnt/extracted/data/cv-it/
 	fi;
 popd

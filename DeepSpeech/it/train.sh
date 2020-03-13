@@ -24,7 +24,7 @@ pushd $HOME/ds/
 		fi;
 
 		AMP_FLAG=""
-		if [ "${AMP}" = "1"]; then
+		if [ "${AMP}" = "1" ]; then
 			AMP_FLAG="--automatic_mixed_precision True"
 		fi;
 

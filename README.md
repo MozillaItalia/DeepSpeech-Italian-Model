@@ -20,9 +20,17 @@ $ chmod a+rwx -R data
 $ mv it.tar.gz data/sources # versione 3 di common voice
 $ chmod a+r data/sources/it.tar.gz
 $ docker run --rm --gpus all --mount type=bind,src=/home/ubuntu/data,dst=/mnt deepspeech
-```
 
 Model at $HOME/data/models/it-it.zip
+
+To configure docker parameters:
+
+$ cat deepspeech.env
+EARLY_STOP=0
+EPOCHS=20
+DROPOUT=0.5
+$ docker run --env-file deepspeech.env --rm --gpus all --mount type=bind,src=/home/ubuntu/data,dst=/mnt deepspeech
+
 
 ## Risorse
 
