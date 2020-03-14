@@ -1,8 +1,7 @@
-#!/usr/bin/env python
-#Cose addizionali da fare -> aggiungere proxies per evitare ban, parallelizzare per velocità
+#!/usr/bin/env python3
 from urllib.request import Request, urlopen
 from fake_useragent import UserAgent
-from typing import Pattern  # typing.re non trovato
+from typing import Pattern
 import roman
 import re
 
@@ -53,10 +52,10 @@ def main():
     mapping = [
         [u'«', u''],
         [u'»', u''],
-        [u'×', u''],
+        [u'', u''],
         [u'_', u''],
         [u'-', u''],
-        [u'—', u''],
+        [u'â', u''],
         [u'* * * ', u''],
         [u'( ', u''],
         [u' , ', u', '],
@@ -84,7 +83,6 @@ def main():
         data = urlopen(response).read().decode('UTF-8')
         data.strip()
         lines = data.splitlines()
-        text = ""
         for line in lines:
             line.strip()
             sentences = line.split(".")
@@ -96,7 +94,7 @@ def main():
                     continue
                 if sentence.startswith('(') or sentence.startswith('...'):
                     continue
-                if sentence.find('§') >= 0 or sentence.find('=') >= 0 or sentence.find('--') >= 0 or sentence.find('~') >= 0:
+                if sentence.find('Â§') >= 0 or sentence.find('=') >= 0 or sentence.find('--') >= 0 or sentence.find('~') >= 0:
                     continue
                 if sentence.strip().isdigit() or sentence.strip()[1:].isdigit() or sentence.strip()[:1].isdigit():
                     continue
