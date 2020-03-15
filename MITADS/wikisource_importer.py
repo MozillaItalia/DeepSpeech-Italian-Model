@@ -113,6 +113,6 @@ def main():
 
 
 if __name__ == "__main__":
-    start_time = time.clock()
+    start_time = time.process_time()
     main()
     print("--- %s seconds ---" % (time.clock() - start_time))
