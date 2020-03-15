@@ -50,19 +50,22 @@ def getRomanNumbers(ch):
 
 
 def main():
-    mapping = [
-        [u'«', u''],
-        [u'»', u''],
-        [u'', u''],
-        [u'_', u''],
-        [u'-', u''],
-        [u'â', u''],
-        [u'* * * ', u''],
-        [u'( ', u''],
-        [u' , ', u', '],
-        [u' )', u''],
-        [u'Sig. ', u'Signor '],
-        [re.compile('\[\d+\]'), u''],
+    mapping_normalization = [
+        [ u'«', u'' ],
+        [ u'»', u'' ],
+        [ u'×' , u'' ],
+        [ u'_' , u'' ],
+        [ u'-' , u'' ],
+        [ u'—' , u'' ],
+        [ u'* * * ' , u'' ],
+        [ u'*' , u"\n" ],
+        [ u'( ' , u'' ],
+        [ u' , ' , u', ' ],
+        [ u' )' , u'' ],
+        [ u'<br />' , u"\n" ],
+        [ u'<br>' , u"\n" ],
+        [ u'Sig. '   , u'Signor ' ],
+        [ re.compile('\[\d+\]'), u'' ],
     ]
     books = ['Le_lettere_di_Aldo_Moro_dalla_prigionia_alla_storia', 'Nigrizia/Editoriale_giugno_2011',
              'Il_manifesto_della_guerriglia_Open_Access', 'Le_donne_non_vi_vogliono_pi%C3%B9_bene',
