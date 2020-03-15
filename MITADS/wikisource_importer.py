@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+import time
 from urllib.request import Request, urlopen
 from fake_useragent import UserAgent
 from typing import Pattern
@@ -75,10 +76,14 @@ def main():
              'Il_fermo_proposito', 'Il_romanzo_della_fanciulla', 'La_casa_del_poeta', 'La_casa_paterna',
              'La_cattedrale_e_il_bazaar', 'La_chiesa_della_solitudine', 'Memorie_infantili', 'Non_abbiamo_bisogno',
              'Orizzontale']
+    start = 1
     download_link = 'https://tools.wmflabs.org/wsexport/tool/book.php?lang=it&format=txt&page='
     file = open("wikisource.txt", "w", encoding='utf-8')
+    print("Number of books to import: {}".format(len(books)))
+    print("New file txt created to store content")
     ua = UserAgent()
     for book in books:
+        print("Processing book : {}\n {} of {}".format(book,start,len(books)))
         response = Request(download_link + book, headers={'User-Agent': ua.random})
         data = urlopen(response).read().decode('UTF-8')
         data.strip()
@@ -99,11 +104,15 @@ def main():
                 if sentence.strip().isdigit() or sentence.strip()[1:].isdigit() or sentence.strip()[:1].isdigit():
                     continue
                 file.write(sentence+"\n")
+        start+=1
     file.close()
+    print("Processing finished and file closed")
     result = open('wikisource.txt', 'r', encoding='utf-8')
-    print('Total words: ' + str(len(result.read().split())))
+    print('Number of words in the new file: ' + str(len(result.read().split())))
     result.close()
 
 
 if __name__ == "__main__":
+    start_time = time.clock()
     main()
+    print("--- %s seconds ---" % (time.clock() - start_time))
