@@ -18,3 +18,7 @@ Richiede come primo parametro la cartella con il dataset di OpenSubTitles.
 ## Wikiquote exporter
 
 Richiede che il dump di wikiquote sia scaricato e il file xml estratto. In automatico estrarra il contenuto generando un nuovo file di testo.
+
+## Wikisource extractor
+L'estrattore utilizza una lista con il nome dei libri da scaricare da wikisource e poi processa i file txt dei libri uno ad uno e li pulisce e formatta e poi tutto viene tutto inserito in un unico file txt di output
+Cose additionali da fare: aggiungere proxies per evitare ban, parallelizzare per velocità

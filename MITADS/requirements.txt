@@ -1,2 +1,3 @@
 gutenberg 
 Unidecode
+fake-useragent
