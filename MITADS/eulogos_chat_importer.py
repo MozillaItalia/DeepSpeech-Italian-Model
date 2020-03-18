@@ -118,10 +118,11 @@ def main():
         [u'¿', u''],
         [u'@', u''],
         [u'=', u''],
+
         [re.compile('^[\W_]+$'), u''],
         [re.compile('[.]'), u''],
         # remove nicknames
-        [re.compile('^\s*(\w+\s?:)'), u''],
+        [re.compile('^\s*(\w+\s*:)'), u''],
         # removes words written with digits & letters (ex: c1a0)
         [re.compile('([A-Za-z]+\d+).*'), u''],
         [re.compile('!{2,}'), u'!'],
@@ -168,7 +169,7 @@ def main():
                         i += 1
                         if cleaned.find('`') != -1 or cleaned.find('¨') != -1 or cleaned.find('ms') != -1:
                             continue
-                        if cleaned.strip().strip().startswith('!') or cleaned.strip().startswith('(') or cleaned.startswith('"') or cleaned.startswith("'"):
+                        if cleaned.strip().strip().startswith('!') or cleaned.strip().startswith('(') or cleaned.strip().startswith('"') or cleaned.strip().startswith("'"):
                             continue
                         if cleaned.find("+") != -1 or cleaned.isspace():
                             continue
