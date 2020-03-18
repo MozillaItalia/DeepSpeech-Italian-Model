@@ -22,3 +22,6 @@ Richiede che il dump di wikiquote sia scaricato e il file xml estratto. In autom
 ## Wikisource extractor
 L'estrattore utilizza una lista con il nome dei libri da scaricare da wikisource e poi processa i file txt dei libri uno ad uno e li pulisce e formatta e poi tutto viene tutto inserito in un unico file txt di output
 Cose additionali da fare: aggiungere proxies per evitare ban, parallelizzare per velocità
+
+## Eulogos Chat extractor
+A partire dalla home del sito vengono visitate le subpages contenenti i datasets delle chat ed estratto il contenuto. Il gran parte della sanatizazzione è fatta ma manca ancora del lavoro.
