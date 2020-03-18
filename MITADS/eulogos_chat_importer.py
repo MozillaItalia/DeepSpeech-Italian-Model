@@ -137,14 +137,16 @@ def main():
     anchors = lists[0].find_all("a")
     pages = []
     # List each href
+
     for anchor in anchors:
         # Appending '_' to get a cleaner version of the page
         pages.append("_" + anchor["href"])
 
-    print("#pages: {}".format(len(pages)))
-
     with open("output.txt", "w") as out:
+        current = 0
         for page in pages:
+            current += 1
+            print("{}/{} pages".format(current, len(pages)))
             url = "{}/{}".format(HOME, page)
             soup = get_page_content(url)
             tables = soup.find_all("table")
