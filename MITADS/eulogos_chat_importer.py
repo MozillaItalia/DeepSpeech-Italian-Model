@@ -129,7 +129,9 @@ def main():
         [re.compile('\?{2,}'), u'?'],
         [re.compile('\){2,}'), u''],
         [re.compile('\({2,}'), u''],
-        [re.compile('^((?![A-Za-z]).)*$'), u'']
+        [re.compile('^((?![A-Za-z]).)*$'), u''],
+        [re.compile('\s*:$'), u''],
+
     ]
     HOME = "http://www.intratext.com/IXT/ITA0192"
     soup = get_page_content(HOME)
