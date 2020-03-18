@@ -45,6 +45,15 @@ def getRomanNumbers(ch):
         yield ch[ros - 1], '', ro
 
 
+def has_a_final_repeated(text):
+    for word in text.split():
+        if len(word) >= 2 and not word.strip().isnumeric():
+            end = word[-3:]
+            if len(end.replace(end[0], '')) == 0:
+                return True
+    return False
+
+
 def parenthesis_match(text):
     last = None
     for char in text:
@@ -108,6 +117,7 @@ def main():
         [u':P', u''],
         [u':O', u''],
         [u';)', u''],
+        [u':(', u''],
         [u'§', u''],
         [u'¤', u''],
         [u'\\', u''],
@@ -119,7 +129,8 @@ def main():
         [u'¿', u''],
         [u'@', u''],
         [u'=', u''],
-
+        [re.compile('(\s){2,}'), u' '],
+        [re.compile('(\s){2,}$'), u' '],
         [re.compile('^[\W_]+$'), u''],
         [re.compile('[.]'), u''],
         # remove nicknames
@@ -157,26 +168,28 @@ def main():
             # Chat content is always in the 5th table
             rows = tables[4].find("tr")
             data_list = rows.find_all("td")
-            i = 0
             for data in data_list:
                 for raw_content in data.contents:
                     content = extract_content(raw_content)
                     for line in content:
-                        cleaned = maybe_normalize(line.strip(), mapping_normalization)
+                        cleaned = maybe_normalize(line.strip(), mapping_normalization).strip()
                         if len(cleaned) <= 15:
                             continue
                         if len(cleaned.split()) < 2:
                             continue
-                        if cleaned.strip().isdigit() or cleaned.strip().isnumeric():
+                        if cleaned.isdigit() or cleaned.isnumeric():
                             continue
-                        i += 1
-                        if cleaned.find('`') != -1 or cleaned.find('¨') != -1 or cleaned.find('ms') != -1:
+                        if cleaned[0].strip().isdigit():
                             continue
-                        if cleaned.strip().strip().startswith('!') or cleaned.strip().startswith('(') or cleaned.strip().startswith('"') or cleaned.strip().startswith("'"):
+                        if cleaned.find('`') != -1 or cleaned.find('¨') != -1 or cleaned.find('ms') != -1 or cleaned.find("~") != -1:
+                            continue
+                        if cleaned.strip().startswith('!') or cleaned.startswith('(') or cleaned.startswith(')') or cleaned.startswith('"') or cleaned.startswith("'"):
                             continue
                         if cleaned.find("+") != -1 or cleaned.isspace():
                             continue
                         if not parenthesis_match(cleaned):
+                            continue
+                        if has_a_final_repeated(cleaned):
                             continue
 
                         out.write(cleaned + "\n")

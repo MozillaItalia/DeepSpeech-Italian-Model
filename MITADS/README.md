@@ -24,4 +24,4 @@ L'estrattore utilizza una lista con il nome dei libri da scaricare da wikisource
 Cose additionali da fare: aggiungere proxies per evitare ban, parallelizzare per velocità
 
 ## Eulogos Chat extractor
-A partire dalla home del sito vengono visitate le subpages contenenti i datasets delle chat ed estratto il contenuto. Il gran parte della sanatizazzione è fatta ma manca ancora del lavoro.
+A partire dalla home del sito vengono visitate le subpages contenenti i datasets delle chat ed estratto il contenuto.
