@@ -19,8 +19,8 @@ Puoi provare il modello con un [bot Telegram](https://t.me/DeepSpeechItalianBot)
 ```
 $ virtualenv test --python=python3
 $ source test/bin/activate
-$ pip install deepspeech-tflite==0.7.0a1
-$ deepspeech --model output_graph.tflite --audio test.wav --trie trie --lm lm.binary
+$ pip install deepspeech==0.7.0a1
+$ deepspeech --model output_graph.pbmm --audio test.wav --trie trie --lm lm.binary
 ```
 
 ## Generare il modello
