@@ -2,9 +2,13 @@
 from xml.dom import minidom
 from typing.re import Pattern
 import re
+from utils import sanitize, line_rules, download
 
-# Download and extract from https://dumps.wikimedia.org/itwikiquote/latest/itwikiquote-latest-pages-articles.xml.bz2
-mydoc = minidom.parse('itwikiquote-latest-pages-articles.xml')
+download_me = download.Download()
+
+xml_path = download_me.ifnotexist('https://dumps.wikimedia.org/itwikiquote/latest/itwikiquote-latest-pages-articles.xml.bz2').bz2_decompress()
+
+mydoc = minidom.parse(xml_path)
 items = mydoc.getElementsByTagName('page')
 
 html_escape_table = {
