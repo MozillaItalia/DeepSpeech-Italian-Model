@@ -5,9 +5,8 @@ import re
 class Sanitization:
     """Various methods to clean the text to be used with DeepSpeech"""
     
-    def maybe_normalize(self, value, mapping=''):
-      if mapping == '':
-          mapping = [
+    def maybe_normalize(self, value, mapping='', roman_normalization=True):
+      default_mapping = [
               [ u'«', u'' ],
               [ u'»', u'' ],
               [ u'×' , u'' ],
@@ -21,6 +20,10 @@ class Sanitization:
               [ u'Sig. '   , u'Signor ' ],
               [ re.compile('\[\d+\]'), u'' ],
             ]
+      if mapping == '':
+          mapping = default_mapping
+      else:
+          mapping = mapping + default_mapping
           
       for norm in mapping:
         if type(norm[0]) == str:
@@ -30,17 +33,18 @@ class Sanitization:
         else:
           print('UNEXPECTED', type(norm[0]), norm[0])
     
-      for ro_before, ro_after, ro in self.getRomanNumbers(value):
-        try:
-          value = value.replace(ro_before + ro + ro_after, ro_before + str(roman.fromRoman(ro)) + ro_after)
-        except roman.InvalidRomanNumeralError as ex:
-          print(ex)
-          pass
+      if roman_normalization:
+          for ro_before, ro_after, ro in self.getRomanNumbers(value):
+            try:
+              value = value.replace(ro_before + ro + ro_after, ro_before + str(roman.fromRoman(ro)) + ro_after)
+            except roman.InvalidRomanNumeralError as ex:
+              print(ex)
+              pass
     
-      if value.startswith(';'):
+      if value.startswith(';') or value.startswith('–'):
           value = value[1:]
     
-      return value.replace('  ', " ")
+      return value.replace('  ', " ").trim()
     
     
     def getRomanNumbers(self, ch):
@@ -69,3 +73,14 @@ class Sanitization:
     def splitlines(self, text):
         text = text.replace('. ', "\n")
         return text
+    
+    def escapehtml(self, text, html_escape_table=''):
+        if html_escape_table == '':
+            html_escape_table = {
+                 "&amp;": "&",
+                 '&quot;': '"',
+                 "&apos;": "'",
+                 "&gt;": ">",
+                 "&lt;": "<",
+                 }
+        return "".join(html_escape_table.get(c,c) for c in str(text)).splitlines()

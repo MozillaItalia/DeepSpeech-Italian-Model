@@ -21,6 +21,7 @@ class Download:
         sys.stdout.write("\r...%d%%, %d MB, %d KB/s, %d seconds passed" %
                         (percent, progress_size / (1024 * 1024), speed, duration))
         sys.stdout.flush()
+        print("\n")
     
     def ifnotexist(self, url):
         self.file = self.folder + url.rsplit('/', 1)[-1]
@@ -34,7 +35,6 @@ class Download:
         else:
             print('File already downloaded ' + self.file)
         
-        print("\n")
         return self
     
     def bz2_decompress(self, file=''):
@@ -42,9 +42,10 @@ class Download:
             file = self.file
             
         extract_to = self.file.replace('.bz2','')
-        print('Decompressing to ' + extract_to)
-        with open(extract_to, 'wb') as new_file, bz2.BZ2File(self.file, 'rb') as file:
-            for data in iter(lambda : file.read(100 * 1024), b''):
-                new_file.write(data)
+        if not os.path.isfile(extract_to):
+            print('Decompressing to ' + extract_to)
+            with open(extract_to, 'wb') as new_file, bz2.BZ2File(self.file, 'rb') as file:
+                for data in iter(lambda : file.read(100 * 1024), b''):
+                    new_file.write(data)
                 
         return extract_to

@@ -1,84 +1,21 @@
 #!/usr/bin/env python3
 from xml.dom import minidom
-from typing.re import Pattern
 import re
 from utils import sanitize, line_rules, download
 
 download_me = download.Download()
+validate_line = line_rules.LineRules()
+clean_me = sanitize.Sanitization()
 
 xml_path = download_me.ifnotexist('https://dumps.wikimedia.org/itwikiquote/latest/itwikiquote-latest-pages-articles.xml.bz2').bz2_decompress()
 
+print('  Reading XML file')
 mydoc = minidom.parse(xml_path)
 items = mydoc.getElementsByTagName('page')
 
-html_escape_table = {
-     "&amp;": "&",
-     '&quot;': '"',
-     "&apos;": "'",
-     "&gt;": ">",
-     "&lt;": "<",
-     }
+result = open( './output/wikiquote.txt', 'w' )
 
-mapping_normalization = [
-  [ u'«', u'' ],
-  [ u'»', u'' ],
-  [ u'×' , u'' ],
-  [ u'_' , u'' ],
-  [ u'-' , u'' ],
-  [ u'—' , u'' ],
-  [ u'* * * ' , u'' ],
-  [ u'*' , u"\n" ],
-  [ u'( ' , u'' ],
-  [ u' , ' , u', ' ],
-  [ u' )' , u'' ],
-  [ u'<br />' , u"\n" ],
-  [ u'<br>' , u"\n" ],
-  [ u'Sig. '   , u'Signor ' ],
-  [ re.compile('\[\d+\]'), u'' ],
-]
-
-result = open( './result.txt', 'w' )
-
-RE = re.compile(r"""\[\[(File|Category):[\s\S]+\]\]|
-        \[\[[^|^\]]+\||
-        \[\[|
-        \]\]|
-        \'{2,5}|
-        (<s>|<!--)[\s\S]+(</s>|-->)|
-        {{[\s\S\n]+?}}|
-        <.*?>|
-        ={1,6}""", re.VERBOSE)
-
-
-def loads(wiki, compress_spaces=None):
-    '''
-    Parse a string to remove and replace all wiki markup tags
-    '''
-    result = RE.sub('', wiki)
-    if compress_spaces:
-        result = re.sub(r' +', ' ', result)
-
-    return result
-
-
-def load(stream, compress_spaces=None):
-    '''
-    Parse the content of a file to un-wikified text
-    '''
-    return loads(stream.read(), compress_spaces=compress_spaces)
-
-def maybe_normalize(value, mapping=mapping_normalization):
-  for norm in mapping:
-    if type(norm[0]) == str:
-      value = value.replace(norm[0], norm[1])
-    elif isinstance(norm[0], Pattern):
-      value = norm[0].sub(norm[1], value)
-    else:
-      print('UNEXPECTED', type(norm[0]), norm[0])
-
-  return loads(value)
-
-
+print('  Parsing in progress')
 text = ''
 for elem in items:
     title = elem.getElementsByTagName("title")[0].firstChild.data
@@ -86,25 +23,49 @@ for elem in items:
         textdom = elem.getElementsByTagName("revision")[0].getElementsByTagName("text")[0]
         if textdom.firstChild is not None:
             text = ''
-            textdom = textdom.firstChild.data
-            raw_text = "".join(html_escape_table.get(c,c) for c in str(textdom)).splitlines()
+            raw_text = clean_me.escapehtml(textdom.firstChild.data)
 
             for line in raw_text:
-                line = maybe_normalize(line)
+                line = clean_me.maybe_normalize(line, [
+                      [ u'*' , u"\n" ],
+                      [ u'<br />' , u"\n" ],
+                      [ u'<br>' , u"\n" ],
+                    ], False)
+                line = re.compile(r"""\[\[(File|Category):[\s\S]+\]\]|
+                        \[\[[^|^\]]+\||
+                        \[\[|\]\]|
+                        \'{2,5}|
+                        (<s>|<!--)[\s\S]+(</s>|-->)|
+                        {{[\s\S\n]+?}}|
+                        <.*?>|
+                        ={1,6}""", re.VERBOSE).sub("",  line)
+                line = re.sub("[\(\[].*?[\)\]]", "",  line)
+
                 if len(line) <= 15:
                     continue
 
-                if line.startswith('('):
+                if validate_line.startswith(line, ['(']):
                     continue
 
-                if line.find('|') >= 0 or line.find('{{') >= 0 or line.find(':') >= 2:
+                if validate_line.contain(line, ['|', '{{']) or line.find(':') >= 2:
                     continue
 
-                if  line.strip().isdigit() or line.strip()[1:].isdigit() or line.strip()[:1].isdigit():
+                stripped = line.strip()
+                if validate_line.isdigit([stripped, stripped[1:], stripped[:1]]):
                     continue
 
                 text += line
 
             result.write(text)
-
+            
 result.close()
+
+result = open( './output/wikiquote.txt', 'r' )
+text = clean_me.splitlines(result.read().splitlines())
+result.close()
+
+result = open( './output/wikiquote.txt', 'w' )
+result.write(text)
+result.close()
+
+print(' Total words: ' + str(len(text.split())))
