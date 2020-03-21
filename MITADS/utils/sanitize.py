@@ -41,10 +41,9 @@ class Sanitization:
               print(ex)
               pass
     
-      if value.startswith(';') or value.startswith('–'):
-          value = value[1:]
-    
-      return value.replace('  ', " ").trim()
+      value = self.cleansingleline(value)
+      
+      return value.replace('  ', " ")
     
     
     def getRomanNumbers(self, ch):
@@ -71,7 +70,12 @@ class Sanitization:
         yield ch[ros-1], '', ro
         
     def splitlines(self, text):
-        text = text.replace('. ', "\n")
+        text = text.replace('. ', ".\n")
+        text = text.replace('... ', "\n")
+        text = text.replace('? ', "\n")
+        text = text.replace('! ', "\n")
+        text = text.replace('– ', "\n")
+        text = text.replace('""', '"' + "\n" + '"')
         return text
     
     def escapehtml(self, text, html_escape_table=''):
@@ -82,5 +86,21 @@ class Sanitization:
                  "&apos;": "'",
                  "&gt;": ">",
                  "&lt;": "<",
+                 "&Egrave;": "È",
                  }
-        return "".join(html_escape_table.get(c,c) for c in str(text)).splitlines()
+        return "".join(html_escape_table.get(c,c) for c in str(text))
+    
+    def cleansingleline(self, value): 
+      if value.startswith(';') or value.startswith('–'):
+          value = value[1:]
+
+      if value.startswith('"') and value.endswith('"'):
+          value = value.replace('"', '')
+          
+      if value.endswith('–'):
+          value = value[:-1]
+
+      if value.count('"') == 1:
+          value = value.replace('"', "")
+    
+      return value

@@ -17,3 +17,12 @@ class LineRules:
         for search in searchme:
             if search.isdigit():
                 return True
+            
+    def isbookref(self, text):
+        text = text.replace('.', '')
+        if text.find(',') == 2 and text[-4:].isdigit():
+            return True
+        
+    def isbrokensimplebracket(self, text):
+        if text.find('(') >= 1 and text.find(')') == -1:
+            return True

@@ -19,27 +19,32 @@ print('  Parsing in progress')
 text = ''
 for elem in items:
     title = elem.getElementsByTagName("title")[0].firstChild.data
-    if 'wiki' not in title:
+    if 'wiki' not in title and title != 'Pagina principale':
         textdom = elem.getElementsByTagName("revision")[0].getElementsByTagName("text")[0]
         if textdom.firstChild is not None:
             text = ''
             raw_text = clean_me.escapehtml(textdom.firstChild.data)
-
-            for line in raw_text:
-                line = clean_me.maybe_normalize(line, [
-                      [ u'*' , u"\n" ],
-                      [ u'<br />' , u"\n" ],
-                      [ u'<br>' , u"\n" ],
-                    ], False)
-                line = re.compile(r"""\[\[(File|Category):[\s\S]+\]\]|
+            raw_text = re.compile(r"""\[\[(File|Category):[\s\S]+\]\]|
                         \[\[[^|^\]]+\||
                         \[\[|\]\]|
                         \'{2,5}|
                         (<s>|<!--)[\s\S]+(</s>|-->)|
+                        (<s>|<!)[\s\S]+(</s>|>)|
                         {{[\s\S\n]+?}}|
                         <.*?>|
-                        ={1,6}""", re.VERBOSE).sub("",  line)
-                line = re.sub("[\(\[].*?[\)\]]", "",  line)
+                        ={1,6}""", re.VERBOSE).sub("", raw_text)
+            raw_text = clean_me.maybe_normalize(raw_text, [
+                      [ u'*' , u"\n" ],
+                      [ u'<br />' , u"\n" ],
+                      [ u'<br>' , u"\n" ],
+                      [ u"\(\d\d\d\d\)", ""],
+                      [ u"[\(\[].*?[\)\]]", ""],
+                      [ 'AvvertenzaContattiDonazioni', '']
+                    ], False)
+            raw_text = clean_me.splitlines(raw_text).splitlines()
+
+            for line in raw_text:
+                line = line.strip()
 
                 if len(line) <= 15:
                     continue
@@ -47,25 +52,26 @@ for elem in items:
                 if validate_line.startswith(line, ['(']):
                     continue
 
-                if validate_line.contain(line, ['|', '{{']) or line.find(':') >= 2:
+                if validate_line.contain(line, ['|', '{{', ':', '[', 'ISBN', '#']):
                     continue
 
-                stripped = line.strip()
-                if validate_line.isdigit([stripped, stripped[1:], stripped[:1]]):
+                if validate_line.isdigit([line, line[1:], line[:1]]):
                     continue
-
-                text += line
+                
+                if validate_line.isbookref(line):
+                    continue
+                
+                if validate_line.isbrokensimplebracket(line):
+                    continue
+                
+                text += clean_me.cleansingleline(line) + "\n"
 
             result.write(text)
             
 result.close()
 
 result = open( './output/wikiquote.txt', 'r' )
-text = clean_me.splitlines(result.read().splitlines())
+text = result.read().splitlines()
 result.close()
 
-result = open( './output/wikiquote.txt', 'w' )
-result.write(text)
-result.close()
-
-print(' Total words: ' + str(len(text.split())))
+print(' Total lines: ' + str(len(text)))
