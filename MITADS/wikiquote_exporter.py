@@ -44,7 +44,7 @@ for elem in items:
             raw_text = clean_me.splitlines(raw_text).splitlines()
 
             for line in raw_text:
-                line = line.strip()
+                line = clean_me.cleansingleline(line).strip()
 
                 if len(line) <= 15:
                     continue
@@ -64,7 +64,7 @@ for elem in items:
                 if validate_line.isbrokensimplebracket(line):
                     continue
                 
-                text += clean_me.cleansingleline(line) + "\n"
+                text += line + "\n"
 
             result.write(text)
             

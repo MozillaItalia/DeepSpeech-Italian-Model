@@ -14,12 +14,15 @@ result = open( './output/gutenberg.txt', 'w' )
 for book_id in ids:
     print('  Downloading/Reading Gutenberg book '+ book_id)
     # Based on https://github.com/Common-Voice/commonvoice-fr/blob/master/CommonVoice-Data/project-gutenberg.py
-    raw_text = strip_headers(load_etext(int(book_id))).splitlines()
+    raw_text = strip_headers(load_etext(int(book_id)))
+    raw_text = clean_me.maybe_normalize(raw_text)
+    raw_text = clean_me.splitlines(raw_text).splitlines()
+
     text = ''
 
     # Cleaning
     for line in raw_text:
-        line = clean_me.maybe_normalize(line)
+        line = clean_me.cleansingleline(line).strip()
         if len(line) <= 15:
             continue
 
@@ -29,20 +32,18 @@ for book_id in ids:
         if validate_line.startswith(line, ['(', '...']):
             continue
 
-        if validate_line.contain(line, ['§', '=', '--', '~']):
+        if validate_line.contain(line, ['§', '=', '--', '~', '   ']):
             continue
         
-        stripped = line.strip()
-        if validate_line.isdigit([stripped, stripped[1:], stripped[:1]]):
+        if validate_line.isdigit([line, line[1:], line[:1]]):
             continue
 
-        text += line
+        text += line + "\n"
 
-    text = clean_me.splitlines(text)
     result.write(text)
 
 result.close()
 
 result = open( './output/gutenberg.txt', 'r' )
-print(' Total words: ' + str(len(result.read().split())))
+print(' Total lines: ' + str(len(result.read().splitlines())))
 result.close()
