@@ -5,7 +5,7 @@ from typing.re import Pattern
 import roman
 import re
 
-ids = open( './gutenberg_books.txt', 'r' ).read().splitlines()
+ids = open( './assets/gutenberg_books.txt', 'r' ).read().splitlines()
 text = ''
 
 mapping_normalization = [
