@@ -55,7 +55,7 @@ class Download:
         if file == '':
             file = self.file
             
-        if not os.path.isfile(extract_to):
+        if not os.path.isdir(extract_to):
             print('Decompressing to ' + extract_to)
             with zipfile.ZipFile(self.file, "r") as zip_ref:
                 zip_ref.extractall(extract_to)

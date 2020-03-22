@@ -5,12 +5,13 @@ from pathlib import Path
 from unidecode import unidecode
 from utils import sanitize, line_rules, download
 from concurrent.futures import ThreadPoolExecutor
+from xml.dom import minidom
 
 download_me = download.Download()
 validate_line = line_rules.LineRules()
 clean_me = sanitize.Sanitization()
 
-folder_dataset = download_me.ifnotexist('http://opus.nlpl.eu/download.php?f=OpenSubtitles/v2018/xml/it.zip').zip_decompress('./parsing')
+folder_dataset = download_me.ifnotexist('http://opus.nlpl.eu/download.php?f=OpenSubtitles/v2018/xml/it.zip').zip_decompress('./parsing/opensubtitles/')
 
 def parsexmlfile(xml_path, count_file):
     mapping_normalization = [
@@ -27,8 +28,6 @@ def parsexmlfile(xml_path, count_file):
       
       # Sanitize ... to .
       [ re.compile('\.+'), u'.' ],
-      # normalize spaces
-      [ re.compile('\n|\t|\r|\s+'), u' ' ],
     
       # accentate maiuscole
       [ re.compile('È'), u'e\'' ],
@@ -53,9 +52,6 @@ def parsexmlfile(xml_path, count_file):
       [ re.compile('(€)\s*([0-9]+[.,]{0,1}[0-9]*)'), r'\2 euro' ], 
       [ re.compile('([0-9]+[.,]{0,1}[0-9]*)\s*€'), r'\1 euro' ],
       [ u'¢' , u'c' ],  
-    
-      # space trim - it must be reapplied again
-      [ re.compile('\s+'), u' ' ]
     ]
     
     mapping_normalization_after_decode = [
@@ -68,11 +64,21 @@ def parsexmlfile(xml_path, count_file):
       [ re.compile('u\'(\s|$|,|\.|\?)'), r'ù\1' ],     
     ] 
     
-    fp = open(xml_path,encoding='utf-8')
-    result = open( './output/opensubtitles_' + count_file + '.txt', 'w' )
+    result = open( './output/opensubtitles_' + str(count_file) + '.txt', 'w' )
+    mydoc = minidom.parse(xml_path)
+    items = mydoc.getElementsByTagName('s')
     
-    text = fp.read()
-    text = clean_me.maybe_normalize(text, mapping_normalization, False)
+    # build the sentence/text
+    text = ''
+    for elem in items:
+        words = elem.getElementsByTagName("w")
+        for word in words:
+            if word.firstChild.data != '':
+                text += word.firstChild.data + ' '
+            
+        text += "\n"
+
+    text = clean_me.maybe_normalize(text.strip(), mapping_normalization, False)
     
     # Opensubtiles Dataset contains no-ASCII char
     #  we use unidecode to delegate all unicode char processing
@@ -93,13 +99,11 @@ def parsexmlfile(xml_path, count_file):
       
     for line in text.splitlines():
       line = clean_me.cleansingleline(line).strip()
+      
       if len(line) <= 2:
           continue
        
-      if validate_line.startswith(line, ['<']):
-          continue
-       
-      if validate_line.contain(line, ['®', '{', '}', '©', '±', '_', '@', '+']):
+      if validate_line.contain(line, ['®', '{', '}', '©', '±', '_', '@', '+', ':']):
           continue
         
       text += line + "\n"
@@ -108,7 +112,7 @@ def parsexmlfile(xml_path, count_file):
     result.close()
 
 start_year=1920
-pathlist = Path(folder_dataset).glob('**/*.xml')
+pathlist = Path(folder_dataset + './OpenSubtitles/xml/it/').glob('**/*.xml')
 
 print('  Parsing in progress')
 count_file = 0
@@ -124,7 +128,7 @@ for xml_path in pathlist:
 
   xml_path = str(xml_path)
   pool.submit(parsexmlfile, xml_path, count_file)
-#  parsexmlfile(xml_path, count_file)
+  #parsexmlfile(xml_path, count_file)
 
   count_file +=1
 

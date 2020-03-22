@@ -17,7 +17,13 @@ class Sanitization:
               [ u'( ' , u'' ],
               [ u' , ' , u', ' ],
               [ u' )' , u'' ],
-              [ u'Sig. '   , u'Signor ' ],
+              [ u' .' , u'.' ],
+              [ u'\' ' , u'\'' ],
+              [ u' !' , u'!' ],
+              [ u' ?' , u'?' ],
+              [ u'Sig. ', u'Signor ' ],
+              [ u'Sr. ', u'Signor ' ],
+              [ u'Sra. ', u'Signora ' ],
               [ re.compile('\[\d+\]'), u'' ],
             ]
       if mapping == '':
