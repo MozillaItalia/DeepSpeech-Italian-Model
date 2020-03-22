@@ -91,7 +91,7 @@ class Sanitization:
         return "".join(html_escape_table.get(c,c) for c in str(text))
     
     def cleansingleline(self, value): 
-      if value.startswith(';') or value.startswith('–'):
+      if value.startswith(';') or value.startswith('–') or value.startswith('.') or value.startswith(':') or value.startswith('\''):
           value = value[1:]
 
       if value.startswith('"') and value.endswith('"'):
@@ -102,5 +102,8 @@ class Sanitization:
 
       if value.count('"') == 1:
           value = value.replace('"', "")
+          
+      if(value.isupper()):
+          value = value.lower()
     
       return value

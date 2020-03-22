@@ -3,6 +3,7 @@ import urllib.request
 import bz2
 import time
 import sys
+import zipfile
 
 class Download:
     file = ''
@@ -49,3 +50,15 @@ class Download:
                     new_file.write(data)
                 
         return extract_to
+    
+    def zip_decompress(self, extract_to="", file=""):
+        if file == '':
+            file = self.file
+            
+        if not os.path.isfile(extract_to):
+            print('Decompressing to ' + extract_to)
+            with zipfile.ZipFile(self.file, "r") as zip_ref:
+                zip_ref.extractall(extract_to)
+                
+        return extract_to
+        
