@@ -32,7 +32,7 @@ for book_id in ids:
         if validate_line.startswith(line, ['(', '...']):
             continue
 
-        if validate_line.contain(line, ['§', '=', '--', '~', '   ']):
+        if validate_line.contain(line, ['§', '=', '--', '~', '   ', '[']):
             continue
         
         if validate_line.isdigit([line, line[1:], line[:1]]):
