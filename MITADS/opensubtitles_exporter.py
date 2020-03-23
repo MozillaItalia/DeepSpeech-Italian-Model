@@ -64,7 +64,7 @@ def parsexmlfile(xml_path, count_file):
       [ re.compile('u\'(\s|$|,|\.|\?)'), r'ù\1' ],     
     ] 
     
-    result = open( './output/opensubtitles_' + str(count_file) + '.txt', 'w' )
+    result = open( './output/ost/opensubtitles_' + str(count_file) + '.txt', 'w' )
     mydoc = minidom.parse(xml_path)
     items = mydoc.getElementsByTagName('s')
     
@@ -121,7 +121,7 @@ print('  Parsing in progress')
 count_file = 0
 
 # Parse 5 files at once
-pool = ThreadPoolExecutor(max_workers=5)
+pool = ThreadPoolExecutor(max_workers=20)
 
 total_lines = 0
 for xml_path in pathlist:
@@ -134,6 +134,7 @@ for xml_path in pathlist:
   future = pool.submit(parsexmlfile, xml_path, count_file)
   total_lines += future.result()
   #parsexmlfile(xml_path, count_file)
+  print(' Actual lines ' + str(total_lines))
 
   count_file +=1
 
