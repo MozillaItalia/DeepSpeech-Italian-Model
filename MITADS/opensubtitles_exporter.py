@@ -97,7 +97,8 @@ def parsexmlfile(xml_path, count_file):
     text = text.replace('<PH_U>','ù')
     text = clean_me.maybe_normalize(text, mapping_normalization_after_decode, False)
       
-    for line in text.splitlines():
+    lines = text.splitlines()
+    for line in lines:
       line = clean_me.cleansingleline(line).strip()
       
       if len(line) <= 2:
@@ -110,6 +111,8 @@ def parsexmlfile(xml_path, count_file):
     
     result.write(text)
     result.close()
+    
+    return len(lines)
 
 start_year=1920
 pathlist = Path(folder_dataset + './OpenSubtitles/xml/it/').glob('**/*.xml')
@@ -120,6 +123,7 @@ count_file = 0
 # Parse 5 files at once
 pool = ThreadPoolExecutor(max_workers=5)
 
+total_lines = 0
 for xml_path in pathlist:
   year_folder = str(xml_path.parent.parent._parts[len(xml_path.parent.parent._parts)-1])
   year_folder_int = int(year_folder)
@@ -127,9 +131,11 @@ for xml_path in pathlist:
       continue
 
   xml_path = str(xml_path)
-  pool.submit(parsexmlfile, xml_path, count_file)
+  future = pool.submit(parsexmlfile, xml_path, count_file)
+  total_lines += future.result()
   #parsexmlfile(xml_path, count_file)
 
   count_file +=1
 
+print(' Total lines ' + str(total_lines))
 pool.shutdown(wait=True)
