@@ -18,3 +18,5 @@ do
     fi
   fi
 done
+
+cat ./output/ost_*.txt |uq > ./output/ost.txt
