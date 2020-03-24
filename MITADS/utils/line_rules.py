@@ -7,6 +7,11 @@ class LineRules:
         for char in chars:
             if line.startswith(char):
                 return True
+            
+    def endswith(self, line, chars):
+        for char in chars:
+            if line.endswith(char):
+                return True
     
     def contain(self, line, chars):
         for char in chars:
@@ -20,7 +25,7 @@ class LineRules:
             
     def isbookref(self, text):
         text = text.replace('.', '')
-        if text.find(',') == 2 and text[-4:].isdigit():
+        if text.find(',') >= 2 and text[-2:].isdigit():
             return True
         
     def isbrokensimplebracket(self, text):
