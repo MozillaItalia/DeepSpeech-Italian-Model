@@ -4,6 +4,9 @@ import bz2
 import time
 import sys
 import zipfile
+from urllib.request import Request, urlopen
+from fake_useragent import UserAgent
+from bs4 import BeautifulSoup
 
 class Download:
     file = ''
@@ -61,4 +64,14 @@ class Download:
                 zip_ref.extractall(extract_to)
                 
         return extract_to
+    
+    def downloadpage(self, link):
+        ua = UserAgent()
+        
+        response = Request(link, headers={'User-Agent': ua.random})
+        return urlopen(response).read().decode('UTF-8').strip()
+    
+    def bp(self, raw_page):
+        soup = BeautifulSoup(raw_page.content, 'html.parser')
+        return soup
         

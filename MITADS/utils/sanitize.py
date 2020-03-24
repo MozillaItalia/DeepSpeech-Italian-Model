@@ -1,6 +1,7 @@
 from typing.re import Pattern
 import roman
 import re
+from bs4 import Tag, NavigableString
 
 class Sanitization:
     """Various methods to clean the text to be used with DeepSpeech"""
@@ -91,7 +92,13 @@ class Sanitization:
         text = text.replace('! ', "\n")
         text = text.replace('– ', "\n")
         text = text.replace('""', '"' + "\n" + '"')
-        return text
+        
+        if isinstance(text, Tag):
+            return text.prettify()
+        elif isinstance(text, NavigableString):
+            return text
+        else:
+            return text
     
     def escapehtml(self, text, html_escape_table=''):
         if html_escape_table == '':
@@ -106,7 +113,7 @@ class Sanitization:
         return "".join(html_escape_table.get(c,c) for c in str(text))
     
     def cleansingleline(self, value): 
-      if value.startswith(';') or value.startswith('–') or value.startswith('.') or value.startswith(':') or value.startswith('\'') or value.startswith('*') or value.startswith('< '):
+      if value.startswith(';') or value.startswith('–') or value.startswith('.') or value.startswith(':') or value.startswith('\'') or value.startswith('*') or value.startswith(') ') or value.startswith('< '):
           value = value[1:]
 
       if value.startswith('"') and value.endswith('"'):

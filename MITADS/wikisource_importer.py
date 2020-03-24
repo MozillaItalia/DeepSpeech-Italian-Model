@@ -1,26 +1,23 @@
 #!/usr/bin/env python3
-from urllib.request import Request, urlopen
-from fake_useragent import UserAgent
-from utils import sanitize, line_rules
+from utils import sanitize, line_rules, download
+import time
 
 validate_line = line_rules.LineRules()
 clean_me = sanitize.Sanitization()
-
+download_me = download.Download()
 
 books = open( './assets/wikisource_books.txt', 'r' ).read().splitlines()
 start = 1
 download_link = 'https://tools.wmflabs.org/wsexport/tool/book.php?lang=it&format=txt&page='
 result = open("./output/wikisource.txt", "w", encoding='utf-8')
-print("Number of books to import: {}".format(len(books)))
+print(" Number of books to import: {}".format(len(books)))
 
-ua = UserAgent()
 
 for book in books:
-    print("Processing book : {}\n {} of {}".format(book,start,len(books)))
-    response = Request(download_link + book, headers={'User-Agent': ua.random})
-    data = urlopen(response).read().decode('UTF-8')
-
-    raw_text = clean_me.maybe_normalize(data.strip())
+    time.sleep(5)
+    print("  Processing book : {}\n   {} of {}".format(book,start,len(books)))
+    raw_text = download_me.downloadpage(download_link + book)
+    raw_text = clean_me.maybe_normalize(raw_text)
     raw_text = clean_me.splitlines(raw_text).splitlines()
     
     text = ''
@@ -31,19 +28,16 @@ for book in books:
             if len(line) <= 12:
                 continue
             
-            if line.isupper():
-                continue
-            
             if line == 'creativecommons':
                 continue
             
-            if validate_line.contain(line, ['Â§', '=', '--', '~', 'wiki', 'licenses', '//', ' pp', ' Ibid', '■', '^']):
+            if validate_line.contain(line, ['§', '=', '--', '~', 'wiki', 'licenses', '//', ' pp', ' Ibid', '■', '^']):
                 continue
             
             if line.find('/') >= 1:
                 continue
             
-            if validate_line.brokenparenthesis(line):
+            if validate_line.isbrokenparenthesis(line):
                 continue
 
             if validate_line.startswith(line, ['(', '...', ',', '[']):
@@ -69,5 +63,5 @@ for book in books:
 result.close()
 
 result = open('./output/wikisource.txt', 'r', encoding='utf-8')
-print('Number of lines: ' + str(len(result.read().splitlines())))
+print(' Number of lines: ' + str(len(result.read().splitlines())))
 result.close()

@@ -32,6 +32,29 @@ class LineRules:
         if text.find('(') >= 1 and text.find(')') == -1:
             return True
         
-    def brokenparenthesis(self, text):
-        if text.find(')') >= 1 and text.find('(') == -1 and text.find('(') >= 1 and text.find(')') == -1:
+    def isbrokenparenthesis(self, text):
+        if text.find(')') >= 1 and text.find('(') == -1 or text.find('(') >= 1 and text.find(')') == -1:
             return True
+        
+    def hasafinalrepeated(self, text):
+        for word in text.split():
+            if len(word) >= 2 and not word.strip().isnumeric():
+                end = word[-3:]
+                if len(end.replace(end[0], '')) == 0:
+                    return True
+        return False
+    
+    def parenthesisnotmatch(self, text):
+        last = None
+        for char in text:
+            if char == '(':
+                if last is None or last == ')':
+                    last = char
+                elif last == '(':
+                    return False
+            elif char == ')':
+                if last == '(':
+                    last = char
+                elif last is None or last == ')':
+                    return False
+        return True
