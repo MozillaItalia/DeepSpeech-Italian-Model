@@ -16,7 +16,7 @@ for book_id in ids:
     # Based on https://github.com/Common-Voice/commonvoice-fr/blob/master/CommonVoice-Data/project-gutenberg.py
     raw_text = strip_headers(load_etext(int(book_id)))
     raw_text = clean_me.maybe_normalize(raw_text)
-    raw_text = clean_me.splitlines(raw_text).splitlines()
+    raw_text = clean_me.preparesplitlines(raw_text).splitlines()
 
     text = ''
 

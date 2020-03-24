@@ -41,7 +41,7 @@ for elem in items:
                       [ u"[\(\[].*?[\)\]]", ""],
                       [ 'AvvertenzaContattiDonazioni', '']
                     ], False)
-            raw_text = clean_me.splitlines(raw_text).splitlines()
+            raw_text = clean_me.preparesplitlines(raw_text).splitlines()
 
             for line in raw_text:
                 line = clean_me.cleansingleline(line).strip()

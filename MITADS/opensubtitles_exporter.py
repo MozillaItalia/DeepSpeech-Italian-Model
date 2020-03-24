@@ -97,7 +97,7 @@ def parsexmlfile(xml_path, count_file):
     text = text.replace('<PH_U>','ù')
     text = clean_me.maybe_normalize(text, mapping_normalization_after_decode, False)
       
-    lines = text.splitlines()
+    lines = clean_me.preparesplitlines(text).splitlines()
     for line in lines:
       line = clean_me.cleansingleline(line).strip()
       

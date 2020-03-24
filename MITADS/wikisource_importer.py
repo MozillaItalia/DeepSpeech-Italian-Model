@@ -18,7 +18,7 @@ for book in books:
     print("  Processing book : {}\n   {} of {}".format(book,start,len(books)))
     raw_text = download_me.downloadpage(download_link + book)
     raw_text = clean_me.maybe_normalize(raw_text)
-    raw_text = clean_me.splitlines(raw_text).splitlines()
+    raw_text = clean_me.preparesplitlines(raw_text).splitlines()
     
     text = ''
     for sentences in raw_text:

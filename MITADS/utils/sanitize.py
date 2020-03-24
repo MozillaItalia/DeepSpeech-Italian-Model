@@ -27,7 +27,7 @@ class Sanitization:
               [ u'“', u'"'],
               [ u'”', u'"'],
               [ u'’', u'\''],
-              
+              [ u'" "', u'"'],              
               [ r'^https?:\/\/.*[\r\n]*', '' ],
               [ r'^http?:\/\/.*[\r\n]*', '' ],
               [ r'(^[ \t]+|[ \t]+(?=:))', '' ],
@@ -85,7 +85,7 @@ class Sanitization:
       if len(ro) > 0:
         yield ch[ros-1], '', ro
         
-    def splitlines(self, text):
+    def preparesplitlines(self, text):
         text = text.replace('. ', ".\n")
         text = text.replace('... ', "\n")
         text = text.replace('? ', "\n")
