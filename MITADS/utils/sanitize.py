@@ -113,13 +113,13 @@ class Sanitization:
         return "".join(html_escape_table.get(c,c) for c in str(text))
     
     def cleansingleline(self, value): 
-      if value.startswith(';') or value.startswith('–') or value.startswith('.') or value.startswith(':') or value.startswith('\'') or value.startswith('*') or value.startswith(') ') or value.startswith('< '):
+      if value.startswith(';') or value.startswith('–') or value.startswith('.') or value.startswith(':') or value.startswith('\'') or value.startswith('*') or value.startswith(') ') or value.startswith('< ') or value.startswith(',') or value.startswith('-'):
           value = value[1:]
 
       if value.startswith('"') and value.endswith('"'):
           value = value.replace('"', '')
           
-      if value.endswith('–') or  value.endswith('*'):
+      if value.endswith('–') or value.endswith('*'):
           value = value[:-1]
 
       if value.count('"') == 1:

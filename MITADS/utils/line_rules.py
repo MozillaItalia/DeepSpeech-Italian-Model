@@ -44,7 +44,7 @@ class LineRules:
                     return True
         return False
     
-    def parenthesisnotmatch(self, text):
+    def parenthesismatch(self, text):
         last = None
         for char in text:
             if char == '(':

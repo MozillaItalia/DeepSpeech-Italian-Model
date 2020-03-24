@@ -65,13 +65,14 @@ class Download:
                 
         return extract_to
     
-    def downloadpage(self, link):
+    def downloadpage(self, link, decode='UTF-8'):
         ua = UserAgent()
         
         response = Request(link, headers={'User-Agent': ua.random})
-        return urlopen(response).read().decode('UTF-8').strip()
+        response = urlopen(response).read()
+        return response.decode(decode).strip()
     
-    def bp(self, raw_page):
-        soup = BeautifulSoup(raw_page.content, 'html.parser')
-        return soup
+    def downloadforbp(self, link, decode='UTF-8'):
+        soup = BeautifulSoup(self.downloadpage(link, decode), 'html.parser')
+        return soup    
         
