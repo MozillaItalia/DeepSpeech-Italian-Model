@@ -31,3 +31,7 @@ class LineRules:
     def isbrokensimplebracket(self, text):
         if text.find('(') >= 1 and text.find(')') == -1:
             return True
+        
+    def brokenparenthesis(self, text):
+        if text.find(')') >= 1 and text.find('(') == -1 and text.find('(') >= 1 and text.find(')') == -1:
+            return True
