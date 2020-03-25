@@ -50,7 +50,7 @@ class Sanitization:
           print('UNEXPECTED', type(norm[0]), norm[0])
     
       if roman_normalization:
-          for ro_before, ro_after, ro in self.getRomanNumbers(value):
+          for ro_before, ro_after, ro in self.get_roman_numbers(value):
             try:
               value = value.replace(ro_before + ro + ro_after, ro_before + str(roman.fromRoman(ro)) + ro_after)
             except roman.InvalidRomanNumeralError as ex:
@@ -62,7 +62,7 @@ class Sanitization:
       return value.replace('  ', " ")
     
     
-    def getRomanNumbers(self, ch):
+    def get_roman_numbers(self, ch):
       ROMAN_CHARS = "XVI"
       ro  = ''
       ros = 0
@@ -85,7 +85,7 @@ class Sanitization:
       if len(ro) > 0:
         yield ch[ros-1], '', ro
         
-    def preparesplitlines(self, text):
+    def prepare_splitlines(self, text):
         text = text.replace('. ', ".\n")
         text = text.replace('... ', "\n")
         text = text.replace('? ', "\n")
@@ -112,7 +112,7 @@ class Sanitization:
                  }
         return "".join(html_escape_table.get(c,c) for c in str(text))
     
-    def cleansingleline(self, value): 
+    def clean_single_line(self, value): 
       if value.startswith(';') or value.startswith('–') or value.startswith('.') or value.startswith(':') or value.startswith('\'') or value.startswith('*') or value.startswith(') ') or value.startswith('< ') or value.startswith(',') or value.startswith('-'):
           value = value[1:]
 

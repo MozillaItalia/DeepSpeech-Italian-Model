@@ -16,15 +16,15 @@ print(" Number of books to import: {}".format(len(books)))
 for book in books:
     time.sleep(5)
     print("  Processing book : {}\n   {} of {}".format(book,start,len(books)))
-    raw_text = download_me.downloadpage(download_link + book)
+    raw_text = download_me.download_page(download_link + book)
     raw_text = clean_me.maybe_normalize(raw_text)
-    raw_text = clean_me.preparesplitlines(raw_text).splitlines()
+    raw_text = clean_me.prepare_splitlines(raw_text).splitlines()
     
     text = ''
     for sentences in raw_text:
         lines = sentences.split(".")
         for line in lines:
-            line = clean_me.cleansingleline(line).strip()
+            line = clean_me.clean_single_line(line).strip()
             if len(line) <= 12:
                 continue
             

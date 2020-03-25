@@ -11,7 +11,7 @@ download_me = download.Download()
 validate_line = line_rules.LineRules()
 clean_me = sanitize.Sanitization()
 
-folder_dataset = download_me.ifnotexist('http://opus.nlpl.eu/download.php?f=OpenSubtitles/v2018/xml/it.zip').zip_decompress('./parsing/opensubtitles/')
+folder_dataset = download_me.if_not_exist('http://opus.nlpl.eu/download.php?f=OpenSubtitles/v2018/xml/it.zip').zip_decompress('./parsing/opensubtitles/')
 
 def parsexmlfile(xml_path, count_file):
     mapping_normalization = [
@@ -97,9 +97,9 @@ def parsexmlfile(xml_path, count_file):
     text = text.replace('<PH_U>','ù')
     text = clean_me.maybe_normalize(text, mapping_normalization_after_decode, False)
       
-    lines = clean_me.preparesplitlines(text).splitlines()
+    lines = clean_me.prepare_splitlines(text).splitlines()
     for line in lines:
-      line = clean_me.cleansingleline(line).strip()
+      line = clean_me.clean_single_line(line).strip()
       
       if len(line) <= 2:
           continue

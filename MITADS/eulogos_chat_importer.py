@@ -58,7 +58,7 @@ mapping_normalization = [
     [re.compile('\s*:$'), u''],
 ]
 HOME = "http://www.intratext.com/IXT/ITA0192"
-raw_page = download_me.downloadforbp(HOME, 'ISO-8859-1')
+raw_page = download_me.download_for_bp(HOME, 'ISO-8859-1')
 lists = raw_page.find_all("ul")
 # Getting the chat archives from homepage's anchors
 anchors = lists[0].find_all("a")
@@ -76,7 +76,7 @@ with open("./output/eulogos.txt", "w") as result:
         print("{}/{} pages".format(current, len(pages)))
         url = "{}/{}".format(HOME, page)
         print(url)
-        soup = download_me.downloadforbp(url, 'ISO-8859-1')
+        soup = download_me.download_for_bp(url, 'ISO-8859-1')
         tables = soup.find_all("table")
         # Chat content is always in the 5th table
         rows = tables[4].find("tr")
@@ -86,9 +86,9 @@ with open("./output/eulogos.txt", "w") as result:
                 text = ''
                 raw_content = str(raw_content).strip()
                 content = clean_me.maybe_normalize(raw_content, mapping_normalization)
-                content = clean_me.preparesplitlines(raw_content).splitlines()
+                content = clean_me.prepare_splitlines(raw_content).splitlines()
                 for line in content:
-                    line = clean_me.cleansingleline(line)
+                    line = clean_me.clean_single_line(line)
                     if len(line) <= 12:
                         continue
                     

@@ -7,7 +7,7 @@ download_me = download.Download()
 validate_line = line_rules.LineRules()
 clean_me = sanitize.Sanitization()
 
-xml_path = download_me.ifnotexist('https://dumps.wikimedia.org/itwikiquote/latest/itwikiquote-latest-pages-articles.xml.bz2').bz2_decompress()
+xml_path = download_me.if_not_exist('https://dumps.wikimedia.org/itwikiquote/latest/itwikiquote-latest-pages-articles.xml.bz2').bz2_decompress()
 
 print('  Reading XML file')
 mydoc = minidom.parse(xml_path)
@@ -41,10 +41,10 @@ for elem in items:
                       [ u"[\(\[].*?[\)\]]", ""],
                       [ 'AvvertenzaContattiDonazioni', '']
                     ], False)
-            raw_text = clean_me.preparesplitlines(raw_text).splitlines()
+            raw_text = clean_me.prepare_splitlines(raw_text).splitlines()
 
             for line in raw_text:
-                line = clean_me.cleansingleline(line).strip()
+                line = clean_me.clean_single_line(line).strip()
 
                 if len(line) <= 15:
                     continue

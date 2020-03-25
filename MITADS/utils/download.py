@@ -12,7 +12,7 @@ class Download:
     file = ''
     folder = './parsing/'
     
-    def downloadstatus(self, count, block_size, total_size):
+    def download_status(self, count, block_size, total_size):
         # from https://blog.shichao.io/2012/10/04/progress_speed_indicator_for_urlretrieve_in_python.html
         global start_time
         if count == 0:
@@ -27,12 +27,12 @@ class Download:
         sys.stdout.flush()
         print("\n")
     
-    def ifnotexist(self, url):
+    def if_not_exist(self, url):
         self.file = self.folder + url.rsplit('/', 1)[-1]
         if not os.path.isfile(self.file):
             print('Downloading in ' + self.file)
             try:
-                urllib.request.urlretrieve(url, self.file, self.downloadstatus)
+                urllib.request.urlretrieve(url, self.file, self.download_status)
             except Exception as inst:
                 print(inst)
                 print('  Encountered unknown error. Continuing.')
@@ -65,14 +65,14 @@ class Download:
                 
         return extract_to
     
-    def downloadpage(self, link, decode='UTF-8'):
+    def download_page(self, link, decode='UTF-8'):
         ua = UserAgent()
         
         response = Request(link, headers={'User-Agent': ua.random})
         response = urlopen(response).read()
         return response.decode(decode).strip()
     
-    def downloadforbp(self, link, decode='UTF-8'):
+    def download_for_bp(self, link, decode='UTF-8'):
         soup = BeautifulSoup(self.downloadpage(link, decode), 'html.parser')
         return soup    
         
