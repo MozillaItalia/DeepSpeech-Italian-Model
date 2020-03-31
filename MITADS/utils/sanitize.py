@@ -57,7 +57,7 @@ class Sanitization:
               print(ex)
               pass
     
-      value = self.cleansingleline(value)
+      value = self.clean_single_line(value)
       
       return value.replace('  ', " ")
     
