@@ -110,6 +110,7 @@ ENV/
 #vscode
 .vscode
 
-result.txt
+MITADS/output/*.txt
+MITADS/parsing/*
 *.xml
 *.xml.bz2

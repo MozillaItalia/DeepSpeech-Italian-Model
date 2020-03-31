@@ -1,106 +1,77 @@
 #!/usr/bin/env python3
 from xml.dom import minidom
-from typing.re import Pattern
 import re
+from utils import sanitize, line_rules, download
 
-# Download and extract from https://dumps.wikimedia.org/itwikiquote/latest/itwikiquote-latest-pages-articles.xml.bz2
-mydoc = minidom.parse('itwikiquote-latest-pages-articles.xml')
+download_me = download.Download()
+validate_line = line_rules.LineRules()
+clean_me = sanitize.Sanitization()
+
+xml_path = download_me.if_not_exist('https://dumps.wikimedia.org/itwikiquote/latest/itwikiquote-latest-pages-articles.xml.bz2').bz2_decompress()
+
+print('  Reading XML file')
+mydoc = minidom.parse(xml_path)
 items = mydoc.getElementsByTagName('page')
 
-html_escape_table = {
-     "&amp;": "&",
-     '&quot;': '"',
-     "&apos;": "'",
-     "&gt;": ">",
-     "&lt;": "<",
-     }
+result = open( './output/wikiquote.txt', 'w' )
 
-mapping_normalization = [
-  [ u'«', u'' ],
-  [ u'»', u'' ],
-  [ u'×' , u'' ],
-  [ u'_' , u'' ],
-  [ u'-' , u'' ],
-  [ u'—' , u'' ],
-  [ u'* * * ' , u'' ],
-  [ u'*' , u"\n" ],
-  [ u'( ' , u'' ],
-  [ u' , ' , u', ' ],
-  [ u' )' , u'' ],
-  [ u'<br />' , u"\n" ],
-  [ u'<br>' , u"\n" ],
-  [ u'Sig. '   , u'Signor ' ],
-  [ re.compile('\[\d+\]'), u'' ],
-]
-
-result = open( './result.txt', 'w' )
-
-RE = re.compile(r"""\[\[(File|Category):[\s\S]+\]\]|
-        \[\[[^|^\]]+\||
-        \[\[|
-        \]\]|
-        \'{2,5}|
-        (<s>|<!--)[\s\S]+(</s>|-->)|
-        {{[\s\S\n]+?}}|
-        <.*?>|
-        ={1,6}""", re.VERBOSE)
-
-
-def loads(wiki, compress_spaces=None):
-    '''
-    Parse a string to remove and replace all wiki markup tags
-    '''
-    result = RE.sub('', wiki)
-    if compress_spaces:
-        result = re.sub(r' +', ' ', result)
-
-    return result
-
-
-def load(stream, compress_spaces=None):
-    '''
-    Parse the content of a file to un-wikified text
-    '''
-    return loads(stream.read(), compress_spaces=compress_spaces)
-
-def maybe_normalize(value, mapping=mapping_normalization):
-  for norm in mapping:
-    if type(norm[0]) == str:
-      value = value.replace(norm[0], norm[1])
-    elif isinstance(norm[0], Pattern):
-      value = norm[0].sub(norm[1], value)
-    else:
-      print('UNEXPECTED', type(norm[0]), norm[0])
-
-  return loads(value)
-
-
+print('  Parsing in progress')
 text = ''
 for elem in items:
     title = elem.getElementsByTagName("title")[0].firstChild.data
-    if 'wiki' not in title:
+    if 'wiki' not in title and title != 'Pagina principale':
         textdom = elem.getElementsByTagName("revision")[0].getElementsByTagName("text")[0]
         if textdom.firstChild is not None:
             text = ''
-            textdom = textdom.firstChild.data
-            raw_text = "".join(html_escape_table.get(c,c) for c in str(textdom)).splitlines()
+            raw_text = clean_me.escapehtml(textdom.firstChild.data)
+            raw_text = re.compile(r"""\[\[(File|Category):[\s\S]+\]\]|
+                        \[\[[^|^\]]+\||
+                        \[\[|\]\]|
+                        \'{2,5}|
+                        (<s>|<!--)[\s\S]+(</s>|-->)|
+                        (<s>|<!)[\s\S]+(</s>|>)|
+                        {{[\s\S\n]+?}}|
+                        <.*?>|
+                        ={1,6}""", re.VERBOSE).sub("", raw_text)
+            raw_text = clean_me.maybe_normalize(raw_text, [
+                      [ u'*' , u"\n" ],
+                      [ u'<br />' , u"\n" ],
+                      [ u'<br>' , u"\n" ],
+                      [ u"\(\d\d\d\d\)", ""],
+                      [ u"[\(\[].*?[\)\]]", ""],
+                      [ 'AvvertenzaContattiDonazioni', '']
+                    ], False)
+            raw_text = clean_me.prepare_splitlines(raw_text).splitlines()
 
             for line in raw_text:
-                line = maybe_normalize(line)
+                line = clean_me.clean_single_line(line).strip()
+
                 if len(line) <= 15:
                     continue
 
-                if line.startswith('('):
+                if validate_line.startswith(line, ['(']):
                     continue
 
-                if line.find('|') >= 0 or line.find('{{') >= 0 or line.find(':') >= 2:
+                if validate_line.contain(line, ['|', '{{', ':', '[', 'ISBN', '#']):
                     continue
 
-                if  line.strip().isdigit() or line.strip()[1:].isdigit() or line.strip()[:1].isdigit():
+                if validate_line.isdigit([line, line[1:], line[:1]]):
                     continue
-
-                text += line
+                
+                if validate_line.isbookref(line):
+                    continue
+                
+                if validate_line.isbrokensimplebracket(line):
+                    continue
+                
+                text += line + "\n"
 
             result.write(text)
-
+            
 result.close()
+
+result = open( './output/wikiquote.txt', 'r' )
+text = result.read().splitlines()
+result.close()
+
+print(' Total lines: ' + str(len(text)))
