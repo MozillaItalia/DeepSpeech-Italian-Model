@@ -30,6 +30,8 @@ class Download:
     def if_not_exist(self, url):
         self.file = self.folder + url.rsplit('/', 1)[-1]
         if not os.path.isfile(self.file):
+            if not os.path.isdir(self.folder):
+                os.makedirs(self.folder)
             print('Downloading in ' + self.file)
             try:
                 urllib.request.urlretrieve(url, self.file, self.download_status)
