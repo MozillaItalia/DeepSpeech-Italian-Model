@@ -26,8 +26,7 @@ filename = "qallme.txt"
 
 output_file = open(outdir + filename, "w", encoding='utf-8')
 
-# printing a message
-print("\n")
+# print("\n")
 print("Qallme Importer")
 print("===============")
 # downloading resource
@@ -50,7 +49,7 @@ qallmef = ET.parse("QallmebenchmarkIT_v1.0_final-translation.xml")
 sentences = qallmef.findall("question/text")
 len_sentences = len(sentences)
 
-print("Now parsing " + str(len_sentences) + " sentences... ", end="")
+print("Now parsing " + str(len_sentences) + " sentences... ")
 
 # We are looking for sentences, not xml elements!
 # turning xml elements into real sentences
@@ -64,10 +63,10 @@ for line in sentences:
     if line is not None:    # if we are not treating an empty line
         line = sanitizer.maybe_normalize(line, mapping_normalization)
 
-print("OK!")
+# print("OK!")
 
 
-print("Now writing to " + outdir + filename + "... ", end="")
+print("Now writing to " + outdir + filename + "... ")
 
 # writing to output file
 for line in sentences:
@@ -75,6 +74,6 @@ for line in sentences:
         output_file.write(line)
         output_file.write("\n")
 
-print("OK!\n")
+#print("OK!\n")
 
 print("Import from QALLME completed!")
