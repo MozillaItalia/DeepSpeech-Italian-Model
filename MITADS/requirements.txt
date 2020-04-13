@@ -1,3 +1,6 @@
 gutenberg 
 Unidecode
 fake-useragent
+roman
+BeautifulSoup4
+
