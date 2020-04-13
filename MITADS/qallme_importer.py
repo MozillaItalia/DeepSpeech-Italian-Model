@@ -1,4 +1,3 @@
-import time
 import os
 import xml.etree.ElementTree as ET
 from utils import sanitize, line_rules, download
