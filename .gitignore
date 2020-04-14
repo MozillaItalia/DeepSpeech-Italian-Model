@@ -109,3 +109,8 @@ ENV/
 
 #vscode
 .vscode
+
+MITADS/output/*.txt
+MITADS/parsing/*
+*.xml
+*.xml.bz2

@@ -13,7 +13,7 @@ pushd $HOME/ds/
 	for lm_range in ${LM_EVALUATE_RANGE}; do
 		LM_ALPHA="$(echo ${lm_range} |cut -d',' -f1)"
 		LM_BETA="$(echo ${lm_range} |cut -d',' -f2)"
-
+		
 		python -u evaluate.py \
 			--show_progressbar True \
 			--use_cudnn_rnn True \
