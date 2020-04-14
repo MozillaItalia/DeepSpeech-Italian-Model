@@ -14,7 +14,7 @@ clean_me = sanitize.Sanitization()
 folder_dataset = download_me.if_not_exist('http://opus.nlpl.eu/download.php?f=OpenSubtitles/v2018/xml/it.zip').zip_decompress('./parsing/opensubtitles/')
 
 def parsexmlfile(path_info):
-    xml_path, count_file = path_info
+    count_file, xml_path = path_info
     mapping_normalization = [
       # If the sentence start with a number, the sentence is removed
       [ re.compile('^\d+(.*)'), u'' ],  
@@ -115,26 +115,17 @@ def parsexmlfile(path_info):
     
     return len(lines)
 
+
 start_year=1920
 pathlist = Path(folder_dataset + './OpenSubtitles/xml/it/').glob('**/*.xml')
 
-print('  Parsing in progress')
-count_file = 0
+print(' Parsing in progress')
 
-# Parse 5 files at once
-pool = ProcessPoolExecutor(max_workers=20)
+def get_year(path): return int(str(path.parent.parent._parts[len(path.parent.parent._parts)-1]))
 
+paths = filter(lambda x: get_year(x) > start_year, pathlist)
+with ProcessPoolExecutor() as pool:
+    lines = pool.map(parsexmlfile, paths)
+    total_lines = sum(lines)
 
-paths = []
-for i, xml_path in enumerate(pathlist):
-  year_folder = str(xml_path.parent.parent._parts[len(xml_path.parent.parent._parts)-1])
-  year_folder_int = int(year_folder)
-  if(year_folder_int<start_year):
-      continue
-  paths.append((str(xml_path), i))
-
-
-total_lines = pool.map(parsexmlfile, paths)
-total_lines = sum(list(total_lines))
 print(' Total lines ' + str(total_lines))
-pool.shutdown(wait=True)
