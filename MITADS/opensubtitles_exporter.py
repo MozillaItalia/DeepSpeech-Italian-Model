@@ -4,7 +4,7 @@ import re
 from pathlib import Path
 from unidecode import unidecode
 from utils import sanitize, line_rules, download
-from concurrent.futures import ThreadPoolExecutor
+from concurrent.futures import ProcessPoolExecutor
 from xml.dom import minidom
 
 download_me = download.Download()
@@ -13,7 +13,8 @@ clean_me = sanitize.Sanitization()
 
 folder_dataset = download_me.if_not_exist('http://opus.nlpl.eu/download.php?f=OpenSubtitles/v2018/xml/it.zip').zip_decompress('./parsing/opensubtitles/')
 
-def parsexmlfile(xml_path, count_file):
+def parsexmlfile(path_info):
+    xml_path, count_file = path_info
     mapping_normalization = [
       # If the sentence start with a number, the sentence is removed
       [ re.compile('^\d+(.*)'), u'' ],  
@@ -121,22 +122,19 @@ print('  Parsing in progress')
 count_file = 0
 
 # Parse 5 files at once
-pool = ThreadPoolExecutor(max_workers=20)
+pool = ProcessPoolExecutor(max_workers=20)
 
-total_lines = 0
-for xml_path in pathlist:
+
+paths = []
+for i, xml_path in enumerate(pathlist):
   year_folder = str(xml_path.parent.parent._parts[len(xml_path.parent.parent._parts)-1])
   year_folder_int = int(year_folder)
   if(year_folder_int<start_year):
       continue
+  paths.append((str(xml_path), i))
 
-  xml_path = str(xml_path)
-  future = pool.submit(parsexmlfile, xml_path, count_file)
-  total_lines += future.result()
-  #parsexmlfile(xml_path, count_file)
-  print(' Actual lines ' + str(total_lines))
 
-  count_file +=1
-
+total_lines = pool.map(parsexmlfile, paths)
+total_lines = sum(list(total_lines))
 print(' Total lines ' + str(total_lines))
 pool.shutdown(wait=True)
