@@ -82,7 +82,7 @@ def main():
         else:
             the_end = True
 
-    print("Import from ted.com completed!)
+    print("Import from ted.com completed!")
     print("Time elapsed: " + str( int( int( time.time() - start_time ) / 60 ) ) + " minutes" )
 
     trace("Created and parsed " + str(file_counter) + " files.")
