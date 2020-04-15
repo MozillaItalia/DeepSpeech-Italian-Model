@@ -43,8 +43,7 @@ def main():
     file_counter = 0
 
     print("TedImporter")
-    print("NOTE: This may take A LOT!")
-
+    
     the_end = False
     while(not the_end):
         # request the page related to talks
@@ -83,14 +82,10 @@ def main():
         else:
             the_end = True
 
-    print("Created and parsed " + str(file_counter) + " files.")
-    print("Import from ted.com completed! See " + outfilepath)
+    print("Import from ted.com completed!)
     print("Time elapsed: " + str( int( int( time.time() - start_time ) / 60 ) ) + " minutes" )
 
     trace("Created and parsed " + str(file_counter) + " files.")
-    trace("Import from ted.com completed! See " + outfilepath)
-    trace("Time elapsed: " + str( int( int( time.time() - start_time ) / 60 ) ) + " minutes" )
-
 
 def manage_json_from_a(a, baseurl, headers, jsonfolder, outfilepath):
     # managing sanitizer
