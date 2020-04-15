@@ -19,7 +19,7 @@ mapping_normalization = [
 ]
 
 # managing parse directory name
-parsedir = "parsing/qall"
+parsedir = "parsing/qall/"
 
 # managing output pathname + output filename
 output = "output/qallme.txt"
