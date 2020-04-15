@@ -25,7 +25,6 @@ class Download:
         sys.stdout.write("\r...%d%%, %d MB, %d KB/s, %d seconds passed" %
                         (percent, progress_size / (1024 * 1024), speed, duration))
         sys.stdout.flush()
-        print("\n")
     
     def if_not_exist(self, url):
         self.file = self.folder + url.rsplit('/', 1)[-1]
