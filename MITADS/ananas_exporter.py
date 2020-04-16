@@ -3,7 +3,7 @@ import os
 import zipfile
 from utils import sanitize, download
 
-# start downloading
+# start downloading ITALIANO.ZIP
 downloader = download.Download()
 downloader = downloader.if_not_exist(
     'http://www.parlaritaliano.it/attachments/article/716/ITALIANO.zip')
@@ -11,6 +11,19 @@ with zipfile.ZipFile(downloader.file) as italiano:
     with italiano.open('ITALIANO/ITALIANO_TRASCRIZIONI.zip') as trascrizioni:
         with zipfile.ZipFile(trascrizioni) as trascrizioni_ita:
             trascrizioni_ita.extractall(path=downloader.folder)
+
+
+downloader = downloader.if_not_exist(
+    'http://www.parlaritaliano.it/attachments/article/644/PALERMO.zip')
+with zipfile.ZipFile(downloader.file) as palermo:
+    with open(os.path.join(downloader.folder,"ITALIANO_TRASCRIZIONI","palermo.txt"), 'wb') as f:
+        f.write(palermo.read('PALERMO/corpusPa/DGmtB03P.txt'))
+
+downloader = downloader.if_not_exist(
+    'http://www.parlaritaliano.it/attachments/article/644/ROMA.zip')
+with zipfile.ZipFile(downloader.file) as palermo:
+    with open(os.path.join(downloader.folder,"ITALIANO_TRASCRIZIONI","roma.txt"), 'wb') as f:
+        f.write(palermo.read('ROMA/corpusRm/DGtdB04R.txt'))
 
 clean_me = sanitize.Sanitization()
 
@@ -20,9 +33,10 @@ mapping_normalization = [
     [u'{', u''],
     [u'}', u''],
     [u'*ciailecca', u'cilecca'],  # a very custom one
-    [re.compile('<.*>'), u''],
-    [re.compile('\[.*\]'), u''],
-    [re.compile('\{.*\}'), u''],
+    [re.compile('<.*?>'), u''],
+    [re.compile('\*[a-z,A-Z]*#'), u''],
+    [re.compile('\[.*?\]'), u''],
+    [re.compile('\{.*?\}'), u''],
     [re.compile('p.*:'), u''],
     [re.compile("[a-z]*\+\s{0,1}#{0,1}"), u''],
 ]
