@@ -16,12 +16,10 @@ def main():
     parsefolder = "parsing" + os.path.sep
     if not os.path.exists(parsefolder):
         os.mkdir(parsefolder)
-        trace(parsefolder + " created!")
-
+        
     jsonfolder = parsefolder + "JSON"
     if not os.path.exists(jsonfolder):
         os.mkdir(jsonfolder)
-        trace(jsonfolder + " created!")
 
     # creating folder for output
     outfolder = "output"
@@ -63,9 +61,6 @@ def main():
             # all our links are under class col
             divs = soup.find_all(class_='col')
 
-            # LOG: update log file
-            trace("Page number: " + str(pagenumber))
-
             for div in divs:
                 # search all the links who contains potential json data
                 a_links = div.find_all(
@@ -84,8 +79,6 @@ def main():
 
     print("Import from ted.com completed!")
     print("Time elapsed: " + str( int( int( time.time() - start_time ) / 60 ) ) + " minutes" )
-
-    trace("Created and parsed " + str(file_counter) + " files.")
 
 def manage_json_from_a(a, baseurl, headers, jsonfolder, outfilepath):
     # managing sanitizer
@@ -119,8 +112,6 @@ def manage_json_from_a(a, baseurl, headers, jsonfolder, outfilepath):
     # retrieve json
     url = baseurl + url + "/transcript.json?language=it"
 
-    trace("Retrieving JSON for : " + url)
-
     while(not imported):    # because we may encounter in an error
         try:
             r = requests.get(url, headers=headers, timeout=5)
@@ -129,27 +120,15 @@ def manage_json_from_a(a, baseurl, headers, jsonfolder, outfilepath):
                 json_path_file = jsonfolder + os.path.sep + name + ".json"
 
                 # check file
-                if os.path.isfile(json_path_file):
-                    trace("File exists! Skipping creating new file...")
-                else:
+                if not os.path.isfile(json_path_file):
                     open(json_path_file, 'wb').write(r.content)
-                    trace("Creating json file: " + name)
-        
+                
                 # parse json file 
                 write_sentences(clean_sentences(get_raw_sentences(name + ".json", jsonfolder), sanitizer, mapping_normalization), outfilepath)
-                trace("Writing...")
             
-                imported = True
-            else:
-                if(r.status_code == "429"):
-                    trace("Timeout error: " +
-                          str(r.status_code))
-                else:   # any other error
-                    trace(str(r.status_code) + " ERROR! The hamster fell off the wheel! Trying again...")
+                imported = True         
         except Exception as e:
             print(e)
-            # if any exception is triggered (for example, connection closed)
-            trace("ERROR! (Exception) The hamster fell off the wheel! Trying again...")
 
 '''
     parse all json which are inside jsonfolder
@@ -223,8 +202,6 @@ def clean_sentences(raw_sentences, sanitizer, mapping_normalization):
     given a json, return a group of sentences
 '''
 def get_raw_sentences(json_file_name, jsonfolder):
-    trace("Parsing: " + json_file_name)
-
     raw_sentences = ""
 
     # loading json data
@@ -248,33 +225,7 @@ def write_sentences(sentences, outfilepath):
 
     for s in sentences:
         outfile_hl.write(s + "\n")
-
-        trace("[" + str(len(s)) + "]" + s)
-
     outfile_hl.close()
-
-
-'''
-    write a string in a log_file
-'''
-def trace(string):
-    parsefolder = "parsing"
-    t = time.localtime()
-    current_time = time.strftime("%H:%M:%S", t)
-
-    fh = open(parsefolder + os.path.sep + "ted_log.txt", "a+")
-
-    fh.write(current_time + " : " + str(string) + "\n")
-    fh.close()
-
-
-'''
-    clean log file
-'''
-def clean_log():
-    parsefolder = "parsing"
-    fh = open(parsefolder + os.path.sep + "ted_log.txt", "w+")
-    fh.close()
 
 
 main()
