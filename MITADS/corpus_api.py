@@ -21,7 +21,7 @@ mapping_normalization = [
     [u'#', u''],
     [u'/', u''],
 ]
-out = open("parlareitaliano_corpus_api.txt", "w", encoding="UTF-8")
+out = open("output/parlareitaliano_corpus_api.txt", "w", encoding="UTF-8")
 final = ""
 for link in soup.find_all('a'):
     href = link.get('href')
