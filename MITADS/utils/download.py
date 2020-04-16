@@ -74,6 +74,6 @@ class Download:
         return response.decode(decode).strip()
     
     def download_for_bp(self, link, decode='UTF-8'):
-        soup = BeautifulSoup(self.downloadpage(link, decode), 'html.parser')
+        soup = BeautifulSoup(self.download_page(link, decode), 'html.parser')
         return soup    
         
