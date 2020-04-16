@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 import re
 import os
 import zipfile
@@ -11,7 +12,6 @@ with zipfile.ZipFile(downloader.file) as italiano:
     with italiano.open('ITALIANO/ITALIANO_TRASCRIZIONI.zip') as trascrizioni:
         with zipfile.ZipFile(trascrizioni) as trascrizioni_ita:
             trascrizioni_ita.extractall(path=downloader.folder)
-
 
 downloader = downloader.if_not_exist(
     'http://www.parlaritaliano.it/attachments/article/644/PALERMO.zip')
