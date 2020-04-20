@@ -7,65 +7,71 @@ from utils import sanitize, line_rules, download
 from concurrent.futures import ProcessPoolExecutor
 from xml.dom import minidom
 
+start_year = 1920
+output_file = './output/ost/opensubtitles_'
+
 download_me = download.Download()
 validate_line = line_rules.LineRules()
 clean_me = sanitize.Sanitization()
 
+
 folder_dataset = download_me.if_not_exist('http://opus.nlpl.eu/download.php?f=OpenSubtitles/v2018/xml/it.zip').zip_decompress('./parsing/opensubtitles/')
+
+mapping_normalization = [
+    # If the sentence start with a number, the sentence is removed
+    [re.compile('^\d+(.*)'), u''],
+
+    # Remove the stuff inside ()[]{}
+    [re.compile('(\(|\[|{)[^(\)|\]|})]*(\)|\]|})'), u''],
+    # must be twice time for nested parentheses
+    [re.compile('(\(|\[|{)[^(\)|\]|})]*(\)|\]|})'), u''],
+
+    # remove uninteresting characters
+    [re.compile('\-|=|_|–|\+|\(|\||—|\)|\[|\]|~|\*|/|"|¨|\^'), u' '],
+
+    # Sanitize ... to .
+    [re.compile('\.+'), u'.'],
+
+    # accentate maiuscole
+    [re.compile('È'), u'e\''],
+
+    # Sanitize single apex
+    [re.compile('´|`|\'\''), u'\''],
+
+    # To avoid conflicts with single ' and accented letter we removed them
+    [re.compile('(\s|^)(\')([^\']*)(\')(\s|$)'), r'\3'],
+
+    # remove char for those cases
+    [re.compile('(#\d+)|#|(\s°)'), u''],
+
+    # Sanitization for those cases
+    [u'n°', u'numero '],
+
+    # Sanitization for currency values
+    [re.compile('\$\s*([0-9]+[.,]{0,1}[0-9]*)'), r'\1 dollari'],
+    [re.compile('([0-9]+[.,]{0,1}[0-9]*)\s*\$'), r'\1 dollari'],
+    [re.compile('(₤|£)\s*([0-9]+[.,]{0,1}[0-9]*)'), r'\2 lire'],
+    [re.compile('([0-9]+[.,]{0,1}[0-9]*)\s*₤'), r'\1 lire'],
+    [re.compile('(€)\s*([0-9]+[.,]{0,1}[0-9]*)'), r'\2 euro'],
+    [re.compile('([0-9]+[.,]{0,1}[0-9]*)\s*€'), r'\1 euro'],
+    [u'¢', u'c'],
+]
+
+mapping_normalization_after_decode = [
+    # Convert old fashion accented letter to the real accented letter
+    [u'E\' ', u'è '],
+    [re.compile('a\'(\s|$|,|\.|\?)'), r'à\1'],
+    [re.compile('e\'(\s|$|,|\.|\?)'), r'è\1'],
+    [re.compile('i\'(\s|$|,|\.|\?)'), r'ì\1'],
+    [re.compile('o\'(\s|$|,|\.|\?)'), r'ò\1'],
+    [re.compile('u\'(\s|$|,|\.|\?)'), r'ù\1'],
+]
 
 def parsexmlfile(path_info):
     count_file, xml_path = path_info
-    mapping_normalization = [
-      # If the sentence start with a number, the sentence is removed
-      [ re.compile('^\d+(.*)'), u'' ],  
+    xml_path = str(xml_path)
     
-      # Remove the stuff inside ()[]{}
-      [ re.compile('(\(|\[|{)[^(\)|\]|})]*(\)|\]|})'), u'' ],
-      # must be twice time for nested parentheses
-      [ re.compile('(\(|\[|{)[^(\)|\]|})]*(\)|\]|})'), u'' ],
-     
-      # remove uninteresting characters
-      [ re.compile('\-|=|_|–|\+|\(|\||—|\)|\[|\]|~|\*|/|"|¨|\^'), u' ' ],     
-      
-      # Sanitize ... to .
-      [ re.compile('\.+'), u'.' ],
-    
-      # accentate maiuscole
-      [ re.compile('È'), u'e\'' ],
-    
-      # Sanitize single apex
-      [ re.compile('´|`|\'\''), u'\'' ],
-    
-      # To avoid conflicts with single ' and accented letter we removed them
-      [ re.compile('(\s|^)(\')([^\']*)(\')(\s|$)'), r'\3' ],
-    
-      # remove char for those cases
-      [ re.compile('(#\d+)|#|(\s°)'), u'' ],
-      
-      # Sanitization for those cases
-      [ u'n°' , u'numero ' ],  
-    
-      # Sanitization for currency values
-      [ re.compile('\$\s*([0-9]+[.,]{0,1}[0-9]*)'), r'\1 dollari' ], 
-      [ re.compile('([0-9]+[.,]{0,1}[0-9]*)\s*\$'), r'\1 dollari' ],
-      [ re.compile('(₤|£)\s*([0-9]+[.,]{0,1}[0-9]*)'), r'\2 lire' ], 
-      [ re.compile('([0-9]+[.,]{0,1}[0-9]*)\s*₤'), r'\1 lire' ],
-      [ re.compile('(€)\s*([0-9]+[.,]{0,1}[0-9]*)'), r'\2 euro' ], 
-      [ re.compile('([0-9]+[.,]{0,1}[0-9]*)\s*€'), r'\1 euro' ],
-      [ u'¢' , u'c' ],  
-    ]
-    
-    mapping_normalization_after_decode = [
-      # Convert old fashion accented letter to the real accented letter
-      [ u'E\' ', u'è ' ],
-      [ re.compile('a\'(\s|$|,|\.|\?)'), r'à\1' ], 
-      [ re.compile('e\'(\s|$|,|\.|\?)'), r'è\1' ],
-      [ re.compile('i\'(\s|$|,|\.|\?)'), r'ì\1' ],
-      [ re.compile('o\'(\s|$|,|\.|\?)'), r'ò\1' ],
-      [ re.compile('u\'(\s|$|,|\.|\?)'), r'ù\1' ],     
-    ] 
-    
-    result = open( './output/ost/opensubtitles_' + str(count_file) + '.txt', 'w' )
+    result = open( output_file + str(count_file) + '.txt', 'w' )
     mydoc = minidom.parse(xml_path)
     items = mydoc.getElementsByTagName('s')
     
@@ -83,7 +89,7 @@ def parsexmlfile(path_info):
     
     # Opensubtiles Dataset contains no-ASCII char
     #  we use unidecode to delegate all unicode char processing
-    #  to keep all vowels properly accented, and at the same time eliminate the other unicode characters, 
+    #  to keep all vowels properly accented, and at the same time eliminate the other unicode characters,
     #  you need to use a substitution with place holders
     text = text.replace('à', '<PH_A>')
     text = text.replace('è', '<PH_E>')
@@ -115,17 +121,17 @@ def parsexmlfile(path_info):
     
     return len(lines)
 
-
-start_year=1920
-pathlist = Path(folder_dataset + './OpenSubtitles/xml/it/').glob('**/*.xml')
-
-print(' Parsing in progress')
-
 def get_year(path): return int(str(path.parent.parent._parts[len(path.parent.parent._parts)-1]))
 
-paths = filter(lambda x: get_year(x) > start_year, pathlist)
-with ProcessPoolExecutor() as pool:
-    lines = pool.map(parsexmlfile, paths)
-    total_lines = sum(lines)
+def main():
+    print(' Parsing in progress')
+    pathlist = (folder_dataset / Path('OpenSubtitles/xml/it/')).glob('**/*.xml')
+    paths = filter(lambda x: get_year(x) > start_year, pathlist)
+    with ProcessPoolExecutor() as pool:
+        lines = pool.map(parsexmlfile, enumerate(paths))
+        total_lines = sum(lines)
 
-print(' Total lines ' + str(total_lines))
+    print(' Total lines ' + str(total_lines))
+
+main()
+
