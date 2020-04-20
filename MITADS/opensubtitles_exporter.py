@@ -8,7 +8,7 @@ from concurrent.futures import ProcessPoolExecutor
 from xml.dom import minidom
 
 start_year = 1920
-output_file = './output/ost/opensubtitles_'
+output_file = './output/opensubtitles_'
 
 download_me = download.Download()
 validate_line = line_rules.LineRules()
