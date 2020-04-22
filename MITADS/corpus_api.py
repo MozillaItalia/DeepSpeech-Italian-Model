@@ -21,7 +21,7 @@ mapping_normalization = [
     [u'#', u''],
     [u'/', u''],
 ]
-out = open("parlareitaliano_corpus_api.txt", "w", encoding="UTF-8")
+out = open("output/parlareitaliano_corpus_api.txt", "w", encoding="UTF-8")
 final = ""
 for link in soup.find_all('a'):
     href = link.get('href')
@@ -33,7 +33,6 @@ for link in soup.find_all('a'):
         else:
             text = clean_me.maybe_normalize(
                 p, mapping=mapping_normalization, roman_normalization=False)
-            print(text)
             if len(text) > 5: # TODO: parametrize?
                 out.write(text+"\n")
 

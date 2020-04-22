@@ -127,5 +127,7 @@ class Sanitization:
           
       if(value.isupper()):
           value = value.lower()
-    
+
+      value = value.strip() # clean line from whitespace at the beginning / at the end
+
       return value
