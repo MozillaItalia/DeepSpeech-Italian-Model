@@ -14,8 +14,9 @@ download_me = download.Download()
 validate_line = line_rules.LineRules()
 clean_me = sanitize.Sanitization()
 
-
-folder_dataset = download_me.if_not_exist('http://opus.nlpl.eu/download.php?f=OpenSubtitles/v2018/xml/it.zip').zip_decompress('./parsing/opensubtitles/')
+# Custom packaging instead of the official one of 5,8gb in zip
+# This tar.bz2 version is 960mb but with the same content
+folder_dataset = download_me.if_not_exist('https://codeat.owncube.com/index.php/s/os3XjRXBWdBAd7H/download').tarbz2_decompress('./parsing/opensubtitles/')
 
 mapping_normalization = [
     # If the sentence start with a number, the sentence is removed
