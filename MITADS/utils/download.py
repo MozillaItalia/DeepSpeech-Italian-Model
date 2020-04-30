@@ -4,6 +4,7 @@ import bz2
 import time
 import sys
 import zipfile
+import tarfile
 from urllib.request import Request, urlopen
 from fake_useragent import UserAgent
 from bs4 import BeautifulSoup
@@ -42,6 +43,18 @@ class Download:
         
         return self
     
+    def tarbz2_decompress(self, extract_to="", file=''):
+        if file == '':
+            file = self.file
+            
+        if os.path.isfile(extract_to):
+            print('Decompressing to ' + extract_to)
+            tar = tarfile.open(file, "r:bz2")  
+            tar.extractall(extract_to)
+            tar.close()
+                
+        return extract_to
+    
     def bz2_decompress(self, file=''):
         if file == '':
             file = self.file
@@ -74,6 +87,6 @@ class Download:
         return response.decode(decode).strip()
     
     def download_for_bp(self, link, decode='UTF-8'):
-        soup = BeautifulSoup(self.downloadpage(link, decode), 'html.parser')
+        soup = BeautifulSoup(self.download_page(link, decode), 'html.parser')
         return soup    
         
