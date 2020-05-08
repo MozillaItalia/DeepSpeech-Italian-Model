@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-import os
+import os, re
 import xml.etree.ElementTree as ET
 from utils import sanitize, line_rules, download
 
@@ -14,8 +14,13 @@ mapping_normalization = [
     [u'}', u''],
     [u'(', u''],
     [u')', u''],
-    [u'[', u''],
-    [u']', u'']
+    [re.compile('\[.*?\]'), u''],
+    [re.compile('a\`'), u'à'],
+    [re.compile('u\`'), u'ù'],
+    [re.compile('i\`'), u'ì'],
+    [re.compile('o\`'), u'ò'],
+    [re.compile('che\`'), u'ché'],
+    [re.compile('e\`'), u'è'],
 ]
 
 # managing parse directory name
