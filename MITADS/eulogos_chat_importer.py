@@ -91,30 +91,36 @@ with open("./output/eulogos.txt", "w") as result:
                     line = clean_me.clean_single_line(line)
                     if len(line) <= 12:
                         continue
-                    
+
                     if len(line.split()) < 2:
                         continue
-                    
+
                     if validate_line.isdigit([line, line[1:], line[:1]]):
                         continue
-                    
+
                     if validate_line.contain(line, ['#', '/dcc', '•', 'http', '{', '(c)', 'antiflood', '`', 'ª', '[02]', '[03]', '[04]','^', ' n.', 'pp.']):
                         continue
-        
+
                     if validate_line.startswith(line, ['(', '!', ')', '"', "'", "[", '-']):
                         continue
-                    
+
                     if line.find("+") != -1 or line.isspace():
                         continue
-                    
+
                     if not validate_line.parenthesismatch(line):
                         continue
-                    
+
                     if validate_line.hasafinalrepeated(line):
                         continue
-                    
+                    # consider only those line that contains a-z range chars
+                    # discard everything that could be a symbol (numbers, brackets..)
+                    if re.search(r"^[aàbcdeèéfghiìjklmnoòpqrstuùvwxyz ]+$",line):
+                        # if this line contains more than 1 space, skip it
+                        if re.search(r" {2,}",line):
+                            continue
+
                     text += line + "\n"
-                    
+
                 result.write(text)
 
 result.close()
