@@ -33,6 +33,8 @@ unicode_symbols = [
     [u'\x88', u''],
     [u'\x91', u'\''],
     [u'\x92', u'\''],
+    [u'‘', u''],  # no ' for you
+    #  [u'´',u''], disabled for ted
     [u'\x93', u''],
     [u'\x94', u''],
     [u'\x95', u''],
@@ -60,10 +62,15 @@ unicode_symbols = [
     [u'♫', u''],
     [u'♪', u''],
     [u'∇', u''],
+    [u'₂', u''],  # maybe 'due' eg COdue?
+    [u'⁰', u'elevato zero'],
+    [u'¹', u'elevato uno'],
     [u'²', u' al quadrato'],
     [u'³', u' al cubo'],
     [u'%', u' per cento'],
+    [u'˚', u''],  # esimo?
     [u'τ', u''],
+    [u'π', u''],  # pigreco?
     [u'§', u''],
     [u'¤', u''],
     [u'º', u''],
@@ -74,6 +81,12 @@ unicode_symbols = [
     [u'¿', u''],
     [u'@', u''],
     [u'=', u''],
+    [u'…', u''],
+    [u'ʾ', u''],
+    [u'？', u''],
+    [u'™', u''],
+    [u'®', u''],
+    [u'©',u''],
 ]
 
 
