@@ -141,8 +141,6 @@ def parse_all_json():
 
     # cycling our JSON files
     for f in os.listdir(jsonfolder):
-        # print(f)
-        # if f == "a_j_jacobs_my_year_of_living_biblically.json":
         write_sentences(clean_sentences(get_raw_sentences(
             f, jsonfolder)), outfilepath)
 
@@ -191,8 +189,7 @@ def clean_sentences(raw_sentences):
         # words that ends in ita' probably are ità,
         [re.compile("([A-Za-z]{2,}it)a'"), u'\g<1>à'],
         [u"'nḥnw 'dyyn k'n", u''],  # a very custom one
-        # pero' cio' lavorero'
-        [re.compile("([A-Za-z]{2,})o'"), u'\g<1>ò'],
+        [re.compile("([A-Za-z]{2,})o'"), u'\g<1>ò'],  # pero' cio' lavorero'
         [u" sta' ", u' sta '],
         [u" da' ", u' dà '],
         [re.compile("([A-Za-z]+ch)e'"), u'\g<1>é'],
@@ -209,7 +206,9 @@ def clean_sentences(raw_sentences):
         raw_sentences, mapping_normalization,mapping_append=False)
     sentences_list = []
     # list of sentences by using regex, because of special punctuation
-    sentences = re.split(r'[."?!]\s*', raw_sentences)
+    sentences = re.split(r'[."?!\n]\s*', raw_sentences)
+
+    # other custom rules
     tobeverb = re.compile(" [e,E]'|^[e,E]'|'E'")
     tribu = re.compile("tribu'")
     piu = re.compile(" piu'")
@@ -249,9 +248,16 @@ def clean_sentences(raw_sentences):
             s = re.sub("[Gg]ia'", "già", s)
             s = re.sub("[Cc]ioe'", "cioè", s)
             s = re.sub("[Pp]uo'", "può", s)
-            s = s.replace(" la' ", u" là ")
-            s = s.replace("IXX", u"")
+            s = re.sub(r"( |^)[Ll]a'( |$|,)", u" là ", s)  # la' -> là
+            s = re.sub(r"( |^)[Ll]i'( |$|,)", u" lì ", s)  # li' -> lì
+            s = s.replace("IXX", u"") # invalid roman number
             s = re.sub("[sS]ta'", "sta", s)
+            s = re.sub("[Ne]e'", "né", s)
+            s = re.sub("([sS]ettiman[ae]|[Aa]nn[io]|[tT]emp[io]) ([fF]a)'",u'\g<1> fa', s) #  fa without '
+            s = re.sub(" [A-Za-z]{0,}([lL]{1,}'$|[Uu]n'$)","",s) # sentences that ends with un' or ll'
+            s = re.sub(" '([^'][A-Za-z0-9 ,.;]{0,})'$",u" \g<1>", s) # unquote some quotes
+            s = re.sub("([SsDd])i'", u'\g<1>'.lower()+u'ì', s)
+            # "[bBcCdDfFgGhHiIjJkKlLmMnNpPqQrRsStTuUvVwWxXyYzZ]'$| '$"
             sentences_list.append(s)
 
     return sentences_list
