@@ -1,7 +1,8 @@
 # Common Voice – DeepSpeech
 
-Aggregatore degli strumenti per la generazione di un modello di machine learning per la lingua Italiana del progetto Common Voice.
+Aggregatore degli strumenti per la generazione di un modello di machine learning per la lingua Italiana del progetto Common Voice. Ci trovi su Telegram con il nostro bot @mozitabot nel gruppo Developers dove dirigiamo e discutiamo lo sviluppo oppure sul [forum](https://discourse.mozilla.org/c/community-portal/mozilla-italia).
 
+* [Roadmap per lo sviluppo](https://docs.google.com/document/d/1cep28JAv9f90LkIpVmJjR0lTDqW5Hp_YF7R-nVJ2zkY/edit)
 * [Script (bash/python) per la generazione usando Docker, DeepSpeech, Tensorflow e Nvidia del modello](https://github.com/MozillaItalia/DeepSpeech-Italian-Model/tree/master/DeepSpeech)
 * Il modello generato 
 * [Script per generare il corpus testuale per la parte predittiva del modello](https://github.com/MozillaItalia/DeepSpeech-Italian-Model/tree/master/MITADS)
@@ -37,11 +38,11 @@ $ chmod a+rwx -R data
 $ mv it.tar.gz data/sources # versione 3 di common voice
 $ chmod a+r data/sources/it.tar.gz
 $ docker run --rm --gpus all --mount type=bind,src=/home/ubuntu/data,dst=/mnt deepspeech
-
+```
 Model at $HOME/data/models/it-it.zip
 
 To configure docker parameters:
-
+```
 $ cat deepspeech.env
 EARLY_STOP=0
 EPOCHS=20
