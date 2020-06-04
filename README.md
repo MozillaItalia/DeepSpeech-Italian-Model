@@ -4,7 +4,7 @@ Aggregatore degli strumenti per la generazione di un modello di machine learning
 
 * [Roadmap per lo sviluppo](https://docs.google.com/document/d/1cep28JAv9f90LkIpVmJjR0lTDqW5Hp_YF7R-nVJ2zkY/edit)
 * [Script (bash/python) per la generazione usando Docker, DeepSpeech, Tensorflow e Nvidia del modello](https://github.com/MozillaItalia/DeepSpeech-Italian-Model/tree/master/DeepSpeech)
-* Il modello generato 
+* Il modello generato
 * [Script per generare il corpus testuale per la parte predittiva del modello](https://github.com/MozillaItalia/DeepSpeech-Italian-Model/tree/master/MITADS)
 * [Pacchetto di esempio su come è strutturato il dataset di Common Voice](https://github.com/MozillaItalia/DeepSpeech-Italian-Model/files/4610711/cv-it_tiny.tar.gz)
 
@@ -49,6 +49,10 @@ EPOCHS=20
 DROPOUT=0.5
 $ docker run --env-file deepspeech.env --rm --gpus all --mount type=bind,src=/home/ubuntu/data,dst=/mnt deepspeech
 ```
+
+## Generare il modello con notebook COLAB
+
+Fare riferimento al README in notebooks
 
 ## Risorse
 
