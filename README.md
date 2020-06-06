@@ -52,7 +52,7 @@ $ docker run --env-file deepspeech.env --rm --gpus all --mount type=bind,src=/ho
 
 ## Generare il modello con notebook COLAB
 
-Fare riferimento al README in notebooks
+Fare riferimento al [README in notebooks](https://github.com/MozillaItalia/DeepSpeech-Italian-Model/blob/master/notebooks/README.md)
 
 ## Risorse
 
