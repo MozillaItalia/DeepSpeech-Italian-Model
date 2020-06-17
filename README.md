@@ -27,27 +27,35 @@ $ deepspeech --model output_graph.pbmm --audio test.wav --trie trie --lm lm.bina
 
 ## Generare il modello
 
+#### Attenzione!
+Prima di iniziare, la nuova immagine base Docker di Deepspeech necessita di [nvidia-docker](https://github.com/NVIDIA/nvidia-docker).
+
+Nel README della repository di NVIDIA trovate le istruzioni a seconda del vostro sistema.
+
+
 ```
 $ cd $HOME
 $ git clone MozillaItalia/DeepSpeech-Italian-Model.git
 $ cd DeepSpeech-Italian-Model/DeepSpeech
 $ docker build -f Dockerfile.train -t deepspeech .
+```
+Scaricare il dataset CommonVoice italiano
+```
 $ cd $HOME
 $ mkdir -p data/sources
 $ chmod a+rwx -R data
 $ mv it.tar.gz data/sources # versione 3 di common voice
 $ chmod a+r data/sources/it.tar.gz
-$ docker run --rm --gpus all --mount type=bind,src=/home/ubuntu/data,dst=/mnt deepspeech
+$ docker run --rm --gpus all --mount type=bind,src=$HOME/data,dst=/mnt deepspeech
 ```
-Model at $HOME/data/models/it-it.zip
 
-To configure docker parameters:
+Per configurare i parametri di Docker, creare un file con la lista dei parametri e passarlo al run di Docker:
 ```
 $ cat deepspeech.env
 EARLY_STOP=0
 EPOCHS=20
 DROPOUT=0.5
-$ docker run --env-file deepspeech.env --rm --gpus all --mount type=bind,src=/home/ubuntu/data,dst=/mnt deepspeech
+$ docker run --env-file deepspeech.env --rm --gpus all --mount type=bind,src=$HOME/data,dst=/mnt deepspeech
 ```
 
 ## Generare il modello con notebook COLAB
