@@ -25,16 +25,16 @@ pushd /mnt/extracted
 
 	if [ ! -f "/mnt/lm/kenlm.scorer" ]; then
 		pushd $DS_DIR/data/lm
-			cat /mnt/extracted/wiki_it.txt > /mnt/extracted/sources_lm.txt
+			head -10000 /mnt/extracted/wiki_it.txt > /mnt/extracted/sources_lm.txt
 
 			python generate_lm.py --input_txt "/mnt/extracted/sources_lm.txt" --output_dir "/mnt/lm" \
-				--top_k 500000 --kenlm_bins "$DS_DIR/native_client/kenlm/build/bin/" \
+				--top_k 500 --kenlm_bins "$DS_DIR/native_client/kenlm/build/bin/" \
 				--arpa_order 5 --max_arpa_memory "75%" --arpa_prune "0|0|1" \
 				--binary_a_bits 255 --binary_q_bits 8 --binary_type trie
 
 			python generate_package.py --alphabet /mnt/models/alphabet.txt \
 			  --lm "/mnt/lm/lm.binary" \
-			  --vocab "/mnt/lm/vocab-500000.txt" \
+			  --vocab "/mnt/lm/vocab-500.txt" \
 			  --package "/mnt/lm/kenlm.scorer" \
 			  --default_alpha 0.931289039105002 \
 			  --default_beta 1.1834137581510284

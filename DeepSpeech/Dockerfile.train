@@ -12,12 +12,11 @@ ENV MODEL_LANGUAGE=$model_language
 #ENV DEBIAN_FRONTEND noninteractive
 
 ENV DEEPSPEECH_REPO=https://github.com/mozilla/DeepSpeech.git
-# checkout to 0.7.3 release
-ENV DEEPSPEECH_SHA=88584941bc2ff5b91d6b11ad0a6b85da391d626b
+# checkout to 0.7.3 release and to a commit that fixes tensorflow override
+ENV DEEPSPEECH_SHA=b7fa0ade334e98240e78d7534c9a070f1f95abdd
 
-ENV HOMEDIR /home/trainer
+ENV HOMEDIR /root
 ENV DS_DIR $HOMEDIR/ds
-
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
         apt-utils \
@@ -37,40 +36,33 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
         unzip \
         wget
 
-RUN groupadd -g 999 trainer && \
-    adduser --system --uid 999 --group trainer
+# We need to remove it because it's breaking deepspeech install later with
+# weird errors about setuptools
+RUN apt-get purge -y python3-xdg
 
-RUN echo "trainer ALL=(root) NOPASSWD:ALL" > /etc/sudoers.d/trainer && \
-    chmod 0440 /etc/sudoers.d/trainer
+WORKDIR $HOMEDIR
 
-# Below that point, nothing requires being root
-USER trainer
-
-WORKDIR $HOMEDIR/
 # RUN git lfs install
 RUN git clone $DEEPSPEECH_REPO $DS_DIR
 
 WORKDIR $DS_DIR
 RUN git checkout $DEEPSPEECH_SHA
 
-# Setup a virtualenv otherwise we mess with the system and this is BAD.
-RUN python3 -m venv venv/
-
-ENV VIRTUAL_ENV=$DS_DIR/venv
-ENV PATH=$VIRTUAL_ENV/bin:$PATH
-
 # Build CTC decoder first, to avoid clashes on incompatible versions upgrades
 RUN cd native_client/ctcdecode && make NUM_PROCESSES=$(nproc) bindings
 RUN pip3 install --upgrade native_client/ctcdecode/dist/*.whl
 
 # Prepare deps
-RUN pip3 install --upgrade pip==20.0.2 wheel==0.34.2 setuptools==46.1.3
+RUN pip3 install --no-cache-dir --upgrade pip==20.0.2 wheel==0.34.2 setuptools==46.1.3
 
-# Install DeepSpeech, no need for the decoder since we did it earlier
-RUN DS_NODECODER=y pip3 install --upgrade -e .
+# Install DeepSpeech
+#  - No need for the decoder since we did it earlier
+#  - There is already correct TensorFlow GPU installed on the base image,
+#    we don't want to break that
+RUN DS_NODECODER=y DS_NOTENSORFLOW=y pip3 install --upgrade --force-reinstall -e .
 
 # Build KenLM in /DeepSpeech/native_client/kenlm folder
-WORKDIR $DS_DIR
+
 RUN set -ex && \
   echo "Building KenLM" && \
   cd native_client && \
@@ -87,9 +79,9 @@ RUN set -ex && \
   python util/taskcluster.py --source tensorflow --artifact convert_graphdef_memmapped_format --branch r1.15 --target .
 
 # Training stuff
+WORKDIR $HOMEDIR
 # Use our tiny dataset for training
 ENV DS_TINY_TRAIN 1
-
 
 ARG batch_size=64
 ARG n_hidden=2048
@@ -112,12 +104,12 @@ ARG english_compatible=0
 
 ENV LM_EVALUATE_RANGE=$lm_evaluate_range
 ENV ENGLISH_COMPATIBLE=$english_compatible
-WORKDIR $HOMEDIR
+
 # Copy now so that docker build can leverage caches
-COPY --chown=trainer:trainer italian_alphabet.txt checks.sh generate_alphabet.sh package.sh run.sh counter.py $HOMEDIR/
+COPY italian_alphabet.txt checks.sh generate_alphabet.sh package.sh run.sh counter.py $HOMEDIR/
 
-COPY --chown=trainer:trainer ${MODEL_LANGUAGE}/*.sh $HOMEDIR/${MODEL_LANGUAGE}/
+COPY ${MODEL_LANGUAGE}/*.sh $HOMEDIR/${MODEL_LANGUAGE}/
 
-COPY --chown=trainer:trainer ${MODEL_LANGUAGE}/lingua_libre_skiplist.txt $HOMEDIR/${MODEL_LANGUAGE}/
+COPY ${MODEL_LANGUAGE}/lingua_libre_skiplist.txt $HOMEDIR/${MODEL_LANGUAGE}/
 
-# ENTRYPOINT "$HOMEDIR/run.sh"
+# ENTRYPOINT "$HOME/run.sh"
