@@ -39,7 +39,7 @@ $ git clone MozillaItalia/DeepSpeech-Italian-Model.git
 $ cd DeepSpeech-Italian-Model/DeepSpeech
 $ docker build -f Dockerfile.train -t deepspeech .
 ```
-Scaricare il dataset CommonVoice italiano
+Scaricare il dataset CommonVoice italiano in ```$HOME/data```
 ```
 $ cd $HOME
 $ mkdir -p data/sources
@@ -49,13 +49,16 @@ $ chmod a+r data/sources/it.tar.gz
 $ docker run --rm --gpus all --mount type=bind,src=$HOME/data,dst=/mnt deepspeech
 ```
 
-Per configurare i parametri di Docker, creare un file con la lista dei parametri e passarlo al run di Docker:
+Per configurare i parametri del Dockerfile, creare un file con la lista dei parametri e passarlo al run di Docker.
+
+Ad esempio caricando il file ```fast_dev.env``` ogni passaggio dell'addestramento di DeepSpeech verrà eseguito velocemente per testare ogni step.
+
 ```
-$ cat deepspeech.env
-EARLY_STOP=0
-EPOCHS=20
-DROPOUT=0.5
-$ docker run --env-file deepspeech.env --rm --gpus all --mount type=bind,src=$HOME/data,dst=/mnt deepspeech
+$ cat fast_dev.env
+BATCH_SIZE=2
+EPOCHS=2
+FAST_TRAIN=1
+$ docker run --env-file fast_dev.env --rm --gpus all --mount type=bind,src=$HOME/data,dst=/mnt deepspeech
 ```
 
 ## Generare il modello con notebook COLAB

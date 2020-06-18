@@ -23,23 +23,28 @@ pushd /mnt/extracted
 		> wiki_it_accents.txt
 	fi;
 
-	if [ ! -f "/mnt/lm/kenlm.scorer" ]; then
+	if [ ! -f "/mnt/lm/scorer" ]; then
 		pushd $DS_DIR/data/lm
-			head -10000 /mnt/extracted/wiki_it.txt > /mnt/extracted/sources_lm.txt
+			top_k=500000
+			if [ "${FAST_TRAIN}" = 1 ]; then
+				head -10000 /mnt/extracted/wiki_it.txt > /mnt/extracted/sources_lm.txt
+				top_k=500
+			else
+				mv /mnt/extracted/wiki_it.txt /mnt/extracted/sources_lm.txt
+				touch /mnt/extracted/wiki_it.txt
+			fi
 
 			python generate_lm.py --input_txt "/mnt/extracted/sources_lm.txt" --output_dir "/mnt/lm" \
-				--top_k 500 --kenlm_bins "$DS_DIR/native_client/kenlm/build/bin/" \
-				--arpa_order 5 --max_arpa_memory "75%" --arpa_prune "0|0|1" \
+				--top_k $top_k --kenlm_bins "$DS_DIR/native_client/kenlm/build/bin/" \
+				--arpa_order 5 --max_arpa_memory "85%" --arpa_prune "0|0|1" \
 				--binary_a_bits 255 --binary_q_bits 8 --binary_type trie
 
 			python generate_package.py --alphabet /mnt/models/alphabet.txt \
 			  --lm "/mnt/lm/lm.binary" \
-			  --vocab "/mnt/lm/vocab-500.txt" \
-			  --package "/mnt/lm/kenlm.scorer" \
+			  --vocab "/mnt/lm/vocab-"$top_k".txt" \
+			  --package "/mnt/lm/scorer" \
 			  --default_alpha 0.931289039105002 \
 			  --default_beta 1.1834137581510284
-		# rm /mnt/lm/lm.arpa /mnt/lm/lm_filtered.arpa
-			> wiki_it_lower.txt
 	fi;
 
 	if [ "${ENGLISH_COMPATIBLE}" = "1" ]; then

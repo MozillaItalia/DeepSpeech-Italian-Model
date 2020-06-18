@@ -4,7 +4,7 @@ set -xe
 
 generate_alphabet.sh
 
-if [ "${DS_TINY_TRAIN}" = 1 ]; then
+if [ "${FAST_TRAIN}" = 1 ]; then
   ${MODEL_LANGUAGE}/import_cvit_tiny.sh
   export BATCH_SIZE=2
 else
