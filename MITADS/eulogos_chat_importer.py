@@ -114,12 +114,12 @@ with open("./output/eulogos.txt", "w") as result:
                         continue
                     # consider only those line that contains a-z range chars
                     # discard everything that could be a symbol (numbers, brackets..)
-                    if re.search(r"^[aàbcdeèéfghiìjklmnoòpqrstuùvwxyz ]+$",line):
+                    if not re.search(r"^[aàbcdeèéfghiìjklmnoòpqrstuùvwxyz ]+$",line):
                         # if this line contains more than 1 space, skip it
                         if re.search(r" {2,}",line):
                             continue
 
-                    text += line + "\n"
+                        text += line + "\n"
 
                 result.write(text)
 
