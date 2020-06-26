@@ -199,7 +199,9 @@ def clean_sentences(raw_sentences):
         [re.compile("([A-Za-z]{2,})u',{0,1} "), u'\g<1>ù '],
         [re.compile("([Cc]os)i'"), u'\g<1>ì'],
         [u" fu' ", u' fu '],
-        [re.compile("([cC]')[eE]'"), u'\g<1>è']
+        [re.compile("([cC]')[eE]'"), u'\g<1>è'],
+        [re.compile("É "), u'è '],
+        [re.compile("XXesimo"), u'ventesimo'],
     ]
     ## WARNING: "Ašhadu ʾan lā ʾilāha ʾilla (A)llāh" . How handle this?
     raw_sentences = sanitizer.maybe_normalize(
@@ -231,7 +233,6 @@ def clean_sentences(raw_sentences):
                 continue
             if u'`' in s:
                 continue
-
             s = sanitizer.clean_single_line(s)
             s = piu.sub("più", s)
             s = tobeverb.sub(" è", s)
@@ -297,5 +298,8 @@ def write_sentences(sentences, outfilepath):
         outfile_hl.write(s + "\n")
     outfile_hl.close()
 
-
-main()
+if os.environ.get("TED_DEBUG") is not None:
+    print("Parsing local JSONs")
+    parse_all_json()
+else:
+    main()
