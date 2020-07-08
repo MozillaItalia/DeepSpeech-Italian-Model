@@ -25,7 +25,7 @@ do
         -e '/../!d' \
         -e 's/[[:space:]]\{2,\}/ /g' \
         $parsing | \
-        grep -E "^[ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0-9àÈÉèìéòù,;:'. ]+$" | \
+        grep -E "^[ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyzàÈÉèìéòù,;:'. ]+$" | \
         sort | uniq > ./output/ost_$loop.txt
         i=0
         parsing=''

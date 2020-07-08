@@ -1,6 +1,5 @@
 from typing.re import Pattern
 import roman
-import re
 import utils.blacklist as blacklist
 from bs4 import Tag, NavigableString
 
@@ -9,12 +8,12 @@ class Sanitization:
     def __init__(self):
         self.default_mapping = blacklist.unicode_symbols + blacklist.other
 
-    def maybe_normalize(self, value, mapping='', roman_normalization=True, mapping_append=True):
+    def maybe_normalize(self, value, mapping='', roman_normalization=True, mapping_prepend=True):
 
       if mapping == '':
           mapping = self.default_mapping
       else:
-          mapping = mapping + self.default_mapping if mapping_append else self.default_mapping+mapping
+          mapping = mapping + self.default_mapping if mapping_prepend else self.default_mapping+mapping
 
       for norm in mapping:
         if type(norm[0]) == str:

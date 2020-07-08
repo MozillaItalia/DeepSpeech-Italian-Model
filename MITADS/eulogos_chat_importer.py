@@ -56,6 +56,7 @@ mapping_normalization = [
     [re.compile('\({2,}'), u''],
     [re.compile('^((?![A-Za-z]).)*$'), u''],
     [re.compile('\s*:$'), u''],
+    [re.compile('\.{2,}'), u' '],
 ]
 HOME = "http://www.intratext.com/IXT/ITA0192"
 raw_page = download_me.download_for_bp(HOME, 'ISO-8859-1')
@@ -114,9 +115,12 @@ with open("./output/eulogos.txt", "w") as result:
                         continue
                     # consider only those line that contains a-z range chars
                     # discard everything that could be a symbol (numbers, brackets..)
-                    if not re.search(r"^[aàbcdeèéfghiìjklmnoòpqrstuùvwxyz ]+$",line):
-                        # if this line contains more than 1 space, skip it
+                    if re.search(r"^[aAàÀbBcCdDeEèÈéÉfFgGhHiIìÌjJkKlLmMnNoOòÒpPqQrRsStTuUùÙvVwWxXyYzZ ]+$",line):
+                        # if this line contains more than one space, skip it
                         if re.search(r" {2,}",line):
+                            continue
+                        # if this line contains more than one accented chars, skip it
+                        if re.search(r"[àÀèÈÉìÌòÒùÙ]{2,}",line):
                             continue
 
                         text += line + "\n"

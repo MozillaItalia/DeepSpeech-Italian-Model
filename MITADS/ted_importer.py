@@ -142,7 +142,7 @@ def parse_all_json():
     # cycling our JSON files
     for f in os.listdir(jsonfolder):
         write_sentences(clean_sentences(get_raw_sentences(
-            f, jsonfolder)), outfilepath)
+                f, jsonfolder)), outfilepath)
 
 
 '''
@@ -183,7 +183,7 @@ def clean_sentences(raw_sentences):
         [u'<b><b><b><b><b><b><b><b><b><b>', u''],
         [re.compile("[A-Z]{2}:"), u''],  # remove speaker id
         # remove dots in thousands
-        [re.compile("([0-9]+)\.([0-9]+)"), r"\1\2"],
+        [re.compile("\.([0-9]+)"), r"\1"],
         # remove quotes
         [re.compile(" '([^ ][^'^0-9]*[A-zàèìòùé]{2,}),{0,1}'"), u" \g<1> "],
         # words that ends in ita' probably are ità,
@@ -202,10 +202,12 @@ def clean_sentences(raw_sentences):
         [re.compile("([cC]')[eE]'"), u'\g<1>è'],
         [re.compile("É "), u'è '],
         [re.compile("XXesimo"), u'ventesimo'],
+        [re.compile("[,:;]{2,}"),u' ']
     ]
     ## WARNING: "Ašhadu ʾan lā ʾilāha ʾilla (A)llāh" . How handle this?
     raw_sentences = sanitizer.maybe_normalize(
-        raw_sentences, mapping_normalization,mapping_append=False)
+        raw_sentences, mapping_normalization, mapping_prepend=False,
+        roman_normalization=False)
     sentences_list = []
     # list of sentences by using regex, because of special punctuation
     sentences = re.split(r'[."?!\n]\s*', raw_sentences)
