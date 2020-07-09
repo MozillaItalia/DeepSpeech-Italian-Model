@@ -7,6 +7,7 @@ Aggregatore degli strumenti per la generazione di un modello di machine learning
 * Il modello generato
 * [Script per generare il corpus testuale per la parte predittiva del modello](https://github.com/MozillaItalia/DeepSpeech-Italian-Model/tree/master/MITADS)
 * [Pacchetto di esempio su come è strutturato il dataset di Common Voice](https://github.com/MozillaItalia/DeepSpeech-Italian-Model/files/4610711/cv-it_tiny.tar.gz)
+* Esempi di importatore di dataset minimali: ldc93s1 [python per DeepSpeech](https://github.com/mozilla/DeepSpeech/blob/master/bin/import_ldc93s1.py) e [lanciatore bash](https://github.com/mozilla/DeepSpeech/blob/master/bin/run-ldc93s1.sh)
 
 ## Regole
 
