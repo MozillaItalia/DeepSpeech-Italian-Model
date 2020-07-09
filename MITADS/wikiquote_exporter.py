@@ -49,10 +49,10 @@ for elem in items:
                 if len(line) <= 15:
                     continue
 
-                if validate_line.startswith(line, ['(']):
+                if validate_line.startswith(line, ['(', 'vivente)']):
                     continue
 
-                if validate_line.contain(line, ['|', '{{', ':', '[', 'ISBN', '#', 'REDIRECT']):
+                if validate_line.contain(line, ['|', '{{', ':', '[', 'ISBN', '#', 'REDIRECT', 'isbn', 'RINVIA']):
                     continue
 
                 if validate_line.isdigit([line, line[1:], line[:1]]):

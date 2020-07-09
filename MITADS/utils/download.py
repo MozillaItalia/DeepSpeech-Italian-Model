@@ -60,7 +60,7 @@ class Download:
             file = self.file
 
         extract_to = self.file.replace('.bz2', '')
-        if not os.path.isdir(extract_to):
+        if not os.path.isfile(extract_to):
             print('Decompressing to ' + extract_to)
             with open(extract_to, 'wb') as new_file, bz2.BZ2File(self.file, 'rb') as file:
                 for data in iter(lambda: file.read(100 * 1024), b''):
