@@ -11,6 +11,7 @@ pushd $HOME/ds/
 
         # Do not overwrite checkpoint file if model already exist: we will likely
 	# only package
+	# TODO: no TRANSFER_CHECKPOINT env set . Manage transfer learning
 	if [ -f "/transfer-checkpoint/checkpoint" -a ! -f "/mnt/models/output_graph.pb" ]; then
 		echo "Using checkpoint from ${TRANSFER_CHECKPOINT}"
 		cp -a /transfer-checkpoint/* /mnt/checkpoints/
@@ -30,11 +31,10 @@ pushd $HOME/ds/
 
 		python -u DeepSpeech.py \
 			--show_progressbar True \
-			--use_cudnn_rnn True \
+			--train_cudnn True \
 			${AMP_FLAG} \
 			--alphabet_config_path /mnt/models/alphabet.txt \
-			--lm_binary_path /mnt/lm/lm.binary \
-			--lm_trie_path /mnt/lm/trie \
+			--scorer /mnt/lm/scorer \
 			--feature_cache /mnt/sources/feature_cache \
 			--train_files ${all_train_csv} \
 			--dev_files ${all_dev_csv} \
@@ -46,23 +46,17 @@ pushd $HOME/ds/
 			--epochs ${EPOCHS} \
 			--learning_rate ${LEARNING_RATE} \
 			--dropout_rate ${DROPOUT} \
-			--lm_alpha ${LM_ALPHA} \
-			--lm_beta ${LM_BETA} \
 			${EARLY_STOP_FLAG} \
 			--checkpoint_dir /mnt/checkpoints/
 	fi;
 
 	if [ ! -f "/mnt/models/output_graph.pb" ]; then
 		python -u DeepSpeech.py \
-			--alphabet_config_path /mnt/models/alphabet.txt \
-			--lm_binary_path /mnt/lm/lm.binary \
-			--lm_trie_path /mnt/lm/trie \
+			--alphabet_config_path /mnt/models/alphabet.txt  \
+			--scorer /mnt/lm/scorer \
 			--feature_cache /mnt/sources/feature_cache \
 			--n_hidden ${N_HIDDEN} \
-			--beam_width ${BEAM_WIDTH} \
-			--lm_alpha ${LM_ALPHA} \
-			--lm_beta ${LM_BETA} \
-			--load "best" \
+			--load_evaluate "best" \
 			--checkpoint_dir /mnt/checkpoints/ \
 			--export_dir /mnt/models/ \
 			--export_language "it"
@@ -70,15 +64,11 @@ pushd $HOME/ds/
 
 	if [ ! -f "/mnt/models/output_graph.tflite" ]; then
 		python -u DeepSpeech.py \
-			--alphabet_config_path /mnt/models/alphabet.txt \
-			--lm_binary_path /mnt/lm/lm.binary \
-			--lm_trie_path /mnt/lm/trie \
+			--alphabet_config_path /mnt/models/alphabet.txt  \
+			--scorer /mnt/lm/scorer \
 			--feature_cache /mnt/sources/feature_cache \
 			--n_hidden ${N_HIDDEN} \
-			--beam_width ${BEAM_WIDTH} \
-			--lm_alpha ${LM_ALPHA} \
-			--lm_beta ${LM_BETA} \
-			--load "best" \
+			--load_evaluate "best" \
 			--checkpoint_dir /mnt/checkpoints/ \
 			--export_dir /mnt/models/ \
 			--export_tflite \
@@ -89,14 +79,10 @@ pushd $HOME/ds/
 		mkdir -p /mnt/models/it-it || rm /mnt/models/it-it/*
 		python -u DeepSpeech.py \
 			--alphabet_config_path /mnt/models/alphabet.txt \
-			--lm_binary_path /mnt/lm/lm.binary \
-			--lm_trie_path /mnt/lm/trie \
+			--scorer /mnt/lm/scorer \
 			--feature_cache /mnt/sources/feature_cache \
 			--n_hidden ${N_HIDDEN} \
-			--beam_width ${BEAM_WIDTH} \
-			--lm_alpha ${LM_ALPHA} \
-			--lm_beta ${LM_BETA} \
-			--load "best" \
+			--load_evaluate "best" \
 			--checkpoint_dir /mnt/checkpoints/ \
 			--export_dir /mnt/models/it-it \
 			--export_zip \

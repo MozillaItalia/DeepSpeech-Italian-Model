@@ -7,6 +7,7 @@ Aggregatore degli strumenti per la generazione di un modello di machine learning
 * Il modello generato
 * [Script per generare il corpus testuale per la parte predittiva del modello](https://github.com/MozillaItalia/DeepSpeech-Italian-Model/tree/master/MITADS)
 * [Pacchetto di esempio su come è strutturato il dataset di Common Voice](https://github.com/MozillaItalia/DeepSpeech-Italian-Model/files/4610711/cv-it_tiny.tar.gz)
+* Esempi di importatore di dataset minimali: ldc93s1 [python per DeepSpeech](https://github.com/mozilla/DeepSpeech/blob/master/bin/import_ldc93s1.py) e [lanciatore bash](https://github.com/mozilla/DeepSpeech/blob/master/bin/run-ldc93s1.sh)
 
 ## Regole
 
@@ -27,27 +28,38 @@ $ deepspeech --model output_graph.pbmm --audio test.wav --trie trie --lm lm.bina
 
 ## Generare il modello
 
+#### Attenzione!
+Prima di iniziare, la nuova immagine base Docker di Deepspeech necessita di [nvidia-docker](https://github.com/NVIDIA/nvidia-docker).
+
+Nel README della repository di NVIDIA trovate le istruzioni a seconda del vostro sistema.
+
+
 ```
 $ cd $HOME
 $ git clone MozillaItalia/DeepSpeech-Italian-Model.git
 $ cd DeepSpeech-Italian-Model/DeepSpeech
 $ docker build -f Dockerfile.train -t deepspeech .
+```
+Scaricare il dataset CommonVoice italiano in ```$HOME/data```
+```
 $ cd $HOME
 $ mkdir -p data/sources
 $ chmod a+rwx -R data
 $ mv it.tar.gz data/sources # versione 3 di common voice
 $ chmod a+r data/sources/it.tar.gz
-$ docker run --rm --gpus all --mount type=bind,src=/home/ubuntu/data,dst=/mnt deepspeech
+$ docker run --rm --gpus all --mount type=bind,src=$HOME/data,dst=/mnt deepspeech
 ```
-Model at $HOME/data/models/it-it.zip
 
-To configure docker parameters:
+Per configurare i parametri del Dockerfile, creare un file con la lista dei parametri e passarlo al run di Docker.
+
+Ad esempio caricando il file ```fast_dev.env``` ogni passaggio dell'addestramento di DeepSpeech verrà eseguito velocemente per testare ogni step.
+
 ```
-$ cat deepspeech.env
-EARLY_STOP=0
-EPOCHS=20
-DROPOUT=0.5
-$ docker run --env-file deepspeech.env --rm --gpus all --mount type=bind,src=/home/ubuntu/data,dst=/mnt deepspeech
+$ cat fast_dev.env
+BATCH_SIZE=2
+EPOCHS=2
+FAST_TRAIN=1
+$ docker run --env-file fast_dev.env --rm --gpus all --mount type=bind,src=$HOME/data,dst=/mnt deepspeech
 ```
 
 ## Generare il modello con notebook COLAB
