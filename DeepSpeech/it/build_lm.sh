@@ -8,49 +8,43 @@ pushd /mnt/extracted
 		export LANG=it_IT.UTF-8
 	fi;
 
-	if [ ! -f "wiki_it_lower.txt" ]; then
-		curl -sSL https://github.com/MozillaItalia/DeepSpeech-Italian-Model/releases/download/lm-0.1/wiki.txt.xz | pixz -d | tr '[:upper:]' '[:lower:]' > wiki_it_lower.txt
+	if [ ! -f "wiki_it.txt" ]; then
+		curl -sSL https://github.com/MozillaItalia/DeepSpeech-Italian-Model/releases/download/lm-0.1/wiki.txt.xz | pixz -d > wiki_it.txt
 	fi;
 
 	if [ "${ENGLISH_COMPATIBLE}" = "1" ]; then
-		mv wiki_it_lower.txt wiki_it_lower_accents.txt
+		mv wiki_it.txt wiki_it_accents.txt
 		# Locally force LANG= to make iconv happy and avoid errors like:
 		# iconv: illegal input sequence at position 4468
 		# Also required locales and locales-all to be installed
-		head -n 5 wiki_it_lower_accents.txt
-		iconv -f UTF-8 -t ASCII//TRANSLIT//IGNORE < wiki_it_lower_accents.txt > wiki_it_lower.txt
-		head -n 5 wiki_it_lower.txt
-		> wiki_it_lower_accents.txt
+		head -n 5 wiki_it_accents.txt
+		iconv -f UTF-8 -t ASCII//TRANSLIT//IGNORE < wiki_it_accents.txt > wiki_it.txt
+		head -n 5 wiki_it.txt
+		> wiki_it_accents.txt
 	fi;
 
-	if [ ! -f "/mnt/lm/lm.binary" ]; then
-		cat wiki_it_lower.txt > sources_lm.txt
+	if [ ! -f "/mnt/lm/scorer" ]; then
+		pushd $DS_DIR/data/lm
+			top_k=500000
+			if [ "${FAST_TRAIN}" = 1 ]; then
+				head -10000 /mnt/extracted/wiki_it.txt > /mnt/extracted/sources_lm.txt
+				top_k=500
+			else
+				mv /mnt/extracted/wiki_it.txt /mnt/extracted/sources_lm.txt
+				touch /mnt/extracted/wiki_it.txt
+			fi
 
-		python $HOME/counter.py sources_lm.txt top_words.txt 500000
+			python generate_lm.py --input_txt "/mnt/extracted/sources_lm.txt" --output_dir "/mnt/lm" \
+				--top_k $top_k --kenlm_bins "$DS_DIR/native_client/kenlm/build/bin/" \
+				--arpa_order 5 --max_arpa_memory "85%" --arpa_prune "0|0|1" \
+				--binary_a_bits 255 --binary_q_bits 8 --binary_type trie
 
-		lmplz	--order 4 \
-			--temp_prefix /mnt/tmp/ \
-			--memory 80% \
-			--text sources_lm.txt \
-			--arpa /mnt/lm/lm.arpa \
-			--skip_symbols \
-			--prune 0 0 1
-
-		filter single model:/mnt/lm/lm.arpa /mnt/lm/lm_filtered.arpa < top_words.txt
-
-		build_binary -a 255 \
-			-q 8 \
-			trie \
-			/mnt/lm/lm_filtered.arpa \
-			/mnt/lm/lm.binary
-
-		rm /mnt/lm/lm.arpa /mnt/lm/lm_filtered.arpa
-		> wiki_it_lower.txt
-	fi;
-
-	if [ ! -f "/mnt/lm/trie" ]; then
-		curl -sSL https://community-tc.services.mozilla.com/api/index/v1/task/project.deepspeech.deepspeech.native_client.master.${DS_SHA1}.cpu/artifacts/public/native_client.tar.xz | pixz -d | tar -xf -
-		./generate_trie /mnt/models/alphabet.txt /mnt/lm/lm.binary /mnt/lm/trie
+			python generate_package.py --alphabet /mnt/models/alphabet.txt \
+			  --lm "/mnt/lm/lm.binary" \
+			  --vocab "/mnt/lm/vocab-"$top_k".txt" \
+			  --package "/mnt/lm/scorer" \
+			  --default_alpha 0.931289039105002 \
+			  --default_beta 1.1834137581510284
 	fi;
 
 	if [ "${ENGLISH_COMPATIBLE}" = "1" ]; then
