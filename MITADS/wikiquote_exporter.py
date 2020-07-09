@@ -19,7 +19,7 @@ print('  Parsing in progress')
 text = ''
 for elem in items:
     title = elem.getElementsByTagName("title")[0].firstChild.data
-    if 'wiki' not in title and title != 'Pagina principale':
+    if 'wiki' not in title and title != 'Pagina principale' and 'MediaWiki' not in title:
         textdom = elem.getElementsByTagName("revision")[0].getElementsByTagName("text")[0]
         if textdom.firstChild is not None:
             text = ''
@@ -52,22 +52,22 @@ for elem in items:
                 if validate_line.startswith(line, ['(']):
                     continue
 
-                if validate_line.contain(line, ['|', '{{', ':', '[', 'ISBN', '#']):
+                if validate_line.contain(line, ['|', '{{', ':', '[', 'ISBN', '#', 'REDIRECT']):
                     continue
 
                 if validate_line.isdigit([line, line[1:], line[:1]]):
                     continue
-                
+
                 if validate_line.isbookref(line):
                     continue
-                
+
                 if validate_line.isbrokensimplebracket(line):
                     continue
-                
+
                 text += line + "\n"
 
             result.write(text)
-            
+
 result.close()
 
 result = open( './output/wikiquote.txt', 'r' )
