@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 from xml.dom import minidom
+from html import unescape
 import re
 from utils import sanitize, line_rules, download
 
@@ -23,7 +24,7 @@ for elem in items:
         textdom = elem.getElementsByTagName("revision")[0].getElementsByTagName("text")[0]
         if textdom.firstChild is not None:
             text = ''
-            raw_text = clean_me.escapehtml(textdom.firstChild.data)
+            raw_text = unescape(textdom.firstChild.data)
             raw_text = re.compile(r"""\[\[(File|Category):[\s\S]+\]\]|
                         \[\[[^|^\]]+\||
                         \[\[|\]\]|
