@@ -1,31 +1,25 @@
 #!/usr/bin/env python3
+from typing import Iterator
+import itertools
+from multiprocessing import Pool
 from xml.dom import minidom
 from html import unescape
 import re
 from utils import sanitize, line_rules, download
 
+# ideas of stuff that can be done:
+# create a line class that handles validation as well
+# for now define Lines type
+Lines = Iterator[str]
+
+DOWNLOAD_PATH = 'https://dumps.wikimedia.org/itwikiquote/latest/itwikiquote-latest-pages-articles.xml.bz2'
+OUTFILE = "output/wikiquote.txt"
+
 download_me = download.Download()
 validate_line = line_rules.LineRules()
 clean_me = sanitize.Sanitization()
 
-xml_path = download_me.if_not_exist('https://dumps.wikimedia.org/itwikiquote/latest/itwikiquote-latest-pages-articles.xml.bz2').bz2_decompress()
-
-print('  Reading XML file')
-mydoc = minidom.parse(xml_path)
-items = mydoc.getElementsByTagName('page')
-
-result = open( './output/wikiquote.txt', 'w' )
-
-print('  Parsing in progress')
-text = ''
-for elem in items:
-    title = elem.getElementsByTagName("title")[0].firstChild.data
-    if 'wiki' not in title and title != 'Pagina principale' and 'MediaWiki' not in title:
-        textdom = elem.getElementsByTagName("revision")[0].getElementsByTagName("text")[0]
-        if textdom.firstChild is not None:
-            text = ''
-            raw_text = unescape(textdom.firstChild.data)
-            raw_text = re.compile(r"""\[\[(File|Category):[\s\S]+\]\]|
+sub_regex = re.compile(r"""\[\[(File|Category):[\s\S]+\]\]|
                         \[\[[^|^\]]+\||
                         \[\[|\]\]|
                         \'{2,5}|
@@ -33,46 +27,86 @@ for elem in items:
                         (<s>|<!)[\s\S]+(</s>|>)|
                         {{[\s\S\n]+?}}|
                         <.*?>|
-                        ={1,6}""", re.VERBOSE).sub("", raw_text)
-            raw_text = clean_me.maybe_normalize(raw_text, [
-                      [ u'*' , u"\n" ],
-                      [ u'<br />' , u"\n" ],
-                      [ u'<br>' , u"\n" ],
-                      [ u"\(\d\d\d\d\)", ""],
-                      [ u"[\(\[].*?[\)\]]", ""],
-                      [ 'AvvertenzaContattiDonazioni', '']
-                    ], False)
-            raw_text = clean_me.prepare_splitlines(raw_text).splitlines()
+                        ={1,6}""", re.VERBOSE)
 
-            for line in raw_text:
-                line = clean_me.clean_single_line(line).strip()
+normalize_rules = [['*', u"\n"],
+                   ['<br />', u"\n"],
+                   ['<br>', u"\n"],
+                   ["\(\d\d\d\d\)", ""],
+                   ["[\(\[].*?[\)\]]", ""],
+                   ['AvvertenzaContattiDonazioni', '']
+                   ]
 
-                if len(line) <= 15:
-                    continue
 
-                if validate_line.startswith(line, ['(', 'vivente)']):
-                    continue
+def get_elements():
+    """ returns an iterable of the item that needs to be processed: nodes od the xml document"""
+    xml = download_me.if_not_exist(DOWNLOAD_PATH).bz2_decompress()
+    doc = minidom.parse(xml)
+    return doc.getElementsByTagName('page')
 
-                if validate_line.contain(line, ['|', '{{', ':', '[', 'ISBN', '#', 'REDIRECT', 'isbn', 'RINVIA']):
-                    continue
 
-                if validate_line.isdigit([line, line[1:], line[:1]]):
-                    continue
+def process_element(elem) -> Lines:
+    """ elem is a child of the wikiquote xml, returns and iterable of lines, None if the element cannot be processed"""
+    title = elem.getElementsByTagName("title")[0].firstChild.data
+    # check that this line is valid
+    if 'wiki' in title and title == 'Pagina principale' and 'MediaWiki' in title:
+        return None
+    textdom = elem.getElementsByTagName("revision")[0].getElementsByTagName("text")[0]
 
-                if validate_line.isbookref(line):
-                    continue
+    if textdom.firstChild is None: return None
 
-                if validate_line.isbrokensimplebracket(line):
-                    continue
+    lines = clean_split_text(textdom.firstChild.data)
+    # split and strip lines
+    lines = map(clean_me.clean_single_line, lines)
+    lines = map(lambda x: x.strip(), lines)
+    return list(filter(line_filter, lines))
 
-                text += line + "\n"
 
-            result.write(text)
+def clean_split_text(text):
+    text = unescape(text)
+    text = sub_regex.sub("", text)
+    text = clean_me.maybe_normalize(text, normalize_rules, False)
+    return clean_me.prepare_splitlines(text).splitlines()
 
-result.close()
 
-result = open( './output/wikiquote.txt', 'r' )
-text = result.read().splitlines()
-result.close()
+def line_filter(line):
+    """checks if line is invalid"""
+    if (validate_line.startswith(line, ['(', 'vivente)']) or
+            validate_line.contain(line, ['|', '{', '}', ':', '[', 'ISBN', '#', 'REDIRECT', 'isbn', 'RINVIA']) or
+            validate_line.isdigit([line, line[1:], line[:1]]) or
+            validate_line.isbookref(line) or
+            validate_line.isbrokensimplebracket(line)):
+        return False
+    else:
+        return True
 
-print(' Total lines: ' + str(len(text)))
+
+def multiprocess_runner(processor, items):
+    with Pool() as pool:
+        return pool.map(processor, items)
+
+
+def runner(processor, items):
+    return map(processor, items)
+
+
+def write_results(results, filename):
+    """result is a list of list of valid lines"""
+    with open(filename, 'w') as f:
+        for lines in results:
+            if lines:
+                # write lines filtering out None lines
+                lines = filter(lambda x: bool(x), lines)
+                f.writelines(itertools.chain.from_iterable(zip(lines, itertools.repeat("\n"))))
+
+
+def main():
+    print("Starting wikiquote")
+    items = get_elements()
+    print("finished init")
+    write_results(runner(process_element, items), OUTFILE)
+    print("Done!")
+
+
+if __name__ == "__main__":
+    main()
