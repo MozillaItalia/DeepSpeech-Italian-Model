@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 from xml.dom import minidom
+from html import unescape
 import re
 from utils import sanitize, line_rules, download
 
@@ -19,11 +20,11 @@ print('  Parsing in progress')
 text = ''
 for elem in items:
     title = elem.getElementsByTagName("title")[0].firstChild.data
-    if 'wiki' not in title and title != 'Pagina principale':
+    if 'wiki' not in title and title != 'Pagina principale' and 'MediaWiki' not in title:
         textdom = elem.getElementsByTagName("revision")[0].getElementsByTagName("text")[0]
         if textdom.firstChild is not None:
             text = ''
-            raw_text = clean_me.escapehtml(textdom.firstChild.data)
+            raw_text = unescape(textdom.firstChild.data)
             raw_text = re.compile(r"""\[\[(File|Category):[\s\S]+\]\]|
                         \[\[[^|^\]]+\||
                         \[\[|\]\]|
@@ -49,25 +50,25 @@ for elem in items:
                 if len(line) <= 15:
                     continue
 
-                if validate_line.startswith(line, ['(']):
+                if validate_line.startswith(line, ['(', 'vivente)']):
                     continue
 
-                if validate_line.contain(line, ['|', '{{', ':', '[', 'ISBN', '#']):
+                if validate_line.contain(line, ['|', '{{', ':', '[', 'ISBN', '#', 'REDIRECT', 'isbn', 'RINVIA']):
                     continue
 
                 if validate_line.isdigit([line, line[1:], line[:1]]):
                     continue
-                
+
                 if validate_line.isbookref(line):
                     continue
-                
+
                 if validate_line.isbrokensimplebracket(line):
                     continue
-                
+
                 text += line + "\n"
 
             result.write(text)
-            
+
 result.close()
 
 result = open( './output/wikiquote.txt', 'r' )

@@ -75,17 +75,6 @@ class Sanitization:
         else:
             return text
 
-    def escapehtml(self, text, html_escape_table=''):
-        if html_escape_table == '':
-            html_escape_table = {
-                 "&amp;": "&",
-                 '&quot;': '"',
-                 "&apos;": "'",
-                 "&gt;": ">",
-                 "&lt;": "<",
-                 "&Egrave;": "È",
-                 }
-        return "".join(html_escape_table.get(c,c) for c in str(text))
 
     def clean_single_line(self, value):
       if value.startswith(';') or value.startswith('–') or value.startswith('.') or value.startswith(':') or value.startswith('\'') or value.startswith('*') or value.startswith(') ') or value.startswith('< ') or value.startswith(',') or value.startswith('-'):
