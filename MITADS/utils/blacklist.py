@@ -1,3 +1,6 @@
+"""list of substitutions that needs to me made, they can be either:
+ - couple of strings (old, new)
+ - regex (matching regex, sub string)"""
 
 import re
 # from https://stackoverflow.com/questions/6609895/efficiently-replace-bad-characters
@@ -103,11 +106,12 @@ other = [
     ['”', '"'],
     ['’', '\''],
     ['" "', '"'],
-    [r'^https?:\/\/.*[\r\n]*', ''],
-    [r'^http?:\/\/.*[\r\n]*', ''],
-    [r'(^[ \t]+|[ \t]+(?=:))', ''],
+    [re.compile(r'^https?:\/\/.*[\r\n]*'), ''],
+    [re.compile(r'^http?:\/\/.*[\r\n]*'), ''],
+    [re.compile(r'(^[ \t]+|[ \t]+(?=:))'), ''],
     ['Sig. ', 'Signor '],
     ['Sr. ', 'Signor '],
     ['Sra. ', 'Signora '],
-    [re.compile('\[\d+\]'), ''],
+    [re.compile(r'\[\d+\]'), ''],
+    ['  ', ' ']  # replaces double spaces with single one
 ]

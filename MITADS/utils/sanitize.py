@@ -9,33 +9,25 @@ class Sanitization:
     def __init__(self):
         self.default_mapping = blacklist.unicode_symbols + blacklist.other
 
-    def maybe_normalize(self, value, mapping='', roman_normalization=True, mapping_append=True):
+    def maybe_normalize(self, value, mapping=[], roman_normalization=True, mapping_append=True):
+        mapping = mapping + self.default_mapping if mapping_append and mapping else mapping
 
-      if mapping == '':
-          mapping = self.default_mapping
-      else:
-          mapping = mapping + self.default_mapping if mapping_append else self.default_mapping+mapping
+        for norm in mapping:
+            if type(norm[0]) == str:
+                value = value.replace(norm[0], norm[1])
+            elif isinstance(norm[0], Pattern):
+                value = norm[0].sub(norm[1], value)
+            else:
+                print('UNEXPECTED', type(norm[0]), norm[0])
 
-      for norm in mapping:
-        if type(norm[0]) == str:
-          value = value.replace(norm[0], norm[1])
-        elif isinstance(norm[0], Pattern):
-          value = norm[0].sub(norm[1], value)
-        else:
-          print('UNEXPECTED', type(norm[0]), norm[0])
-
-      if roman_normalization:
-          for ro_before, ro_after, ro in self.get_roman_numbers(value):
-            try:
-              value = value.replace(ro_before + ro + ro_after, ro_before + str(roman.fromRoman(ro)) + ro_after)
-            except roman.InvalidRomanNumeralError as ex:
-              print(ex)
-              pass
-
-      value = self.clean_single_line(value)
-
-      return value.replace('  ', " ")
-
+        if roman_normalization:
+            for ro_before, ro_after, ro in self.get_roman_numbers(value):
+                try:
+                    value = value.replace(ro_before + ro + ro_after, ro_before + str(roman.fromRoman(ro)) + ro_after)
+                except roman.InvalidRomanNumeralError as ex:
+                    print(ex)
+                    pass
+        return value
 
     def get_roman_numbers(self, ch):
       ROMAN_CHARS = "XVI"
@@ -71,8 +63,6 @@ class Sanitization:
 
         if isinstance(text, Tag):
             return text.prettify()
-        elif isinstance(text, NavigableString):
-            return text
         else:
             return text
 
