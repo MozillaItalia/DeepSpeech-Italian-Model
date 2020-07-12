@@ -4,6 +4,9 @@ from html import unescape
 import re
 from utils import sanitize, line_rules, download
 
+# TODO:     ['−', '-']  # replace unicode minus sign with hypen-minus (the minus commonly used on computer keyboard)
+# TODO: sentences with different alphabets
+
 DOWNLOAD_PATH = 'https://dumps.wikimedia.org/itwikiquote/latest/itwikiquote-latest-pages-articles.xml.bz2'
 OUTFILE = "output/wikiquote.txt"
 
