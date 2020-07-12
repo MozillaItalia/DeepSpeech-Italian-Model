@@ -53,20 +53,16 @@ def process_page(page, out_file):
 def process_line(line, out_file):
     """if line is invalid returns early, if is correct writes the line to the file"""
     line = clean_me.clean_single_line(line).strip()
-    if len(line) <= 15:
+    if (validate_line.is_not_valid(line) or
+            len(line) <= 15 or
+            validate_line.startswith(line, ['(', 'vivente)']) or
+            validate_line.contain(line, ['|', '{{', ':', '[', 'ISBN', '#', 'REDIRECT', 'isbn', 'RINVIA']) or
+            validate_line.isdigit([line, line[1:], line[:1]]) or
+            validate_line.isbookref(line) or
+            validate_line.isbrokensimplebracket(line)):
         return
-    if validate_line.startswith(line, ['(', 'vivente)']):
-        return
-    if validate_line.contain(line, ['|', '{{', ':', '[', 'ISBN', '#', 'REDIRECT', 'isbn', 'RINVIA']):
-        return
-    if validate_line.isdigit([line, line[1:], line[:1]]):
-        return
-    if validate_line.isbookref(line):
-        return
-    if validate_line.isbrokensimplebracket(line):
-        return
-
-    out_file.write(line + '\n')
+    else:
+        out_file.write(line + "\n")
 
 
 def main():

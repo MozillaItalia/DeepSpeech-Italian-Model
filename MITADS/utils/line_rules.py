@@ -1,7 +1,11 @@
-
+import re
+valid_char_regex = re.compile(r"^\s'abcdefghijklmnopqrstuvwxyzàèéìíòóôùúABCDEFGHIJKLMNOPQRSTUVWXYZÀÈÉÌÍÒÓÔÙÚ,\.!?:;")
 
 class LineRules:
-    """Rules to identify a valid line""" 
+    """Rules to identify a valid line"""
+
+    def is_not_valid(self, line):
+        return valid_char_regex.match(line)
     
     def startswith(self, line, chars):
         for char in chars:
