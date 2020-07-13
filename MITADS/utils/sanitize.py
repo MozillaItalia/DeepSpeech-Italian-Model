@@ -32,10 +32,7 @@ class Sanitization:
                 except roman.InvalidRomanNumeralError as ex:
                     print(ex)
                     pass
-
-        value = self.clean_single_line(value)
-
-        return value.replace('  ', " ")
+        return value
 
     def get_roman_numbers(self, ch):
         ROMAN_CHARS = "XVI"
@@ -71,8 +68,6 @@ class Sanitization:
 
         if isinstance(text, Tag):
             return text.prettify()
-        elif isinstance(text, NavigableString):
-            return text
         else:
             return text
 

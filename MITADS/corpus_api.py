@@ -1,5 +1,4 @@
-import re
-import os
+import re, os
 from utils import download, sanitize
 from bs4 import BeautifulSoup
 import urllib
