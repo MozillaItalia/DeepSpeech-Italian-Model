@@ -4,7 +4,11 @@ valid_char_regex = re.compile(r"[^\s'abcdefghijklmnopqrstuvwxyzàèéìíòóô�
 
 
 class LineRules:
-    """Rules to identify a valid line"""
+    """Rules to identify a valid line
+    Lines Rules has the ability to automatically log the discarded sentences in a json file.
+    To use it you need to pass a file path to the __init__ and then call save when you have finished to write to disk.
+    The file is a dict where keys are the rule and values are a list of discarded sentences"""
+
 
     def __init__(self, discard_file=None):
         """provide a file path to have a place where to save discarded sentences"""
