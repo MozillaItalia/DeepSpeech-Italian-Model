@@ -60,9 +60,9 @@ def process_line(line, out_file):
             len(line) <= 15 or
             validate_line.startswith(line, ['(', 'vivente)']) or
             validate_line.contain(line, ['|', '{{', ':', '[', 'ISBN', '#', 'REDIRECT', 'isbn', 'RINVIA']) or
-            validate_line.isdigit([line, line[1:], line[:1]]) or
-            validate_line.isbookref(line) or
-            validate_line.isbrokensimplebracket(line)):
+            # validate_line.isdigit([line, line[1:], line[:1]]) or commented out because with the current regex digits and brackets are always discarded
+            validate_line.isbookref(line) ):
+            # validate_line.isbrokensimplebracket(line)
         return False
     else:
         out_file.write(line + "\n")
