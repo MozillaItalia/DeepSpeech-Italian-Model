@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 from utils import sanitize, line_rules, download
+from urllib import parse
 import time
 
 OUTFILE = "output/wikisource.txt"
@@ -32,6 +33,7 @@ def process_line(line, out_file):
 
 
 def process_book(book, out_file):
+    book = parse.quote(book)  # need to html encode book title to avoid non ascii chars
     raw_text = download_me.download_page(DOWNLOAD_LINK + book)
     raw_text = clean_me.maybe_normalize(raw_text)
     raw_text = clean_me.prepare_splitlines(raw_text).splitlines()
