@@ -17,7 +17,7 @@ utf8_symbols = [
     ['\xc2\x96', ''],         # High hyphen
     ['\xc2\x97', ''],        # Double hyphen
     ['\xc2\x99', ''],
-    ['\xc2\xa0', ''],
+    ['\xc2\xa0', ' '],
     ['\xc2\xa6', ''],         # Split vertical bar
     ['\xc2\xab', ''],        # Double less than
     ['\xc2\xbb', ''],        # Double greater than

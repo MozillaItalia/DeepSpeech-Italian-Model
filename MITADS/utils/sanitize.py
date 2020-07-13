@@ -71,7 +71,6 @@ class Sanitization:
         else:
             return text
 
-
     def clean_single_line(self, value):
         if value.startswith(';') or value.startswith('–') or value.startswith('.') or value.startswith(':') or value.startswith('\'') or value.startswith('*') or value.startswith(') ') or value.startswith('< ') or value.startswith(',') or value.startswith('-'):
             value = value[1:]
