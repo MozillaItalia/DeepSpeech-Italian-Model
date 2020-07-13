@@ -64,8 +64,10 @@ for elem in items:
 
                 if validate_line.isbrokensimplebracket(line):
                     continue
-
-                text += line + "\n"
+                # a gentle filter that just allow the italian alphabet chars and
+                # prevents lines made up by just symbols (eg ........ )
+                if re.search("[aAàÀbBcCdDeEèÈéÉfFgGhHiIìÌjJkKlLmMnNoOòÒpPqQrRsStTuUùÙvVwWxXyYzZ]+",line):
+                    text += line + "\n"
 
             result.write(text)
 
