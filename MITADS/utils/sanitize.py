@@ -1,5 +1,5 @@
 from typing.re import Pattern
-import roman
+from roman_numbers import do_roman_normalization
 import utils.blacklist as blacklist
 from bs4 import Tag, NavigableString
 
@@ -10,7 +10,7 @@ class Sanitization:
     def __init__(self):
         self.default_mapping = blacklist.unicode_symbols + blacklist.other
 
-    def maybe_normalize(self, value, mapping='', roman_normalization=True, mapping_prepend=True):
+    def maybe_normalize(self, value, mapping='', roman_normalization=False, mapping_prepend=True):
 
         mapping = self.default_mapping
         if isinstance(mapping, list):
@@ -23,39 +23,11 @@ class Sanitization:
                 value = norm[0].sub(norm[1], value)
             else:
                 print('UNEXPECTED', type(norm[0]), norm[0])
-
         if roman_normalization:
-            for ro_before, ro_after, ro in self.get_roman_numbers(value):
-                try:
-                    value = value.replace(
-                        ro_before + ro + ro_after, ro_before + str(roman.fromRoman(ro)) + ro_after)
-                except roman.InvalidRomanNumeralError as ex:
-                    print(ex)
-                    pass
+            value = do_roman_normalization(value)
+
         return value
 
-    def get_roman_numbers(self, ch):
-        ROMAN_CHARS = "XVI"
-        ro = ''
-        ros = 0
-        for i in range(len(ch)):
-            c = ch[i]
-            if c in ROMAN_CHARS:
-                if len(ro) == 0 and not ch[i-1].isalpha():
-                    ro = c
-                    ros = i
-                else:
-                    if len(ro) > 0 and ch[i-1] in ROMAN_CHARS:
-                        ro += c
-            else:
-                if len(ro) > 0:
-                    if not c.isalpha():
-                        yield ch[ros-1], ch[i], ro
-                    ro = ''
-                    ros = i
-
-        if len(ro) > 0:
-            yield ch[ros-1], '', ro
 
     def prepare_splitlines(self, text):
         text = text.replace('. ', ".\n")
