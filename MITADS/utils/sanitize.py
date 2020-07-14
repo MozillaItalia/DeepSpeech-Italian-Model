@@ -1,5 +1,5 @@
 from typing.re import Pattern
-from roman_numbers import do_roman_normalization
+from utils.roman_numbers import do_roman_normalization
 import utils.blacklist as blacklist
 from bs4 import Tag, NavigableString
 
