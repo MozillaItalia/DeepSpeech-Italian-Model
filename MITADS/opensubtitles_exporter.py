@@ -71,11 +71,11 @@ mapping_normalization_after_decode = [
 def parsexmlfile(path_info):
     count_file, xml_path = path_info
     xml_path = str(xml_path)
-
+    
     result = open( output_file + str(count_file) + '.txt', 'w' )
     mydoc = minidom.parse(xml_path)
     items = mydoc.getElementsByTagName('s')
-
+    
     # build the sentence/text
     text = ''
     for elem in items:
@@ -83,12 +83,11 @@ def parsexmlfile(path_info):
         for word in words:
             if word.firstChild.data != '':
                 text += word.firstChild.data + ' '
-
+            
         text += "\n"
 
-    text = clean_me.maybe_normalize(
-        text.strip(), mapping_normalization, roman_normalization=False)
-
+    text = clean_me.maybe_normalize(text.strip(), mapping_normalization, False)
+    
     # Opensubtiles Dataset contains no-ASCII char
     #  we use unidecode to delegate all unicode char processing
     #  to keep all vowels properly accented, and at the same time eliminate the other unicode characters,
@@ -104,24 +103,23 @@ def parsexmlfile(path_info):
     text = text.replace('<PH_I>','ì')
     text = text.replace('<PH_O>','ò')
     text = text.replace('<PH_U>','ù')
-    text = clean_me.maybe_normalize(
-        text, mapping_normalization_after_decode, roman_normalization=False)
-
+    text = clean_me.maybe_normalize(text, mapping_normalization_after_decode, False)
+      
     lines = clean_me.prepare_splitlines(text).splitlines()
     for line in lines:
       line = clean_me.clean_single_line(line).strip()
-
+      
       if len(line) <= 2:
           continue
-
+       
       if validate_line.contain(line, ['®', '{', '}', '©', '±', '_', '@', '+', ':']):
           continue
-
+        
       text += line + "\n"
-
+    
     result.write(text)
     result.close()
-
+    
     return len(lines)
 
 def get_year(path): return int(str(path.parent.parent._parts[len(path.parent.parent._parts)-1]))
@@ -137,3 +135,4 @@ def main():
     print(' Total lines ' + str(total_lines))
 
 main()
+
