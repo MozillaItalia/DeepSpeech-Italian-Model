@@ -10,11 +10,9 @@ class Sanitization:
     def __init__(self):
         self.default_mapping = blacklist.unicode_symbols + blacklist.other
 
-    def maybe_normalize(self, value, mapping='', roman_normalization=False, mapping_prepend=True):
+    def maybe_normalize(self, value, mapping=[], roman_normalization=False, mapping_prepend=True):
 
-        mapping = self.default_mapping
-        if isinstance(mapping, list):
-            mapping = mapping + self.default_mapping if mapping_prepend else self.default_mapping+mapping
+        mapping = mapping + self.default_mapping if mapping_prepend else self.default_mapping+mapping
 
         for norm in mapping:
             if type(norm[0]) == str:
