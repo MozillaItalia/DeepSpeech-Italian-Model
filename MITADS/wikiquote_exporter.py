@@ -49,14 +49,15 @@ for elem in items:
                                 <.*?>|
                                 ={1,6}""", re.VERBOSE).sub("", raw_text)
                     raw_text = clean_me.maybe_normalize(raw_text, [
-                              [ u'*' , u"\n" ],
-                              [ u'<br />' , u"\n" ],
-                              [ u'<br>' , u"\n" ],
-                              [ u"\(\d\d\d\d\)", ""],
-                              [ u"[\(\[].*?[\)\]]", ""],
-                              [ 'AvvertenzaContattiDonazioni', '']
-                            ], False)
-                    raw_text = clean_me.prepare_splitlines(raw_text).splitlines()
+                              [u'*', u"\n"],
+                              [u'<br />', u"\n"],
+                              [u'<br>', u"\n"],
+                              [u"\(\d\d\d\d\)", ""],
+                              [u"[\(\[].*?[\)\]]", ""],
+                              ['AvvertenzaContattiDonazioni', '']
+                            ], roman_normalization=False)
+                    raw_text = clean_me.prepare_splitlines(
+                        raw_text).splitlines()
 
                     for line in raw_text:
                         line = clean_me.clean_single_line(line).strip()
@@ -86,6 +87,7 @@ for elem in items:
                                 # delete some repeated symbols
                                 # line = re.sub(r"[.,:;!?]{2,}", "", line)
                                 line = re.sub(r"[.,:;]{2,}", "", line)
+                                line = re.sub(r"AA\. |VV |VV\.|AA\.VV", "", line)
                                 text += line + "\n"
 
                     result.write(text)
