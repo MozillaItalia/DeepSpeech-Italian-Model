@@ -54,7 +54,9 @@ for link in soup.find_all('a'):
         else:
             text = clean_me.maybe_normalize(
                 p, mapping=mapping_normalization, roman_normalization=False)
+
             if len(text) > 5:  # TODO: parametrize?
+
                 out.write(text+"\n")
             f.close()
         cnt+=1

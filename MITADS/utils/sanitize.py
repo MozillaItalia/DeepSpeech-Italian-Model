@@ -23,7 +23,6 @@ class Sanitization:
                 print('UNEXPECTED', type(norm[0]), norm[0])
         if roman_normalization:
             value = do_roman_normalization(value)
-
         return value
 
 
