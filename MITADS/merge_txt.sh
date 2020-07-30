@@ -7,7 +7,7 @@ do
   echo "========="
   echo $f
   echo "========="
-  python $f
+  $f
 done
 nrTxtFiles=$(ls output/*.txt | wc -l)
 for f in ./output/*.txt
