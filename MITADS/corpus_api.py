@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 import re, os
 from utils import download, sanitize
 from bs4 import BeautifulSoup
