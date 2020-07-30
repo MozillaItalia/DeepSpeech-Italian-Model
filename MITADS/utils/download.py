@@ -80,7 +80,7 @@ class Download:
         return extract_to
 
     def download_page(self, link, decode='UTF-8'):
-        ua = UserAgent()
+        ua = UserAgent(use_cache_server=False,cache=False,verify_ssl=False)
 
         response = Request(link, headers={'User-Agent': ua.random})
         response = urlopen(response).read()
