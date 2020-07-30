@@ -4,6 +4,8 @@ Lo scopo è quello di generare un corpus testuale con fonti libere, che il testo
 
 # Installazione
 
+* Python 3.7+
+
 ```
 sudo apt install libdb-dev
 pip3 install -r requirements.txt
