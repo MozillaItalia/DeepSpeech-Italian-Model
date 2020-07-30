@@ -116,6 +116,8 @@ def manage_json_from_a(a, baseurl, headers, jsonfolder, outfilepath):
                     imported = True
             except Exception as e:
                 print(e)
+    else:
+        print('Already downloaded ' + name + ".json")
 
 
 '''
