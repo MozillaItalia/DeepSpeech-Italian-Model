@@ -2,7 +2,7 @@
 i=0
 parsing=''
 loop=0
-for f in ./corpus_api.py ./eulogos_chat_importer.py ./ananas_exporter.py ./tg_ita_exporter.py ./ted_importer.py ./gutenberg_exporter.py ./wikiquote_exporter.py
+for f in ./corpus_api.py ./eulogos_chat_importer.py ./ananas_exporter.py ./tg_ita_exporter.py ./ted_importer.py ./gutenberg_exporter.py ./wikiquote_exporter.py ./wikisource_exporter.py ./opensubtitles_exporter.py
 do
   echo "========="
   echo $f
