@@ -4,12 +4,13 @@ Lo scopo è quello di generare un corpus testuale con fonti libere, che il testo
 
 # Installazione
 
+`sudo apt install libdb-dev`
 `pip3 install -r requirements.txt`
 
 ## Gutenberg extractor
 
 Per utilizzare l'estrattore vanno inseriti in un file chiamato "books_list.txt" gli indirizzi alle pagine dei libri in formato html (con o senza immagini) mettendone uno per riga.  
-Questo file è già fornito con lo script
+Questo file è già fornito con lo script.
 
 ## OpenSubTitle exporter
 
