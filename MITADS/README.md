@@ -4,8 +4,10 @@ Lo scopo è quello di generare un corpus testuale con fonti libere, che il testo
 
 # Installazione
 
-`sudo apt install libdb-dev`
-`pip3 install -r requirements.txt`
+```
+sudo apt install libdb-dev
+pip3 install -r requirements.txt
+```
 
 ## Gutenberg extractor
 
