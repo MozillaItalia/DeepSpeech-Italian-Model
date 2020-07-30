@@ -44,8 +44,6 @@ def main():
     pagenumber = 1
     file_counter = 0
 
-    print("TedImporter")
-
     the_end = False
     while(not the_end):
         # request the page related to talks
@@ -92,31 +90,32 @@ def manage_json_from_a(a, baseurl, headers, jsonfolder, outfilepath):
 
     # take the name and the url from the a link
     name = a['href'].split("/")[2].split("?")[0]
-    url = a['href'].split("?")[0]
+    json_path_file = jsonfolder + os.path.sep + name + ".json"
+    if not os.path.isfile(json_path_file):
+        print('Download ' + name + ".json")
+        url = a['href'].split("?")[0]
 
-    # retrieve json
-    url = baseurl + url + "/transcript.json?language=it"
+        # retrieve json
+        url = baseurl + url + "/transcript.json?language=it"
 
-    while(not imported):    # because we may encounter in an error
-        try:
-            r = requests.get(url, headers=headers, timeout=5)
+        while(not imported):    # because we may encounter in an error
+            try:
+                r = requests.get(url, headers=headers, timeout=5)
 
-            if(r.status_code == 200):
-                json_path_file = jsonfolder + os.path.sep + name + ".json"
+                if(r.status_code == 200):
 
-                # check file
-                if not os.path.isfile(json_path_file):
+                    # check file
                     json_file = open(json_path_file, 'wb')
                     json_file.write(r.content)
                     json_file.close()
 
-                # parse json file
-                write_sentences(clean_sentences(get_raw_sentences(
-                    name + ".json", jsonfolder)), outfilepath)
+                    # parse json file
+                    write_sentences(clean_sentences(get_raw_sentences(
+                        name + ".json", jsonfolder)), outfilepath)
 
-                imported = True
-        except Exception as e:
-            print(e)
+                    imported = True
+            except Exception as e:
+                print(e)
 
 
 '''
