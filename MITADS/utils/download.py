@@ -47,7 +47,7 @@ class Download:
         if file == '':
             file = self.file
 
-        if os.path.isfile(extract_to):
+        if not os.path.isfile(extract_to):
             print('Decompressing to ' + extract_to)
             tar = tarfile.open(file, "r:bz2")
             tar.extractall(extract_to)
