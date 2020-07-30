@@ -118,6 +118,8 @@ def manage_json_from_a(a, baseurl, headers, jsonfolder, outfilepath):
                 print(e)
     else:
         print('Already downloaded ' + name + ".json")
+        write_sentences(clean_sentences(get_raw_sentences(
+                        name + ".json", jsonfolder)), outfilepath)
 
 
 '''
