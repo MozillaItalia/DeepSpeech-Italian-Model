@@ -128,8 +128,10 @@ def get_year(path): return int(str(path.parent.parent._parts[len(path.parent.par
 
 def main():
     print(' Parsing in progress')
-    pathlist = (folder_dataset / Path('OpenSubtitles/xml/it/')).glob('**/*.xml')
+
+    pathlist = (folder_dataset / Path('opensubtitles/OpenSubtitles/xml/it/')).glob('**/*.xml')
     paths = filter(lambda x: get_year(x) > start_year, pathlist)
+    print('Total files: ' + len(paths))
     with ProcessPoolExecutor() as pool:
         lines = pool.map(parsexmlfile, enumerate(paths))
         total_lines = sum(lines)
