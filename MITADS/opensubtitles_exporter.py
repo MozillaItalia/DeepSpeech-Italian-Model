@@ -73,54 +73,58 @@ def parsexmlfile(path_info):
     xml_path = str(xml_path)
 
     result = open( output_file + str(count_file) + '.txt', 'w' )
-    mydoc = minidom.parse(xml_path)
-    items = mydoc.getElementsByTagName('s')
+    try:
+        mydoc = minidom.parse(xml_path)
+        items = mydoc.getElementsByTagName('s')
 
-    # build the sentence/text
-    text = ''
-    for elem in items:
-        words = elem.getElementsByTagName("w")
-        for word in words:
-            if word.firstChild.data != '':
-                text += word.firstChild.data + ' '
+        # build the sentence/text
+        text = ''
+        for elem in items:
+            words = elem.getElementsByTagName("w")
+            for word in words:
+                if word.firstChild.data != '':
+                    text += word.firstChild.data + ' '
 
-        text += "\n"
+            text += "\n"
 
-    text = clean_me.maybe_normalize(
-        text.strip(), mapping_normalization, roman_normalization=False)
+        text = clean_me.maybe_normalize(
+            text.strip(), mapping_normalization, roman_normalization=False)
 
-    # Opensubtiles Dataset contains no-ASCII char
-    #  we use unidecode to delegate all unicode char processing
-    #  to keep all vowels properly accented, and at the same time eliminate the other unicode characters,
-    #  you need to use a substitution with place holders
-    text = text.replace('à', '<PH_A>')
-    text = text.replace('è', '<PH_E>')
-    text = text.replace('ì', '<PH_I>')
-    text = text.replace('ò', '<PH_O>')
-    text = text.replace('ù', '<PH_U>')
-    text = unidecode(text)
-    text = text.replace('<PH_A>','à')
-    text = text.replace('<PH_E>','è')
-    text = text.replace('<PH_I>','ì')
-    text = text.replace('<PH_O>','ò')
-    text = text.replace('<PH_U>','ù')
-    text = clean_me.maybe_normalize(
-        text, mapping_normalization_after_decode, roman_normalization=False)
+        # Opensubtiles Dataset contains no-ASCII char
+        #  we use unidecode to delegate all unicode char processing
+        #  to keep all vowels properly accented, and at the same time eliminate the other unicode characters,
+        #  you need to use a substitution with place holders
+        text = text.replace('à', '<PH_A>')
+        text = text.replace('è', '<PH_E>')
+        text = text.replace('ì', '<PH_I>')
+        text = text.replace('ò', '<PH_O>')
+        text = text.replace('ù', '<PH_U>')
+        text = unidecode(text)
+        text = text.replace('<PH_A>','à')
+        text = text.replace('<PH_E>','è')
+        text = text.replace('<PH_I>','ì')
+        text = text.replace('<PH_O>','ò')
+        text = text.replace('<PH_U>','ù')
+        text = clean_me.maybe_normalize(
+            text, mapping_normalization_after_decode, roman_normalization=False)
 
-    lines = clean_me.prepare_splitlines(text).splitlines()
-    for line in lines:
-      line = clean_me.clean_single_line(line).strip()
+        lines = clean_me.prepare_splitlines(text).splitlines()
+        for line in lines:
+          line = clean_me.clean_single_line(line).strip()
 
-      if len(line) <= 2:
-          continue
+          if len(line) <= 2:
+              continue
 
-      if validate_line.contain(line, ['®', '{', '}', '©', '±', '_', '@', '+', ':']):
-          continue
+          if validate_line.contain(line, ['®', '{', '}', '©', '±', '_', '@', '+', ':']):
+              continue
 
-      text += line + "\n"
+          text += line + "\n"
 
-    result.write(text)
-    result.close()
+        result.write(text)
+        result.close()
+    except:
+        lines = []
+        print('File with issues: ' + xml_path)
 
     return len(lines)
 
