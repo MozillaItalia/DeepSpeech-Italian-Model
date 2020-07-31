@@ -8,30 +8,30 @@ pushd /mnt/extracted
 		export LANG=it_IT.UTF-8
 	fi;
 
-	if [ ! -f "wiki_it.txt" ]; then
-		curl -sSL https://github.com/MozillaItalia/DeepSpeech-Italian-Model/releases/download/lm-0.1/wiki.txt.xz | pixz -d > wiki_it.txt
+	if [ ! -f "mitads.txt" ]; then
+		curl -sSL https://github.com/MozillaItalia/DeepSpeech-Italian-Model/releases/download/Mitads-1.0.0-alpha/mitads-1.0.0-alpha.tar.xz | tar xf
 	fi;
 
 	if [ "${ENGLISH_COMPATIBLE}" = "1" ]; then
-		mv wiki_it.txt wiki_it_accents.txt
+		mv mitads.txt mitads_accents.txt
 		# Locally force LANG= to make iconv happy and avoid errors like:
 		# iconv: illegal input sequence at position 4468
 		# Also required locales and locales-all to be installed
-		head -n 5 wiki_it_accents.txt
-		iconv -f UTF-8 -t ASCII//TRANSLIT//IGNORE < wiki_it_accents.txt > wiki_it.txt
-		head -n 5 wiki_it.txt
-		> wiki_it_accents.txt
+		head -n 5 mitads_accents.txt
+		iconv -f UTF-8 -t ASCII//TRANSLIT//IGNORE < mitads_accents.txt > mitads.txt
+		head -n 5 mitads.txt
+		> mitads_accents.txt
 	fi;
 
 	if [ ! -f "/mnt/lm/scorer" ]; then
 		pushd $DS_DIR/data/lm
 			top_k=500000
 			if [ "${FAST_TRAIN}" = 1 ]; then
-				head -10000 /mnt/extracted/wiki_it.txt > /mnt/extracted/sources_lm.txt
+				head -10000 /mnt/extracted/mitads.txt > /mnt/extracted/sources_lm.txt
 				top_k=500
 			else
-				mv /mnt/extracted/wiki_it.txt /mnt/extracted/sources_lm.txt
-				touch /mnt/extracted/wiki_it.txt
+				mv /mnt/extracted/mitads.txt /mnt/extracted/sources_lm.txt
+				touch /mnt/extracted/mitads.txt
 			fi
 
 			python generate_lm.py --input_txt "/mnt/extracted/sources_lm.txt" --output_dir "/mnt/lm" \
