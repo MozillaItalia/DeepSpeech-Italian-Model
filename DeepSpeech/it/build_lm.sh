@@ -9,7 +9,7 @@ pushd /mnt/extracted
 	fi;
 
 	if [ ! -f "mitads.txt" ]; then
-		curl -sSL https://github.com/MozillaItalia/DeepSpeech-Italian-Model/releases/download/Mitads-1.0.0-alpha/mitads-1.0.0-alpha.tar.xz | tar xf
+		curl -sSL https://github.com/MozillaItalia/DeepSpeech-Italian-Model/releases/download/Mitads-1.0.0-alpha/mitads-1.0.0-alpha.tar.xz | tar -xJf
 	fi;
 
 	if [ "${ENGLISH_COMPATIBLE}" = "1" ]; then
