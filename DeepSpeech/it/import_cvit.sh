@@ -20,7 +20,15 @@ pushd $HOME/ds/
 	if [ ! -f "/mnt/extracted/data/cv-it/clips/train.csv" ]; then
 		mkdir -p /mnt/extracted/data/cv-it/ || true
 
-		tar -C /mnt/extracted/data/cv-it/ -xf /mnt/sources/it.tar.gz
+		tar -C /mnt/extracted/data/cv-it/ --strip-components=2 -xf /mnt/sources/it.tar.gz
+		
+		if [ ${DUPLICATE_SENTENCE_COUNT} -gt 1 ]; then
+
+			create-corpora -d /mnt/extracted/corpora -f /mnt/extracted/data/cv-it/validated.tsv -l it -s ${DUPLICATE_SENTENCE_COUNT}
+
+			mv /mnt/extracted/corpora/it/*.tsv /mnt/extracted/data/cv-it/
+
+		fi;
 
 		python bin/import_cv2.py ${IMPORT_AS_ENGLISH} --filter_alphabet=/mnt/models/alphabet.txt /mnt/extracted/data/cv-it/
 	fi;
