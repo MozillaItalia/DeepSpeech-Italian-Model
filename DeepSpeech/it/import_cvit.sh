@@ -8,9 +8,9 @@ pushd $HOME/ds/
 			exit 1
 	fi;
 
-	sha1=$(sha1sum --binary /mnt/sources/it.tar.gz | awk '{ print $1 }')
+	sha256=$(sha256sum --binary /mnt/sources/it.tar.gz | awk '{ print $1 }')
 
-	if [ "${sha1}" != "5949823c7531695fefc3bcab5a56f43552eb7d89" ]; then
+	if [ "sha256" != "a304332d1dfdb772ae75859441f46a88438305d2f5420680c3c64fba62ea6830" ]; then
 		echo "Invalid Common Voice IT dataset"
 		exit 1
 	fi;
