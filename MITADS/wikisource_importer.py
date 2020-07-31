@@ -2,8 +2,12 @@
 from utils import sanitize, line_rules, download
 from urllib import parse
 import time
+import os
 
 OUTFILE = "output/wikisource.txt"
+PARSING = './parsing/wikisource/'
+if not os.path.isdir(PARSING):
+    os.mkdir(PARSING)
 DISCARD_FILE = 'output/discarded/wikisource.json'
 DOWNLOAD_LINK = 'https://wsexport.wmflabs.org/tool/book.php?lang=it&format=txt&page='
 
@@ -33,8 +37,17 @@ def process_line(line, out_file):
 
 
 def process_book(book, out_file):
+    book_file = PARSING + book.replace('/','-') + '.txt'
     book = parse.quote(book)  # need to html encode book title to avoid non ascii chars
-    raw_text = download_me.download_page(DOWNLOAD_LINK + book)
+    if not os.path.isfile(book_file):
+        print("   Downloading in progress")
+        time.sleep(5) # to avoid being banned from wikipedia servers for excess in requests
+        raw_text = download_me.download_page(DOWNLOAD_LINK + book)
+        result = open(book_file, "w", encoding='utf-8')
+        result.write(raw_text)
+    else:
+        print("   Already downloaded in " + book_file)
+        raw_text = open(book_file, 'r').read()
     raw_text = clean_me.maybe_normalize(raw_text)
     raw_text = clean_me.prepare_splitlines(raw_text).splitlines()
     tot_lines = 0
@@ -52,9 +65,12 @@ def main():
 
     tot_lines = 0
     for count, book in enumerate(books):
-        time.sleep(5) # to avoid being banned from wikipedia servers for excess in requests
-        print("  Processing book : {}\n   {} of {}".format(book, count, len(books)))
-        tot_lines += process_book(book, result)
+        print("  Processing book: {}\n   {} of {}".format(book, count, len(books)))
+        try:
+            tot_lines += process_book(book, result)
+        except:
+            # if fails try again
+            tot_lines += process_book(book, result)
 
     result.close()
 
