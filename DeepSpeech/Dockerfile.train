@@ -27,13 +27,23 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
         git-lfs \
         libbz2-dev \
         libeigen3-dev \
+        zlib1g-dev \
+        libbz2-dev \
+        liblzma-dev \
+        python3-pip \
         libboost-all-dev \
-	libopus0 libsndfile1 \
+        libopus0 libsndfile1 \
         locales \
+        g++ \
+        virutalenv \
         python3-venv \
-				pixz \
-				sudo \
+        pixz \
+        sudo \
+        sox \
+        libsox-fmt-all \
+        locales locales-all \
         unzip \
+        xz-utils \
         wget
 
 # We need to remove it because it's breaking deepspeech install later with
