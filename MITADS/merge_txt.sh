@@ -25,13 +25,16 @@ do
         -e '/../!d' \
         -e 's/[[:space:]]\{2,\}/ /g' \
         -e 's/[.,!?:;]//g' \
+        -e '/^zz/d' \
         $parsing | \
         grep -E "^[ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz][ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyzàÀèÈéÉìÌòÒùÙ' ]+$" | \
-        sort | uniq > ./output/ost_$loop.txt
+        sort | uniq > ./output/mitads_$loop.txt
         i=0
         parsing=''
     fi
   fi
 done
 
-cat ./output/ost_*.txt |sort | uniq > ./output/ost.txt
+cat ./output/mitads_*.txt |sort | uniq > ./output/mitads.txt
+echo "Count lines"
+wc -l ./output/mitads.txt
