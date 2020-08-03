@@ -1,0 +1,48 @@
+FROM deepspeech/base:0.8.0
+
+RUN apt-get update && apt-get install -y --no-install-recommends \
+	sox \
+	sudo \
+	rm -rf /var/lib/apt/lists/*
+ENV DS_DIR /DeepSpeech
+ENV DS_RELEASE "0.8.0"
+ARG model_language=it
+ENV MODEL_LANGUAGE=$model_language
+ENV HOMEDIR /root
+WORKDIR $HOMEDIR
+
+# Training stuff
+
+# Use our tiny dataset for training
+# ARG fast_train 1
+
+ARG batch_size=64
+ARG n_hidden=2048
+ARG epochs=30
+ARG learning_rate=0.0001
+ARG dropout=0.4
+ARG early_stop=1
+ARG amp=1
+
+ENV BATCH_SIZE=$batch_size
+ENV N_HIDDEN=$n_hidden
+ENV EPOCHS=$epochs
+ENV LEARNING_RATE=$learning_rate
+ENV DROPOUT=$dropout
+ENV EARLY_STOP=$early_stop
+ENV AMP=$amp
+
+ARG lm_evaluate_range=
+ARG english_compatible=0
+
+ENV LM_EVALUATE_RANGE=$lm_evaluate_range
+ENV ENGLISH_COMPATIBLE=$english_compatible
+
+# Copy now so that docker build can leverage caches
+COPY italian_alphabet.txt checks.sh generate_alphabet.sh package.sh run.sh counter.py $HOMEDIR/
+
+COPY ${MODEL_LANGUAGE}/*.sh $HOMEDIR/${MODEL_LANGUAGE}/
+
+COPY ${MODEL_LANGUAGE}/lingua_libre_skiplist.txt $HOMEDIR/${MODEL_LANGUAGE}/
+
+ENTRYPOINT "$HOMEDIR/run.sh"

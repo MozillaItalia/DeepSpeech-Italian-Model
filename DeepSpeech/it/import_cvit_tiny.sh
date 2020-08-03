@@ -2,7 +2,7 @@
 
 set -xe
 
-pushd $HOME/ds/
+pushd $DS_DIR
 
   if [ ! -f "/mnt/extracted/data/cv-it_tiny/train.csv" ]; then
 		mkdir -p /mnt/extracted/data/cv-it_tiny/ || true

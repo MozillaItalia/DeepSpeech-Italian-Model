@@ -38,13 +38,16 @@ pushd /mnt/extracted
 				--top_k $top_k --kenlm_bins "$DS_DIR/native_client/kenlm/build/bin/" \
 				--arpa_order 5 --max_arpa_memory "85%" --arpa_prune "0|0|1" \
 				--binary_a_bits 255 --binary_q_bits 8 --binary_type trie
-
-			python generate_package.py --alphabet /mnt/models/alphabet.txt \
-			  --lm "/mnt/lm/lm.binary" \
-			  --vocab "/mnt/lm/vocab-"$top_k".txt" \
-			  --package "/mnt/lm/scorer" \
-			  --default_alpha 0.931289039105002 \
-			  --default_beta 1.1834137581510284
+			if [ ! -f "generate_scorer_package" ]; then
+				curl -LO https://github.com/mozilla/DeepSpeech/releases/download/v$DS_RELEASE/native_client.amd64.cuda.linux.tar.xz
+				tar xvf native_client.*.tar.xz
+				./generate_scorer_package --alphabet /mnt/models/alphabet.txt \
+				  --lm "/mnt/lm/lm.binary" \
+				  --vocab "/mnt/lm/vocab-"$top_k".txt" \
+				  --package "/mnt/lm/scorer" \
+				  --default_alpha 0.931289039105002 \
+				  --default_beta 1.1834137581510284
+			fi;
 	fi;
 
 	if [ "${ENGLISH_COMPATIBLE}" = "1" ]; then
