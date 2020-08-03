@@ -1,9 +1,9 @@
 FROM deepspeech/base:0.8.0
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
-	sox \
-	sudo \
-	rm -rf /var/lib/apt/lists/*
+		sox \
+		sudo \
+		&& rm -rf /var/lib/apt/lists/*
 ENV DS_DIR /DeepSpeech
 ENV DS_RELEASE "0.8.0"
 ARG model_language=it

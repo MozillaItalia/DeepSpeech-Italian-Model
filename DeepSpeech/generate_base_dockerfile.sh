@@ -7,4 +7,4 @@ wget https://github.com/mozilla/DeepSpeech/raw/$DS_SHA/Dockerfile.train.tmpl
 make Dockerfile.train DEEPSPEECH_SHA=$DS_SHA
 
 # do not execute the RUN directive
-sed -i -e 's/^RUN.*$//g' Dockerfile.train
+sed -i '$ d' Dockerfile.train

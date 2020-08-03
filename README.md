@@ -43,7 +43,7 @@ $ chmod +x generate_base_dockerfile.sh
 $ docker build . -f Dockerfile.train -t deepspeech/base:0.8.0
 ```
 
-Successivamente avviate:
+Successivamente eseguire:
 ```
 $ docker build . -f Dockerfile_it.train -t deepspeech/it
 ```
