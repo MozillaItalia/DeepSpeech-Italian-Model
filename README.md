@@ -40,6 +40,7 @@ $ cd $HOME
 $ git clone MozillaItalia/DeepSpeech-Italian-Model.git
 $ cd DeepSpeech-Italian-Model/DeepSpeech
 $ chmod +x generate_base_dockerfile.sh
+$ ./generate_base_dockerfile.sh
 $ docker build . -f Dockerfile.train -t deepspeech/base:0.8.0
 ```
 

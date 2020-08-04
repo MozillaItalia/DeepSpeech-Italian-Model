@@ -1,7 +1,7 @@
 FROM deepspeech/base:0.8.0
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
-		sox \
+		sox libsox-fmt-all \
 		sudo \
 		&& rm -rf /var/lib/apt/lists/*
 ENV DS_DIR /DeepSpeech
