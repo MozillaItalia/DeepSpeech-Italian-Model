@@ -34,11 +34,19 @@ Prima di iniziare, la nuova immagine base Docker di Deepspeech necessita di [nvi
 Nel README della repository di NVIDIA trovate le istruzioni a seconda del vostro sistema.
 
 
+Create inizialmente l'immagine base di Deepspeech, attualmente alla versione 0.8.0:
 ```
 $ cd $HOME
 $ git clone MozillaItalia/DeepSpeech-Italian-Model.git
 $ cd DeepSpeech-Italian-Model/DeepSpeech
-$ docker build -f Dockerfile.train -t deepspeech .
+$ chmod +x generate_base_dockerfile.sh
+$ ./generate_base_dockerfile.sh
+$ docker build . -f Dockerfile.train -t deepspeech/base:0.8.0
+```
+
+Successivamente eseguire:
+```
+$ docker build . -f Dockerfile_it.train -t deepspeech/it
 ```
 Scaricare il dataset CommonVoice italiano in ```$HOME/data```
 ```

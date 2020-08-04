@@ -2,7 +2,7 @@
 
 set -xe
 
-pushd $HOME/ds/
+pushd $DS_DIR
 	if [ ! -f "/mnt/sources/it.tar.gz" ]; then
 			echo "please download Common Voice IT dataset"
 			exit 1
@@ -17,11 +17,11 @@ pushd $HOME/ds/
         if [ "${ENGLISH_COMPATIBLE}" = "1" ]; then
             IMPORT_AS_ENGLISH="--normalize"
         fi;
-        
+
 		mkdir -p /mnt/extracted/data/cv-it/ || true
 
 		tar -C /mnt/extracted/data/cv-it/ --strip-components=2 -xf /mnt/sources/it.tar.gz
-		
+
 		if [ ${DUPLICATE_SENTENCE_COUNT} -gt 1 ]; then
 
 			create-corpora -d /mnt/extracted/corpora -f /mnt/extracted/data/cv-it/validated.tsv -l it -s ${DUPLICATE_SENTENCE_COUNT}
