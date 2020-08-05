@@ -30,23 +30,36 @@ normalize_rules = [['*', u"\n"],
                    ['<br>', u"\n"],
                    ["\(\d\d\d\d\)", ""],
                    ["[\(\[].*?[\)\]]", ""],
-                   ['AvvertenzaContattiDonazioni', '']
+                   ['AvvertenzaContattiDonazioni', ''],
+                   [re.compile("^[eE]'"),"è"]
                    ]
+words_blacklist = ['|', '{{', ':', '[', 'ISBN', '#', 'REDIRECT', 'isbn', 'RINVIA', 'thumb', 'right', 'Citato', ', citato', '; citato']
 
-
+# titles_blacklist = [
+#         "Modulo:Arguments/man",
+#         "Modulo:Arguments",
+#         "Modulo:Wikidata/Sandbox/man",
+#         "Modulo:Wikidata",
+#         "Modulo:Wikidata/man",
+#         "Wikiquote:Elenchi generati offline/Immagini in Wikiquote e Wikipedia/Elenco 2",
+#         "Wikiquote:Elenchi generati offline/Immagini in Wikiquote e Wikipedia/Elenco 1"
+# ]
 def process_page(page, out_file):
     title = page.getElementsByTagName("title")[0].firstChild.data
     tot_lines = 0
-    if 'wiki' not in title and title != 'Pagina principale' and 'MediaWiki' not in title:
-        textdom = page.getElementsByTagName("revision")[0].getElementsByTagName("text")[0]
-        if textdom.firstChild is not None:
-            raw_text = unescape(textdom.firstChild.data)
-            raw_text = sub_regex.sub("", raw_text)
-            raw_text = clean_me.maybe_normalize(raw_text, normalize_rules, False)
-            lines = clean_me.prepare_splitlines(raw_text).splitlines()
-            for line in lines:
-                if process_line(line, out_file):
-                    tot_lines += 1
+    # pages with titles containing ":" are not so clean
+    if ":" not in title and 'wiki' not in title and title != 'Pagina principale' and 'MediaWiki' not in title:
+        format_elem = page.getElementsByTagName("revision")[0].getElementsByTagName("format")[0]
+        if format_elem.firstChild.data == 'text/x-wiki':
+            textdom = page.getElementsByTagName("revision")[0].getElementsByTagName("text")[0]
+            if textdom.firstChild is not None:
+                raw_text = unescape(textdom.firstChild.data)
+                raw_text = sub_regex.sub("", raw_text)
+                raw_text = clean_me.maybe_normalize(raw_text, normalize_rules, False)
+                lines = clean_me.prepare_splitlines(raw_text).splitlines()
+                for line in lines:
+                    if process_line(line, out_file):
+                        tot_lines += 1
     return tot_lines
 
 
@@ -56,10 +69,15 @@ def process_line(line, out_file):
     # # to debug strange sentences
     # if "L'uomo o impazzisce o scrive" in line:
     #     print(line)
+
+    # Some lines starts with E' verb
+    line = re.sub("^[eE]'", "è", line)
+    # Lot of lines with these
+    line = re.sub(r"AA\. |VV |VV\.|AA\.VV", "", line)
     if (validate_line.is_not_valid(line) or
-            len(line) <= 15 or
-            validate_line.startswith(line, ['(', 'vivente)']) or
-            validate_line.contain(line, ['|', '{{', ':', '[', 'ISBN', '#', 'REDIRECT', 'isbn', 'RINVIA', 'Citato', ', citato', '; citato']) or
+            len(line) <= 15
+            or validate_line.startswith(line, ['(', 'vivente)']) or
+            validate_line.contain(line, words_blacklist) or
             # validate_line.isdigit([line, line[1:], line[:1]]) or commented out because with the current regex digits and brackets are always discarded
             validate_line.isbookref(line) ):
             # validate_line.isbrokensimplebracket(line)

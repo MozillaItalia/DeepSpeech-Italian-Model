@@ -2,7 +2,7 @@
 i=0
 parsing=''
 loop=0
-for f in ./wikisource_importer.py ./opensubtitles_exporter.py ./corpus_api.py ./eulogos_chat_importer.py ./ananas_exporter.py ./tg_ita_exporter.py ./ted_importer.py ./gutenberg_exporter.py ./wikiquote_exporter.py 
+for f in ./wikisource_importer.py ./opensubtitles_exporter.py ./corpus_api.py ./eulogos_chat_importer.py ./ananas_exporter.py ./tg_ita_exporter.py ./ted_importer.py ./gutenberg_exporter.py ./wikiquote_exporter.py
 do
   echo "========="
   echo $f
@@ -20,14 +20,14 @@ do
         loop=$((loop+1))
         echo "Processing $loop batch of $i files..."
         sed -e 's/^[[:space:]]*//' \
-        -e 's/[[:space:]]*$//' \
         -e '/^$/d' \
         -e '/../!d' \
+        -e 's/[.,!?:;]/ /g' \
+        -e 's/[[:space:]]*$//' \
         -e 's/[[:space:]]\{2,\}/ /g' \
-        -e 's/[.,!?:;]//g' \
         -e '/^zz/d' \
         $parsing | \
-        grep -E "^[ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz][ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyzàÀèÈéÉìÌòÒùÙ' ]+$" | \
+        grep -E "^[ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyzèÈ][ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyzàÀèÈéÉìÌòÒùÙ' ]+$" | \
         sort | uniq > ./output/mitads_$loop.txt
         i=0
         parsing=''
