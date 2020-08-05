@@ -3,6 +3,7 @@ from utils import sanitize, line_rules, download
 from urllib import parse
 import time
 import os
+import re
 
 OUTFILE = "output/wikisource.txt"
 PARSING = './parsing/wikisource/'
@@ -18,6 +19,7 @@ download_me = download.Download()
 
 def process_line(line, out_file):
     """if line is invalid returns early, if is correct writes the line to the file"""
+    line = re.sub("[eE]'", "è", line)
     line = clean_me.clean_single_line(line)
     if (validate_line.is_not_valid(line) or
         len(line) <= 12 or

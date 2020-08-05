@@ -29,6 +29,7 @@ for book_id in ids:
 
     # Cleaning
     for line in raw_text:
+        line = re.sub("^[eE]'", "è", line)
         line = clean_me.clean_single_line(line).strip()
         if len(line) <= 15:
             continue
