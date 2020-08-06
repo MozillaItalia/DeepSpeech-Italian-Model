@@ -1,6 +1,9 @@
 #!/usr/bin/env python3
 
 import re
+import shutil
+import glob
+import os
 from pathlib import Path
 from unidecode import unidecode
 from utils import sanitize, line_rules, download
@@ -139,6 +142,13 @@ def main():
         lines = pool.map(parsexmlfile, enumerate(paths))
         total_lines = sum(lines)
 
-    print(' Total lines ' + str(total_lines))
+    print(' Total lines ' + str(total_lines))    
+    print(' Merging to a single file and removing the temporary files')    
+    
+    with open('./output/opensubtitles.txt','wb') as wfd:
+        for f in glob.glob(output_file + '*.txt'):
+            with open(f,'rb') as fd:
+                shutil.copyfileobj(fd, wfd)
+            os.remove(f)
 
 main()
