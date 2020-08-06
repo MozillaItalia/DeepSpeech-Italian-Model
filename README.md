@@ -58,7 +58,7 @@ $ chmod a+r data/sources/it.tar.gz
 $ docker run --rm --gpus all --mount type=bind,src=$HOME/data,dst=/mnt deepspeech
 ```
 
-Per configurare i parametri del Dockerfile, creare un file con la lista dei parametri e passarlo al run di Docker.
+Per configurare i parametri del Dockerfile, creare un file con la lista dei parametri e passarlo al run di Docker. Alcuni .env files di esempio sono presenti nella cartella ```DeepSpeech/env_files```.
 
 Ad esempio caricando il file ```fast_dev.env``` ogni passaggio dell'addestramento di DeepSpeech verrà eseguito velocemente per testare ogni step.
 
@@ -68,6 +68,11 @@ BATCH_SIZE=2
 EPOCHS=2
 FAST_TRAIN=1
 $ docker run --env-file env_files/fast_dev.env --rm --gpus all --mount type=bind,src=$HOME/data,dst=/mnt deepspeech
+```
+
+Inoltre è possibile settare i parametri anche con la combinazione del flag ```-e```:
+```
+$ docker run --env-file env_files/fast_dev.env -e "TRANSFER_LEARNING=1" -e "DROP_SOURCE_LAYERS=3" --rm --gpus all --mount type=bind,src=$HOME/data,dst=/mnt deepspeech
 ```
 
 ## Generare il modello con notebook COLAB
