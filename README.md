@@ -67,7 +67,7 @@ $ cat fast_dev.env
 BATCH_SIZE=2
 EPOCHS=2
 FAST_TRAIN=1
-$ docker run --env-file fast_dev.env --rm --gpus all --mount type=bind,src=$HOME/data,dst=/mnt deepspeech
+$ docker run --env-file env_files/fast_dev.env --rm --gpus all --mount type=bind,src=$HOME/data,dst=/mnt deepspeech
 ```
 
 ## Generare il modello con notebook COLAB

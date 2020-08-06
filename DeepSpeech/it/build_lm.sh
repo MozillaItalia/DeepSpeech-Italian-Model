@@ -45,8 +45,8 @@ pushd /mnt/extracted
 				  --lm "/mnt/lm/lm.binary" \
 				  --vocab "/mnt/lm/vocab-"$top_k".txt" \
 				  --package "/mnt/lm/scorer" \
-				  --default_alpha 0.931289039105002 \
-				  --default_beta 1.1834137581510284
+				  --default_alpha ${LM_ALPHA} \
+				  --default_beta ${LM_BETA}
 			fi;
 	fi;
 

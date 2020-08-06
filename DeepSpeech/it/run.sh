@@ -13,7 +13,10 @@ else
 fi
 
 ${MODEL_LANGUAGE}/build_lm.sh
+if [ "${ONLY_EXPORT}" = 0 ]; then
+  ${MODEL_LANGUAGE}/train.sh
+fi;
 
-${MODEL_LANGUAGE}/train.sh
+${MODEL_LANGUAGE}/export.sh
 
 ${MODEL_LANGUAGE}/evaluate_lm.sh

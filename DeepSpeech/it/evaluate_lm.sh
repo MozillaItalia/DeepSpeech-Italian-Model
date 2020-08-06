@@ -3,27 +3,30 @@
 set -xe
 
 pushd $DS_DIR
-	all_test_csv="$(find /mnt/extracted/data/ -type f -name '*test.csv' -printf '%p,' | sed -e 's/,$//g')"
+	# use DEV_FILES and not TEST!
+	all_dev_csv="$(find /mnt/extracted/data/ -type f -name '*dev.csv' -printf '%p,' | sed -e 's/,$//g')"
 
 	if [ -z "${LM_EVALUATE_RANGE}" ]; then
 		echo "No language model evaluation range, skipping"
 		exit 0
 	fi;
 
-	for lm_range in ${LM_EVALUATE_RANGE}; do
-		LM_ALPHA="$(echo ${lm_range} |cut -d',' -f1)"
-		LM_BETA="$(echo ${lm_range} |cut -d',' -f2)"
-
-		python -u evaluate.py \
+	if [ ! -z "${LM_EVALUATE_RANGE}" ]; then
+		LM_ALPHA_MAX="$(echo ${LM_EVALUATE_RANGE} |cut -d',' -f1)"
+		LM_BETA_MAX="$(echo ${LM_EVALUATE_RANGE} |cut -d',' -f2)"
+		LM_N_TRIALS="$(echo ${LM_EVALUATE_RANGE} |cut -d',' -f3)"
+		python lm_optimizer.py \
 			--show_progressbar True \
-			--use_cudnn_rnn True \
-			${AMP_FLAG} \
+			--train_cudnn True \
 			--alphabet_config_path /mnt/models/alphabet.txt \
-			--scorer /mnt/lm/scorer \
+			--scorer_path /mnt/lm/scorer \
 			--feature_cache /mnt/sources/feature_cache \
-			--test_files ${all_test_csv} \
+			--test_files ${all_dev_csv} \
 			--test_batch_size ${BATCH_SIZE} \
 			--n_hidden ${N_HIDDEN} \
+			--lm_alpha_max ${LM_ALPHA_MAX} \
+			--lm_beta_max ${LM_BETA_MAX} \
+			--n_trials ${LM_N_TRIALS} \
 			--checkpoint_dir /mnt/checkpoints/
-	done;
+	fi;
 popd

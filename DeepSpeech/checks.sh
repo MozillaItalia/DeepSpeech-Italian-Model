@@ -18,7 +18,7 @@ do
     fi;
 done;
 
-for subdir in sources extracted checkpoints models lm tmp;
+for subdir in sources extracted checkpoints models lm tmp tboard_logs;
 do
     if [ ! -d "/mnt/${subdir}" ]; then
         mkdir /mnt/${subdir}
