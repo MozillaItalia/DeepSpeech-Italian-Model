@@ -2,29 +2,50 @@
 
 Aggregatore degli strumenti per la generazione di un modello di machine learning per la lingua Italiana del progetto Common Voice. Ci trovi su Telegram con il nostro bot @mozitabot nel gruppo Developers dove dirigiamo e discutiamo lo sviluppo oppure sul [forum](https://discourse.mozilla.org/c/community-portal/mozilla-italia).
 
+---
+
+## Requisiti
+
+Python 3.6+
+
+---
+
 ## Quick Start
 
-To install and use Mozilla Voice STT all you have to do is:
+```bash
 
-.. code-block:: bash
+   # Attiva un virtualenv
+   virtualenv -p python3 $HOME/tmp/deepspeech-venv/
+   source $HOME/tmp/deepspeech-venv/bin/activate
 
-   # Create and activate a virtualenv
-   virtualenv -p python3 $HOME/tmp/stt-venv/
-   source $HOME/tmp/stt-venv/bin/activate
+   # Installa DeepSpeech
+   pip3 install deepspeech==0.8.0
 
-   # Install Mozilla Voice STT
-   pip3 install mozilla_voice_stt
+   # Scarica e scompatta i file per il modello italiano
+   curl -LO https://github.com/MozillaItalia/DeepSpeech-Italian-Model/releases/download/2020.08.07/model_tensorflow_it.tar.xz
+   tar xvf model_tensorflow_it.tar.xz
 
-   # Download pre-trained English model files
-   curl -LO https://github.com/mozilla/DeepSpeech/releases/download/v0.7.4/deepspeech-0.7.4-models.pbmm
-   curl -LO https://github.com/mozilla/DeepSpeech/releases/download/v0.7.4/deepspeech-0.7.4-models.scorer
+   # Trascrivi un file audio formato WAV a campionato a 16000Hz
+   deepspeech --model output_graph.pbmm --scorer scorer --audio your/path/to/audio/sampled_at_16Khz.wav
+```
+---
 
-   # Download example audio files
-   curl -LO https://github.com/mozilla/DeepSpeech/releases/download/v0.7.4/audio-0.7.4.tar.gz
-   tar xvf audio-0.7.4.tar.gz
+## Sviluppo
 
-   # Transcribe an audio file
-   mozilla_voice_stt --model deepspeech-0.7.4-models.pbmm --scorer deepspeech-0.7.4-models.scorer --audio audio/2830-3980-0043.wav
+### Corpora per il modello del linguaggio
+
+Nella cartella MITADS sono presenti tutti gli script che permettono la generazione del corpus testuale [MITADS](https://github.com/MozillaItalia/DeepSpeech-Italian-Model/releases/tag/Mitads-1.0.0-alpha2). Per maggiori informazioni fare riferimento al [README relativo](https://github.com/MozillaItalia/DeepSpeech-Italian-Model/blob/master/MITADS/README.md)
+
+
+### Addestramento del modello
+
+Fare riferimento al [README](https://github.com/MozillaItalia/DeepSpeech-Italian-Model/blob/master/DeepSpeech/README.md) nella cartella DeepSpeech per la documentazione necessaria per creare l'immagine Docker utilizzata per addestrare il modello acustico e del linguaggio.
+
+
+### Generare il modello con COLAB
+
+Fare riferimento al [README in notebooks](https://github.com/MozillaItalia/DeepSpeech-Italian-Model/blob/master/notebooks/README.md)
+
 
 
 ## Regole
@@ -41,19 +62,6 @@ To install and use Mozilla Voice STT all you have to do is:
 * [Pacchetto di esempio su come è strutturato il dataset di Common Voice](https://github.com/MozillaItalia/DeepSpeech-Italian-Model/files/4610711/cv-it_tiny.tar.gz)
 * Esempi di importatore di dataset minimali: ldc93s1 [python per DeepSpeech](https://github.com/mozilla/DeepSpeech/blob/master/bin/import_ldc93s1.py) e [lanciatore bash](https://github.com/mozilla/DeepSpeech/blob/master/bin/run-ldc93s1.sh)
 
-
-
-## Utilizzare il modello
-
-Scarica [l'ultima versione](https://github.com/MozillaItalia/DeepSpeech-Italian-Model/releases) da questa pagina.  
-Puoi provare il modello con un [bot Telegram](https://t.me/DeepSpeechItalianBot) che compara il vocale con Google Speech.  
-
-```
-$ virtualenv test --python=python3
-$ source test/bin/activate
-$ pip install deepspeech==0.7.0a1
-$ deepspeech --model output_graph.pbmm --audio test.wav --trie trie --lm lm.binary
-```
 
 ## Generare il modello
 
@@ -104,9 +112,6 @@ Inoltre è possibile settare i parametri anche con la combinazione del flag ```-
 $ docker run --env-file env_files/fast_dev.env -e "TRANSFER_LEARNING=1" -e "DROP_SOURCE_LAYERS=3" --rm --gpus all --mount type=bind,src=$HOME/data,dst=/mnt deepspeech
 ```
 
-## Generare il modello con notebook COLAB
-
-Fare riferimento al [README in notebooks](https://github.com/MozillaItalia/DeepSpeech-Italian-Model/blob/master/notebooks/README.md)
 
 ## Risorse
 

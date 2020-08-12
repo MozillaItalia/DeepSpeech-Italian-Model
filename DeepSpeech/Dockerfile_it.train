@@ -22,7 +22,7 @@ ENV LM_ALPHA=$lm_alpha
 ARG lm_beta=0.0
 ENV LM_BETA=$lm_beta
 
-# range for lm_optimizer. Default: 5,5,2400
+# range for lm_optimizer. Default from DS Eng: 5,5,2400
 ARG lm_evaluate_range=
 ENV LM_EVALUATE_RANGE=$lm_evaluate_range
 
