@@ -8,8 +8,6 @@ Aggregatore degli strumenti per la generazione di un modello di machine learning
 
 Python 3.6+
 
----
-
 ## Quick Start
 
 ```bash
@@ -28,7 +26,7 @@ Python 3.6+
    # Trascrivi un file audio formato WAV a campionato a 16000Hz
    deepspeech --model output_graph.pbmm --scorer scorer --audio your/path/to/audio/sampled_at_16Khz.wav
 ```
----
+
 
 ## Sviluppo
 
@@ -46,7 +44,7 @@ Fare riferimento al [README](https://github.com/MozillaItalia/DeepSpeech-Italian
 
 Fare riferimento al [README in notebooks](https://github.com/MozillaItalia/DeepSpeech-Italian-Model/blob/master/notebooks/README.md)
 
-
+<!--
 
 ## Regole
 
@@ -120,4 +118,4 @@ $ docker run --env-file env_files/fast_dev.env -e "TRANSFER_LEARNING=1" -e "DROP
 * https://github.com/mozilla/voice-corpus-tool
 * https://github.com/Common-Voice/sentence-collector
 * https://github.com/Common-Voice/commonvoice-fr - Il repository da cui questo è derivato
-* https://github.com/MozillaItalia/voice-web - Il dataset primario di frasi italiane lo manteniamo qui
+* https://github.com/MozillaItalia/voice-web - Il dataset primario di frasi italiane lo manteniamo qui -->
