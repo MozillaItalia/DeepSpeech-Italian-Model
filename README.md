@@ -2,6 +2,38 @@
 
 Aggregatore degli strumenti per la generazione di un modello di machine learning per la lingua Italiana del progetto Common Voice. Ci trovi su Telegram con il nostro bot @mozitabot nel gruppo Developers dove dirigiamo e discutiamo lo sviluppo oppure sul [forum](https://discourse.mozilla.org/c/community-portal/mozilla-italia).
 
+## Quick Start
+
+To install and use Mozilla Voice STT all you have to do is:
+
+.. code-block:: bash
+
+   # Create and activate a virtualenv
+   virtualenv -p python3 $HOME/tmp/stt-venv/
+   source $HOME/tmp/stt-venv/bin/activate
+
+   # Install Mozilla Voice STT
+   pip3 install mozilla_voice_stt
+
+   # Download pre-trained English model files
+   curl -LO https://github.com/mozilla/DeepSpeech/releases/download/v0.7.4/deepspeech-0.7.4-models.pbmm
+   curl -LO https://github.com/mozilla/DeepSpeech/releases/download/v0.7.4/deepspeech-0.7.4-models.scorer
+
+   # Download example audio files
+   curl -LO https://github.com/mozilla/DeepSpeech/releases/download/v0.7.4/audio-0.7.4.tar.gz
+   tar xvf audio-0.7.4.tar.gz
+
+   # Transcribe an audio file
+   mozilla_voice_stt --model deepspeech-0.7.4-models.pbmm --scorer deepspeech-0.7.4-models.scorer --audio audio/2830-3980-0043.wav
+
+
+## Regole
+
+* Ticket e pull requests in inglese
+* Readme in Italiano
+
+
+
 * [Roadmap per lo sviluppo](https://docs.google.com/document/d/1cep28JAv9f90LkIpVmJjR0lTDqW5Hp_YF7R-nVJ2zkY/edit)
 * [Script (bash/python) per la generazione usando Docker, DeepSpeech, Tensorflow e Nvidia del modello](https://github.com/MozillaItalia/DeepSpeech-Italian-Model/tree/master/DeepSpeech)
 * Il modello generato
@@ -9,10 +41,7 @@ Aggregatore degli strumenti per la generazione di un modello di machine learning
 * [Pacchetto di esempio su come è strutturato il dataset di Common Voice](https://github.com/MozillaItalia/DeepSpeech-Italian-Model/files/4610711/cv-it_tiny.tar.gz)
 * Esempi di importatore di dataset minimali: ldc93s1 [python per DeepSpeech](https://github.com/mozilla/DeepSpeech/blob/master/bin/import_ldc93s1.py) e [lanciatore bash](https://github.com/mozilla/DeepSpeech/blob/master/bin/run-ldc93s1.sh)
 
-## Regole
 
-* Ticket e pull requests in inglese
-* Readme in Italiano
 
 ## Utilizzare il modello
 
