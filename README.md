@@ -6,7 +6,7 @@ Aggregatore degli strumenti per la generazione di un modello di machine learning
 
 ## Requisiti
 
-Python 3.6+
+Python 3.7+
 
 ## Quick Start
 

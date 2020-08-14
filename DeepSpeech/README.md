@@ -56,7 +56,7 @@ docker build . -f Dockerfile_it.train -t deepspeech/it
 
 
  ```bash
- docker run --rm --gpus all --mount type=bind,src=$HOME/data,dst=/mnt deepspeech
+ docker run --rm --gpus all --mount type=bind,src=$HOME/data,dst=/mnt -it deepspeech/it
 ```
 
 * Terminata l'esecuzione nella directory `$HOME/data` o nella directory `/mnt` nel container Docker, verranno creati i files:
@@ -72,7 +72,7 @@ docker build . -f Dockerfile_it.train -t deepspeech/it
 Per maggiori informazioni sul ruolo dei vari script si rimanda al relativo [README](it/README.md)
 
 ```bash
-docker run --rm --gpus all --mount type=bind,src=$HOME/data,dst=/mnt deepspeech
+docker run --rm --gpus all --mount type=bind,src=$HOME/data,dst=/mnt --entrypoint /bin/bash -it deepspeech/it
 ```
 
 <a name="config"></a>
@@ -81,7 +81,7 @@ docker run --rm --gpus all --mount type=bind,src=$HOME/data,dst=/mnt deepspeech
 È possibile modificare i parametri impostati nel ```Dockerfile_it.train``` utilizzando il flag ```-e``` seguito dal nome della variabile e il suo nuovo valore.
 
 ```bash
- docker run -e "TRANSFER_LEARNING=1" -e "DROP_SOURCE_LAYERS=3" --rm --gpus all --mount type=bind,src=$HOME/data,dst=/mnt deepspeech
+ docker run -e "TRANSFER_LEARNING=1" -e "DROP_SOURCE_LAYERS=3" --rm --gpus all --mount type=bind,src=$HOME/data,dst=/mnt -it deepspeech/it
 ```
 
 <a name="env_files"></a>
@@ -98,7 +98,7 @@ Alcuni ```.env``` files di esempio sono presenti nella cartella ```DeepSpeech/en
 BATCH_SIZE=2
 EPOCHS=2
 FAST_TRAIN=1
- docker run --env-file env_files/fast_dev.env --rm --gpus all --mount type=bind,src=$HOME/data,dst=/mnt deepspeech
+ docker run --env-file env_files/fast_dev.env --rm --gpus all --mount type=bind,src=$HOME/data,dst=/mnt -it deepspeech/it
 ```
 
 * ```do_transfer_learning.env```: viene aggiunto il flag ```DROP_SOURCE_LAYERS=1``` e verrà utilizzato il checkpoint del modello inglese di DeepSpeech.
