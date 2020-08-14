@@ -19,10 +19,13 @@ Prima di iniziare, la nuova immagine base Docker di Deepspeech necessita di [nvi
 
 Nel README della repository di NVIDIA trovate le istruzioni a seconda del vostro sistema.
 
+Durante il processo di training la cartella $HOME/data occuperá diverse decine di GB di spazio sul disco. Se si vuole usare un'altra cartella (es. su un'altra partizione) sostituire in _tutti_ i comandi successvi $HOME/data con il path della nuova cartella.
+
 <a name="cv"></a>
 ### Preparare il dataset di CommonVoice
 
 * Scaricare il dataset [CommonVoice italiano](https://commonvoice.mozilla.org/it/datasets) in ```$HOME/data```
+
 
 ```bash
  cd $HOME
