@@ -68,7 +68,7 @@ docker build . -f Dockerfile_it.train -t deepspeech/it
 <a name="steps"></a>
 ### Eseguire i singoli step
 
-È possibile fare ovverride dell'istruzione `entrypoint` di Docker per utilizzare la shell del container. In questo modo possono essere avviati singolarmente i vari script per poter sperimentare.
+È possibile fare override dell'istruzione `entrypoint` di Docker per utilizzare la shell del container. In questo modo possono essere avviati singolarmente i vari script per poter sperimentare.
 
 Per maggiori informazioni sul ruolo dei vari script si rimanda al relativo [README](it/README.md)
 
