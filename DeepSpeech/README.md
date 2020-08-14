@@ -94,11 +94,11 @@ Alcuni ```.env``` files di esempio sono presenti nella cartella ```DeepSpeech/en
 * ```fast_dev.env```: ogni passaggio dell'addestramento di DeepSpeech verrà eseguito velocemente per testare ogni step.
 
 ```bash
- cat fast_dev.env
-BATCH_SIZE=2
-EPOCHS=2
-FAST_TRAIN=1
- docker run --env-file env_files/fast_dev.env --rm --gpus all --mount type=bind,src=$HOME/data,dst=/mnt -it deepspeech/it
+cat fast_dev.env
+  BATCH_SIZE=2
+  EPOCHS=2
+  FAST_TRAIN=1
+docker run --env-file env_files/fast_dev.env --rm --gpus all --mount type=bind,src=$HOME/data,dst=/mnt -it deepspeech/it
 ```
 
 * ```do_transfer_learning.env```: viene aggiunto il flag ```DROP_SOURCE_LAYERS=1``` e verrà utilizzato il checkpoint del modello inglese di DeepSpeech.

@@ -3,7 +3,8 @@
 set -xe
 
 pushd $DS_DIR
-	# use DEV_FILES and not TEST!
+	# USE DEV_FILES!!!
+	# --test_files MUST USE DEV_FILES and not TEST!
 	all_dev_csv="$(find /mnt/extracted/data/ -type f -name '*dev.csv' -printf '%p,' | sed -e 's/,$//g')"
 
 	if [ -z "${LM_EVALUATE_RANGE}" ]; then
