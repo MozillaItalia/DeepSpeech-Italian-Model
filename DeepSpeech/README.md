@@ -58,6 +58,7 @@ docker build . -f Dockerfile_it.train -t deepspeech/it
  ```bash
  docker run --rm --gpus all --mount type=bind,src=$HOME/data,dst=/mnt -it deepspeech/it
 ```
+* **ATTENZIONE** Lo Step di addestramento vero e proprio potrà essere eseguito solamente con l'interazione dell'utente (`Press a button to continue..`) permettendo un check finale dei parametri che verranno passati a DeepSpeech
 
 * Terminata l'esecuzione nella directory `$HOME/data` o nella directory `/mnt` nel container Docker, verranno creati i files:
     * `it-it.zip` contenente il modello TFlite
@@ -118,7 +119,7 @@ Per approfondire il significato dei flag e parametri seguenti, sono presenti mag
 | `EPOCHS`       | `30`  |numero di iterazioni
 | `LEARNING_RATE`| `0.0001`  |
 | `N_HIDDEN`| `2048`  |
-| `EARLY_STOP`| `1`  | se dopo `ES_STOP` iterazioni il valore loss del modello non migliora, l'addestramento si ferma
+| `EARLY_STOP`| `1`  | se `1`, dopo `ES_STOP` iterazioni il valore loss del modello non migliora, l'addestramento si ferma
 | `ES_STOP`      | `10`  | Default in DeepSpeech inglese: `25`
 | `MAX_TO_KEEP`      | `2`  | quanti checkpoints salvare. Default in DeepSpeech inglese: `5`
 | `DROPOUT`      | `0.4`  |
@@ -126,5 +127,5 @@ Per approfondire il significato dei flag e parametri seguenti, sono presenti mag
 | `LM_BETA`      | `0`  |
 | `LM_EVALUATE_RANGE`| -  | tripletta di valori `MAX_ALPHA,MAX_BETA,N_TRIALS` da assegnare allo script `lm_optimizer.py` (es `5,5,600`)
 | `AMP`      | `1`  | se `TRANSFER_LEARNING` abilitato, questo parametro viene disabilitato. Maggiori informazioni [QUI](https://deepspeech.readthedocs.io/en/v0.8.0/TRAINING.html?highlight=automatic%20mixed%20precision#training-with-automatic-mixed-precision)
-| `TRANSFER_LEARNING`      | `0`  | se `1` `DROP_SOURCE_LAYERS` viene impostato a `1` e si avvia l'apprendimento dal checkpoint di DeepSpeech inglese scartando l'ultimo layer della rete (maggiori info [QUI](https://deepspeech.readthedocs.io/en/v0.8.0/TRAINING.html#transfer-learning-new-alphabet))
+| `TRANSFER_LEARNING`      | `0`  | se `1`, `DROP_SOURCE_LAYERS` viene impostato a `1` e si avvia l'apprendimento dal checkpoint di DeepSpeech inglese scartando l'ultimo layer della rete (maggiori info [QUI](https://deepspeech.readthedocs.io/en/v0.8.0/TRAINING.html#transfer-learning-new-alphabet))
 | `FAST_TRAIN`      | 0  | se `1` si avvia un addestramento rapido solamente per controllare che tutti gli step vadano a buon fine

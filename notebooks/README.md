@@ -1,4 +1,4 @@
-# Colab notebooks per DeepSpeech 0.7
+# Colab notebooks per DeepSpeech 0.8
 
 Colab notebooks dedicati allo sviluppo del modello DeepSpeech.
 * notebook per generare il language model (scorer)
