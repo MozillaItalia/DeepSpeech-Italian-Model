@@ -1,4 +1,4 @@
-# Perchè
+# Perché
 
 Lo scopo è quello di generare un corpus testuale con fonti libere, che il testo sia stato scritto dopo il 1920/30 per un Italiano più moderno e che il testo stesso sia colloquiale.
 
@@ -7,7 +7,7 @@ Lo scopo è quello di generare un corpus testuale con fonti libere, che il testo
 * Python 3.7+
 
 ```
-sudo apt install libdb-dev
+sudo apt install libdb-dev # per Ubuntu/Debian
 pip3 install -r requirements.txt
 ```
 
