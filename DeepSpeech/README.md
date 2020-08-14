@@ -5,6 +5,7 @@ DeepSpeech ITA
   * [CommonVoice Dataset](#cv)
   * [Creare immagine Docker](#docker)
   * [Avviare l'addestramento](#training)
+  * [Eseguire i singoli step](#steps)
 * [Configurazione del container Docker](#config)
   * [Env files](#env_files)
 * [Lista dei parametri](#params)
@@ -51,7 +52,7 @@ docker build . -f Dockerfile_it.train -t deepspeech/it
  <a name="training"></a>
 ### Avviare l'addestramento
 
- * Avviando l'immagine verrà eseguita la  routine di addestramento di default:
+ * Avviando l'immagine verrà eseguita la  routine di addestramento con i valori già preimpostati nel Dockerfile:
 
 
  ```bash
@@ -62,6 +63,17 @@ docker build . -f Dockerfile_it.train -t deepspeech/it
     * `it-it.zip` contenente il modello TFlite
     * `mode_tensorflow_it.tar.xz` contenente il modello memory mapped
     * `checkpoint_it.tar.xz` contenente l'ultimo checkpoint dal validation set
+
+<a name="steps"></a>
+### Eseguire i singoli step
+
+È possibile fare ovverride dell'istruzione `entrypoint` di Docker per utilizzare la shell del container. In questo modo possono essere avviati singolarmente i vari script per poter sperimentare.
+
+Per maggiori informazioni sul ruolo dei vari script si rimanda al relativo [README](it/README.md)
+
+```bash
+docker run --rm --gpus all --mount type=bind,src=$HOME/data,dst=/mnt deepspeech
+```
 
 <a name="config"></a>
 ## Configurazione del container Docker

@@ -32,17 +32,31 @@ Python 3.6+
 
 ### Corpora per il modello del linguaggio
 
-Nella cartella MITADS sono presenti tutti gli script che permettono la generazione del corpus testuale [MITADS](https://github.com/MozillaItalia/DeepSpeech-Italian-Model/releases/tag/Mitads-1.0.0-alpha2). Per maggiori informazioni fare riferimento al [README relativo](https://github.com/MozillaItalia/DeepSpeech-Italian-Model/blob/master/MITADS/README.md)
+Nella cartella MITADS sono presenti tutti gli script che permettono la generazione del corpus testuale [MITADS](https://github.com/MozillaItalia/DeepSpeech-Italian-Model/releases/tag/Mitads-1.0.0-alpha2). Per maggiori informazioni fare riferimento al [README relativo](MITADS/README.md)
 
 
 ### Addestramento del modello
 
-Fare riferimento al [README](https://github.com/MozillaItalia/DeepSpeech-Italian-Model/blob/master/DeepSpeech/README.md) nella cartella DeepSpeech per la documentazione necessaria per creare l'immagine Docker utilizzata per addestrare il modello acustico e del linguaggio.
+Fare riferimento al [README](DeepSpeech/README.md) nella cartella DeepSpeech per la documentazione necessaria per creare l'immagine Docker utilizzata per addestrare il modello acustico e del linguaggio.
 
 
 ### Generare il modello con COLAB
 
-Fare riferimento al [README in notebooks](https://github.com/MozillaItalia/DeepSpeech-Italian-Model/blob/master/notebooks/README.md)
+Fare riferimento al [README in notebooks](notebooks/README.md)
+
+
+### Risorse
+
+
+* [Roadmap per lo sviluppo](https://docs.google.com/document/d/1cep28JAv9f90LkIpVmJjR0lTDqW5Hp_YF7R-nVJ2zkY/edit)
+* [Pacchetto di esempio su come è strutturato il dataset di Common Voice](https://github.com/MozillaItalia/DeepSpeech-Italian-Model/files/4610711/cv-it_tiny.tar.gz)
+* Esempi di importatore di dataset minimali: ldc93s1 [python per DeepSpeech](https://github.com/mozilla/DeepSpeech/blob/master/bin/import_ldc93s1.py) e [lanciatore bash](https://github.com/mozilla/DeepSpeech/blob/master/bin/run-ldc93s1.sh)
+* https://voice.mozilla.org/it
+* https://github.com/mozilla/DeepSpeech
+* https://github.com/mozilla/voice-corpus-tool
+* https://github.com/Common-Voice/sentence-collector
+* https://github.com/Common-Voice/commonvoice-fr - Il repository da cui questo è derivato
+* https://github.com/MozillaItalia/voice-web - Il dataset primario di frasi italiane lo manteniamo qui
 
 <!--
 
