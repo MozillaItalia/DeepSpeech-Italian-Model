@@ -17,14 +17,9 @@ pushd $DS_DIR
 		LM_BETA_MAX="$(echo ${LM_EVALUATE_RANGE} |cut -d',' -f2)"
 		LM_N_TRIALS="$(echo ${LM_EVALUATE_RANGE} |cut -d',' -f3)"
 		python lm_optimizer.py \
-			--show_progressbar True \
-			--train_cudnn True \
 			--alphabet_config_path /mnt/models/alphabet.txt \
 			--scorer_path /mnt/lm/scorer \
-			--feature_cache /mnt/sources/feature_cache \
 			--test_files ${all_dev_csv} \
-			--test_batch_size ${BATCH_SIZE} \
-			--n_hidden ${N_HIDDEN} \
 			--lm_alpha_max ${LM_ALPHA_MAX} \
 			--lm_beta_max ${LM_BETA_MAX} \
 			--n_trials ${LM_N_TRIALS} \
