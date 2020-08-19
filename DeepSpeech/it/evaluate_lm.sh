@@ -20,6 +20,7 @@ pushd $DS_DIR
 			--alphabet_config_path /mnt/models/alphabet.txt \
 			--scorer_path /mnt/lm/scorer \
 			--test_files ${all_dev_csv} \
+			--test_batch_size ${BATCH_SIZE} \
 			--lm_alpha_max ${LM_ALPHA_MAX} \
 			--lm_beta_max ${LM_BETA_MAX} \
 			--n_trials ${LM_N_TRIALS} \
