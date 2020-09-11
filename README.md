@@ -23,7 +23,7 @@ Python 3.7+
    curl -LO https://github.com/MozillaItalia/DeepSpeech-Italian-Model/releases/download/2020.08.07/model_tensorflow_it.tar.xz
    tar xvf model_tensorflow_it.tar.xz
 
-   # Trascrivi un file audio formato WAV a campionato a 16000Hz
+   # Trascrivi un file audio MONO, formato WAV a campionato a 16000Hz
    deepspeech --model output_graph.pbmm --scorer scorer --audio your/path/to/audio/sampled_at_16Khz.wav
 ```
 
