@@ -22,8 +22,8 @@ class Download:
         duration = time.time() - start_time
         progress_size = int(count * block_size)
         speed = int(progress_size / (1024 * duration))
-        percent = int(count * block_size * 100 / total_size)
-        sys.stdout.write("\r...%d%%, %d MB, %d KB/s, %d seconds passed" %
+        percent = min(int((count * block_size * 100) / total_size), 100)
+        sys.stdout.write("\r...%d%%, %d MB, %d KB/s, %d seconds passed\n" %
                         (percent, progress_size / (1024 * 1024), speed, duration))
         sys.stdout.flush()
 
