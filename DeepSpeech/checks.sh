@@ -18,7 +18,7 @@ do
     fi;
 done;
 
-for subdir in sources extracted checkpoints models lm tmp;
+for subdir in sources extracted checkpoints models lm tmp tboard_logs;
 do
     if [ ! -d "/mnt/${subdir}" ]; then
         mkdir /mnt/${subdir}
@@ -28,6 +28,6 @@ done;
 mkdir /mnt/extracted/data/ || true
 
 # Checking with basic LDC93S1 before running into heavy-load
-pushd $HOME/ds/
+pushd $DS_DIR
 	./bin/run-tc-ldc93s1_new.sh 2 16000
 popd

@@ -56,6 +56,7 @@ mapping_normalization = [
     [re.compile('\({2,}'), u''],
     [re.compile('^((?![A-Za-z]).)*$'), u''],
     [re.compile('\s*:$'), u''],
+    [re.compile('\.{2,}'), u' '],
 ]
 HOME = "http://www.intratext.com/IXT/ITA0192"
 raw_page = download_me.download_for_bp(HOME, 'ISO-8859-1')
@@ -91,30 +92,39 @@ with open("./output/eulogos.txt", "w") as result:
                     line = clean_me.clean_single_line(line)
                     if len(line) <= 12:
                         continue
-                    
+
                     if len(line.split()) < 2:
                         continue
-                    
+
                     if validate_line.isdigit([line, line[1:], line[:1]]):
                         continue
-                    
+
                     if validate_line.contain(line, ['#', '/dcc', '•', 'http', '{', '(c)', 'antiflood', '`', 'ª', '[02]', '[03]', '[04]','^', ' n.', 'pp.']):
                         continue
-        
+
                     if validate_line.startswith(line, ['(', '!', ')', '"', "'", "[", '-']):
                         continue
-                    
+
                     if line.find("+") != -1 or line.isspace():
                         continue
-                    
+
                     if not validate_line.parenthesismatch(line):
                         continue
-                    
+
                     if validate_line.hasafinalrepeated(line):
                         continue
-                    
-                    text += line + "\n"
-                    
+                    # consider only those line that contains a-z range chars
+                    # discard everything that could be a symbol (numbers, brackets..)
+                    if re.search(r"^[aAàÀbBcCdDeEèÈéÉfFgGhHiIìÌjJkKlLmMnNoOòÒpPqQrRsStTuUùÙvVwWxXyYzZ ]+$",line):
+                        # if this line contains more than one space, skip it
+                        if re.search(r" {2,}",line):
+                            continue
+                        # if this line contains more than one accented chars, skip it
+                        if re.search(r"[àÀèÈÉìÌòÒùÙ]{2,}",line):
+                            continue
+
+                        text += line + "\n"
+
                 result.write(text)
 
 result.close()

@@ -2,7 +2,7 @@
 
 set -xe
 
-pushd $HOME/ds/
+pushd $DS_DIR
 	if [ ! -f "/mnt/models/alphabet.txt" ]; then
 		if [ "${ENGLISH_COMPATIBLE}" = "1" ]; then
 			cp data/alphabet.txt /mnt/models/alphabet.txt

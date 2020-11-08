@@ -8,49 +8,46 @@ pushd /mnt/extracted
 		export LANG=it_IT.UTF-8
 	fi;
 
-	if [ ! -f "wiki_it_lower.txt" ]; then
-		curl -sSL https://github.com/MozillaItalia/DeepSpeech-Italian-Model/releases/download/lm-0.1/wiki.txt.xz | pixz -d | tr '[:upper:]' '[:lower:]' > wiki_it_lower.txt
+	if [ ! -f "mitads.txt" ]; then
+		curl -sSL https://github.com/MozillaItalia/DeepSpeech-Italian-Model/releases/download/Mitads-1.0.0-alpha2/mitads-1.0.0-alpha2.tar.xz | tar -xJv
 	fi;
 
 	if [ "${ENGLISH_COMPATIBLE}" = "1" ]; then
-		mv wiki_it_lower.txt wiki_it_lower_accents.txt
+		mv mitads.txt mitads_accents.txt
 		# Locally force LANG= to make iconv happy and avoid errors like:
 		# iconv: illegal input sequence at position 4468
 		# Also required locales and locales-all to be installed
-		head -n 5 wiki_it_lower_accents.txt
-		iconv -f UTF-8 -t ASCII//TRANSLIT//IGNORE < wiki_it_lower_accents.txt > wiki_it_lower.txt
-		head -n 5 wiki_it_lower.txt
-		> wiki_it_lower_accents.txt
+		head -n 5 mitads_accents.txt
+		iconv -f UTF-8 -t ASCII//TRANSLIT//IGNORE < mitads_accents.txt > mitads.txt
+		head -n 5 mitads.txt
+		> mitads_accents.txt
 	fi;
 
-	if [ ! -f "/mnt/lm/lm.binary" ]; then
-		cat wiki_it_lower.txt > sources_lm.txt
+	if [ ! -f "/mnt/lm/scorer" ]; then
+		pushd $DS_DIR/data/lm
+			top_k=500000
+			if [ "${FAST_TRAIN}" = 1 ]; then
+				head -10000 /mnt/extracted/mitads.txt > /mnt/extracted/sources_lm.txt
+				top_k=500
+			else
+				mv /mnt/extracted/mitads.txt /mnt/extracted/sources_lm.txt
+				touch /mnt/extracted/mitads.txt
+			fi
 
-		python $HOME/counter.py sources_lm.txt top_words.txt 500000
-
-		lmplz	--order 4 \
-			--temp_prefix /mnt/tmp/ \
-			--memory 80% \
-			--text sources_lm.txt \
-			--arpa /mnt/lm/lm.arpa \
-			--skip_symbols \
-			--prune 0 0 1
-
-		filter single model:/mnt/lm/lm.arpa /mnt/lm/lm_filtered.arpa < top_words.txt
-
-		build_binary -a 255 \
-			-q 8 \
-			trie \
-			/mnt/lm/lm_filtered.arpa \
-			/mnt/lm/lm.binary
-
-		rm /mnt/lm/lm.arpa /mnt/lm/lm_filtered.arpa
-		> wiki_it_lower.txt
-	fi;
-
-	if [ ! -f "/mnt/lm/trie" ]; then
-		curl -sSL https://community-tc.services.mozilla.com/api/index/v1/task/project.deepspeech.deepspeech.native_client.master.${DS_SHA1}.cpu/artifacts/public/native_client.tar.xz | pixz -d | tar -xf -
-		./generate_trie /mnt/models/alphabet.txt /mnt/lm/lm.binary /mnt/lm/trie
+			python generate_lm.py --input_txt "/mnt/extracted/sources_lm.txt" --output_dir "/mnt/lm" \
+				--top_k $top_k --kenlm_bins "$DS_DIR/native_client/kenlm/build/bin/" \
+				--arpa_order 5 --max_arpa_memory "85%" --arpa_prune "0|0|1" \
+				--binary_a_bits 255 --binary_q_bits 8 --binary_type trie
+			if [ ! -f "generate_scorer_package" ]; then
+				curl -LO https://github.com/mozilla/DeepSpeech/releases/download/v$DS_RELEASE/native_client.amd64.cuda.linux.tar.xz
+				tar xvf native_client.*.tar.xz
+				./generate_scorer_package --alphabet /mnt/models/alphabet.txt \
+				  --lm "/mnt/lm/lm.binary" \
+				  --vocab "/mnt/lm/vocab-"$top_k".txt" \
+				  --package "/mnt/lm/scorer" \
+				  --default_alpha ${LM_ALPHA} \
+				  --default_beta ${LM_BETA}
+			fi;
 	fi;
 
 	if [ "${ENGLISH_COMPATIBLE}" = "1" ]; then

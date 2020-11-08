@@ -1,15 +1,20 @@
-# Perchè
+# Perché
 
 Lo scopo è quello di generare un corpus testuale con fonti libere, che il testo sia stato scritto dopo il 1920/30 per un Italiano più moderno e che il testo stesso sia colloquiale.
 
 # Installazione
 
-`pip3 install -r requirements.txt`
+* Python 3.7+
+
+```
+sudo apt install libdb-dev # per Ubuntu/Debian
+pip3 install -r requirements.txt
+```
 
 ## Gutenberg extractor
 
 Per utilizzare l'estrattore vanno inseriti in un file chiamato "books_list.txt" gli indirizzi alle pagine dei libri in formato html (con o senza immagini) mettendone uno per riga.  
-Questo file è già fornito con lo script
+Questo file è già fornito con lo script.
 
 ## OpenSubTitle exporter
 
