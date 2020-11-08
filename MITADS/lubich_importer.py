@@ -155,7 +155,7 @@ def main():
     # build output file in output/lubich_importer.txt
     output_file()
 
-    print("Import from ted.com completed!")
+    print("Import from lubich archive completed!")
     print("Time elapsed: " + str(int(int(time.time() - start_time) / 60)) + " minutes")
 
 
