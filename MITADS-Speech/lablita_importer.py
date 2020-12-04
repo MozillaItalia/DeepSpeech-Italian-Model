@@ -17,6 +17,7 @@ ANNOTATION_PAUSE = '/'
 
 def main():
 
+    filter_italian_enabled=True
     # to calculate time elapsed later
     start_time = time.time()
 
@@ -53,7 +54,7 @@ def main():
             'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/61.0.3163.100 Safari/537.36',
             'Content-Type' :'multipart/form-data'}
 
-    pagenumber = 1863
+    pagenumber = 1
     the_end = False
     logging.debug('Start DB-IPIC Import Data from url {}'.format(baseurl))
     
@@ -136,7 +137,14 @@ def main():
                             ##already taken
                             break
                 
-                if(len(parsed_text_unit_text)>0):
+                if(len(parsed_text_unit_text)>0 and parsed_filename!=''):
+
+                    ##filter italian clips 
+                    ##  filename start whit first char of current language code (example ifamcv01, epubmn03, bfamdl05)
+                    if(filter_italian_enabled and parsed_filename[:1]!='i'):
+                        ##continue other page for sure to take all clips 
+                        the_end = False
+                        continue
                     
                     ##collect all text unit parsed
                     transcript_annotaded = ''.join([''.join(unit) for unit in parsed_text_unit_text])
