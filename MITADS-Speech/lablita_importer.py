@@ -13,6 +13,8 @@ logging.basicConfig(level=logging.DEBUG)
 
 ANNOTATION_DICT = ['0','1','2','3','4','5','6','7','8','9','-','+','[',']','<','>']
 ANNOTATION_PAUSE = '/'
+##incomprehensible word
+ANNOTATION_WORD_INC = 'xxx'
 
 
 def main():
@@ -145,9 +147,14 @@ def main():
                         ##continue other page for sure to take all clips 
                         the_end = False
                         continue
-                    
+
                     ##collect all text unit parsed
                     transcript_annotaded = ''.join([''.join(unit) for unit in parsed_text_unit_text])
+
+                    ##filter incomprehensible sentences
+                    if(ANNOTATION_WORD_INC in transcript_annotaded):
+                        continue                    
+
                     ## clear annotation
                     text_cleaned = clear_transcript(transcript_annotaded)
 
