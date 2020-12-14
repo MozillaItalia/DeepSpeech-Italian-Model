@@ -1,2 +1,5 @@
 BeautifulSoup4
 requests
+sox
+progressbar2==3.47.0
+pycopy-shutil
