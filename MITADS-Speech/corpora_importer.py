@@ -60,16 +60,6 @@ def get_counter():
     return Counter({'all': 0, 'failed': 0, 'invalid_label': 0, 'too_short': 0, 'too_long': 0, 'imported_time': 0, 'total_time': 0})
 
 
-def _maybe_convert_mp3_to_wav(mp3_filename, wav_filename):
-    import sox
-    if not os.path.exists(wav_filename):
-        transformer = sox.Transformer()
-        transformer.convert(samplerate=SAMPLE_RATE, n_channels=CHANNELS)
-        try:
-            transformer.build(mp3_filename, wav_filename)
-        except sox.core.SoxError:
-            pass
-
 class Corpus:
     def __init__(self,utterences:dict,audios:list,datasets_sizes = [0.8,0.1,0.1],make_wav_resample=False): 
 
@@ -183,25 +173,20 @@ class ArchiveImporter:
         mp3_wav_filename = sample
         # Storing wav files next to the mp3 ones - just with a different suffix
         wav_filename = path.splitext(mp3_wav_filename)[0] + ".wav"
-        self._maybe_convert_wav(mp3_wav_filename, wav_filename)
-              
-       
-
-        #frames = int(
-        #    subprocess.check_output(["soxi", "-s", wav_filename], stderr=subprocess.STDOUT)
-        #)
+        self._maybe_convert_wav(mp3_wav_filename, wav_filename)            
+  
         file_size = -1
         ##frames = None
         frames = -1
         if os.path.exists(wav_filename):
             file_size = path.getsize(wav_filename)
 
-            ##to get frames/duration for mp3/wav audio we not use soxi command but sox.file_info.duration(
+            ##Note: to get frames/duration for mp3/wav audio we not use soxi command but sox.file_info.duration(
             ##soxi command is not present in Windows sox distribution  - see this  https://github.com/rabitt/pysox/pull/74
             duration = sox.file_info.duration(wav_filename)
             frames = duration * SAMPLE_RATE
 
-        label = '' ##label not managed validate_label(sample[1])
+        label = '' ##label not managed  ##validate_label(sample[1])
         rows = []
         counter = get_counter()
         if file_size == -1:

@@ -27,7 +27,7 @@ def maybe_download(archive_name, target_dir, archive_url):
             if total_size>0:
                 bar = progressbar.ProgressBar(max_value=total_size, widgets=SIMPLE_BAR)
             else:
-                print('Content-Length sending is zero: ProgressBar not available. Download in progress...wait pleae and check file')
+                print('Content-Length sending is zero: ProgressBar not available. Download in progress...wait please and check file')
            
             for data in req.iter_content(1024*1024):
                 done += len(data)
