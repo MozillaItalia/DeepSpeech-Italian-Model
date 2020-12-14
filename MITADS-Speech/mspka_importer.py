@@ -2,7 +2,7 @@
 import time
 import os
 import re
-from corpora_importer import ArchiveImporter,Corpus
+from corpora_importer import ArchiveImporter,Corpus,string_escape
 
 CORPUS_NAME = 'mspka'
 SILENCE_ANNOTATION ='sil'
