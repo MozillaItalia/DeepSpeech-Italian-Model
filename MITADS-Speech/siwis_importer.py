@@ -58,8 +58,8 @@ class SiwisImporter(ArchiveImporter):
 if __name__ == "__main__":
 
     corpus_name=CORPUS_NAME
-    archivie_url = 'https://phonogenres.unige.ch/downloads/siwis_latest.zip'
+    archive_url = 'https://phonogenres.unige.ch/downloads/siwis_latest.zip'
     data_dir=None
-    siwis_importer = SiwisImporter(corpus_name,archivie_url,  data_dir=data_dir)
+    siwis_importer = SiwisImporter(corpus_name,archive_url,extract_dir="siwis_database", data_dir=data_dir)
 
     siwis_importer.run()
