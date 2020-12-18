@@ -78,7 +78,7 @@ class ArchiveImporter:
         self.archive_url=archive_url
         ##Make archive_name from archive_filename
         archive_filename = self.archive_url.rsplit('/', 1)[-1]    
-        self.archive_name = archive_filename.rsplit('.', 1)[0]
+        self.archive_name = archive_filename.split('.', 1)[0]## FIX: archive name with extension .tar.gz
         self.extract_dir = self.archive_name
         if extract_dir is not None:
             self.extract_dir = extract_dir        
@@ -209,7 +209,7 @@ class ArchiveImporter:
             counter["too_long"] += 1
         else:
             # This one is good - keep it for the target CSV
-            rows.append((wav_filename, file_size, label))
+            rows.append((mp3_wav_filename, file_size, label))
             counter["imported_time"] += frames
         counter["all"] += 1
         counter["total_time"] += frames
