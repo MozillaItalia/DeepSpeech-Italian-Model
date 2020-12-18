@@ -73,7 +73,7 @@ class Corpus:
 
 
 class ArchiveImporter:
-    def __init__(self,corpus_name,archive_url,data_dir=None,csv_append_mode=False):
+    def __init__(self,corpus_name,archive_url,extract_dir=None, data_dir=None,csv_append_mode=False):
         self.corpus_name=corpus_name
         self.archive_url=archive_url
         ##Make archive_name from archive_filename
