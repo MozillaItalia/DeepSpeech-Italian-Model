@@ -79,6 +79,9 @@ class ArchiveImporter:
         ##Make archive_name from archive_filename
         archive_filename = self.archive_url.rsplit('/', 1)[-1]    
         self.archive_name = archive_filename.rsplit('.', 1)[0]
+        self.extract_dir = self.archive_name
+        if extract_dir is not None:
+            self.extract_dir = extract_dir        
         # Making path absolute root data or prefered from param data_dir
         self.dataset_path = os.path.abspath(self.corpus_name) if data_dir==None else  os.path.join(data_dir, self.corpus_name)
         
