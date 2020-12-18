@@ -112,9 +112,9 @@ class ArchiveImporter:
          # Conditionally convert CSV files and mp3/wav data to DeepSpeech CSVs and wav
         self._maybe_convert_sets(corpus)      
 
-    def _maybe_extract(self,target_dir, extracted_data, archive_path):
-        # If target_dir/extracted_data does not exist, extract archive in target_dir
-        extracted_path = os.path.join(target_dir, extracted_data)
+    def _maybe_extract(self,target_dir, extract_dir, archive_path):
+        # If target_dir/extract_dir does not exist, extract archive in target_dir
+        extracted_path = os.path.join(target_dir, extract_dir)
         if not os.path.exists(extracted_path):
             print(f"No directory {extracted_path} - extracting archive...")
             with ZipFile(archive_path, "r") as zipobj:
