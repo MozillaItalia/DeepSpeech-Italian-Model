@@ -103,7 +103,7 @@ class ArchiveImporter:
         # Conditionally download data
         archive_path = maybe_download(archive_filename, self.origin_data_path, self.archive_url)
         # Conditionally extract common voice data
-        self._maybe_extract(self.origin_data_path, self.archive_name, archive_path)
+        self._maybe_extract(self.origin_data_path,self.extract_dir, archive_path)
        
         ##get corpus:  audio_file_names + transcriptions
         print('Filter audio file and parse transcript...')
