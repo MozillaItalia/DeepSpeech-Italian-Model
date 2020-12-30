@@ -35,6 +35,7 @@ class MSPKAImporter(ArchiveImporter):
             ##read file transcript
             transcript = ''
             transcript_annotaded = ''
+            file_encoding = 'utf-8'
             with open(txt_file_path) as f:
                 transcript_annotaded = f.readlines()
 
@@ -54,6 +55,7 @@ class MSPKAImporter(ArchiveImporter):
                 curr_text = ' '.join(curr_text)
                 ##clear text -   accented char escape
                 curr_text = string_escape(curr_text)
+
                 transcript_toks.append(curr_text)
 
             transcript = ' '.join(transcript_toks)
@@ -77,10 +79,10 @@ if __name__ == "__main__":
     archivie_urls.append('http://www.mspkacorpus.it/MSPKA_data/session1/cnz_1.0.0.zip')
     archivie_urls.append('http://www.mspkacorpus.it/MSPKA_data/session1/lls_1.0.0.zip')
     archivie_urls.append('http://www.mspkacorpus.it/MSPKA_data/session1/olm_1.0.0.zip')
-    
+    data_dir=None
     for i in range(len(archivie_urls)):
         archivie_url = archivie_urls[i]
         csv_append_mode = not i==0
-        mspka_importer = MSPKAImporter(corpus_name,archivie_url, csv_append_mode=csv_append_mode)
+        mspka_importer = MSPKAImporter(corpus_name,archivie_url, data_dir=data_dir,csv_append_mode=csv_append_mode)
         
         mspka_importer.run()

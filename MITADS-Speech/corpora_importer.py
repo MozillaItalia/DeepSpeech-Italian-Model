@@ -43,12 +43,12 @@ def is_audio_wav_file(filepath):
         os.path.basename(filepath).lower().endswith(extension) for extension in AUDIO_WAV_EXTENSIONS
     )
 
-def string_escape(s, encoding='utf-8'):
+def string_escape(s,encoding_from ="latin1", encoding='utf-8'):
 
     try:        
-        return (s.encode('latin1')         # To bytes, required by 'unicode-escape'
+        return (s.encode(encoding_from)         # To bytes, required by 'unicode-escape'
                 .decode('unicode-escape') # Perform the actual octal-escaping decode
-                .encode('latin1')         # 1:1 mapping back to bytes
+                .encode(encoding_from)         # 1:1 mapping back to bytes
                 .decode(encoding))        # Decode original encoding
     except:
         return (s.encode('utf-8')  ## cp1252     

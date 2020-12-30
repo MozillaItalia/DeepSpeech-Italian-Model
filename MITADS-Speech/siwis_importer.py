@@ -4,6 +4,7 @@ import time
 import os
 import re
 from corpora_importer import ArchiveImporter,Corpus,string_escape
+from charset_normalizer import CharsetNormalizerMatches as CnM
 
 CORPUS_NAME = 'siwis'
 
@@ -36,12 +37,20 @@ class SiwisImporter(ArchiveImporter):
 
                     ##read file transcript
                     transcript = ''
-                    with open(txt_file_path, "r") as f:
+
+                    ##files have different encoding (utf-8, utf_16_be, etc..)
+                    ##need check to open file with correct encoding
+                    file_encoding ='utf-8'                   
+                    enc = CnM.from_path(txt_file_path).best().first()
+                    file_encoding = enc.encoding
+                    ##fix same encoding 
+                    if(file_encoding=='big5' or file_encoding=='cp1252' ):
+                        file_encoding = 'utf-8'                    
+
+                    with open(txt_file_path, "r",encoding=file_encoding) as f:
                         transcript += f.readline()
-                    
 
                     transcript = transcript.strip()
-                    transcript = string_escape(transcript)
                     ##append data manifest
                     utterances[wav_file_path] = transcript
                     audios.append(wav_file_path)     
