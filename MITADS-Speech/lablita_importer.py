@@ -13,6 +13,8 @@ logging.basicConfig(level=logging.DEBUG)
 
 ANNOTATION_DICT = ['0','1','2','3','4','5','6','7','8','9','-','+','[',']','<','>']
 ANNOTATION_PAUSE = '/'
+##incomprehensible word
+ANNOTATION_WORD_INC = 'xxx'
 
 
 def main():
@@ -37,7 +39,7 @@ def main():
     outfilepath = output_ipic_folder+ 'lablita_corpus.csv'
     csv_file = open(outfilepath,"w+",encoding="utf8")
     fh_out = csv.writer(csv_file,quoting=csv.QUOTE_NONNUMERIC)
-    fh_out.writerow(['mp3_filename','mp3_filesize','transcript','transcript_annotated'])
+    fh_out.writerow(['filename','filesize','transcript','transcript_annotated'])
 
     #to improve performance we write on the append file for the whole download, but comparisons test needed
     #csv_file.close()
@@ -145,9 +147,14 @@ def main():
                         ##continue other page for sure to take all clips 
                         the_end = False
                         continue
-                    
+
                     ##collect all text unit parsed
                     transcript_annotaded = ''.join([''.join(unit) for unit in parsed_text_unit_text])
+
+                    ##filter incomprehensible sentences
+                    if(ANNOTATION_WORD_INC in transcript_annotaded):
+                        continue                    
+
                     ## clear annotation
                     text_cleaned = clear_transcript(transcript_annotaded)
 
