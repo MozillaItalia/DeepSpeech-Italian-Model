@@ -122,9 +122,18 @@ class ArchiveImporter:
         extracted_path = os.path.join(target_dir, extract_dir)
         if not os.path.exists(extracted_path):
             print(f"No directory {extracted_path} - extracting archive...")
-            with ZipFile(archive_path, "r") as zipobj:
-                # Extract all the contents of zip file in current directory
-                zipobj.extractall(target_dir)
+            
+            ##check file if zip or tar
+            if(archive_path.endswith('.zip')):
+                ##extraxt zip file
+                with ZipFile(archive_path, "r") as zipobj:
+                    # Extract all the contents of zip file in current directory
+                    zipobj.extractall(target_dir)
+            else:
+                ##extract other gzip, bz2 and lzma
+                tar = tarfile.open(archive_path)
+                tar.extractall(extracted_path)
+                tar.close()
         else:
             print(f"Found directory {extracted_path} - not extracting it from archive.")
 
