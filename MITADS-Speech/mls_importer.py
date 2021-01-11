@@ -55,8 +55,8 @@ if __name__ == "__main__":
     data_dir = None
     data_dir = "F:\\DATASET-MODELS\\speech_dataset\\CORPORA-IT-AUDIO\\MLS-LM"
     output_dir = None
-    output_dir = "F:\\DATASET-MODELS\\speech_dataset\\new-speech-corpora-it"
+    #output_dir = "F:\\DATASET-MODELS\\speech_dataset\\new-speech-corpora-it"
 
-    mls_importer = MLSImporter(corpus_name,archivie_url,data_dir=data_dir,output_path=output_dir)
+    mls_importer = MLSImporter(corpus_name,archivie_url, data_dir=data_dir,output_path=output_dir)
     
     mls_importer._download_and_preprocess_data()

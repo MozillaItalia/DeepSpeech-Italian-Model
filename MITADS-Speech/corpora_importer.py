@@ -11,6 +11,7 @@ import re
 import logging
 import progressbar 
 from zipfile import ZipFile
+import tarfile
 from multiprocessing import Pool
 import subprocess
 from utils.downloader import SIMPLE_BAR, maybe_download
@@ -73,16 +74,16 @@ class Corpus:
 
 
 class ArchiveImporter:
-    def __init__(self,corpus_name,archive_url,extract_dir=None, data_dir=None,csv_append_mode=False):
+    def __init__(self,corpus_name,archive_url,extract_dir=None,output_path=None, data_dir=None,csv_append_mode=False):
         self.corpus_name=corpus_name
         self.archive_url=archive_url
         # Make archive_name from archive_filename
-        archive_filename = self.archive_url.rsplit('/', 1)[-1]
+        self.archive_filename = self.archive_url.rsplit('/', 1)[-1]
         # os.path.splitext:
         # tar.gz: will split ("file.name.tar",".gz")
         # but will split correctly "cnz_1.0.0.zip" into ("cnz_1.0.0","zip")
-        self.archive_name = os.path.splitext(archive_filename)[0]
-        if self.archive_filename.endswith(".tar"):
+        self.archive_name = os.path.splitext(self.archive_filename)[0]
+        if self.archive_name.endswith(".tar"):
           self.archive_name = self.archive_name.replace(".tar","")
         self.extract_dir = self.archive_name
         if extract_dir is not None:
@@ -92,7 +93,7 @@ class ArchiveImporter:
         
         self.origin_data_path = os.path.join(self.dataset_path, "origin") if data_dir==None else  data_dir
         
-        self.dataset_output_path = os.path.abspath(self.corpus_name)
+        self.dataset_output_path = os.path.abspath(self.corpus_name) if output_path==None else os.path.join(output_path, self.corpus_name) 
         self.csv_append_mode = csv_append_mode
 
     def run(self):
