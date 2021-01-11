@@ -48,6 +48,24 @@ class MLSImporter(ArchiveImporter):
         corpus.make_wav_resample = True
         return corpus
 
+    ##RENAME FUNCTION to row_validation to test filter by author in this importer. 
+    ##As Alternative: since execution time for the import is long, this filtering operation ( subject to possible revisions) , could also be implemented in the next step in corpora_collector
+    def ___row_validation(self,filename,duration,comments):
+        is_valid = True
+        if(comments==None or comments==''):
+            return is_valid
+        ##we dont parse string , only check if comment contains author
+        filtered_author = ["Dante Alighieri", "Giovanni Francesco Straparola"]
+        filtered = any(txt in comments for txt in filtered_author)
+        is_valid = not filtered
+
+        #if(not is_valid):
+        #    print('filtered')
+        #else:
+        #    print(comments)
+
+        return is_valid
+
 if __name__ == "__main__":
 
     corpus_name=CORPUS_NAME
@@ -56,4 +74,4 @@ if __name__ == "__main__":
     output_dir = None
     mls_importer = MLSImporter(corpus_name,archivie_url, data_dir=data_dir,output_path=output_dir)
     
-    mls_importer._download_and_preprocess_data()
+    mls_importer.run()

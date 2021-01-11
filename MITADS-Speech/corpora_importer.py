@@ -153,7 +153,7 @@ class ArchiveImporter:
 
         ## all examples are processed, even if the resample is not necessary, the duration or other filters should be evaluated
         samples = [ [a,corpus.make_wav_resample] for a in corpus.audios ] 
-
+        ##self.one_sample(samples[0])
         # Mutable counters for the concurrent embedded routine
         counter = get_counter()
         print(f"Converting wav/mp3 files to wav {SAMPLE_RATE}hz...")
@@ -181,6 +181,11 @@ class ArchiveImporter:
             except sox.core.SoxError:
                 pass
 
+    ##overrider this to filter
+    def row_validation(self,filename,duration,comments):
+        ##return True 
+        return True
+
     def one_sample(self,sample):
 
         mp3_wav_filename = sample[0]
@@ -201,6 +206,8 @@ class ArchiveImporter:
         if os.path.exists(wav_filename):
             file_size = path.getsize(wav_filename)
 
+        is_valid = self.row_validation(mp3_wav_filename,duration,comments)
+
         label = '' ##label not managed  ##validate_label(sample[1])
         rows = []
         counter = get_counter()
@@ -208,7 +215,7 @@ class ArchiveImporter:
             # Excluding samples that failed upon conversion
             print(f'Conversion failed {mp3_wav_filename}')
             counter["failed"] += 1
-        elif label is None:
+        elif label is None or not is_valid:
             # Excluding samples that failed on label validation
             counter["invalid_label"] += 1
         elif int(frames / SAMPLE_RATE * 1000 / 10 / 2) < len(str(label)):
