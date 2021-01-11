@@ -76,9 +76,14 @@ class ArchiveImporter:
     def __init__(self,corpus_name,archive_url,extract_dir=None, data_dir=None,csv_append_mode=False):
         self.corpus_name=corpus_name
         self.archive_url=archive_url
-        ##Make archive_name from archive_filename
-        archive_filename = self.archive_url.rsplit('/', 1)[-1]    
-        self.archive_name = archive_filename.split('.', 1)[0]## FIX: archive name with extension .tar.gz
+        # Make archive_name from archive_filename
+        archive_filename = self.archive_url.rsplit('/', 1)[-1]
+        # os.path.splitext:
+        # tar.gz: will split ("file.name.tar",".gz")
+        # but will split correctly "cnz_1.0.0.zip" into ("cnz_1.0.0","zip")
+        self.archive_name = os.path.splitext(archive_filename)[0]
+        if self.archive_filename.endswith(".tar"):
+          self.archive_name = self.archive_name.replace(".tar","")
         self.extract_dir = self.archive_name
         if extract_dir is not None:
             self.extract_dir = extract_dir        
