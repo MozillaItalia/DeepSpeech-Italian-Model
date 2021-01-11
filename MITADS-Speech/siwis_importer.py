@@ -17,7 +17,7 @@ class SiwisImporter(ArchiveImporter):
         utterances = {}
         audios = []
         wav_dir  = os.path.join(self.origin_data_path, self.extract_dir, "wav","IT")
-        text_dir = os.path.join(self.origin_data_path, self.extract_dir, "text","IT")
+        text_dir = os.path.join(self.origin_data_path, self.extract_dir, "txt","IT")
         
         for subdir, dirs, files in os.walk(wav_dir):
             uuu=0
