@@ -196,7 +196,15 @@ class ArchiveImporter:
         ##Note: to get frames/duration for mp3/wav audio we not use soxi command but sox.file_info.duration(
         ##soxi command is not present in Windows sox distribution  - see this  https://github.com/rabitt/pysox/pull/74
         duration = sox.file_info.duration(mp3_wav_filename)
-        comments = sox.file_info.comments(mp3_wav_filename)
+        comments = ""
+        try:
+          comments=sox.file_info.comments(mp3_wav_filename)
+        except UnicodeError as e:
+          try:
+            completedProcess=subprocess.run(["soxi", "-a", mp3_wav_filename], stdout=subprocess.PIPE)
+            comments=completedProcess.stdout.decode("utf-8", "ignore")
+          except:
+            pass
         frames = duration * SAMPLE_RATE
 
         if(make_wav_resample):
