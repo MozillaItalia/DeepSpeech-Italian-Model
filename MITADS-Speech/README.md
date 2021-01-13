@@ -44,7 +44,7 @@ I file .wav originali sono stati rimodulati a 16bit, mono, 16Khz.
 Totale ore estratte: ? 
 
 ## MLS extractor
-[Multilingual LibriSpeech (MLS)](http://openslr.org/94/) è un Corpus Multiligua su larga scala derivato dagli audiolibri di LibriVox. Il Corpus in Italiano raggiunge le 279.43 ore, da 61 Opere di alcuni Autori Italiani del 1800-1900, recitate da 28 Speaker.
+[Multilingual LibriSpeech (MLS)](http://openslr.org/94/) è un Corpus Multiligua su larga scala derivato dagli audiolibri di LibriVox. Il Corpus in Italiano raggiunge le 279.43 ore, da 61 Opere di alcuni Autori Italiani dal 1400 al 1900, recitate da 28 Speaker.
 
 L'estrattore non ha bisogno di parametri in ingresso ed utilizza l'utility corpora_importer.py
 
