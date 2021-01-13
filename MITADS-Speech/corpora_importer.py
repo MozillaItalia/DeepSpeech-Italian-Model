@@ -175,7 +175,7 @@ class ArchiveImporter:
     def _maybe_convert_wav(self,mp3_filename, wav_filename):
         if not os.path.exists(wav_filename):
             transformer = sox.Transformer()
-            transformer.convert(samplerate=SAMPLE_RATE,n_channels=CHANNELS, bitdepth=BITDEPTH)
+            transformer.convert(samplerate=SAMPLE_RATE,n_channels=N_CHANNELS, bitdepth=BITDEPTH)
             try:
                 transformer.build(str(mp3_filename), str(wav_filename))
             except sox.core.SoxError:
