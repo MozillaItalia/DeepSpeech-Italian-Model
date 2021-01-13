@@ -83,7 +83,7 @@ class Corpus:
         self.make_wav_resample = make_wav_resample
 
     ## must be implemented in importer if exist speaker id information
-    def get_speaker_id(audio_file_path):
+    def get_speaker_id(self,audio_file_path):
         return ""
 
 
