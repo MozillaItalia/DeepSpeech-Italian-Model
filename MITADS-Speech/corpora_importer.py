@@ -133,7 +133,7 @@ class ArchiveImporter:
             else:
                 ##extract other gzip, bz2 and lzma
                 tar = tarfile.open(archive_path)
-                tar.extractall(extracted_path)
+                tar.extractall(target_dir)
                 tar.close()
         else:
             print(f"Found directory {extracted_path} - not extracting it from archive.")
