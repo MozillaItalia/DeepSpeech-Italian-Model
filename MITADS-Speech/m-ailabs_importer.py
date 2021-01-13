@@ -53,7 +53,7 @@ if __name__ == "__main__":
     archivie_url = 'https://www.caito.de/data/Training/stt_tts/it_IT.tgz'
 
     data_dir = None
-    data_dir = 'F:\\DATASET-MODELS\\speech_dataset\\CORPORA-IT-AUDIO\\M-AILABS'
+    ##data_dir = 'F:\\DATASET-MODELS\\speech_dataset\\CORPORA-IT-AUDIO\\M-AILABS'
     m_ailabs_importer = MAILabsImporter(corpus_name,archivie_url,data_dir=data_dir)
     
     m_ailabs_importer.run()
