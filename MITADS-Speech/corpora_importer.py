@@ -72,6 +72,10 @@ class Corpus:
         self.datasets_sizes = datasets_sizes
         self.make_wav_resample = make_wav_resample
 
+    ## must be implemented in importer if exist speaker id information
+    def get_speaker_id(audio_file_path):
+        return ""
+
 
 class ArchiveImporter:
     def __init__(self,corpus_name,archive_url,extract_dir=None,output_path=None, data_dir=None,csv_append_mode=False):
