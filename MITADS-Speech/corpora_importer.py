@@ -18,6 +18,7 @@ from utils.downloader import SIMPLE_BAR, maybe_download
 from collections import Counter
 logging.basicConfig(level=logging.DEBUG)
 import sox
+from charset_normalizer import CharsetNormalizerMatches as CnM
 
 SAMPLE_RATE = 16000
 BITDEPTH = 16
@@ -60,6 +61,15 @@ def string_escape(s,encoding_from ="latin1", encoding='utf-8'):
 def get_counter():
     return Counter({'all': 0, 'failed': 0, 'invalid_label': 0, 'too_short': 0, 'too_long': 0, 'imported_time': 0, 'total_time': 0})
 
+
+def encoding_from_path(txt_file_path):
+    file_encoding ='utf-8'                   
+    enc = CnM.from_path(txt_file_path).best().first()
+    file_encoding = enc.encoding
+    ##fix same encoding 
+    if(file_encoding=='big5' or file_encoding=='cp1252' ):
+        file_encoding = 'utf-8'  
+    return file_encoding   
 
 class Corpus:
     def __init__(self,utterences:dict,audios:list,datasets_sizes = [0.8,0.1,0.1],make_wav_resample=False): 
