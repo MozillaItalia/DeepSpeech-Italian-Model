@@ -52,7 +52,6 @@ L'Output contiene i file csv train/dev/test con le tracrizioni associate ai file
 I file .flac originali sono stati rimodulati in wav a 16bit, mono, 16Khz. 
 Totale ore estratte: ? 
 
-
 ## M-AILABS extractor
 [M-AILABS Speech Dataset](https://www.caito.de/2019/01/the-m-ailabs-speech-dataset/) è un set di dati di grandi dimensioni basato su LibriVox e Project Gutenberg
 
