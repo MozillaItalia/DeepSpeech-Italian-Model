@@ -11,12 +11,14 @@ import re
 import logging
 import progressbar 
 from zipfile import ZipFile
+import tarfile
 from multiprocessing import Pool
 import subprocess
 from utils.downloader import SIMPLE_BAR, maybe_download
 from collections import Counter
 logging.basicConfig(level=logging.DEBUG)
 import sox
+from charset_normalizer import CharsetNormalizerMatches as CnM
 
 SAMPLE_RATE = 16000
 BITDEPTH = 16
@@ -60,6 +62,15 @@ def get_counter():
     return Counter({'all': 0, 'failed': 0, 'invalid_label': 0, 'too_short': 0, 'too_long': 0, 'imported_time': 0, 'total_time': 0})
 
 
+def encoding_from_path(txt_file_path):
+    file_encoding ='utf-8'                   
+    enc = CnM.from_path(txt_file_path).best().first()
+    file_encoding = enc.encoding
+    ##fix same encoding 
+    if(file_encoding=='big5' or file_encoding=='cp1252' ):
+        file_encoding = 'utf-8'  
+    return file_encoding   
+
 class Corpus:
     def __init__(self,utterences:dict,audios:list,datasets_sizes = [0.8,0.1,0.1],make_wav_resample=False): 
 
@@ -71,18 +82,22 @@ class Corpus:
         self.datasets_sizes = datasets_sizes
         self.make_wav_resample = make_wav_resample
 
+    ## must be implemented in importer if exist speaker id information
+    def get_speaker_id(self,audio_file_path):
+        return ""
+
 
 class ArchiveImporter:
-    def __init__(self,corpus_name,archive_url,extract_dir=None, data_dir=None,csv_append_mode=False):
+    def __init__(self,corpus_name,archive_url,extract_dir=None,output_path=None, data_dir=None,csv_append_mode=False):
         self.corpus_name=corpus_name
         self.archive_url=archive_url
         # Make archive_name from archive_filename
-        archive_filename = self.archive_url.rsplit('/', 1)[-1]
+        self.archive_filename = self.archive_url.rsplit('/', 1)[-1]
         # os.path.splitext:
         # tar.gz: will split ("file.name.tar",".gz")
         # but will split correctly "cnz_1.0.0.zip" into ("cnz_1.0.0","zip")
-        self.archive_name = os.path.splitext(archive_filename)[0]
-        if self.archive_filename.endswith(".tar"):
+        self.archive_name = os.path.splitext(self.archive_filename)[0]
+        if self.archive_name.endswith(".tar"):
           self.archive_name = self.archive_name.replace(".tar","")
         self.extract_dir = self.archive_name
         if extract_dir is not None:
@@ -92,7 +107,7 @@ class ArchiveImporter:
         
         self.origin_data_path = os.path.join(self.dataset_path, "origin") if data_dir==None else  data_dir
         
-        self.dataset_output_path = os.path.abspath(self.corpus_name)
+        self.dataset_output_path = os.path.abspath(self.corpus_name) if output_path==None else os.path.join(output_path, self.corpus_name) 
         self.csv_append_mode = csv_append_mode
 
     def run(self):
@@ -122,9 +137,18 @@ class ArchiveImporter:
         extracted_path = os.path.join(target_dir, extract_dir)
         if not os.path.exists(extracted_path):
             print(f"No directory {extracted_path} - extracting archive...")
-            with ZipFile(archive_path, "r") as zipobj:
-                # Extract all the contents of zip file in current directory
-                zipobj.extractall(target_dir)
+
+            ##check file if zip or tar
+            if(archive_path.endswith('.zip')):
+                ##extraxt zip file
+                with ZipFile(archive_path, "r") as zipobj:
+                    # Extract all the contents of zip file in current directory
+                    zipobj.extractall(target_dir)
+            else:
+                ##extract other gzip, bz2 and lzma
+                tar = tarfile.open(archive_path)
+                tar.extractall(target_dir)
+                tar.close()
         else:
             print(f"Found directory {extracted_path} - not extracting it from archive.")
 
@@ -141,58 +165,70 @@ class ArchiveImporter:
         if(num_samples==0):
             return
 
-        if(corpus.make_wav_resample):
-                        
-            # Mutable counters for the concurrent embedded routine
-            counter = get_counter()
-            print(f"Converting wav/mp3 files to wav {SAMPLE_RATE}hz...")
-            pool = Pool()
-            bar = progressbar.ProgressBar(max_value=num_samples, widgets=SIMPLE_BAR)
-            rows = []
-            for i, processed in enumerate(pool.imap_unordered(self.one_sample,samples), start=1):
-                counter += processed[0]
-                rows += processed[1]
-                bar.update(i)
-            bar.update(num_samples)
-            pool.close()
-            pool.join()
-            
-            ## rows contains wav filenames filtered
-            filenames_filtered = [r[0] for r in rows]
-            for f in corpus.audios:
-                if f not in filenames_filtered:
-                    ##remove item
-                    corpus.audios.remove(f)
-                    del corpus.utterences[f]
-            ########################################
-
-        self._write_csv(corpus)
+        ## all examples are processed, even if the resample is not necessary, the duration or other filters should be evaluated
+        samples = [ [a,corpus.make_wav_resample] for a in corpus.audios ] 
+        ##self.one_sample(samples[0])
+        # Mutable counters for the concurrent embedded routine
+        counter = get_counter()
+        print(f"Converting wav/mp3 files to wav {SAMPLE_RATE}hz...")
+        pool = Pool()
+        bar = progressbar.ProgressBar(max_value=num_samples, widgets=SIMPLE_BAR)
+        rows = []
+        for i, processed in enumerate(pool.imap_unordered(self.one_sample,samples), start=1):
+            counter += processed[0]
+            rows += processed[1]
+            bar.update(i)
+        bar.update(num_samples)
+        pool.close()
+        pool.join()        
+       
+        ########################################
+        ## filtered rows data are evaluated in write_csv
+        self._write_csv(corpus,rows)
 
     def _maybe_convert_wav(self,mp3_filename, wav_filename):
         if not os.path.exists(wav_filename):
             transformer = sox.Transformer()
-            transformer.convert(samplerate=SAMPLE_RATE,n_channels=CHANNELS, bitdepth=BITDEPTH)
+            transformer.convert(samplerate=SAMPLE_RATE,n_channels=N_CHANNELS, bitdepth=BITDEPTH)
             try:
                 transformer.build(str(mp3_filename), str(wav_filename))
             except sox.core.SoxError:
                 pass
 
+    ##overrider this to filter
+    def row_validation(self,filename,duration,comments):
+        ##return True 
+        return True
+
     def one_sample(self,sample):
-        mp3_wav_filename = sample
-        # Storing wav files next to the mp3 ones - just with a different suffix
+
+        mp3_wav_filename = sample[0]
+        make_wav_resample = sample[1]
+        # Storing wav files next to the audio filename ones - just with a different suffix
         wav_filename = path.splitext(mp3_wav_filename)[0] + ".wav"
-        self._maybe_convert_wav(mp3_wav_filename, wav_filename)            
+
+        ##Note: to get frames/duration for mp3/wav audio we not use soxi command but sox.file_info.duration(
+        ##soxi command is not present in Windows sox distribution  - see this  https://github.com/rabitt/pysox/pull/74
+        duration = sox.file_info.duration(mp3_wav_filename)
+        comments = ""
+        try:
+          comments=sox.file_info.comments(mp3_wav_filename)
+        except UnicodeError as e:
+          try:
+            completedProcess=subprocess.run(["soxi", "-a", mp3_wav_filename], stdout=subprocess.PIPE)
+            comments=completedProcess.stdout.decode("utf-8", "ignore")
+          except:
+            pass
+        frames = duration * SAMPLE_RATE
+
+        if(make_wav_resample):
+            self._maybe_convert_wav(mp3_wav_filename, wav_filename)            
   
         file_size = -1
-        ##frames = None
-        frames = -1
         if os.path.exists(wav_filename):
             file_size = path.getsize(wav_filename)
 
-            ##Note: to get frames/duration for mp3/wav audio we not use soxi command but sox.file_info.duration(
-            ##soxi command is not present in Windows sox distribution  - see this  https://github.com/rabitt/pysox/pull/74
-            duration = sox.file_info.duration(wav_filename)
-            frames = duration * SAMPLE_RATE
+        is_valid = self.row_validation(mp3_wav_filename,duration,comments)
 
         label = '' ##label not managed  ##validate_label(sample[1])
         rows = []
@@ -201,7 +237,7 @@ class ArchiveImporter:
             # Excluding samples that failed upon conversion
             print(f'Conversion failed {mp3_wav_filename}')
             counter["failed"] += 1
-        elif label is None:
+        elif label is None or not is_valid:
             # Excluding samples that failed on label validation
             counter["invalid_label"] += 1
         elif int(frames / SAMPLE_RATE * 1000 / 10 / 2) < len(str(label)):
@@ -214,14 +250,14 @@ class ArchiveImporter:
             counter["too_long"] += 1
         else:
             # This one is good - keep it for the target CSV
-            rows.append((mp3_wav_filename, file_size, label))
+            rows.append((mp3_wav_filename, file_size, label,duration,comments))
             counter["imported_time"] += frames
         counter["all"] += 1
         counter["total_time"] += frames
         return (counter, rows)
     
 
-    def _write_csv(self,corpus:Corpus):
+    def _write_csv(self,corpus:Corpus,filtered_rows):
 
         print(f"Writing CSV file")
         audios = corpus.audios
@@ -231,15 +267,30 @@ class ArchiveImporter:
         samples_len = len(audios)
         for _file in audios:
 
+            row_data = None
+            for r in filtered_rows:
+                if(r[0]==_file):
+                   row_data = r
+                   break 
+
+            ##skip if not filtered
+            if(row_data==None):
+                continue
+            
+            duration = row_data[3]
+            comments = row_data[4]
+
             st = os.stat(_file)
             file_size = st.st_size
             utterence = utterences[_file]
+
             utterence_clean = utterence      
+            speaker_id = corpus.get_speaker_id(_file)
             ##make relative path audio file
             _file_relative_path =  _file.replace(self.origin_data_path,'') 
             _file_relative_path = ''.join(['/' if c=='\\' or c=='/' else c for c in _file_relative_path])[1:]
 
-            csv_line = f"{_file_relative_path},{file_size},{utterence_clean}\n"
+            csv_line = f"{speaker_id},{_file_relative_path},{file_size},{utterence_clean},{duration},{comments}\n"
             csv.append(csv_line)
 
         #shuffle set
@@ -260,23 +311,23 @@ class ArchiveImporter:
         with open(os.path.join(self.dataset_output_path, "train_full.csv"), file_open_mode,encoding='utf-8') as fd:
             
             if(not self.csv_append_mode):
-                fd.write("wav_filename,wav_filesize,transcript\n")
+                fd.write("speaker_id,wav_filename,wav_filesize,transcript,duration,comments\n")
             
             for i in csv:
                 fd.write(i)
         with open(os.path.join(self.dataset_output_path, "train.csv"), file_open_mode,encoding='utf-8') as fd:
             if(not self.csv_append_mode):
-                fd.write("wav_filename,wav_filesize,transcript\n")
+                fd.write("speaker_id,wav_filename,wav_filesize,transcript,duration,comments\n")
             for i in train_data:
                 fd.write(i)
         with open(os.path.join(self.dataset_output_path, "dev.csv"), file_open_mode,encoding='utf-8') as fd:
             if(not self.csv_append_mode):
-                fd.write("wav_filename,wav_filesize,transcript\n")
+                fd.write("speaker_id,wav_filename,wav_filesize,transcript,duration,comments\n")
             for i in dev_data:
                 fd.write(i)
         with open(os.path.join(self.dataset_output_path, "test.csv"), file_open_mode,encoding='utf-8') as fd:
             if(not self.csv_append_mode):
-                fd.write("wav_filename,wav_filesize,transcript\n")
+                fd.write("speaker_id,wav_filename,wav_filesize,transcript,duration,comments\n")
             for i in test_data:
                 fd.write(i)
 
