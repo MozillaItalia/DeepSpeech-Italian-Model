@@ -47,7 +47,7 @@ chmod +x generate_base_dockerfile.sh
 ./generate_base_dockerfile.sh
 
 # build base
-docker build . -f Dockerfile.train -t deepspeech/base:0.8.0
+docker build . -f Dockerfile.train -t deepspeech/base:0.9.3
 # build italiana
 docker build . -f Dockerfile_it.train -t deepspeech/it
 ```
