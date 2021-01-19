@@ -22,7 +22,7 @@ Python 3.7+
    source $HOME/tmp/deepspeech-venv/bin/activate
 
    # Installa DeepSpeech
-   pip3 install deepspeech==0.8.0
+   pip3 install deepspeech==0.9.3
 
    # Scarica e scompatta i file per il modello italiano (verifica l'ultima versione rilasciata!)
    curl -LO https://github.com/MozillaItalia/DeepSpeech-Italian-Model/releases/download/2020.08.07/model_tensorflow_it.tar.xz
