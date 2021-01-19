@@ -15,7 +15,7 @@ pushd $DS_DIR
 		# uncomment if you want to delete all the tar.gz archives
 		# rm -rf /mnt/extracted/data/voxforge/archive
 		# del blacklisted speakers
-		rm -rf /mnt/extracted/data/voxforge/train/anonymous-20080723-ouv
+		rm -rf /mnt/extracted/data/voxforge/train/anonymous-20080504-qvg
 		rm -rf /mnt/extracted/data/voxforge/train/anonymous-20080723-ouv
 		rm -rf /mnt/extracted/data/voxforge/train/anonymous-20080725-dey
 		rm -rf /mnt/extracted/data/voxforge/train/Vistaus-20080718-mrm
