@@ -1,81 +1,83 @@
 # DeepSpeech Italian Model
 
-Aggregatore degli strumenti per la generazione di un modello di machine learning per la lingua Italiana del progetto Common Voice. Ci trovi su Telegram con il nostro bot [@mozitabot](https://t.me/mozitabot) nel gruppo Developers dove dirigiamo e discutiamo lo sviluppo oppure sul [forum](https://discourse.mozilla.org/c/community-portal/mozilla-italia).
+*Read this in other languages: [Italian](README.it-IT.md)*
+
+Aggregator of tools for generating a machine learning model for the Italian language of the Common Voice project. You can find us on Telegram with our bot [@mozitabot](https://t.me/mozitabot) in the Developers group where we direct and discuss development or on the [forum](https://discourse.mozilla.org/c/community-portal/mozilla-italia).
 
 ---
 
-## Regole
+## Rules
 
-* Ticket e pull requests in inglese
-* Readme in Italiano
+* Ticket and pull requests in English
+* Readme in Italian
 
-## Requisiti
+## Requirements
 
 Python 3.7+
 
 ## Quick Start
 
-### Usa colab:
+### Use colab:
 </br>
 
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/MozillaItalia/DeepSpeech-Italian-Model)
 
-### oppure:
+### or:
 ```bash
 
-   # Attiva un virtualenv
+   # Activate a virtualenv
    virtualenv -p python3 $HOME/tmp/deepspeech-venv/
    source $HOME/tmp/deepspeech-venv/bin/activate
 
-   # Installa DeepSpeech
+   # Install DeepSpeech
    pip3 install deepspeech==0.9.3
 
-   # Scarica e scompatta i file per il modello italiano (verifica l'ultima versione rilasciata!)
+   # Download and unpack the files for the Italian model (check the latest version released!)
    curl -LO https://github.com/MozillaItalia/DeepSpeech-Italian-Model/releases/download/2020.08.07/model_tensorflow_it.tar.xz
-   tar xvf model_tensorflow_it.tar.xz
+   tar xvf model_tensorflow_en.tar.xz
 
-   # Oppure utilizza il modello italiano con transfer learning da quello inglese (verifica l'ultima versione rilasciata!)
+   # Or use the Italian model with transfer learning from the English one (check the latest released version!)
    curl -LO https://github.com/MozillaItalia/DeepSpeech-Italian-Model/releases/download/2020.08.07/transfer_model_tensorflow_it.tar.xz
-   tar xvf transfer_model_tensorflow_it.tar.xz
-   
-   # estrai un sample a caso dal dataset cv_tiny
-   wget -c https://github.com/MozillaItalia/DeepSpeech-Italian-Model/files/4610711/cv-it_tiny.tar.gz -O - | tar -xz common_voice_it_19574474.wav
+   tar xvf transfer_model_tensorflow_en.tar.xz
 
-   # Trascrivi (audio MONO, formato WAV e campionato a 16000Hz)
-   deepspeech --model output_graph.pbmm --scorer scorer --audio common_voice_it_19574474.wav
+   # extract a random sample from the cv_tiny dataset
+   wget -c https://github.com/MozillaItalia/DeepSpeech-Italian-Model/files/4610711/cv-it_tiny.tar.gz -O - | tar -xz common_voice_en_19574474.wav
+
+   # Transcribe (MONO audio, WAV format and sampled at 16000Hz)
+   deepspeech --model output_graph.pbmm --scorer scorer --audio common_voice_en_19574474.wav
 ```
 
-### Differenze del modello italiano puro e con transfer learning
+### Differences between pure italian model and with transfer learning
 
-Da 08/2020 rilasciamo il modello in due versioni, puro ovvero solo dataset di lingua italiana (specificato nel release) e la versione con transfer learning.  
-La seconda versione include il transfer learning dal modello di lingua ufficiale rilasciato da Mozilla, che include altri dataset oltre a quello di Common Voice superando le oltre 7000 ore di materiale. Questo modello si è dimostrato molto piú affidabile nel riconoscimento viste le poche ore di lingua italiana che disponiamo al momento.
+From 08/2020 we release the model in two versions, one "from scratch" that is only Italian language dataset (specified in the release) and another version trained with transfer learning technique.  
+The second one is trained from the official model checkpoint released by Mozilla, which includes other datasets in addition to the Common Voice one, exceeding more than 7000 hours of material. This model proved to be much more reliable in recognition given the few hours of Italian language that we have at the moment.
 
-## Sviluppo
+## Development
 
-### Corpora per il modello del linguaggio
+### Corpora for the language model
 
-Nella cartella MITADS sono presenti tutti gli script che permettono la generazione del corpus testuale [MITADS](https://github.com/MozillaItalia/DeepSpeech-Italian-Model/releases/tag/Mitads-1.0.0-alpha2). Per maggiori informazioni fare riferimento al [README relativo](MITADS/README.md).
+In the folder MITADS there are all the scripts that allow the generation of the textual corpus [MITADS](https://github.com/MozillaItalia/DeepSpeech-Italian-Model/releases/tag/Mitads-1.0.0-alpha2). Please refer to the [related README](MITADS/README.md) for more information.
 
-### Addestramento del modello
+### Model Training
 
-Fare riferimento al [README](DeepSpeech/README.md) nella cartella DeepSpeech per la documentazione necessaria per creare l'immagine Docker utilizzata per addestrare il modello acustico e del linguaggio.
+Refer to the [README](DeepSpeech/README.md) in the DeepSpeech folder for the documentation needed to create the Docker image used to train the acoustic and language model.
 
-### Generare il modello con COLAB [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/MozillaItalia/DeepSpeech-Italian-Model)
+### Generate the model with COLAB [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/MozillaItalia/DeepSpeech-Italian-Model)
 
-Fare riferimento al [README in notebooks](notebooks/README.md).
+Refer to the [README in notebooks](notebooks/README.md).
 
-### Come programmare con DeepSpeech
+### How to program with DeepSpeech
 
-Fare riferimento al nostro [wiki](https://github.com/MozillaItalia/DeepSpeech-Italian-Model/wiki) in costruzione che contiene link e altro materiale.
+Refer to our [wiki](https://github.com/MozillaItalia/DeepSpeech-Italian-Model/wiki) under construction which contains links and other material.
 
-### Risorse
+### Resources
 
-* [Roadmap per lo sviluppo](https://docs.google.com/document/d/1cep28JAv9f90LkIpVmJjR0lTDqW5Hp_YF7R-nVJ2zkY/edit)
-* [Pacchetto di esempio su come è strutturato il dataset di Common Voice](https://github.com/MozillaItalia/DeepSpeech-Italian-Model/files/4610711/cv-it_tiny.tar.gz)
-* Esempi di importatore di dataset minimali: ldc93s1 [python per DeepSpeech](https://github.com/mozilla/DeepSpeech/blob/master/bin/import_ldc93s1.py) e [lanciatore bash](https://github.com/mozilla/DeepSpeech/blob/master/bin/run-ldc93s1.sh)
+* [Roadmap for Development](https://docs.google.com/document/d/1cep28JAv9f90LkIpVmJjR0lTDqW5Hp_YF7R-nVJ2zkY/edit)
+* [Sample package on how the Common Voice dataset is structured](https://github.com/MozillaItalia/DeepSpeech-Italian-Model/files/4610711/cv-it_tiny.tar.gz)
+* Examples of minimal dataset importer: ldc93s1 [python for DeepSpeech](https://github.com/mozilla/DeepSpeech/blob/master/bin/import_ldc93s1.py) and [bash launcher](https://github.com/mozilla/DeepSpeech/blob/master/bin/run-ldc93s1.sh)
 * https://voice.mozilla.org/it
 * https://github.com/mozilla/DeepSpeech
 * https://github.com/mozilla/voice-corpus-tool
 * https://github.com/Common-Voice/sentence-collector
-* https://github.com/Common-Voice/commonvoice-fr - Il repository da cui questo è derivato
-* https://github.com/MozillaItalia/voice-web - Il dataset primario di frasi italiane lo manteniamo qui
+* https://github.com/Common-Voice/commonvoice-fr - The repository from which this is derived
+* https://github.com/MozillaItalia/voice-web - The primary dataset of Italian phrases we maintain here
