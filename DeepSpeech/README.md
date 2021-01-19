@@ -1,42 +1,43 @@
 DeepSpeech ITA
 =================
+*Read this in other languages: [Italian](README.it-IT.md)*
 
-* [Generare il modello](#generate)
+* [Generate the model](#generate)
   * [CommonVoice Dataset](#cv)
-  * [Creare immagine Docker](#docker)
-  * [Avviare l'addestramento](#training)
-  * [Eseguire i singoli step](#steps)
-* [Configurazione del container Docker](#config)
+  * [Create Docker Image](#docker)
+  * [Start training](#training)
+  * [Execute individual steps](#steps)
+* [Docker container configuration](#config)
   * [Env files](#env_files)
-* [Lista dei parametri](#params)
+* [Parameter list](#params)
 
 
 <a name="generate"></a>
-## Generare il modello
+## Generate the model
 
-#### Attenzione!
-Prima di iniziare, la nuova immagine base Docker di Deepspeech necessita di [nvidia-docker](https://github.com/NVIDIA/nvidia-docker).
+#### Warning!
+Before we start, the new Deepspeech Docker base image needs [nvidia-docker](https://github.com/NVIDIA/nvidia-docker).
 
-Nel README della repository di NVIDIA trovate le istruzioni a seconda del vostro sistema.
+In the README of the NVIDIA repository you will find instructions depending on your system.
 
-Durante il processo di training la cartella ```$HOME/data``` occuperá diverse decine di GB di spazio sul disco. Se si vuole usare un'altra cartella (es. su un'altra partizione) sostituire in _tutti_ i comandi successivi ```$HOME/data``` con il path della nuova cartella.
+During the training process the folder ``$HOME/data`` will take up several tens of GB of disk space. If you want to use another folder (e.g. on another partition) replace in _all_ the following commands ``$HOME/data`` with the path to the new folder.
 
 <a name="cv"></a>
-### Preparare il dataset di CommonVoice
+### Prepare CommonVoice dataset
 
-* Scaricare il dataset [CommonVoice italiano](https://commonvoice.mozilla.org/it/datasets) in ```$HOME/data```
+* Download the dataset [CommonVoice italian](https://commonvoice.mozilla.org/it/datasets) in ``$HOME/data``
 
 
 ```bash
  cd $HOME
  mkdir -p data/sources
  chmod a+rwx -R data
- mv it.tar.gz data/sources # versione 3 di common voice
- chmod a+r data/sources/it.tar.gz
+ mv en.tar.gz data/sources # version 3 of common voice
+ chmod a+r data/sources/en.tar.gz
  ```
 
  <a name="docker"></a>
-### Creare l'immagine Docker
+### Create the Docker image
 
 ```bash
 cd $HOME
@@ -48,87 +49,87 @@ chmod +x generate_base_dockerfile.sh
 
 # build base
 docker build . -f Dockerfile.train -t deepspeech/base:0.9.3
-# build italiana
+# Italian build
 docker build . -f Dockerfile_it.train -t deepspeech/it
 ```
 
  <a name="training"></a>
-### Avviare l'addestramento
+### Start training
 
- * Avviando l'immagine verrà eseguita la  routine di addestramento con i valori già preimpostati nel Dockerfile:
+ * Starting the image will run the training routine with the values already preset in the Dockerfile:
 
 
  ```bash
  docker run --rm --gpus all --mount type=bind,src=$HOME/data,dst=/mnt -it deepspeech/it
 ```
-* **ATTENZIONE** Lo Step di addestramento vero e proprio potrà essere eseguito solamente con l'interazione dell'utente (`Press a button to continue..`) permettendo un check finale dei parametri che verranno passati a DeepSpeech
+* **WARNING** The real training step can be executed only with the user interaction (`Press a button to continue..`) allowing a final check of the parameters that will be passed to DeepSpeech.
 
-* Terminata l'esecuzione nella directory `$HOME/data` o nella directory `/mnt` nel container Docker, verranno creati i files:
-    * `it-it.zip` contenente il modello TFlite
-    * `mode_tensorflow_it.tar.xz` contenente il modello memory mapped
-    * `checkpoint_it.tar.xz` contenente l'ultimo checkpoint dal validation set
+* After the execution in the directory `$HOME/data` or in the directory `/mnt` in the Docker container, the files will be created:
+    * `it-it.zip` containing the TFlite model.
+    * `mode_tensorflow_it.tar.xz` containing the memory mapped model
+    * `checkpoint_en.tar.xz` containing the last checkpoint from the validation set
 
 <a name="steps"></a>
-### Eseguire i singoli step
+### Execute individual steps
 
-È possibile fare override dell'istruzione `entrypoint` di Docker per utilizzare la shell del container. In questo modo possono essere avviati singolarmente i vari script per poter sperimentare.
+You can override Docker's `entrypoint` statement to use the container shell. This way the various scripts can be started individually for experimentation.
 
-Per maggiori informazioni sul ruolo dei vari script si rimanda al relativo [README](it/README.md)
+For more information on the role of the various scripts see the related [README](en/README.md)
 
 ```bash
 docker run --rm --gpus all --mount type=bind,src=$HOME/data,dst=/mnt --entrypoint /bin/bash -it deepspeech/it
 ```
 
 <a name="config"></a>
-## Configurazione del container Docker
+## Docker container configuration
 
-È possibile modificare i parametri impostati nel ```Dockerfile_it.train``` utilizzando il flag ```-e``` seguito dal nome della variabile e il suo nuovo valore.
+You can change the parameters set in the ``Dockerfile_en.train`` using the ``-e`` flag followed by the variable name and its new value.
 
 ```bash
- docker run -e "TRANSFER_LEARNING=1" -e "DROP_SOURCE_LAYERS=3" --rm --gpus all --mount type=bind,src=$HOME/data,dst=/mnt -it deepspeech/it
+ docker run -e "TRANSFER_LEARNING=1" -e "DROP_SOURCE_LAYERS=3" --rm --gpus all --mount type=bind,src=$HOME/data,dst=/mnt -it deepspeech/en
 ```
 
 <a name="env_files"></a>
 ### .env files
 
-In combinazione al flag ```-e``` è possibile modificare i parametri del Dockerfile con un file ```.env``` contenente la lista dei parametri da passare.
+In combination with the ``-e`` flag it is possible to modify the Dockerfile parameters with a ``.env`` file containing the list of parameters to be passed.
 
-Alcuni ```.env``` files di esempio sono presenti nella cartella ```DeepSpeech/env_files``` e possono essere passati tramite il flag ```--env-file``` al ```run``` di Docker.
+Some example ```.env``` files are present in the ``DeepSpeech/env_files`` folder and can be passed via the ``--env-file`` flag to the Docker ``run``.
 
-* ```fast_dev.env```: ogni passaggio dell'addestramento di DeepSpeech verrà eseguito velocemente per testare ogni step.
+* ``fast_dev.env``: each step of DeepSpeech training will be run fast to test each step.
 
 ```bash
 cat fast_dev.env
   BATCH_SIZE=2
   EPOCHS=2
   FAST_TRAIN=1
-docker run --env-file env_files/fast_dev.env --rm --gpus all --mount type=bind,src=$HOME/data,dst=/mnt -it deepspeech/it
+docker run --env-file env_files/fast_dev.env --rm --gpus all --mount type=bind,src=$HOME/data,dst=/mnt -it deepspeech/en
 ```
 
-* ```do_transfer_learning.env```: viene aggiunto il flag ```DROP_SOURCE_LAYERS=1``` e verrà utilizzato il checkpoint del modello inglese di DeepSpeech.
+* ```do_transfer_learning.env```: the flag ```DROP_SOURCE_LAYERS=1``` is added and the checkpoint of the DeepSpeech English model will be used.
 
-* ```only_export.env```: se presente un checkpoint di una precedente iterazione, viene saltata la fase di addestramento e si procede alla creazione dei vari files binari del modello
+* ```only_export.env```: if a checkpoint of a previous iteration is present, the training phase is skipped and the various binary files of the model are created
 
-* ```run_lm_optimizer.env```: viene aggiornato il flag ```LM_EVALUATE_RANGE=5,5,600``` per avviare lo script ```lm_optimizer.py``` su 600 iterazioni per cercare i migliori valori di ```ALPHA``` e ```BETA``` su un range ```[5,5]```
+* ``run_lm_optimizer.env``: the flag ```LM_EVALUATE_RANGE=5,5,600``` is updated to run the script ```lm_optimizer.py``` over 600 iterations to find the best values of ``ALPHA`` and ``BETA`` over a range ``[5,5]``
 
 <a name="params"></a>
-### Lista dei parametri
+### Parameters list
 
-Per approfondire il significato dei flag e parametri seguenti, sono presenti maggiori dettagli [QUI](http://deepspeech.readthedocs.io/en/v0.8.0/Flags.html)
+More details on the meaning of the following flags and parameters can be found [HERE](http://deepspeech.readthedocs.io/en/v0.8.0/Flags.html)
 
-| PARAMETRO   | VALORE | note |
-| -------------  | ------------- | ------------- |
-| `BATCH_SIZE`   | `64`  |
-| `EPOCHS`       | `30`  |numero di iterazioni
-| `LEARNING_RATE`| `0.0001`  |
-| `N_HIDDEN`| `2048`  |
-| `EARLY_STOP`| `1`  | se `1`, dopo `ES_STOP` iterazioni il valore loss del modello non migliora, l'addestramento si ferma
-| `ES_STOP`      | `10`  | Default in DeepSpeech inglese: `25`
-| `MAX_TO_KEEP`      | `2`  | quanti checkpoints salvare. Default in DeepSpeech inglese: `5`
-| `DROPOUT`      | `0.4`  |
-| `LM_ALPHA`     | `0`  |
-| `LM_BETA`      | `0`  |
-| `LM_EVALUATE_RANGE`| -  | tripletta di valori `MAX_ALPHA,MAX_BETA,N_TRIALS` da assegnare allo script `lm_optimizer.py` (es `5,5,600`)
-| `AMP`      | `1`  | se `TRANSFER_LEARNING` abilitato, questo parametro viene disabilitato. Maggiori informazioni [QUI](https://deepspeech.readthedocs.io/en/v0.8.0/TRAINING.html?highlight=automatic%20mixed%20precision#training-with-automatic-mixed-precision)
-| `TRANSFER_LEARNING`      | `0`  | se `1`, `DROP_SOURCE_LAYERS` viene impostato a `1` e si avvia l'apprendimento dal checkpoint di DeepSpeech inglese scartando l'ultimo layer della rete (maggiori info [QUI](https://deepspeech.readthedocs.io/en/v0.8.0/TRAINING.html#transfer-learning-new-alphabet))
-| `FAST_TRAIN`      | 0  | se `1` si avvia un addestramento rapido solamente per controllare che tutti gli step vadano a buon fine
+| PARAMETER | VALUE | notes |
+| ------------- | ------------- | ------------- |
+| `BATCH_SIZE` | `64` |
+| `EPOCHS` | `30` | number of iterations
+| `LEARNING_RATE`| `0.0001` |
+| `N_HIDDEN`| `2048` |
+| `EARLY_STOP`| `1` | if `1`, after `ES_STOP` iterations the loss value of the model does not improve, the training stops
+| `ES_STOP` | `10` | Default in English DeepSpeech: `25`
+| `MAX_TO_KEEP` | `2` | how many checkpoints to save. Default in DeepSpeech English: `5`
+| `DROPOUT` | `0.4` |
+| `LM_ALPHA` | `0` |
+| `LM_BETA` | `0` |
+| `LM_EVALUATE_RANGE`| - | triplet of values `MAX_ALPHA,MAX_BETA,N_TRIALS` to be assigned to the script `lm_optimizer.py` (e.g. `5,5,600`)
+| `AMP` | `1` | if `TRANSFER_LEARNING` enabled, this parameter is disabled. More information [HERE](https://deepspeech.readthedocs.io/en/v0.8.0/TRAINING.html?highlight=automatic%20mixed%20precision#training-with-automatic-mixed-precision)
+| `TRANSFER_LEARNING` | `0` | if `1`, `DROP_SOURCE_LAYERS` is set to `1` and start learning from the English DeepSpeech checkpoint discarding the last layer of the network (more info [HERE](https://deepspeech.readthedocs.io/en/v0.8.0/TRAINING.html#transfer-learning-new-alphabet))
+| `FAST_TRAIN` | 0 | if `1` you start a fast training just to check that all steps are successful

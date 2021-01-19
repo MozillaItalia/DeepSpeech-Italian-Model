@@ -1,32 +1,33 @@
-# Perché
+*Read this in other languages: [Italian](README.it-IT.md)*
+# Why
 
-Lo scopo è quello di generare un corpus testuale con fonti libere, che il testo sia stato scritto dopo il 1920/30 per un Italiano più moderno e che il testo stesso sia colloquiale.
+The purpose is to generate a text corpus with free sources, that the text was written after 1920/30 for a more modern Italian and that the text itself is colloquial.
 
-# Installazione
+# Installation
 
 * Python 3.7+
 
 ```
-sudo apt install libdb-dev # per Ubuntu/Debian
+sudo apt install libdb-dev # for Ubuntu/Debian
 pip3 install -r requirements.txt
 ```
 
 ## Gutenberg extractor
 
-Per utilizzare l'estrattore vanno inseriti in un file chiamato "books_list.txt" gli indirizzi alle pagine dei libri in formato html (con o senza immagini) mettendone uno per riga.  
-Questo file è già fornito con lo script.
+To use the extractor you have to insert in a file called "books_list.txt" the addresses to the pages of the books in html format (with or without images) putting one per line.  
+This file is already provided with the script.
 
 ## OpenSubTitle exporter
 
-Richiede come primo parametro la cartella con il dataset di OpenSubTitles.
+It requires as first parameter the folder with the OpenSubTitles dataset.
 
 ## Wikiquote exporter
 
-Richiede che il dump di wikiquote sia scaricato e il file xml estratto. In automatico estrarra il contenuto generando un nuovo file di testo.
+It requires that the wikiquote dump is downloaded and the xml file extracted. It will automatically extract the content generating a new text file.
 
 ## Wikisource extractor
-L'estrattore utilizza una lista con il nome dei libri da scaricare da wikisource e poi processa i file txt dei libri uno ad uno e li pulisce e formatta e poi tutto viene tutto inserito in un unico file txt di output
-Cose additionali da fare: aggiungere proxies per evitare ban, parallelizzare per velocità
+The extractor uses a list with the name of the books to download from wikisource and then processes the txt files of the books one by one and cleans and formats them and then everything is put into a single txt output file.
+Additional things to do: add proxies to avoid bans, parallelize for speed
 
 ## Eulogos Chat extractor
-A partire dalla home del sito vengono visitate le subpages contenenti i datasets delle chat ed estratto il contenuto.
+Starting from the home page of the site, the subpages containing the chat datasets are visited and the content is extracted.
