@@ -1,16 +1,18 @@
-# Colab notebooks per DeepSpeech 0.8
+# Colab notebooks per DeepSpeech
 
 Colab notebooks dedicati allo sviluppo del modello DeepSpeech.
-* notebook per generare il language model (scorer)
-* notebook dedicato al training con possibilità di fine tuning e transfer learning
+* ```deepspeech_lm.ipynb```: notebook per generare il language model (scorer)
+* ```deepspeech_training.ipynb```: notebook dedicato al training con possibilità di fine tuning e transfer learning
 
 
 ## Attenzione!
-* Una volta collegato un archivio Google Drive, ogni file che viene cancellato da python/script, viene <b>spostato nel cestino</b> del vostro account Drive.  
-Ciò comporta che, durante la fase di training, i checkpoints non definitivamente eliminati andranno a <b>saturare tutto lo spazio disponibile!</b>
 * Dedicare un po' di tempo a leggere ogni cella del notebook :) non caricarle tutte insieme!  
 
 ## Quick Start
+
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/MozillaItalia/DeepSpeech-Italian-Model)
+
+### o manualmente: 
 
  * Andare su: https://colab.research.google.com/ con il vostro account Google
  * Se non viene visualizzato il popup per l'upload dei notebooks, andare su ```File -> Open notebook```
