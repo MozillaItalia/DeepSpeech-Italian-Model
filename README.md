@@ -14,7 +14,12 @@ Aggregatore degli strumenti per la generazione di un modello di machine learning
 Python 3.7+
 
 ## Quick Start
+</br>
+</br>
 
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/MozillaItalia/DeepSpeech-Italian-Model/notebooks/quick_start.ipynb)
+
+### oppure
 ```bash
 
    # Attiva un virtualenv
@@ -27,7 +32,7 @@ Python 3.7+
    # Scarica e scompatta i file per il modello italiano (verifica l'ultima versione rilasciata!)
    curl -LO https://github.com/MozillaItalia/DeepSpeech-Italian-Model/releases/download/2020.08.07/model_tensorflow_it.tar.xz
    tar xvf model_tensorflow_it.tar.xz
-   
+
    # Oppure utilizza il modello italiano con transfer learning da quello inglese (verifica l'ultima versione rilasciata!)
    curl -LO https://github.com/MozillaItalia/DeepSpeech-Italian-Model/releases/download/2020.08.07/transfer_model_tensorflow_it.tar.xz
    tar xvf transfer_model_tensorflow_it.tar.xz
