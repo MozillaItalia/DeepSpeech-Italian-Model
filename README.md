@@ -60,7 +60,7 @@ Nella cartella MITADS sono presenti tutti gli script che permettono la generazio
 
 Fare riferimento al [README](DeepSpeech/README.md) nella cartella DeepSpeech per la documentazione necessaria per creare l'immagine Docker utilizzata per addestrare il modello acustico e del linguaggio.
 
-### Generare il modello con COLAB
+### Generare il modello con COLAB [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/MozillaItalia/DeepSpeech-Italian-Model)
 
 Fare riferimento al [README in notebooks](notebooks/README.md).
 
