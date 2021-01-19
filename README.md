@@ -17,7 +17,7 @@ Python 3.7+
 </br>
 </br>
 
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/MozillaItalia/DeepSpeech-Italian-Model/notebooks/quick_start.ipynb)
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/MozillaItalia/DeepSpeech-Italian-Model/notebooks)
 
 ### oppure
 ```bash
