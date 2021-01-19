@@ -14,12 +14,13 @@ Aggregatore degli strumenti per la generazione di un modello di machine learning
 Python 3.7+
 
 ## Quick Start
-</br>
+
+### Usa colab:
 </br>
 
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/MozillaItalia/DeepSpeech-Italian-Model)
 
-### oppure
+### oppure:
 ```bash
 
    # Attiva un virtualenv
@@ -36,9 +37,12 @@ Python 3.7+
    # Oppure utilizza il modello italiano con transfer learning da quello inglese (verifica l'ultima versione rilasciata!)
    curl -LO https://github.com/MozillaItalia/DeepSpeech-Italian-Model/releases/download/2020.08.07/transfer_model_tensorflow_it.tar.xz
    tar xvf transfer_model_tensorflow_it.tar.xz
+   
+   # estrai un sample a caso dal dataset cv_tiny
+   wget -c https://github.com/MozillaItalia/DeepSpeech-Italian-Model/files/4610711/cv-it_tiny.tar.gz -O - | tar -xz common_voice_it_19574474.wav
 
-   # Trascrivi un file audio MONO, formato WAV e campionato a 16000Hz
-   deepspeech --model output_graph.pbmm --scorer scorer --audio your/path/to/audio/sampled_at_16Khz.wav
+   # Trascrivi (audio MONO, formato WAV e campionato a 16000Hz)
+   deepspeech --model output_graph.pbmm --scorer scorer --audio common_voice_it_19574474.wav
 ```
 
 ### Differenze del modello italiano puro e con transfer learning
