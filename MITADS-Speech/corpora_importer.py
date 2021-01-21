@@ -109,6 +109,8 @@ class ArchiveImporter:
         
         self.dataset_output_path = os.path.abspath(self.corpus_name) if output_path==None else os.path.join(output_path, self.corpus_name) 
         self.csv_append_mode = csv_append_mode
+        self.filter_max_secs = MAX_SECS ##filter for single clips max duration in second
+        self.filter_min_secs = MIN_SECS ##filter for single clips min duration in second
 
     def run(self):
         self._download_and_preprocess_data()
@@ -243,7 +245,7 @@ class ArchiveImporter:
         elif int(frames / SAMPLE_RATE * 1000 / 10 / 2) < len(str(label)):
             # Excluding samples that are too short to fit the transcript
             counter["too_short"] += 1
-        elif frames / SAMPLE_RATE > MAX_SECS:
+        elif frames / SAMPLE_RATE > self.filter_max_secs:
             # Excluding very long samples to keep a reasonable batch-size
             print(f' Clips too long, {str(frames / SAMPLE_RATE)}  - {mp3_wav_filename}')
 

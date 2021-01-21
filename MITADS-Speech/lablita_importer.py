@@ -8,6 +8,7 @@ import os
 import urllib
 import csv
 import logging
+from corpora_importer import ArchiveImporter
 logging.basicConfig(level=logging.DEBUG)
 
 
@@ -17,29 +18,37 @@ ANNOTATION_PAUSE = '/'
 ANNOTATION_WORD_INC = 'xxx'
 
 
-def main():
+def main(output_root_dir):
+
+    corpus_name = 'lablita'
+    base_importer = ArchiveImporter(corpus_name,'')
+    ##filter max 1 minute, then corpora_collector apply final filter on duration
+    base_importer.filter_max_secs = 60
 
     filter_italian_enabled=True
     # to calculate time elapsed later
     start_time = time.time()
 
-    ROOT_DIR = os.path.dirname(os.path.abspath(__file__)) 
-
     # create output folder
-    output_ipic_folder = ROOT_DIR + os.path.sep + "output_lablita" + os.path.sep
+    output_ipic_folder =  os.path.join(output_root_dir, corpus_name)
+    
     if not os.path.exists(output_ipic_folder):
         os.mkdir(output_ipic_folder)
 
     # sub folders
-    corpus_output_folder = output_ipic_folder + "lablita_corpus" + os.path.sep
+    corpus_output_folder = os.path.join(output_ipic_folder, 'audios')
     if not os.path.exists(corpus_output_folder):
         os.mkdir(corpus_output_folder)   
 
     # write unique csv for all transcription
-    outfilepath = output_ipic_folder+ 'lablita_corpus.csv'
+    outfilepath = os.path.join(output_ipic_folder, 'train_full.csv')
+
     csv_file = open(outfilepath,"w+",encoding="utf8")
     fh_out = csv.writer(csv_file,quoting=csv.QUOTE_NONNUMERIC)
-    fh_out.writerow(['filename','filesize','transcript','transcript_annotated'])
+    
+    ##fh_out.writerow(['filename','filesize','transcript','transcript_annotated'])
+    fh_out.writerow(['speaker_id','wav_filename','wav_filesize','transcript','duration','comments'])
+ 
 
     #to improve performance we write on the append file for the whole download, but comparisons test needed
     #csv_file.close()
@@ -60,6 +69,7 @@ def main():
     the_end = False
     logging.debug('Start DB-IPIC Import Data from url {}'.format(baseurl))
     
+    count_audio_imported = 0
     while(not the_end):
  
         
@@ -162,7 +172,16 @@ def main():
                     parsed_filename_full = parsed_filename + '_' + parsed_term_sequence
 
                     ## save mp3
-                    save_audio(parsed_filename_full,parsed_audio_link,corpus_output_folder)
+                    down_file = save_audio(parsed_filename_full,parsed_audio_link,corpus_output_folder)
+                    
+                    ##resample mp3 to wav 
+                    preprocessed = base_importer.one_sample([down_file,True])
+                    rows = preprocessed[1]
+
+                    if(len(rows)==0):
+                        ##skip, mp3 filtered or not resampled
+                        continue
+                    ##########################
 
                     logging.debug('Import audio+text, file {}'.format(parsed_filename_full))
 
@@ -235,7 +254,15 @@ def save_audio(filename,audio_path,output_dir):
     file_mp3 = output_dir + filename + '.mp3'
     urllib.request.urlretrieve (audio_path, file_mp3)
     
+    ##resample wave
+    return file_mp3
 
 
 if __name__ == "__main__":
-    main()
+
+    output_root_dir = os.path.dirname(os.path.abspath(__file__))
+
+    if len(sys.argv) > 1:
+        output_root_dir = sys.argv[1]
+
+    main(output_root_dir)
