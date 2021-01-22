@@ -5,6 +5,7 @@ from bs4 import BeautifulSoup
 import requests
 import time
 import os
+import sys
 import urllib
 import csv
 import logging
@@ -251,7 +252,7 @@ def save_audio(filename,audio_path,output_dir):
     #with open(file_txt, 'w') as filetowrite:
     #    filetowrite.write(transcription)
 
-    file_mp3 = output_dir + filename + '.mp3'
+    file_mp3 = os.path.join(output_dir,   filename + '.mp3')
     urllib.request.urlretrieve (audio_path, file_mp3)
     
     ##resample wave

@@ -20,6 +20,8 @@ logging.basicConfig(level=logging.DEBUG)
 import sox
 from charset_normalizer import CharsetNormalizerMatches as CnM
 
+from ds_ctcdecoder import Alphabet  
+
 SAMPLE_RATE = 16000
 BITDEPTH = 16
 N_CHANNELS = 1
@@ -194,7 +196,7 @@ class ArchiveImporter:
             transformer.convert(samplerate=SAMPLE_RATE,n_channels=N_CHANNELS, bitdepth=BITDEPTH)
             try:
                 transformer.build(str(mp3_filename), str(wav_filename))
-            except sox.core.SoxError:
+            except (sox.core.SoxError,sox.core.SoxiError):
                 pass
 
     ##overrider this to filter
@@ -211,17 +213,26 @@ class ArchiveImporter:
 
         ##Note: to get frames/duration for mp3/wav audio we not use soxi command but sox.file_info.duration(
         ##soxi command is not present in Windows sox distribution  - see this  https://github.com/rabitt/pysox/pull/74
-        duration = sox.file_info.duration(mp3_wav_filename)
+        
+        duration = -1
+        try:
+            duration = sox.file_info.duration(mp3_wav_filename)
+        except:
+            ## some mp3 in lablita got in error
+            print('sox.file_info.duration error on file {}, retrieve duration via filesize'.format(mp3_wav_filename))
+            pass       
+        
+        
         comments = ""
         try:
           comments=sox.file_info.comments(mp3_wav_filename)
-        except UnicodeError as e:
+        except (UnicodeError,sox.SoxiError) as e:
           try:
             completedProcess=subprocess.run(["soxi", "-a", mp3_wav_filename], stdout=subprocess.PIPE)
             comments=completedProcess.stdout.decode("utf-8", "ignore")
           except:
             pass
-        frames = duration * SAMPLE_RATE
+
 
         if(make_wav_resample):
             self._maybe_convert_wav(mp3_wav_filename, wav_filename)            
@@ -229,6 +240,13 @@ class ArchiveImporter:
         file_size = -1
         if os.path.exists(wav_filename):
             file_size = path.getsize(wav_filename)
+            if(duration==-1):
+                ##retrieve duration from file size
+                ##duration = (file_size - 44) / 16000 / 2
+                ## time = FileLength / (Sample Rate * Channels * Bits per sample /8)
+                duration = file_size /(SAMPLE_RATE * N_CHANNELS * BITDEPTH/8 )
+
+        frames = duration * SAMPLE_RATE
 
         is_valid = self.row_validation(mp3_wav_filename,duration,comments)
 
