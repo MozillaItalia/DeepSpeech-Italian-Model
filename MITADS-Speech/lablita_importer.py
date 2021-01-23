@@ -9,7 +9,7 @@ import sys
 import urllib
 import csv
 import logging
-from corpora_importer import ArchiveImporter
+from corpora_importer import ArchiveImporter,FIELDNAMES_CSV_FULL
 logging.basicConfig(level=logging.DEBUG)
 
 
@@ -44,11 +44,16 @@ def main(output_root_dir):
     # write unique csv for all transcription
     outfilepath = os.path.join(output_ipic_folder, 'train_full.csv')
 
-    csv_file = open(outfilepath,"w+",encoding="utf8")
-    fh_out = csv.writer(csv_file,quoting=csv.QUOTE_NONNUMERIC)
+    csv_columns = FIELDNAMES_CSV_FULL
+    csv_columns.append("annotations")
+    csv_columns_str = ','.join(csv_columns)
+
+    csv_file = open(outfilepath,"w",encoding="utf-8")
+    csv_file.write(csv_columns_str + "\n")
+    ##fh_out = csv.writer(csv_file,quoting=csv.QUOTE_NONNUMERIC)
     
     ##fh_out.writerow(['filename','filesize','transcript','transcript_annotated'])
-    fh_out.writerow(['speaker_id','wav_filename','wav_filesize','transcript','duration','comments'])
+    ##fh_out.writerow(csv_columns)
  
 
     #to improve performance we write on the append file for the whole download, but comparisons test needed
@@ -71,9 +76,8 @@ def main(output_root_dir):
     logging.debug('Start DB-IPIC Import Data from url {}'.format(baseurl))
     
     count_audio_imported = 0
-    while(not the_end):
- 
-        
+    while(not the_end): 
+
         ## perform request 
         ## curl test
         #curl --verbose --request POST --header "Content-Type:multipart/form-data" --form "pag=3"  http://www.lablita.it/app/dbipic/search2.php
@@ -152,11 +156,14 @@ def main(output_root_dir):
                 
                 if(len(parsed_text_unit_text)>0 and parsed_filename!=''):
 
+                    ##################################################################
+                    ##continue paging until you find items 
+                    the_end = False
+                    ############################
+
                     ##filter italian clips 
                     ##  filename start whit first char of current language code (example ifamcv01, epubmn03, bfamdl05)
                     if(filter_italian_enabled and parsed_filename[:1]!='i'):
-                        ##continue other page for sure to take all clips 
-                        the_end = False
                         continue
 
                     ##collect all text unit parsed
@@ -175,28 +182,46 @@ def main(output_root_dir):
                     ## save mp3
                     down_file = save_audio(parsed_filename_full,parsed_audio_link,corpus_output_folder)
                     
+                    ##parse annotation
+                    text_annotaded = parse_text_annotation(parsed_text_unit_tag,parsed_text_unit_text) 
+                    text_annotaded = parsed_speaker_name + ":"+text_annotaded
+                    speaker_id = text_annotaded.split(':')[0].strip()
+
+                    make_resample_mp3 = True
                     ##resample mp3 to wav 
-                    preprocessed = base_importer.one_sample([down_file,True])
+                    ##Lablita clips are:  Codec MPEG-1 Layer 3  -  44100Hz 128kb/s  , join stereo
+                    preprocessed = base_importer.one_sample([down_file,make_resample_mp3])
                     rows = preprocessed[1]
 
+                    duration = -1
+                    comments = ''
+                    file_size = -1
                     if(len(rows)==0):
                         ##skip, mp3 filtered or not resampled
                         continue
+                        ##pass to test
+                        #pass
+                    else:
+                        row_data = rows[0] ##current file                    
+                        duration = row_data[3]
+                        comments = row_data[4]
+                        file_size = -1
+
                     ##########################
 
                     logging.debug('Import audio+text, file {}'.format(parsed_filename_full))
 
                     ##export flat version of text whit all annotation
-                    text_annotaded = parse_text_annotation(parsed_text_unit_tag,parsed_text_unit_text) 
-                    text_annotaded = parsed_speaker_name + ":"+text_annotaded
-                    ####                         
-                    row = [parsed_filename_full,0,text_cleaned,text_annotaded]
-                    fh_out.writerow(row)
-                    
-                    ##################################################################
-                    ##continue paging until you find items 
-                    the_end = False
-                    pass
+
+                    ####
+                    csv_line = f"{parsed_filename_full},{file_size},{text_cleaned},{speaker_id},{duration},{comments},{text_annotaded}\n"
+                    csv_file.write(csv_line)
+                    count_audio_imported +=1   
+
+                    ##for test
+                    #if(count_audio_imported>=10):
+                    #    the_end = True               
+
                 else:
                     print('ERROR VALIDATION _ FIX CODE !!!')
                     raise('error parsing page!')

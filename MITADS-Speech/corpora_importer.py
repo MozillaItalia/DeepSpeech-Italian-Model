@@ -32,6 +32,10 @@ AUDIO_EXTENSIONS = [".wav", ".mp3"]
 AUDIO_WAV_EXTENSIONS = [".wav"]
 AUDIO_MP3_EXTENSIONS = [".mp3"]
 
+##DeepSpeech training code require all csv start whith columns "wav_filename", "wav_filesize", "transcript"
+FIELDNAMES_CSV_MINIMAL = ["wav_filename", "wav_filesize", "transcript"]
+FIELDNAMES_CSV_FULL = ["wav_filename", "wav_filesize", "transcript","speaker_id","","duration","comments"]
+
 def is_audio_file(filepath):
     return any(
         os.path.basename(filepath).lower().endswith(extension) for extension in AUDIO_EXTENSIONS
@@ -284,6 +288,9 @@ class ArchiveImporter:
         utterences = corpus.utterences
         csv = []
 
+        csv_columns = FIELDNAMES_CSV_FULL
+        csv_columns_str = ','.join(csv_columns)
+
         samples_len = len(audios)
         for _file in audios:
 
@@ -308,9 +315,9 @@ class ArchiveImporter:
             speaker_id = corpus.get_speaker_id(_file)
             ##make relative path audio file
             _file_relative_path =  _file.replace(self.origin_data_path,'') 
-            _file_relative_path = ''.join(['/' if c=='\\' or c=='/' else c for c in _file_relative_path])[1:]
-
-            csv_line = f"{speaker_id},{_file_relative_path},{file_size},{utterence_clean},{duration},{comments}\n"
+            _file_relative_path = ''.join(['/' if c=='\\' or c=='/' else c for c in _file_relative_path])[1:]           
+            
+            csv_line = f"{_file_relative_path},{file_size},{utterence_clean},{speaker_id},{duration},{comments}\n"
             csv.append(csv_line)
 
         #shuffle set
@@ -331,23 +338,23 @@ class ArchiveImporter:
         with open(os.path.join(self.dataset_output_path, "train_full.csv"), file_open_mode,encoding='utf-8') as fd:
             
             if(not self.csv_append_mode):
-                fd.write("speaker_id,wav_filename,wav_filesize,transcript,duration,comments\n")
+                fd.write(csv_columns_str + "\n")
             
             for i in csv:
                 fd.write(i)
         with open(os.path.join(self.dataset_output_path, "train.csv"), file_open_mode,encoding='utf-8') as fd:
             if(not self.csv_append_mode):
-                fd.write("speaker_id,wav_filename,wav_filesize,transcript,duration,comments\n")
+                fd.write(csv_columns_str + "\n")
             for i in train_data:
                 fd.write(i)
         with open(os.path.join(self.dataset_output_path, "dev.csv"), file_open_mode,encoding='utf-8') as fd:
             if(not self.csv_append_mode):
-                fd.write("speaker_id,wav_filename,wav_filesize,transcript,duration,comments\n")
+                fd.write(csv_columns_str + "\n")
             for i in dev_data:
                 fd.write(i)
         with open(os.path.join(self.dataset_output_path, "test.csv"), file_open_mode,encoding='utf-8') as fd:
             if(not self.csv_append_mode):
-                fd.write("speaker_id,wav_filename,wav_filesize,transcript,duration,comments\n")
+                fd.write(csv_columns_str + "\n")
             for i in test_data:
                 fd.write(i)
 
