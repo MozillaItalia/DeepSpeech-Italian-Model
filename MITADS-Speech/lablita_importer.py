@@ -181,6 +181,9 @@ def main(output_root_dir):
 
                     ## save mp3
                     down_file = save_audio(parsed_filename_full,parsed_audio_link,corpus_output_folder)
+                    if(down_file==None):
+                        continue
+
                     
                     ##parse annotation
                     text_annotaded = parse_text_annotation(parsed_text_unit_tag,parsed_text_unit_text) 
@@ -278,7 +281,12 @@ def save_audio(filename,audio_path,output_dir):
     #    filetowrite.write(transcription)
 
     file_mp3 = os.path.join(output_dir,   filename + '.mp3')
-    urllib.request.urlretrieve (audio_path, file_mp3)
+    try:
+        urllib.request.urlretrieve (audio_path, file_mp3)
+    except TimeoutError:
+        print('TimeoutError on: {}'.format(audio_path))
+        return None
+
     
     ##resample wave
     return file_mp3
