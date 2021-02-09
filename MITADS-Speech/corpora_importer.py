@@ -20,6 +20,8 @@ logging.basicConfig(level=logging.DEBUG)
 import sox
 from charset_normalizer import CharsetNormalizerMatches as CnM
 
+from ds_ctcdecoder import Alphabet  
+
 SAMPLE_RATE = 16000
 BITDEPTH = 16
 N_CHANNELS = 1
@@ -29,6 +31,10 @@ MIN_SECS = 0 # 1 ##zero second audio (probably) means one-word speech
 AUDIO_EXTENSIONS = [".wav", ".mp3"]
 AUDIO_WAV_EXTENSIONS = [".wav"]
 AUDIO_MP3_EXTENSIONS = [".mp3"]
+
+##DeepSpeech training code require all csv start whith columns "wav_filename", "wav_filesize", "transcript"
+FIELDNAMES_CSV_MINIMAL = ["wav_filename", "wav_filesize", "transcript"]
+FIELDNAMES_CSV_FULL = ["wav_filename", "wav_filesize", "transcript","speaker_id","","duration","comments"]
 
 def is_audio_file(filepath):
     return any(
@@ -109,6 +115,8 @@ class ArchiveImporter:
         
         self.dataset_output_path = os.path.abspath(self.corpus_name) if output_path==None else os.path.join(output_path, self.corpus_name) 
         self.csv_append_mode = csv_append_mode
+        self.filter_max_secs = MAX_SECS ##filter for single clips max duration in second
+        self.filter_min_secs = MIN_SECS ##filter for single clips min duration in second
 
     def run(self):
         self._download_and_preprocess_data()
@@ -192,7 +200,7 @@ class ArchiveImporter:
             transformer.convert(samplerate=SAMPLE_RATE,n_channels=N_CHANNELS, bitdepth=BITDEPTH)
             try:
                 transformer.build(str(mp3_filename), str(wav_filename))
-            except sox.core.SoxError:
+            except (sox.core.SoxError,sox.core.SoxiError):
                 pass
 
     ##overrider this to filter
@@ -209,17 +217,26 @@ class ArchiveImporter:
 
         ##Note: to get frames/duration for mp3/wav audio we not use soxi command but sox.file_info.duration(
         ##soxi command is not present in Windows sox distribution  - see this  https://github.com/rabitt/pysox/pull/74
-        duration = sox.file_info.duration(mp3_wav_filename)
+        
+        duration = -1
+        try:
+            duration = sox.file_info.duration(mp3_wav_filename)
+        except:
+            ## some mp3 in lablita got in error
+            print('sox.file_info.duration error on file {}, retrieve duration via filesize'.format(mp3_wav_filename))
+            pass       
+        
+        
         comments = ""
         try:
           comments=sox.file_info.comments(mp3_wav_filename)
-        except UnicodeError as e:
+        except (UnicodeError,sox.SoxiError) as e:
           try:
             completedProcess=subprocess.run(["soxi", "-a", mp3_wav_filename], stdout=subprocess.PIPE)
             comments=completedProcess.stdout.decode("utf-8", "ignore")
           except:
             pass
-        frames = duration * SAMPLE_RATE
+
 
         if(make_wav_resample):
             self._maybe_convert_wav(mp3_wav_filename, wav_filename)            
@@ -227,6 +244,13 @@ class ArchiveImporter:
         file_size = -1
         if os.path.exists(wav_filename):
             file_size = path.getsize(wav_filename)
+            if(duration==-1):
+                ##retrieve duration from file size
+                ##duration = (file_size - 44) / 16000 / 2
+                ## time = FileLength / (Sample Rate * Channels * Bits per sample /8)
+                duration = file_size /(SAMPLE_RATE * N_CHANNELS * BITDEPTH/8 )
+
+        frames = duration * SAMPLE_RATE
 
         is_valid = self.row_validation(mp3_wav_filename,duration,comments)
 
@@ -243,7 +267,7 @@ class ArchiveImporter:
         elif int(frames / SAMPLE_RATE * 1000 / 10 / 2) < len(str(label)):
             # Excluding samples that are too short to fit the transcript
             counter["too_short"] += 1
-        elif frames / SAMPLE_RATE > MAX_SECS:
+        elif frames / SAMPLE_RATE > self.filter_max_secs:
             # Excluding very long samples to keep a reasonable batch-size
             print(f' Clips too long, {str(frames / SAMPLE_RATE)}  - {mp3_wav_filename}')
 
@@ -255,6 +279,95 @@ class ArchiveImporter:
         counter["all"] += 1
         counter["total_time"] += frames
         return (counter, rows)
+
+
+    def one_sample_librosa(self,sample):
+
+        import librosa
+
+        mp3_wav_filename = sample[0]
+        make_wav_resample = sample[1]
+        # Storing wav files next to the audio filename ones - just with a different suffix
+        wav_filename = path.splitext(mp3_wav_filename)[0] + ".wav"
+        
+        duration = -1
+        comments = ""
+        audioData, frameRate = None,None
+        try:
+            ##load data and convert to mono
+            ## Warning -  libsndfile does not (yet/currently) support the mp3 format. see  https://github.com/librosa/librosa/issues/1015
+            ## TODO: Installing ffmpeg to FIX error audioread.exceptions.NoBackendError - Lablita mp3 - problem is a missing ogg vorbis codec for audioread -  see also : https://github.com/librosa/librosa/issues/219
+            audioData, frameRate = librosa.load(mp3_wav_filename, sr=SAMPLE_RATE, mono=True)   
+            duration = librosa.get_duration(y=audioData, sr=SAMPLE_RATE)          
+        except Exception as e: 
+            raise(e)
+            print(str(e))           
+            print('error load audio data with Librosa lib, retrieve duration via filesize - {}'.format(mp3_wav_filename))
+            pass  
+
+
+        if(make_wav_resample and audioData!=None):
+            ## Maybe convert wav whith Librosa
+            if not os.path.exists(wav_filename):            
+                ##load audio
+                ##y, sr = librosa.load(mp3_filename, sr=SAMPLE_RATE)
+
+                ##resample stereo to mono
+                #y_mono = librosa.to_mono(y)                
+                ##librosa.resample(y,sr,)
+                librosa.output.write_wav(wav_filename, audioData, SAMPLE_RATE)         
+  
+        file_size = -1
+        if os.path.exists(wav_filename):
+            file_size = path.getsize(wav_filename)
+            if(duration==-1):
+                ##retrieve duration from file size
+                ##duration = (file_size - 44) / 16000 / 2
+                ## time = FileLength / (Sample Rate * Channels * Bits per sample /8)
+                duration = file_size /(SAMPLE_RATE * N_CHANNELS * BITDEPTH/8 )
+
+        frames = duration * SAMPLE_RATE
+
+        is_valid = self.row_validation(mp3_wav_filename,duration,comments)
+
+        label = '' ##label not managed  ##validate_label(sample[1])
+        rows = []
+        counter = get_counter()
+        if file_size == -1:
+            # Excluding samples that failed upon conversion
+            print(f'Conversion failed {mp3_wav_filename}')
+            counter["failed"] += 1
+        elif label is None or not is_valid:
+            # Excluding samples that failed on label validation
+            counter["invalid_label"] += 1
+        elif int(frames / SAMPLE_RATE * 1000 / 10 / 2) < len(str(label)):
+            # Excluding samples that are too short to fit the transcript
+            counter["too_short"] += 1
+        elif frames / SAMPLE_RATE > self.filter_max_secs:
+            # Excluding very long samples to keep a reasonable batch-size
+            print(f' Clips too long, {str(frames / SAMPLE_RATE)}  - {mp3_wav_filename}')
+
+            counter["too_long"] += 1
+        else:
+            # This one is good - keep it for the target CSV
+            rows.append((mp3_wav_filename, file_size, label,duration,comments))
+            counter["imported_time"] += frames
+        counter["all"] += 1
+        counter["total_time"] += frames
+        return (counter, rows)
+
+    def ___one_sample(sample):
+        if is_audio_file(sample):
+            y, sr = librosa.load(sample, sr=16000)
+
+            # Trim the beginning and ending silence
+            yt, index = librosa.effects.trim(y)  # pylint: disable=unused-variable
+
+            duration = librosa.get_duration(yt, sr)
+            if duration > MAX_SECS or duration < MIN_SECS:
+                os.remove(sample)
+            else:
+                librosa.output.write_wav(sample, yt, sr)
     
 
     def _write_csv(self,corpus:Corpus,filtered_rows):
@@ -263,6 +376,9 @@ class ArchiveImporter:
         audios = corpus.audios
         utterences = corpus.utterences
         csv = []
+
+        csv_columns = FIELDNAMES_CSV_FULL
+        csv_columns_str = ','.join(csv_columns)
 
         samples_len = len(audios)
         for _file in audios:
@@ -288,9 +404,9 @@ class ArchiveImporter:
             speaker_id = corpus.get_speaker_id(_file)
             ##make relative path audio file
             _file_relative_path =  _file.replace(self.origin_data_path,'') 
-            _file_relative_path = ''.join(['/' if c=='\\' or c=='/' else c for c in _file_relative_path])[1:]
-
-            csv_line = f"{speaker_id},{_file_relative_path},{file_size},{utterence_clean},{duration},{comments}\n"
+            _file_relative_path = ''.join(['/' if c=='\\' or c=='/' else c for c in _file_relative_path])[1:]           
+            
+            csv_line = f"{_file_relative_path},{file_size},{utterence_clean},{speaker_id},{duration},{comments}\n"
             csv.append(csv_line)
 
         #shuffle set
@@ -311,23 +427,23 @@ class ArchiveImporter:
         with open(os.path.join(self.dataset_output_path, "train_full.csv"), file_open_mode,encoding='utf-8') as fd:
             
             if(not self.csv_append_mode):
-                fd.write("speaker_id,wav_filename,wav_filesize,transcript,duration,comments\n")
+                fd.write(csv_columns_str + "\n")
             
             for i in csv:
                 fd.write(i)
         with open(os.path.join(self.dataset_output_path, "train.csv"), file_open_mode,encoding='utf-8') as fd:
             if(not self.csv_append_mode):
-                fd.write("speaker_id,wav_filename,wav_filesize,transcript,duration,comments\n")
+                fd.write(csv_columns_str + "\n")
             for i in train_data:
                 fd.write(i)
         with open(os.path.join(self.dataset_output_path, "dev.csv"), file_open_mode,encoding='utf-8') as fd:
             if(not self.csv_append_mode):
-                fd.write("speaker_id,wav_filename,wav_filesize,transcript,duration,comments\n")
+                fd.write(csv_columns_str + "\n")
             for i in dev_data:
                 fd.write(i)
         with open(os.path.join(self.dataset_output_path, "test.csv"), file_open_mode,encoding='utf-8') as fd:
             if(not self.csv_append_mode):
-                fd.write("speaker_id,wav_filename,wav_filesize,transcript,duration,comments\n")
+                fd.write(csv_columns_str + "\n")
             for i in test_data:
                 fd.write(i)
 
