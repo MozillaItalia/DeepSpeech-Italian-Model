@@ -22,6 +22,11 @@ class SiwisImporter(ArchiveImporter):
         for subdir, dirs, files in os.walk(wav_dir):
             uuu=0
             for _dir in dirs:
+
+                if(_dir=='converted'):
+                    ##wav converted in a previous session run
+                    continue
+
                 curr_wav_dir =  os.path.join(subdir, _dir)
                 curr_txt_dir =  os.path.join(text_dir, _dir)
 
@@ -29,10 +34,14 @@ class SiwisImporter(ArchiveImporter):
                 for fname in os.listdir(curr_wav_dir):
                     fname = os.fsdecode(fname)
 
-                    wav_file_path = os.path.join(wav_dir, _dir,fname)
+                    if(fname=='converted'):
+                        ##wav converted in a previous session run
+                        continue
+
+                    wav_file_path = os.path.join(wav_dir, _dir,fname)                        
                     txt_file_path = os.path.join(curr_txt_dir, fname.split('.')[0]+'.txt')
                     if(not os.path.isfile(txt_file_path)):
-                        print('audio file {} doesn\'t have a file transcript')
+                        print('audio file {} doesn\'t have a file transcript'.format(wav_file_path))
                         continue
 
                     ##read file transcript
@@ -63,12 +72,102 @@ class SiwisImporter(ArchiveImporter):
         corpus.make_wav_resample = True
         return corpus
 
+    def get_speaker_id(self,audio_file_path):
+    
+        _, _file = os.path.split(audio_file_path)
+        temp = _file.split('_')
+        speaker_id = temp[0] + '_' + temp[1] + '_' + temp[2] 
+
+        return speaker_id
+
+    # Validate and normalize transcriptions. Returns a cleaned version of the label
+    # or None if it's invalid.
+    def validate_label(self,label):
+
+
+
+
+        # For now we can only handle [a-z ']
+
+
+        label = label.replace("-", " ")
+        label = label.replace("_", " ")
+        label = re.sub("[ ]{2,}", " ", label)
+        label = label.replace(".", "")
+        label = label.replace(",", "")
+        label = label.replace(";", "")
+        label = label.replace("?", "")
+        label = label.replace("!", "")
+        label = label.replace(":", "")
+        label = label.replace("\"", "")
+        ##
+        label = label.replace("î", "i")  
+        label = label.replace("û", "u") 
+        label = label.replace("ã", "a") 
+
+        label = label.replace("’", "\'") 
+        label = label.replace("´", "\'") 
+ 
+
+        label = label.replace("»", "") 
+        label = label.replace("«", "") 
+        #label = label.replace("ã", "a") 
+        #label = label.replace("ã", "a") 
+
+        label = label.replace("²", "") 
+        label = label.replace("<", "")  
+        label = label.replace(">", "") 
+        label = label.replace("(", "") 
+        label = label.replace(")", "") 
+
+        label = label.replace("¿", "")
+        label = label.replace("ｨ", "")
+        label = label.replace("ﾃ", "")
+        label = label.replace("兮", "")
+        label = label.replace("窶", "") 
+        
+
+        ###number normalization
+        label = label.replace("2002", "duemiladue")
+        label = label.replace("'99", "novantanove")
+        label = label.replace("'98", "novantotto")
+        label = label.replace("'82", "ottantadue")
+        label = label.replace("36", "trentasei")
+        label = label.replace("20mila", "ventimila")
+
+        label = label.replace("51", "cinquantuno")
+        label = label.replace("21", "ventuno")
+        label = label.replace("31%", "trentuno per cento")
+        label = label.replace("16%", "sedici per cento")
+        label = label.replace("2%", "due per cento")
+        label = label.replace("741", "settecentoquarantuno")
+        label = label.replace("103", "settecentoquarantuno")
+
+
+
+        if re.search(r"[0-9]|[\[\]&*{]", label) is not None:
+            return None
+
+
+        label = label.strip()
+        label = label.lower()
+
+        ##DEBUG - decomment for checking normalization char by char
+        #from corpora_importer import DEBUG_ALPHABET
+        #for c in label:
+        #    if(c not in DEBUG_ALPHABET):
+        #        print('CHECK char:'+ c)
+
+        return label if label else None
 
 if __name__ == "__main__":
 
+    from corpora_importer import importer_parser
+    args = importer_parser.parse_args()
+
     corpus_name=CORPUS_NAME
     archive_url = 'https://phonogenres.unige.ch/downloads/siwis_latest.zip'
-    data_dir=None
-    siwis_importer = SiwisImporter(corpus_name,archive_url,extract_dir="siwis_database", data_dir=data_dir)
+
+    siwis_importer = SiwisImporter(corpus_name,archive_url,extract_dir="siwis_database", data_dir=args.download_directory,output_path=args.csv_output_folder)
 
     siwis_importer.run()

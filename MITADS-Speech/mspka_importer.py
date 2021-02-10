@@ -20,6 +20,7 @@ class MSPKAImporter(ArchiveImporter):
         
 
         ##iterate wav file current folder
+        count=0
         for fname in os.listdir(wav_dir):
 
             fname = os.fsdecode(fname)
@@ -63,6 +64,7 @@ class MSPKAImporter(ArchiveImporter):
             ##append data manifest
             utterances[wav_file_path] = transcript
             audios.append(wav_file_path)  
+            count +=1
 
         ##collect corpus
         corpus = Corpus(utterances,audios)
@@ -72,17 +74,33 @@ class MSPKAImporter(ArchiveImporter):
         corpus.make_wav_resample = True
         return corpus
 
+    def get_speaker_id(self,audio_file_path):
+
+        speaker_id = ""
+        if('cnz_1.0.0' in audio_file_path):
+            speaker_id = "mspka_cnz"
+        elif('lls_1.0.0' in audio_file_path):
+            speaker_id = "mspka_lls" 
+        elif('olm_1.0.0' in audio_file_path):
+            speaker_id = "mspka_olm"
+            
+        return speaker_id
+
+
 if __name__ == "__main__":
+
+    from corpora_importer import importer_parser
+    args = importer_parser.parse_args()
 
     corpus_name=CORPUS_NAME
     archivie_urls = []
     archivie_urls.append('http://www.mspkacorpus.it/MSPKA_data/session1/cnz_1.0.0.zip')
     archivie_urls.append('http://www.mspkacorpus.it/MSPKA_data/session1/lls_1.0.0.zip')
     archivie_urls.append('http://www.mspkacorpus.it/MSPKA_data/session1/olm_1.0.0.zip')
-    data_dir=None
+ 
     for i in range(len(archivie_urls)):
         archivie_url = archivie_urls[i]
         csv_append_mode = not i==0
-        mspka_importer = MSPKAImporter(corpus_name,archivie_url, data_dir=data_dir,csv_append_mode=csv_append_mode)
+        mspka_importer = MSPKAImporter(corpus_name,archivie_url,data_dir=args.download_directory,output_path=args.csv_output_folder,csv_append_mode=csv_append_mode)
         
         mspka_importer.run()

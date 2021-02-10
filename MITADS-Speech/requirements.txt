@@ -2,5 +2,6 @@ BeautifulSoup4
 requests
 sox
 progressbar2==3.47.0
-pycopy-shutil
+## pycopy-shutil problem istall on colab
 charset_normalizer
+ds-ctcdecoder==0.9.3
