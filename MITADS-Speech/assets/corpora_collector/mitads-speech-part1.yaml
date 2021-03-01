@@ -1,0 +1,41 @@
+##
+name: 'mitads-speech-part1'
+version: '0.1'
+description: 'MITADS-Speech Dataset, filter audio more than 20 second'
+
+## to be more usable we split final corpora into parts
+split_final_dataset: 18
+csv_rel_path_linux: True
+corpus2collect:
+      ##evalita2009: 
+
+      ##    filter:
+      ##        max_duration: 20
+      ##mspka:
+      ##    filter:
+      ##        max_duration: 20
+      ##siwis:
+       ####   filter:
+      ##        max_duration: 20
+
+      m-ailabs:
+          filter:
+              max_duration: 20
+
+      mls:
+          filter:
+              max_duration: 20
+              comments_contains:
+                    ## filter ancient work by author
+                    - Dante Alighieri
+                    - Giovanni Francesco Straparola
+                    - Niccolò Machiavelli
+                    ##filter title book that is present in m-ailabs
+                    - Novelle per un anno
+                    - Galatea
+                    - Il fu Mattia Pascal
+                    - Ritratto del Diavolo
+                    - Contessa di Karolystria
+                    - meraviglie del Duemila
+                    - Malavoglia
+      
