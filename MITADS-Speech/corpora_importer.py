@@ -330,6 +330,8 @@ class ArchiveImporter:
 
     def one_sample(self,sample):
 
+        delete_original_if_resampled = True
+
         orig_filename = sample[0]
         make_wav_resample = sample[1]
         original_trascription = sample[2]
@@ -426,6 +428,11 @@ class ArchiveImporter:
             # This one is good - keep it for the target CSV
             rows.append((wav_filename, file_size, label,speaker_id,duration,comments,original_trascription))
             counter["imported_time"] += frames
+            ##if need free space remove original
+            if(delete_original_if_resampled and make_wav_resample):
+                os.remove(orig_filename)
+                
+
         counter["all"] += 1
         counter["total_time"] += frames
         return (counter, rows)
