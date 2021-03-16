@@ -103,38 +103,18 @@ class MLSImporter(ArchiveImporter):
     # or None if it's invalid.
     def validate_label(self,label):
       
-        ## single apex
-        ##label = label.replace("’", "'") ##on siwis dataset
+
         ##this char is in MLS transcript
-        label = label.replace("-", " ") ##on siwis dataset
-        label = label.replace("ï", "i") ##on siwis dataset
+        label = label.replace("-", " ") ##
+        label = label.replace("ï", "i") ##
+        label = label.replace("ó", "o")  ## MLS: obsolete forms of some words have the accent on the vowel, example 'secóndo' 
         ##
         label = label.strip()
         label = label.lower()
-        ##TEMP - deccoment for check normalization to do
-        #for c in label:
-        #    if(c not in DEBUG_ALPHABET):
-        #        print('CHECK char:'+ c)
+
 
         return label if label else None
 
-    ##RENAME FUNCTION to row_validation to test filter by author in this importer. 
-    ##As Alternative: since execution time for the import is long, this filtering operation ( subject to possible revisions) , could also be implemented in the next step in corpora_collector
-    def ___row_validation(self,filename,duration,comments):
-        is_valid = True
-        if(comments==None or comments==''):
-            return is_valid
-        ##we dont parse string , only check if comment contains author
-        filtered_author = ["Dante Alighieri", "Giovanni Francesco Straparola"]
-        filtered = any(txt in comments for txt in filtered_author)
-        is_valid = not filtered
-
-        #if(not is_valid):
-        #    print('filtered')
-        #else:
-        #    print(comments)
-
-        return is_valid
 
 if __name__ == "__main__":
 
