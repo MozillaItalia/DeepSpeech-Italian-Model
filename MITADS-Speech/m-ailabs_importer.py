@@ -48,6 +48,8 @@ class MAILabsImporter(ArchiveImporter):
         fixed_token = {}
         wav_root_dir = os.path.join(self.origin_data_path,'it_IT')
 
+        bad_examples = self.get_bad_examples()
+
         # Get audiofile path and transcript for each sentence in tsv
         glob_dir = os.path.join(wav_root_dir, "**/metadata.csv")
         for record in glob(glob_dir, recursive=True):
@@ -60,7 +62,12 @@ class MAILabsImporter(ArchiveImporter):
             with open(record, "r",encoding=enc) as rec:
                 for re in rec.readlines():
                     re = re.strip().split("|")
-                    audio = os.path.join(os.path.dirname(record), "wavs", re[0] + ".wav")
+
+                    filename = re[0]
+                    ##filter bad examples (https://github.com/MozillaItalia/DeepSpeech-Italian-Model/issues/124#issuecomment-798613031)
+                    if(filename in bad_examples):
+                        continue
+                    audio = os.path.join(os.path.dirname(record), "wavs", filename + ".wav")
                     transcript_source = re[1]
                     transcript = re[2]
                     ##in MLS normalization of character '’'  is  wrong in transcription normalization
@@ -81,6 +88,33 @@ class MAILabsImporter(ArchiveImporter):
 
 
         return corpus
+
+    def validate_label(self,label):
+
+        # For now we can only handle [a-z ']
+        if re.search(r"[0-9]|[(<\[\]&*{]", label) is not None:
+            return None
+
+        label = label.replace("-", " ")
+        label = label.replace("_", " ")
+        label = re.sub("[ ]{2,}", " ", label)
+        label = label.replace(".", "")
+        label = label.replace(",", "")
+        label = label.replace(";", "")
+        label = label.replace("?", "")
+        label = label.replace("!", "")
+        label = label.replace(":", "")
+        label = label.replace("\"", "")
+        ##
+        label = label.replace("’", "'") 
+        label = label.replace("î", "i") 
+        label = label.replace("ó", "o") 
+
+        label = label.strip()
+        label = label.lower()
+
+
+        return label if label else None
 
     def get_speaker_id(self,audio_file_path):
 
@@ -103,6 +137,30 @@ class MAILabsImporter(ArchiveImporter):
                 speaker_id = 'mailabs-mix-'+ t[0].replace('novelle','') + '_' + t[1]
             return speaker_id
 
+    def get_bad_examples(self):
+
+        black_list = []
+        ##transcription does not match with spoken words :
+        ##audio is truncated before the end of transcription
+
+        black_list.append("novelle06_16_pirandello_f000028")
+        black_list.append("novelle06_16_pirandello_f000029")
+        black_list.append("novelle06_16_pirandello_f000030")
+        black_list.append("novelle06_16_pirandello_f000031")
+        black_list.append("novelle06_16_pirandello_f000032")
+        black_list.append("novelle06_16_pirandello_f000033")
+        black_list.append("novelle06_16_pirandello_f000034")
+        black_list.append("novelle06_16_pirandello_f000035")
+        black_list.append("novelle06_16_pirandello_f000036")
+        black_list.append("novelle06_16_pirandello_f000037")
+        black_list.append("novelle06_16_pirandello_f000038")
+        black_list.append("novelle06_16_pirandello_f000039")
+        black_list.append("novelle06_16_pirandello_f000040")
+        black_list.append("novelle06_16_pirandello_f000041")
+
+        black_list.append("novelle06_17_pirandello_f000387")
+
+        return black_list
 
 if __name__ == "__main__":
 
