@@ -48,10 +48,12 @@ class EvalitaImporter(ArchiveImporter):
 
 if __name__ == "__main__":
 
+    from corpora_importer import importer_parser
+    args = importer_parser.parse_args()
+
     corpus_name=CORPUS_NAME
     archivie_url = 'http://www.evalita.it/sites/evalita.fbk.eu/files/doc2009/evalita2009srt.zip'
 
-    data_dir = None
-    evalita_importer = EvalitaImporter(corpus_name,archivie_url,data_dir=data_dir)
+    evalita_importer = EvalitaImporter(corpus_name,archivie_url,data_dir=args.download_directory,output_path=args.csv_output_folder)
     
     evalita_importer.run()
