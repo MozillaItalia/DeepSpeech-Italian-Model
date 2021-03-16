@@ -5,3 +5,4 @@ progressbar2==3.47.0
 ## pycopy-shutil problem istall on colab
 charset_normalizer
 ds-ctcdecoder==0.9.3
+PyYAML
