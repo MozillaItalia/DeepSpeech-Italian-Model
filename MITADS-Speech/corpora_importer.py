@@ -416,7 +416,7 @@ class ArchiveImporter:
             # Excluding samples that failed on label validation
             print('Exclude label '+original_trascription)
             counter["invalid_label"] += 1
-        elif False and int(frames / SAMPLE_RATE * 1000 / 10 / 2) < len(str(label)):
+        elif int(frames / SAMPLE_RATE * 1000 / 10 / 2) < len(str(label)):
             # Excluding samples that are too short to fit the transcript
             counter["too_short"] += 1
         elif frames / SAMPLE_RATE > self.filter_max_secs:
