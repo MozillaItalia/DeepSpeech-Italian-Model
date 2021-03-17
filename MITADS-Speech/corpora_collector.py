@@ -39,6 +39,10 @@ collector_parser.add_argument('-o', '--csv_folder', type=str, default=os.path.ab
                           help='root folder of csv dataset to collect, also is root of output csv'
                                'default is root_project/MITADS-Speech-output')
 
+collector_parser.add_argument('-d', '--dataset_output', type=str, default='',
+                          help='root folder output dataset'
+                               'default is csv_folder')
+
 collector_parser.add_argument('-z', '--zip_output', type=str, default='true',
                           help='if true collect files into .zip. If false files are copyed to a folder in csv_folder')
 
@@ -164,6 +168,9 @@ def collect_datasets(config,args):
 
     zip_output = True if args.zip_output.lower()=='true' else False
     csv_corpus_rootdir = args.csv_folder
+
+    final_dataset_root = csv_corpus_rootdir if args.dataset_output=='' else  args.dataset_output
+    
     corpus2collect = config['corpus2collect']
 
 
@@ -183,7 +190,7 @@ def collect_datasets(config,args):
     final_corpora_name = config['name']
     final_corpora_version = config['version']
     output_corpora_foldername = final_corpora_name + '_' + 'v' + final_corpora_version
-    corpora_output_dir = os.path.join(csv_corpus_rootdir, output_corpora_foldername)
+    corpora_output_dir = os.path.join(final_dataset_root, output_corpora_foldername)
 
     if not path.exists(corpora_output_dir):
         print('No path "%s" - creating ...' % corpora_output_dir)
