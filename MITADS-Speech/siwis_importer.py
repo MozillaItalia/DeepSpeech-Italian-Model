@@ -21,7 +21,7 @@ class SiwisImporter(ArchiveImporter):
         ##read transcript in prompts.txt
         transcripts = {}
         ##cp1252 if windows os
-        encoding = 'cp1252' if os.name == 'nt' else 'utf-8'
+        encoding = 'cp1252' ## if os.name == 'nt' else 'utf-8'
         ###read transcript from prompts file
         with open(os.path.join(self.origin_data_path,self.extract_dir, "prompts","ALL_IT_prompts_iso.txt"), "r",encoding=encoding) as f:
             line = f.readline()
