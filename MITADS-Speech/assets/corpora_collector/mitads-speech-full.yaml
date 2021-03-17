@@ -1,5 +1,5 @@
 ##
-name: 'edns-speech-full'
+name: 'mitads-speech-full'
 version: '0.1'
 description: 'MITADS-Speech Dataset, filter audio more than 20 second'
 
