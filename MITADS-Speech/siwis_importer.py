@@ -183,8 +183,8 @@ if __name__ == "__main__":
 
     from corpora_importer import importer_parser
     args = importer_parser.parse_args()
-    args.download_directory = "F:\\DATASET-MODELS\\speech_dataset\\CORPORA-IT-AUDIO\\SIWIS"
-    args.csv_output_folder = "F:\\DATASET-MODELS\\speech_dataset\\new-speech-corpora-it"
+    #args.download_directory = "F:\\DATASET-MODELS\\speech_dataset\\CORPORA-IT-AUDIO\\SIWIS"
+    #args.csv_output_folder = "F:\\DATASET-MODELS\\speech_dataset\\new-speech-corpora-it"
 
     corpus_name=CORPUS_NAME
     archive_url = 'https://phonogenres.unige.ch/downloads/siwis_latest.zip'
