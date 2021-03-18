@@ -332,7 +332,7 @@ class ArchiveImporter:
 
         delete_original_if_resampled = True
         ##set to false if you want run importer more time (ex. local test)
-        delete_original_if_resampled = False 
+        #delete_original_if_resampled = False 
 
         orig_filename = sample[0]
         make_wav_resample = sample[1]
