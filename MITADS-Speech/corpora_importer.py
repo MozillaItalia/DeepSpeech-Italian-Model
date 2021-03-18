@@ -294,7 +294,7 @@ class ArchiveImporter:
 
         ## all examples are processed, even if the resample is not necessary, the duration or other filters should be evaluated
         samples = [ [a,corpus.make_wav_resample, corpus.utterences[a]] for a in corpus.audios ] 
-        ##self.one_sample(samples[0])
+        #self.one_sample(samples[23])
         # Mutable counters for the concurrent embedded routine
         counter = get_counter()
         print(f"Converting audio files to wav {SAMPLE_RATE}hz Mono")
@@ -331,6 +331,8 @@ class ArchiveImporter:
     def one_sample(self,sample):
 
         delete_original_if_resampled = True
+        ##set to false if you want run importer more time (ex. local test)
+        delete_original_if_resampled = False 
 
         orig_filename = sample[0]
         make_wav_resample = sample[1]
