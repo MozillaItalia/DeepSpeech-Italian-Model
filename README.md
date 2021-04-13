@@ -5,6 +5,10 @@ Aggregatore degli strumenti per la generazione di un modello di machine learning
 
 ---
 
+## Licenza
+
+Il codice o gli script sono rilasciati sotto licenza GPLv3 mentre i modello rilasciati sono sotto CC0 ovvero di pubblico dominio.
+
 ## Regole
 
 * Ticket e pull requests in inglese
