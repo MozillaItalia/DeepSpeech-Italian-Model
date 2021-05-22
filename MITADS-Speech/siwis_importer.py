@@ -20,8 +20,8 @@ class SiwisImporter(ArchiveImporter):
         text_dir = os.path.join(self.origin_data_path, self.extract_dir, "txt","IT")
         ##read transcript in prompts.txt
         transcripts = {}
-        ##cp1252 if windows os
-        encoding = 'cp1252' if os.name == 'nt' else 'utf-8'
+        ##encoding prompts files is cp1252
+        encoding = 'cp1252'
         ###read transcript from prompts file
         with open(os.path.join(self.origin_data_path,self.extract_dir, "prompts","ALL_IT_prompts_iso.txt"), "r",encoding=encoding) as f:
             line = f.readline()
@@ -103,6 +103,13 @@ class SiwisImporter(ArchiveImporter):
     # Validate and normalize transcriptions. Returns a cleaned version of the label
     # or None if it's invalid.
     def validate_label(self,label):
+        ##import unicodedata
+        ## normalize remove absent char è ò à
+        #label = (
+        #        unicodedata.normalize("NFKD", label.strip())
+        #        .encode("ascii", "ignore")
+        #        .decode("ascii", "ignore")
+        #    )
 
         label = label.replace("-", " ")
         label = label.replace("_", " ")
@@ -154,13 +161,21 @@ class SiwisImporter(ArchiveImporter):
         label = label.replace("741", "settecentoquarantuno")
         label = label.replace("103", "settecentoquarantuno")
         ######################## 
+        ##other to clean
+        label = label.replace("\ufeff", "")
+        ##
 
         if re.search(r"[0-9]|[\[\]&*{]", label) is not None:
             return None
 
-
         label = label.strip()
         label = label.lower()
+
+        ##DEBUG - decomment for checking normalization char by char
+        #DEBUG_ALPHABET = ' ,\',a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t,u,v,w,x,y,z,à,è,é,ì,í,ò,ó,ô,ù,ú'.split(',')
+        #for c in label:
+        #    if(c not in DEBUG_ALPHABET):
+        #        print('CHECK char:'+ c)
 
         return label if label else None
 
@@ -168,6 +183,8 @@ if __name__ == "__main__":
 
     from corpora_importer import importer_parser
     args = importer_parser.parse_args()
+    #args.download_directory = "F:\\DATASET-MODELS\\speech_dataset\\CORPORA-IT-AUDIO\\SIWIS"
+    #args.csv_output_folder = "F:\\DATASET-MODELS\\speech_dataset\\new-speech-corpora-it"
 
     corpus_name=CORPUS_NAME
     archive_url = 'https://phonogenres.unige.ch/downloads/siwis_latest.zip'
