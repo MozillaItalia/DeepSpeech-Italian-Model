@@ -84,3 +84,4 @@ Fare riferimento al nostro [wiki](https://github.com/MozillaItalia/DeepSpeech-It
 * https://github.com/Common-Voice/sentence-collector
 * https://github.com/Common-Voice/commonvoice-fr - Il repository da cui questo è derivato
 * https://github.com/MozillaItalia/voice-web - Il dataset primario di frasi italiane lo manteniamo qui
+* https://github.com/MozillaItalia/DeepSpeech-Contest - Progetti che utilizzano il modello
