@@ -28,8 +28,8 @@ Python 3.7+
 ### oppure:
 ```bash
 
-   # Attiva un virtualenv
-   virtualenv -p python3 $HOME/tmp/deepspeech-venv/
+   # Attiva un virtual environments
+   python3 -m venv env $HOME/tmp/deepspeech-venv/
    source $HOME/tmp/deepspeech-venv/bin/activate
 
    # Installa DeepSpeech
